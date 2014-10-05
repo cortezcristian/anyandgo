@@ -35,6 +35,7 @@ $ grunt docco
 ```
 Will document functionallity under models, routes and test folders and put it inside docs folder
 
+## File Creation
 ```bash
 $ grunt create:model:Sample
 ```
