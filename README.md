@@ -1,6 +1,10 @@
 any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)](https://travis-ci.org/cortezcristian/anyandgo)
 ========
 
+![Anyandgo](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/public/img/anyandgo-logo.png)
+
+### Pick any·and·go!
+
 The Node.JS MEAN Framework that doesn't suck. 
 
 What is the MEAN stack? [Read More](http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/)
@@ -12,11 +16,6 @@ The acronym stands for:
 * (N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.
 
 Where is yeoman? See [generator-anyandgo](https://github.com/cortezcristian/generator-anyandgo)
-
-
-![Anyandgo](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/public/img/anyandgo-logo.png)
-
-### Pick any·and·go!
 
 ## Grunt tasks
 
