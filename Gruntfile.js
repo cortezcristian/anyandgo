@@ -37,6 +37,10 @@ module.exports = function (grunt) {
         files: ['./public/**/*', './views/**/*.jade'],
         options: { livereload: 35729 },
         task: ['']
+      },
+      bower: {
+        files: ['bower.json'],
+        tasks: ['wiredep']
       } 
     },
     nodemon: {
