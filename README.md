@@ -1,4 +1,4 @@
-anyandgo
+any·and·go
 ========
 
 The Node.JS MEAN Framework that doesn't suck. 
@@ -43,3 +43,5 @@ Will create model and tests:
 #	test/unit/models/sample-tests.js
 ```
 
+## Credits
+[@cortezcristian](https://twitter.com/cortezcristian)
