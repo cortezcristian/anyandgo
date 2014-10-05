@@ -23,30 +23,25 @@ To start working you can simply run:
 $ grunt
 ```
 This will:
-
+```
 ✓ Lint the js code
-
 ✓ Run the tests
-
 ✓ Start the server
-
 ✓ Open a web browser
-
 ✓ Watch for files changes, to trigger several tasks
+```
 
 To add front-end libraries you can simply run:
 ```bash
 $ bower install --save jquery
 ```
 This will:
-
+```
 ✓ Register the dependency into bower.json
-
 ✓ Download the library inside ./public/components/
-
 ✓ Append the script into ./views/layout.jade
-
 ✓ Trigger page reload
+```
 
 ## Grunt tasks
 
