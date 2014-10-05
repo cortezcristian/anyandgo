@@ -34,5 +34,5 @@ sampleSchema.statics.customMethod = function (paramid, cb) {
   });
 }
 
-
+// Export module
 module.exports = mongoose.model('Sample', sampleSchema);
