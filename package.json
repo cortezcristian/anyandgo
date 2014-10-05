@@ -31,6 +31,7 @@
     "mocha": "~1.21.4",
     "grunt-mocha-test": "~0.12.1",
     "jshint-stylish": "~1.0.0",
-    "mongoose": "~3.8.17"
+    "mongoose": "~3.8.17",
+    "stylus": "~0.49.1"
   }
 }
