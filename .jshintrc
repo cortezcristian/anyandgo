@@ -1,0 +1,6 @@
+{
+    "asi"           : true,
+    "lastsemic"     : true,    // Tolerat missing semicolons when the it is omitted for the last statement in a one-line block.
+    "laxbreak"      : true,    // Tolerate unsafe line breaks e.g. `return [\n] x` without semicolons.
+    "sub"           : true     // Tolerate all forms of subscript notation besides dot notation e.g. `dict['key']` instead of `dict.key`.
+}

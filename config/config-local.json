@@ -1,0 +1,34 @@
+{
+    "app": {
+        "domain" : "127.0.0.1",
+        "port": 3000
+    },
+	"auth": {
+		"facebook": {
+			"clientid" : "",
+			"clientsecret" : "",
+			"callback" : "http://localhost:3000/auth/facebook/callback"
+		},
+		"linkedin": {
+			"apikey" : "",
+			"secret" : "",
+            "clientoauth": "",
+            "clientsecret" : "",
+            "callback" : "http://127.0.0.1:3000/auth/linkedin/callback"
+		},
+		"github": {
+			"clientid" : "",
+			"clientsecret" : "",
+            "callback" : "http://127.0.0.1:3000/auth/github/callback"
+		}
+	},
+    "db": {
+        "domain" : "localhost",
+        "name" : "anyandgodb",
+        "user" : "",
+        "pass" : ""
+    },
+    "session" : {
+        "secret" : "incorrect"
+    }
+}
