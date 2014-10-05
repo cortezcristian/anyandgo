@@ -5,7 +5,7 @@ any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)
 
 ### Pick any·and·go!
 
-The Node.JS MEAN Framework that doesn't suck. 
+The MEAN Framework that doesn't suck. 
 
 What is the MEAN stack? [Read More](http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/)
 
