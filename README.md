@@ -1,4 +1,4 @@
-any·and·go
+any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)](https://travis-ci.org/cortezcristian/anyandgo)
 ========
 
 The Node.JS MEAN Framework that doesn't suck. 
