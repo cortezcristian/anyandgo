@@ -1,7 +1,11 @@
 any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)](https://travis-ci.org/cortezcristian/anyandgo)
 ========
 
-The Node.JS MEAN Framework that doesn't suck. 
+![Anyandgo](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/public/img/anyandgo-logo.png)
+
+### Pick any·and·go!
+
+The MEAN Framework that doesn't suck. 
 
 What is the MEAN stack? [Read More](http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/)
 
