@@ -11,6 +11,7 @@ The acronym stands for:
 * (A)ngular – as you know, the JS framework offering declarative, two-way databinding for webapps and 
 * (N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.
 
+Where is yeoman? [See generator-anyango](https://github.com/cortezcristian/generator-anyandgo)
 
 ## Grunt tasks
 
