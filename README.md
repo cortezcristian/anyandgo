@@ -1,4 +1,4 @@
-any·and·go
+any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)](https://travis-ci.org/cortezcristian/anyandgo)
 ========
 
 The Node.JS MEAN Framework that doesn't suck. 
@@ -44,6 +44,14 @@ Will create model and tests:
 #	models/sample.js
 #	test/unit/models/sample-tests.js
 ```
+## Express 4.x
+Facts about this implementation:
+- Started from basic generation
+- Jade template engine
+
+Modules added:
++ Stylus
++ Mongoose
 
 ## Credits
 [@cortezcristian](https://twitter.com/cortezcristian)
