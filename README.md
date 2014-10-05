@@ -1,6 +1,3 @@
-![Anyandgo](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/public/img/anyandgo-logo.png)
-Pick any·and·go!
-
 any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)](https://travis-ci.org/cortezcristian/anyandgo)
 ========
 
@@ -15,6 +12,11 @@ The acronym stands for:
 * (N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.
 
 Where is yeoman? See [generator-anyandgo](https://github.com/cortezcristian/generator-anyandgo)
+
+
+![Anyandgo](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/public/img/anyandgo-logo.png)
+
+### Pick any·and·go!
 
 ## Grunt tasks
 
