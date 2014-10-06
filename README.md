@@ -17,6 +17,32 @@ The acronym stands for:
 
 Where is yeoman? See [generator-anyandgo](https://github.com/cortezcristian/generator-anyandgo)
 
+## Best Practices
+To start working you can simply run:
+```bash
+$ grunt
+```
+This will:
+```
+✓ Lint the js code
+✓ Run the tests
+✓ Start the server
+✓ Open a web browser
+✓ Watch for files changes, to trigger several tasks
+```
+
+To add front-end libraries you can simply run:
+```bash
+$ bower install --save jquery
+```
+This will:
+```
+✓ Register the dependency into bower.json
+✓ Download the library inside ./public/components/
+✓ Append the script into ./views/layout.jade
+✓ Trigger page reload
+```
+
 ## Grunt tasks
 
 ```bash
@@ -27,17 +53,22 @@ The default grunt task will start the server for you.
 ```bash
 $ grunt jshint
 ```
-Will lint the javascript files under models, routes and test folders
+Lint javascript files under models, routes and test folders
 
 ```bash
 $ grunt mochaTests
 ```
-Will execute all mocha tests and display the specs report
+Execute all mocha tests and display the specs report
 
 ```bash
 $ grunt docco
 ```
-Will document functionallity under models, routes and test folders and put it inside docs folder
+Creates documentation functionallity under models, routes and test folders and put it inside docs folderç
+
+```bash
+$ grunt wiredep
+```
+Appends javascript and css dependencies
 
 ## File Creation
 ```bash
