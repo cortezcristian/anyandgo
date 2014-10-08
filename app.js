@@ -10,7 +10,7 @@ var i18n = require('i18n');
 // Express 
 var app = exports.app = express();
 
-// view engine setup
+// i18n setup
 i18n.configure({
   // setup some locales: other locales default to en silently
   locales:['en', 'es'],

@@ -25,7 +25,8 @@ module.exports = function (grunt) {
     watch: {
       scripts: {
         options: { livereload: 35729 },
-        files: ['./models/*.js', './routes/*.js', './forms/*.js'], 
+        files: ['./app.js', './Gruntfile.js', './bin/www',
+        './models/*.js', './routes/*.js', './forms/*.js'], 
         tasks: ['jshint','mochaTest','docco']
       },
       tests: {
