@@ -85,8 +85,9 @@ Facts about this implementation:
 - Jade template engine
 
 Modules added:
-+ Stylus
-+ Mongoose
++ [Stylus](http://learnboost.github.io/stylus/)
++ [i18n](https://github.com/mashpie/i18n-node)
++ [Mongoose](http://mongoosejs.com/)
 
 ## Credits
 [@cortezcristian](https://twitter.com/cortezcristian)
