@@ -11,7 +11,7 @@ module.exports = function (grunt) {
         // https://gist.github.com/haschek/2595796
         jshintrc: './.jshintrc'
       },
-	  all: ['Grunfile.js', 'routes/*.js', 
+	  all: ['Grunfile.js', 'routes/*.js',
       "models/*js", "forms/*js", 'test/**/*.js']
     },
     mochaTest: {
@@ -26,23 +26,29 @@ module.exports = function (grunt) {
       scripts: {
         options: { livereload: 35729 },
         files: ['./app.js', './Gruntfile.js', './bin/www',
-        './models/*.js', './routes/*.js', './forms/*.js'], 
-        tasks: ['jshint','mochaTest','docco']
+        './models/*.js', './routes/*.js', './forms/*.js'],
+        tasks: ['jshint','mochaTest','docco'],
+        options: {
+            debounceDelay: 750
+        }
       },
       tests: {
         options: { livereload: 35729 },
         files: ['./test/**/*.js'],
         tasks: ['mochaTest', 'docco']
-      }, 
+      },
       public: {
         files: ['./public/**/*', './views/**/*.jade'],
-        options: { livereload: 35729 },
+        options: {
+            debounceDelay: 750,
+            livereload: 35729
+        },
         task: ['']
       },
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
-      } 
+      }
     },
     nodemon: {
       dev: {
@@ -101,7 +107,7 @@ module.exports = function (grunt) {
               var filemodel = grunt.template.process(grunt.file.read('./templates/mongoose-model.js.tpl'), {
                     data: {
                         'modelname': arg2
-                    }      
+                    }
               });
               var filename = './models/'+arg2.toLowerCase()+'.js';
               grunt.file.write(filename, filemodel);
@@ -110,16 +116,26 @@ module.exports = function (grunt) {
               var filetest = grunt.template.process(grunt.file.read('./templates/mongoose-model-tests.js.tpl'), {
                     data: {
                         'modelname': arg2
-                    }      
+                    }
               });
               var filenametest = './test/unit/models/'+arg2.toLowerCase()+'-tests.js';
               grunt.file.write(filenametest, filetest);
 
-                
+              // append model to ./routes/main.js
+              var appendm = grunt.template.process(grunt.file.read('./templates/append-model-routes-main.tpl'), {
+                    data: {
+                        'modelname': arg2
+                    }
+              });
+              var filename = './routes/main.js';
+              var mainroutes = grunt.file.read(filename);
+              grunt.file.write(filename, mainroutes+appendm);
+
+
             } else {
-                grunt.log.warn('Parameter name missing for '+arg1+' task');    
+                grunt.log.warn('Parameter name missing for '+arg1+' task');
             }
-        break;    
+        break;
       }
   });
 
