@@ -13,6 +13,7 @@ var app = module.parent.exports.app,
   // ## Models
   /* models:start */
   // Admins        = require('../models/admins.js'),
+  Sample  = require('../models/sample.js'),
   /* models:end */
   // ### Authorizers
   // Mantain certains part from the application secure

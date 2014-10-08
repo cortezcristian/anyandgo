@@ -34,5 +34,5 @@ var <%=modelname.toLowerCase() %>Schema = new Schema({
   });
 }
 
-
+// Export module
 module.exports = mongoose.model('<%=modelname %>', <%=modelname.toLowerCase() %>Schema);
