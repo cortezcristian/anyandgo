@@ -1,1 +1,1 @@
-    <%=modelname %>  = require('../models/<%=modelname.toLowerCase() %>.js'),
+<%=modelname %>  = require('../models/<%=modelname.toLowerCase() %>.js'),
