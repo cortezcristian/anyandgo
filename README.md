@@ -79,7 +79,7 @@ Will create model and tests:
 #	models/sample.js
 #	test/unit/models/sample-tests.js
 ```
-Will modify './routes/main.js' to append the model as dependency
+Will modify `./routes/main.js` to append the model as dependency
 ```
    // ## Models
    /* models:start */
