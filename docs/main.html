@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>connection.js</title>
+  <title>Site Routes</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -49,12 +49,6 @@
     
     <ul class="sections">
         
-          <li id="title">
-              <div class="annotation">
-                  <h1>connection.js</h1>
-              </div>
-          </li>
-        
         
         
         <li id="section-1">
@@ -63,7 +57,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <h2 id="database-connection">Database Connection</h2>
+              <h1 id="site-routes">Site Routes</h1>
+<hr>
 
             </div>
             
@@ -76,8 +71,21 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              
+              <p>contains all the routes of the site including pages, and rest api services.</p>
+<ol>
+<li>Public Routes</li>
+<li>Admin Routes</li>
+</ol>
+<p>requires</p>
+<ul>
+<li>app</li>
+<li>config</li>
+</ul>
+
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> app = <span class="hljs-built_in">module</span>.parent.exports.app,
+  config = <span class="hljs-built_in">module</span>.parent.exports.config,</pre></div></div>
             
         </li>
         
@@ -88,12 +96,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>Require basic config files and DB connection</p>
+              <h2 id="models">Models</h2>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../../config'</span>),
-    utils = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../../utils'</span>)</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-comment">/* models:start */</span></pre></div></div>
             
         </li>
         
@@ -104,11 +111,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>Database Connection</p>
+              <p>Admins        = require(‘../models/admins.js’),</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> dbConex = exports.dbConex = utils.dbConnection(config.db.domain,config.db.name,config.db.user,config.db.pass);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-comment">/* models:end */</span></pre></div></div>
             
         </li>
         
@@ -119,11 +126,14 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>Global Variables for the test case</p>
+              <h3 id="authorizers">Authorizers</h3>
+<p>Mantain certains part from the application secure
+preventing not authenticated actors access to private parts 
+according to their roles</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> mongoose, Admin, dbConex;</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-comment">/* authorizers:start */</span></pre></div></div>
             
         </li>
         
@@ -134,12 +144,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Unit Tests</p>
+              <p>adminAuth = require(‘../auth/admin-auth.js’);</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'Database Test'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-    before(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-comment">/* authorizers:end */</span>
+  end;</pre></div></div>
             
         </li>
         
@@ -150,18 +160,10 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>Before all tests</p>
+              <h2 id="1-public-routes">1. Public Routes</h2>
+<hr>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>        mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>);
-        Admin = mongoose.mongo.Admin;
-    });
-
-    describe(<span class="hljs-string">'MongoDB'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-        it(<span class="hljs-string">'Should be up and running'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
-            connection = mongoose.createConnection(utils.dbConnectionString(config.db.domain,config.db.name,config.db.user,config.db.pass));
-            connection.on(<span class="hljs-string">'open'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{</pre></div></div>
             
         </li>
         
@@ -172,12 +174,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>connection established</p>
-
+              
             </div>
-            
-            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">new</span> Admin(connection.db).listDatabases(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, result)</span> </span>{
-                    <span class="hljs-keyword">if</span>(!err){</pre></div></div>
             
         </li>
         
@@ -188,20 +186,52 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>database list stored in result.databases</p>
+              <h3 id="home-page">Home Page</h3>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>                        <span class="hljs-keyword">var</span> allDatabases = result.databases;    
-                        done();
-                    } <span class="hljs-keyword">else</span> {
-                       <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Unable to list DB'</span>);
-                    } 
-                });
-            });
-        });
-    });
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+    res.render(<span class="hljs-string">'index'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Home'</span>, user: req.user });
 });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <h2 id="2-admin-routes">2. Admin Routes</h2>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <h3 id="login">Login</h3>
+
+            </div>
             
         </li>
         

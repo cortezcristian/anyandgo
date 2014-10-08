@@ -7,10 +7,8 @@ var bodyParser = require('body-parser');
 var stylus = require('stylus');
 var i18n = require('i18n');
 
-var routes = require('./routes/index');
-var users = require('./routes/user');
-
-var app = express();
+// Express 
+var app = exports.app = express();
 
 // view engine setup
 i18n.configure({
@@ -48,8 +46,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// Routes
+require('./routes/auth');
+require('./routes/main');
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
