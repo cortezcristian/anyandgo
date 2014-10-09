@@ -5,15 +5,20 @@ html(lang='en')
     meta(name='viewport', content='width=device-width')
     title= title
     //bower:css
+    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
     //endbower
     block css
       link(rel='stylesheet', href='/css/style.css')
     block js
       script(src='http://localhost:35729/livereload.js')
   body
+    include ./partials/site-menu
     block content
 
     //bower:js
     script(src='/components/jquery/dist/jquery.js')
+    script(src='/components/angular/angular.js')
+    script(src='/components/angular-bootstrap/ui-bootstrap-tpls.js')
+    script(src='/components/bootstrap/dist/js/bootstrap.js')
     //endbower
     block scripts
