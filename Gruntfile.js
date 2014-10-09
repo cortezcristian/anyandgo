@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         tasks: ['mochaTest', 'docco']
       },
       public: {
-        files: ['./public/**/*', './views/**/*.jade'],
+        files: ['./public/**/*', './views/**/*.jade', './views/**/*.styl'],
         options: {
             debounceDelay: 750,
             livereload: 35729
