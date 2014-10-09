@@ -98,5 +98,9 @@ Modules added:
 + [i18n](https://github.com/mashpie/i18n-node)
 + [Mongoose](http://mongoosejs.com/)
 
+Front end assets:
++ [Bootstrap](http://angular-ui.github.io/bootstrap/)
++ [UI Bootstrap](http://angular-ui.github.io/bootstrap/)
+
 ## Credits
 [@cortezcristian](https://twitter.com/cortezcristian)
