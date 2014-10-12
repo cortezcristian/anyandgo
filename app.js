@@ -7,9 +7,19 @@ var bodyParser = require('body-parser');
 var stylus = require('stylus');
 var i18n = require('i18n');
 var methodOverride = require('method-override');
+var utils = require('./utils');
+var config = exports.config = require('./config')
+
+// Error
+process.on('uncaughtException', function(err) {
+      console.log("Exception", err.stack);
+});
 
 // Express 
 var app = exports.app = express();
+
+// Database Connection
+var dbConex = exports.dbConex = utils.dbConnection(config.db.domain,config.db.name,config.db.user,config.db.pass);
 
 // i18n setup
 i18n.configure({
