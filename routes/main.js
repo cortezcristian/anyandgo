@@ -22,7 +22,9 @@ var app = module.parent.exports.app,
   /* authorizers:start */
   //adminAuth = require('../auth/admin-auth.js');
   /* authorizers:end */
-  restify = require('express-restify-mongoose');
+  restify = require('express-restify-mongoose'),
+  mongooseForms = require('mongoose-forms'),
+  Handlebars = require('handlebars');
 
 // ## 1. Public Routes
 // --------------------------------------
@@ -76,3 +78,16 @@ restify.serve(app, Sample, {
   }
 });
 /* rest:public:end */
+
+// ## 4. Crud Forms
+// --------------------------------------
+// https://github.com/oJshua/mongoose-formse
+app.get('/forms/sample/create', function (req, res) {
+    mongooseForms.bindHelpers(Handlebars, 'bootstrap');
+    var SampleForm = mongooseForms.Form(Sample);
+    var form = mongooseForms.Bridge(new Sample(), SampleForm).getForm();
+    var formHTMl = Handlebars.helpers.renderForm(form);
+    
+    console.log(formHTMl);
+    res.render('forms', { title: 'Anyandgo', section: 'Form', user: req.user, form: formHTMl });
+});

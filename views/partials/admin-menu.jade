@@ -32,8 +32,11 @@ nav.navbar.navbar-default(role='navigation')
               a(href='#') One more separated link
       form.navbar-form.navbar-left(role='search')
         .form-group
-          input.form-control(type='text', placeholder='Search')
-        button.btn.btn-default(type='submit') Submit
+          .input-group.custom-search-form
+            input.form-control(type='text', placeholder='Search...')
+            span.input-group-btn
+              button.btn.btn-default(type='button')
+                i.fa.fa-search
       ul.nav.navbar-nav.navbar-right
         li
           a(href='#') Link

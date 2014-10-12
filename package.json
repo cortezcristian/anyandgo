@@ -19,7 +19,9 @@
     "i18n": "~0.5.0",
     "passport": "~0.2.1",
     "method-override": "~2.2.0",
-    "express-restify-mongoose": "~0.6.10"
+    "express-restify-mongoose": "~0.6.10",
+    "mongoose-forms": "0.0.5",
+    "handlebars": "~2.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

@@ -150,7 +150,9 @@ according to their roles</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-comment">/* authorizers:end */</span>
-  restify = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express-restify-mongoose'</span>);</pre></div></div>
+  restify = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express-restify-mongoose'</span>),
+  mongooseForms = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose-forms'</span>),
+  Handlebars = <span class="hljs-built_in">require</span>(<span class="hljs-string">'handlebars'</span>);</pre></div></div>
             
         </li>
         
@@ -337,6 +339,43 @@ according to their roles</p>
   }
 });
 <span class="hljs-comment">/* rest:public:end */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <h2 id="4-crud-forms">4. Crud Forms</h2>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p><a href="https://github.com/oJshua/mongoose-formse">https://github.com/oJshua/mongoose-formse</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/forms/sample/create'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+    mongooseForms.bindHelpers(Handlebars, <span class="hljs-string">'bootstrap'</span>);
+    <span class="hljs-keyword">var</span> SampleForm = mongooseForms.Form(Sample);
+    <span class="hljs-keyword">var</span> form = mongooseForms.Bridge(<span class="hljs-keyword">new</span> Sample(), SampleForm).getForm();
+    <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
+    
+    <span class="hljs-built_in">console</span>.log(formHTMl);
+    res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, user: req.user, form: formHTMl });
+});</pre></div></div>
             
         </li>
         
