@@ -165,7 +165,7 @@ module.exports = function (grunt) {
               });
               var filename = './views/partials/site-menu.jade';
               var mainroutes = grunt.file.read(filename);
-              grunt.file.write(filename, mainroutes.replace("// public:page:menu:end",appendm+"        // public:page:menu:end"));
+              grunt.file.write(filename, mainroutes.replace("// public:page:menu:end",appendm));
             } else {
                 grunt.log.warn('Parameter name missing for '+arg1+' task');
             }
