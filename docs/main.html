@@ -150,7 +150,7 @@ according to their roles</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-comment">/* authorizers:end */</span>
-  end;</pre></div></div>
+  restify = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express-restify-mongoose'</span>);</pre></div></div>
             
         </li>
         
@@ -213,7 +213,7 @@ according to their roles</p>
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/contact'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
     res.render(<span class="hljs-string">'contact'</span>, { title: <span class="hljs-string">'Contact'</span>, section: <span class="hljs-string">'Contact'</span>, user: req.user });
 });
-  <span class="hljs-comment">/* page:public:end */</span></pre></div></div>
+<span class="hljs-comment">/* page:public:end */</span></pre></div></div>
             
         </li>
         
@@ -262,6 +262,81 @@ according to their roles</p>
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin/panel'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
     res.render(<span class="hljs-string">'admin-panel'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span>, user: req.user });
 });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <h2 id="3-public-rest">3. Public Rest</h2>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p><a href="https://github.com/florianholzapfel/express-restify-mongoose">https://github.com/florianholzapfel/express-restify-mongoose</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-comment">/* rest:public:start */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>GET <a href="http://localhost:3000/api/v1/Samples">http://localhost:3000/api/v1/Samples</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>restify.serve(app, Sample, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-built_in">console</span>.log(req.body, req.params);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>console.log(model);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});
+<span class="hljs-comment">/* rest:public:end */</span></pre></div></div>
             
         </li>
         
