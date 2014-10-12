@@ -71,6 +71,8 @@ $ grunt wiredep
 Appends javascript and css dependencies
 
 ## File Creation
+
+### Model+Test generation
 ```bash
 $ grunt create:model:Sample
 ```
@@ -88,13 +90,14 @@ Will modify `./routes/main.js` to append the model as dependency
 
 ```
 
+### Page+Route generation
+
 ```bash
 $ grunt create:page:Contact
 ```
-Will create model and tests:
+Will create a public view file for the page:
 ```
 #	views/contact.jade
-#	test/unit/models/sample-tests.js
 ```
 Will modify `./routes/main.js` to append the model as dependency
 ```
