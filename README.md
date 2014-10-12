@@ -113,7 +113,7 @@ Will modify `./views/partials/site-menu.jade` to append the new menu item to mai
 ```
          // public:page:menu:start
 +        li
-+          a(href='/contacto') Contacto
++          a(href='/contact') Contact
          // public:page:menu:end
 ```
 
