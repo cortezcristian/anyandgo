@@ -63,7 +63,7 @@ Execute all mocha tests and display the specs report
 ```bash
 $ grunt docco
 ```
-Creates documentation functionallity under models, routes and test folders and put it inside docs folderç
+Creates documentation functionallity under models, routes and test folders and put it inside docs folder
 
 ```bash
 $ grunt wiredep
