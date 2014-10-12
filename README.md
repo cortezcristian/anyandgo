@@ -126,6 +126,7 @@ Modules added:
 + [Stylus](http://learnboost.github.io/stylus/)
 + [i18n](https://github.com/mashpie/i18n-node)
 + [Mongoose](http://mongoosejs.com/)
++ [Express-Restify-Mongoose](https://github.com/florianholzapfel/express-restify-mongoose)
 
 Front end assets:
 + [Bootstrap](http://angular-ui.github.io/bootstrap/)
