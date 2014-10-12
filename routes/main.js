@@ -59,18 +59,17 @@ app.get('/admin/panel', function (req, res) {
 // https://github.com/florianholzapfel/express-restify-mongoose
 
 /* rest:public:start */
-// GET http://localhost:3000/api/v1/samples
+
+// GET /api/v1/samples
 restify.serve(app, Sample, {
   lowercase: true,
   lean: false,
   prereq: function(req) {
     console.log("pre req");
-    console.log(req.body, req.params);
     return true;
   },
   contextFilter: function(model, req, cb) {
     console.log("context filter");
-    //console.log(model);
     cb(model);
   },
   postProcess: function(req, res){
@@ -78,6 +77,7 @@ restify.serve(app, Sample, {
   }
 });
 /* rest:public:end */
+
 
 // ## 4. Crud Forms
 // --------------------------------------

@@ -304,7 +304,7 @@ according to their roles</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>GET <a href="http://localhost:3000/api/v1/samples">http://localhost:3000/api/v1/samples</a></p>
+              <p>GET /api/v1/samples</p>
 
             </div>
             
@@ -313,26 +313,11 @@ according to their roles</p>
   lean: <span class="hljs-literal">false</span>,
   prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
-    <span class="hljs-built_in">console</span>.log(req.body, req.params);
     <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
   },
   contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-17">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
-              </div>
-              <p>console.log(model);</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    cb(model);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
+    cb(model);
   },
   postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
@@ -343,11 +328,11 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-18">
+        <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+                <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               <h2 id="4-crud-forms">4. Crud Forms</h2>
 <hr>
@@ -357,11 +342,11 @@ according to their roles</p>
         </li>
         
         
-        <li id="section-19">
+        <li id="section-18">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <p><a href="https://github.com/oJshua/mongoose-forms">https://github.com/oJshua/mongoose-forms</a></p>
 

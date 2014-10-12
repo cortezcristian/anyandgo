@@ -117,6 +117,52 @@ Will modify `./views/partials/site-menu.jade` to append the new menu item to mai
          // public:page:menu:end
 ```
 
+### Rest generation
+
+```bash
+$ grunt create:rest:Sample
+```
+
+Creates rest services for a particular model.
+
+Will modify `./routes/main.js` to append the model as dependency
+```
+/* rest:public:start */
++
++// GET /api/v1/samples
++restify.serve(app, Sample, {
++  lowercase: true,
++  lean: false,
++  prereq: function(req) {
++    console.log("pre req");
++    return true;
++  },
++  contextFilter: function(model, req, cb) {
++    console.log("context filter");
++    cb(model);
++  },
++  postProcess: function(req, res){
++    console.log("post process");
++  }
++});
+/* rest:public:end */
+```
+
+This will enable the following urls:
+```
+GET      /api/v1/samples/count
+GET      /api/v1/samples
+PUT      /api/v1/samples
+POST     /api/v1/samples
+DELETE   /api/v1/samples
+
+GET      /api/v1/samples/:id
+PUT      /api/v1/samples/:id
+POST     /api/v1/samples/:id
+DELETE   /api/v1/samples/:id
+```
+Learn more about query, ordering, populate, and sorting with [Express-Restify-Mongoose](https://github.com/florianholzapfel/express-restify-mongoose).
+
 ## Express 4.x
 Facts about this implementation:
 - Started from basic generation
