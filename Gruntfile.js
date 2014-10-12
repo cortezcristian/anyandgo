@@ -170,6 +170,21 @@ module.exports = function (grunt) {
                 grunt.log.warn('Parameter name missing for '+arg1+' task');
             }
         break;
+        case 'rest':
+            if(typeof arg2 !== 'undefined') {
+              // append rest to ./routes/main.js
+              var appendp = grunt.template.process(grunt.file.read('./templates/append-model-rest-main.tpl'), {
+                    data: {
+                        'modelname': arg2
+                    }
+              });
+              var filename = './routes/main.js';
+              var mainroutes = grunt.file.read(filename);
+              grunt.file.write(filename, mainroutes.replace("/* rest:public:end */",appendp));
+            } else {
+                grunt.log.warn('Parameter name missing for '+arg1+' task');
+            }
+        break;
       }
   });
 

@@ -59,7 +59,7 @@ app.get('/admin/panel', function (req, res) {
 // https://github.com/florianholzapfel/express-restify-mongoose
 
 /* rest:public:start */
-// GET http://localhost:3000/api/v1/Samples
+// GET http://localhost:3000/api/v1/samples
 restify.serve(app, Sample, {
   lowercase: true,
   lean: false,
