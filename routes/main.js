@@ -55,7 +55,24 @@ app.get('/admin/panel', function (req, res) {
 // ## 3. Public Rest
 // --------------------------------------
 // https://github.com/florianholzapfel/express-restify-mongoose
+
 /* rest:public:start */
 // GET http://localhost:3000/api/v1/Samples
-restify.serve(app, Sample);
+restify.serve(app, Sample, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    console.log(req.body, req.params);
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    //console.log(model);
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
 /* rest:public:end */

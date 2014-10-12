@@ -290,7 +290,8 @@ according to their roles</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* rest:public:start */</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-comment">/* rest:public:start */</span></pre></div></div>
             
         </li>
         
@@ -305,7 +306,36 @@ according to their roles</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>restify.serve(app, Sample);
+            <div class="content"><div class='highlight'><pre>restify.serve(app, Sample, {
+  lowercase: <span class="hljs-literal">true</span>,
+  lean: <span class="hljs-literal">false</span>,
+  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
+    <span class="hljs-built_in">console</span>.log(req.body, req.params);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  },
+  contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>console.log(model);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    cb(model);
+  },
+  postProcess: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"post process"</span>);
+  }
+});
 <span class="hljs-comment">/* rest:public:end */</span></pre></div></div>
             
         </li>

@@ -44,14 +44,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
 // method override + restify settings
 // https://www.npmjs.org/package/express-restify-mongoose
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 require('./routes/auth');
