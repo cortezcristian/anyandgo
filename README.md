@@ -105,7 +105,7 @@ Will modify `./routes/main.js` to append the model as dependency
 +  
 +  // ### Contact Page
 +  app.get('/contact', function (req, res) {
-+          res.render('contact', { title: 'Contact', section: 'Contact', user: req.user });
++    res.render('contact', { title: 'Contact', section: 'Contact', user: req.user });
 +  });
     /* page:public:end */
 ```
