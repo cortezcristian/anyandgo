@@ -63,7 +63,7 @@ Execute all mocha tests and display the specs report
 ```bash
 $ grunt docco
 ```
-Creates documentation functionallity under models, routes and test folders and put it inside docs folderç
+Creates documentation functionallity under models, routes and test folders and put it inside docs folder
 
 ```bash
 $ grunt wiredep
@@ -71,6 +71,8 @@ $ grunt wiredep
 Appends javascript and css dependencies
 
 ## File Creation
+
+### Model+Test generation
 ```bash
 $ grunt create:model:Sample
 ```
@@ -88,13 +90,14 @@ Will modify `./routes/main.js` to append the model as dependency
 
 ```
 
+### Page+Route generation
+
 ```bash
 $ grunt create:page:Contact
 ```
-Will create model and tests:
+Will create a public view file for the page:
 ```
 #	views/contact.jade
-#	test/unit/models/sample-tests.js
 ```
 Will modify `./routes/main.js` to append the model as dependency
 ```
@@ -102,7 +105,7 @@ Will modify `./routes/main.js` to append the model as dependency
 +  
 +  // ### Contact Page
 +  app.get('/contact', function (req, res) {
-+          res.render('contact', { title: 'Contact', section: 'Contact', user: req.user });
++    res.render('contact', { title: 'Contact', section: 'Contact', user: req.user });
 +  });
     /* page:public:end */
 ```
