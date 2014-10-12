@@ -32,6 +32,14 @@ app.get('/', function (req, res) {
     res.render('index', { title: 'Anyandgo', section: 'Home', user: req.user });
 });
 
+/* page:public:start */
+  
+// ### Contact Page
+app.get('/contact', function (req, res) {
+    res.render('contact', { title: 'Contact', section: 'Contact', user: req.user });
+});
+  /* page:public:end */
+
 // ## 2. Admin Routes
 // --------------------------------------
 // ### Login
