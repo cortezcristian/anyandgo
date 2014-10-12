@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
 var i18n = require('i18n');
+var methodOverride = require('method-override');
 
 // Express 
 var app = exports.app = express();
@@ -45,6 +46,12 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// method override + restify settings
+// https://www.npmjs.org/package/express-restify-mongoose
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride());
 
 // Routes
 require('./routes/auth');

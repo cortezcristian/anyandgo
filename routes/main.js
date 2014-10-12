@@ -22,7 +22,7 @@ var app = module.parent.exports.app,
   /* authorizers:start */
   //adminAuth = require('../auth/admin-auth.js');
   /* authorizers:end */
-  end;
+  restify = require('express-restify-mongoose');
 
 // ## 1. Public Routes
 // --------------------------------------
@@ -38,7 +38,7 @@ app.get('/', function (req, res) {
 app.get('/contact', function (req, res) {
     res.render('contact', { title: 'Contact', section: 'Contact', user: req.user });
 });
-  /* page:public:end */
+/* page:public:end */
 
 // ## 2. Admin Routes
 // --------------------------------------
@@ -52,3 +52,10 @@ app.get('/admin/panel', function (req, res) {
     res.render('admin-panel', { title: 'Anyandgo', section: 'Admin Panel', user: req.user });
 });
 
+// ## 3. Public Rest
+// --------------------------------------
+// https://github.com/florianholzapfel/express-restify-mongoose
+/* rest:public:start */
+// GET http://localhost:3000/api/v1/Samples
+restify.serve(app, Sample);
+/* rest:public:end */
