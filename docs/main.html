@@ -363,7 +363,7 @@ according to their roles</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
-              <p><a href="https://github.com/oJshua/mongoose-formse">https://github.com/oJshua/mongoose-formse</a></p>
+              <p><a href="https://github.com/oJshua/mongoose-forms">https://github.com/oJshua/mongoose-forms</a></p>
 
             </div>
             
@@ -375,6 +375,18 @@ according to their roles</p>
     
     <span class="hljs-built_in">console</span>.log(formHTMl);
     res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, user: req.user, form: formHTMl });
+});
+
+app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+    mongooseForms.bindHelpers(Handlebars, <span class="hljs-string">'bootstrap'</span>);
+    <span class="hljs-keyword">var</span> SampleForm = mongooseForms.Form(Sample);
+    Sample.findOne({}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, doc)</span></span>{
+        <span class="hljs-keyword">var</span> form = mongooseForms.Bridge(doc, SampleForm).getForm();
+        <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
+    
+        <span class="hljs-built_in">console</span>.log(formHTMl);
+        res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, user: req.user, form: formHTMl });
+    });
 });</pre></div></div>
             
         </li>

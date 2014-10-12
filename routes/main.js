@@ -81,7 +81,7 @@ restify.serve(app, Sample, {
 
 // ## 4. Crud Forms
 // --------------------------------------
-// https://github.com/oJshua/mongoose-formse
+// https://github.com/oJshua/mongoose-forms
 app.get('/forms/sample/create', function (req, res) {
     mongooseForms.bindHelpers(Handlebars, 'bootstrap');
     var SampleForm = mongooseForms.Form(Sample);
@@ -90,4 +90,16 @@ app.get('/forms/sample/create', function (req, res) {
     
     console.log(formHTMl);
     res.render('forms', { title: 'Anyandgo', section: 'Form', user: req.user, form: formHTMl });
+});
+
+app.get('/forms/sample/edit', function (req, res) {
+    mongooseForms.bindHelpers(Handlebars, 'bootstrap');
+    var SampleForm = mongooseForms.Form(Sample);
+    Sample.findOne({}, function(err, doc){
+        var form = mongooseForms.Bridge(doc, SampleForm).getForm();
+        var formHTMl = Handlebars.helpers.renderForm(form);
+    
+        console.log(formHTMl);
+        res.render('forms', { title: 'Anyandgo', section: 'Form', user: req.user, form: formHTMl });
+    });
 });
