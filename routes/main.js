@@ -34,5 +34,13 @@ app.get('/', function (req, res) {
 
 // ## 2. Admin Routes
 // --------------------------------------
-
 // ### Login
+app.get('/admin', function (req, res) {
+    res.render('admin-index', { title: 'Anyandgo', section: 'Admin Login', user: req.user });
+});
+
+// ### Panel
+app.get('/admin/panel', function (req, res) {
+    res.render('admin-panel', { title: 'Anyandgo', section: 'Admin Panel', user: req.user });
+});
+

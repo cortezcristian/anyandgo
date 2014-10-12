@@ -1,0 +1,14 @@
+extends layout-admin
+
+block content
+  .board-container.container-fluid
+    .row
+      .sidebar-con.col-xs-6.col-md-4
+        include ./partials/admin-sidebar
+      .main-con.col-xs-12.col-sm-6.col-md-8
+        .jumbotron
+          h1=__("pick any·and·go")
+          p ...
+          p #{__("Welcome to anyandgo MEAN")}
+          p
+            a.btn.btn-primary.btn-lg(role='button',href="https://github.com/cortezcristian/anyandgo") Read the Docs
