@@ -147,7 +147,7 @@ module.exports = function (grunt) {
               var filename = './views/'+arg2.toLowerCase()+'.jade';
               grunt.file.write(filename, filepage);
 
-              // append model to ./routes/main.js
+              // append page route to ./routes/main.js
               var appendp = grunt.template.process(grunt.file.read('./templates/append-page-routes-main.tpl'), {
                     data: {
                         'pagename': arg2
@@ -155,7 +155,17 @@ module.exports = function (grunt) {
               });
               var filename = './routes/main.js';
               var mainroutes = grunt.file.read(filename);
-              grunt.file.write(filename, mainroutes.replace("/* page:public:end */",appendp+"  /* page:public:end */"));
+              grunt.file.write(filename, mainroutes.replace("/* page:public:end */",appendp+"/* page:public:end */"));
+
+              // append page link to ./views/partials/site-menu.jade
+              var appendm = grunt.template.process(grunt.file.read('./templates/append-site-menu-item.tpl'), {
+                    data: {
+                        'pagename': arg2
+                    }
+              });
+              var filename = './views/partials/site-menu.jade';
+              var mainroutes = grunt.file.read(filename);
+              grunt.file.write(filename, mainroutes.replace("// public:page:menu:end",appendm+"        // public:page:menu:end"));
             } else {
                 grunt.log.warn('Parameter name missing for '+arg1+' task');
             }
