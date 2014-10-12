@@ -102,7 +102,7 @@ module.exports = function (grunt) {
       grunt.log.debug(arg1, arg2);
       switch(arg1){
         case 'model':
-            if(typeof arg2 !== 'undefined'){
+            if(typeof arg2 !== 'undefined') {
               // create model
               var filemodel = grunt.template.process(grunt.file.read('./templates/mongoose-model.js.tpl'), {
                     data: {
@@ -132,6 +132,30 @@ module.exports = function (grunt) {
               grunt.file.write(filename, mainroutes.replace("/* models:end */",appendm+"  /* models:end */"));
 
 
+            } else {
+                grunt.log.warn('Parameter name missing for '+arg1+' task');
+            }
+        break;
+        case 'page':
+            if(typeof arg2 !== 'undefined') {
+              // create model
+              var filepage = grunt.template.process(grunt.file.read('./templates/view-page.jade.tpl'), {
+                    data: {
+                        'pagename': arg2
+                    }
+              });
+              var filename = './views/'+arg2.toLowerCase()+'.jade';
+              grunt.file.write(filename, filepage);
+
+              // append model to ./routes/main.js
+              var appendp = grunt.template.process(grunt.file.read('./templates/append-page-routes-main.tpl'), {
+                    data: {
+                        'pagename': arg2
+                    }
+              });
+              var filename = './routes/main.js';
+              var mainroutes = grunt.file.read(filename);
+              grunt.file.write(filename, mainroutes.replace("/* page:public:end */",appendp+"  /* page:public:end */"));
             } else {
                 grunt.log.warn('Parameter name missing for '+arg1+' task');
             }

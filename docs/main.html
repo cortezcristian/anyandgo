@@ -218,8 +218,13 @@ according to their roles</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              
+              <h3 id="login">Login</h3>
+
             </div>
+            
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+    res.render(<span class="hljs-string">'admin-index'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Login'</span>, user: req.user });
+});</pre></div></div>
             
         </li>
         
@@ -230,9 +235,13 @@ according to their roles</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <h3 id="login">Login</h3>
+              <h3 id="panel">Panel</h3>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin/panel'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+    res.render(<span class="hljs-string">'admin-panel'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span>, user: req.user });
+});</pre></div></div>
             
         </li>
         
