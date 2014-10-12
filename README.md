@@ -109,6 +109,13 @@ Will modify `./routes/main.js` to append the model as dependency
 +  });
     /* page:public:end */
 ```
+Will modify `./views/partials/site-menu.jade` to append the new menu item to main menu
+```
+         // public:page:menu:start
++        li
++          a(href='/contacto') Contacto
+         // public:page:menu:end
+```
 
 ## Express 4.x
 Facts about this implementation:
