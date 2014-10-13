@@ -17,8 +17,8 @@ exports.dbConnection = function(url,dbname,dbuser,dbpass){
 	
 	return mongoose.connect(connStr, function (err) {
 		if (err) {
-			console.log('Connection to MongoDB error', err);
-			return err;
+			//console.log('Connection to MongoDB error', err);
+			//return err;
 		} else {
 			//console.log("Connection to MongoDB successful");
 		}
