@@ -114,3 +114,13 @@ app.get('/tasks/test', function (req, res) {
         res.end(output);
     });
 });
+/*
+// TODO: prevent auto-reboot when running with grunt, securitize mname parameter
+app.get('/tasks/create/model/:mname', function (req, res) {
+    shell.exec('grunt create:model:'+req.params.mname, function(code, output) {
+        console.log('Exit code:', code);
+        console.log('Program output:', output);
+        res.end(output);
+    });
+});
+*/
