@@ -178,5 +178,14 @@ Front end assets:
 + [Bootstrap](http://angular-ui.github.io/bootstrap/)
 + [UI Bootstrap](http://angular-ui.github.io/bootstrap/)
 
+## Quick Setup
+How to get started with anyandgo?
+```bash
+$ npm install -g grunt-cli bower yo mocha
+$ git clone git@github.com:cortezcristian/anyandgo.git
+$ cd anyandgo
+$ npm install && bower install && grunt
+```
+
 ## Credits
 [@cortezcristian](https://twitter.com/cortezcristian)
