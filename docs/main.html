@@ -152,7 +152,8 @@ according to their roles</p>
             <div class="content"><div class='highlight'><pre>  <span class="hljs-comment">/* authorizers:end */</span>
   restify = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express-restify-mongoose'</span>),
   mongooseForms = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose-forms'</span>),
-  Handlebars = <span class="hljs-built_in">require</span>(<span class="hljs-string">'handlebars'</span>);</pre></div></div>
+  Handlebars = <span class="hljs-built_in">require</span>(<span class="hljs-string">'handlebars'</span>),
+  shell = <span class="hljs-built_in">require</span>(<span class="hljs-string">'shelljs'</span>);</pre></div></div>
             
         </li>
         
@@ -371,6 +372,40 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
     
         <span class="hljs-built_in">console</span>.log(formHTMl);
         res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, user: req.user, form: formHTMl });
+    });
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <h2 id="5-super-admin-tasks">5. Super Admin Tasks</h2>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/tasks/test'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+    shell.exec(<span class="hljs-string">'./node_modules/mocha/bin/mocha --reporter doc'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(code, output)</span> </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Exit code:'</span>, code);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Program output:'</span>, output);
+        res.end(output);
     });
 });</pre></div></div>
             

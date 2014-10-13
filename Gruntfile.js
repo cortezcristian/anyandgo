@@ -77,7 +77,7 @@ module.exports = function (grunt) {
     },
     wiredep: {
       target: {
-        src: ['views/layout.jade'],
+        src: ['views/layout-admin.jade'],
         ignorePath: '../public'
       },
       options: {

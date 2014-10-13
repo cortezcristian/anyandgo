@@ -24,7 +24,8 @@ var app = module.parent.exports.app,
   /* authorizers:end */
   restify = require('express-restify-mongoose'),
   mongooseForms = require('mongoose-forms'),
-  Handlebars = require('handlebars');
+  Handlebars = require('handlebars'),
+  shell = require('shelljs');
 
 // ## 1. Public Routes
 // --------------------------------------
@@ -101,5 +102,15 @@ app.get('/forms/sample/edit', function (req, res) {
     
         console.log(formHTMl);
         res.render('forms', { title: 'Anyandgo', section: 'Form', user: req.user, form: formHTMl });
+    });
+});
+
+// ## 5. Super Admin Tasks
+// --------------------------------------
+app.get('/tasks/test', function (req, res) {
+    shell.exec('./node_modules/mocha/bin/mocha --reporter doc', function(code, output) {
+        console.log('Exit code:', code);
+        console.log('Program output:', output);
+        res.end(output);
     });
 });
