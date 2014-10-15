@@ -6,6 +6,6 @@ env:
 services:
   - mongodb
 before_script:
-  - 'npm start &'
+  - 'sudo npm start &'
 script:
   - npm test
