@@ -6,4 +6,4 @@ env:
 services:
   - mongodb
 before_script:
-  - sudo node ./bin/www &
+  - node ./bin/www &
