@@ -6,4 +6,5 @@ env:
 services:
   - mongodb
 before_script:
+  - npm install -g bower grunt-cli
   - node ./bin/www &
