@@ -80,6 +80,15 @@ describe('REST API Sample '+d+"/api/v1/samples", function(){
                   done();
               });
         });
+        it('DELETE /api/v1/samples', function(done){
+            agent
+              .del(d+'/api/v1/samples/')
+              .end(function(res) {
+                  assert.ok(res.ok);
+                  assert.ok(JSON.stringify(res.body) === '{}');
+                  done();
+              });
+        });
 
     });
 });
