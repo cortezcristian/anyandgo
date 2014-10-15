@@ -36,6 +36,7 @@ describe('REST API Sample', function(){
             agent
               .get(d+'/api/v1/samples')
               .end(function(res) {
+                  console.log(d+'/api/v1/samples', res);
                   assert.ok(res.ok);
                   assert.ok(res.body.length>0);
                   done();
