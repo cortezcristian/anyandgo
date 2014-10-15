@@ -7,5 +7,3 @@ services:
   - mongodb
 before_script:
   - 'sudo npm start &'
-script:
-  - npm test
