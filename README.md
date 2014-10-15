@@ -89,6 +89,17 @@ Will modify `./routes/main.js` to append the model as dependency
    /* models:end */
 
 ```
+This will automatically crete the following tests:
+```
+$ mocha test/unit/
+  Database Test
+    MongoDB
+      ✓ Should be up and running 
+
+  Model Test Sample
+    Sample
+      ✓ add a sample 
+```
 
 ### Page+Route generation
 
@@ -153,6 +164,7 @@ Along with a test file:
 ```
 This uses [superagent](http://visionmedia.github.io/superagent/) to test the new restful api:
 ```
+$ mocha test/rest/
  Web Server
     Express
       ✓ Should be up and running (306ms)
