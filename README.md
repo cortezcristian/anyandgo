@@ -89,6 +89,17 @@ Will modify `./routes/main.js` to append the model as dependency
    /* models:end */
 
 ```
+This will automatically crete the following tests:
+```bash
+$ mocha test/unit/
+  Database Test
+    MongoDB
+      ✓ Should be up and running 
+
+  Model Test Sample
+    Sample
+      ✓ add a sample 
+```
 
 ### Page+Route generation
 
@@ -117,13 +128,13 @@ Will modify `./views/partials/site-menu.jade` to append the new menu item to mai
          // public:page:menu:end
 ```
 
-### Rest generation
+### Rest+Test generation
 
 ```bash
 $ grunt create:rest:Sample
 ```
 
-Creates rest services for a particular model.
+Creates rest services for a particular model. 
 
 Will modify `./routes/main.js` to append the model as dependency
 ```
@@ -146,6 +157,26 @@ Will modify `./routes/main.js` to append the model as dependency
 +  }
 +});
 /* rest:public:end */
+```
+Along with a test file:
+```
+#	test/rest/models/samples-rest-tests.js
+```
+This uses [superagent](http://visionmedia.github.io/superagent/) to test the new restful api:
+```bash
+$ mocha test/rest/
+ Web Server
+    Express
+      ✓ Should be up and running (306ms)
+
+  REST API Sample http://127.0.0.1:3000/api/v1/samples
+    Samples REST
+      ✓ GET /api/v1/samples 
+      ✓ GET /api/v1/samples/count 
+      ✓ POST /api/v1/samples 
+      ✓ PUT /api/v1/samples/:sampleId 
+      ✓ DELETE /api/v1/samples/:sampleId 
+      ✓ DELETE /api/v1/samples 
 ```
 
 This will enable the following urls:
