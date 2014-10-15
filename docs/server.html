@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>sample-tests.js</title>
+  <title>server.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -61,7 +61,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>sample-tests.js</h1>
+                  <h1>server.js</h1>
               </div>
           </li>
         
@@ -73,7 +73,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <h2 id="sample-test-cases">Sample Test Cases</h2>
+              <h2 id="express-webserver">Express WebServer</h2>
 
             </div>
             
@@ -101,11 +101,14 @@
               <p>Modules Dependencies:</p>
 <ul>
 <li>Assert (<a href="http://nodejs.org/api/assert.html">http://nodejs.org/api/assert.html</a>)</li>
+<li>SuperAgent (<a href="http://visionmedia.github.io/superagent/">http://visionmedia.github.io/superagent/</a>)</li>
 </ul>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>),
+    config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../../config'</span>),
+    superagent = <span class="hljs-built_in">require</span>(<span class="hljs-string">'superagent'</span>);</pre></div></div>
             
         </li>
         
@@ -116,11 +119,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>Require basic config files and DB connection</p>
+              <p>Global Variables for the test case</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">require</span>(<span class="hljs-string">'../../../utils/dbconnect'</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> d;
+d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hljs-string">":"</span>+config.app.port;</pre></div></div>
             
         </li>
         
@@ -131,11 +135,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>Global Variables for the test case</p>
+              <p>Unit Tests</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> Sample, sample;</pre></div></div>
+            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'Web Server'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+    before(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
             
         </li>
         
@@ -146,12 +151,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Unit Tests</p>
+              <p>Before all tests
+Get domain</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'Model Test Sample'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-    before(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>        d = config.app.domain+<span class="hljs-string">":"</span>+config.app.port;</pre></div></div>
             
         </li>
         
@@ -162,14 +167,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>Before all tests</p>
+              <p>Start agent</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        Sample = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../../../models/sample.js"</span>);
-    });
-
-    describe(<span class="hljs-string">'Sample'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>        agent = superagent.agent();</pre></div></div>
             
         </li>
         
@@ -180,15 +182,21 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>It show create a new document in the database</p>
+              <p>Login if necesary</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        it(<span class="hljs-string">'add a sample'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
-            sample = <span class="hljs-keyword">new</span> Sample({ name: <span class="hljs-string">'sample'</span>+<span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>)});
-            sample.save(done);
-        });
+            <div class="content"><div class='highlight'><pre>    });
 
+    describe(<span class="hljs-string">'Express'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+        it(<span class="hljs-string">'Should be up and running'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
+            agent
+              .get(d)
+              .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span> </span>{
+                  assert.ok(res.ok);
+                  done();
+              });
+        });
     });
 });</pre></div></div>
             

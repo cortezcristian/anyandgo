@@ -34,6 +34,16 @@
               </a>
             
               
+              <a class="source" href="server.html">
+                server.js
+              </a>
+            
+              
+              <a class="source" href="samples-rest-tests.html">
+                samples-rest-tests.js
+              </a>
+            
+              
               <a class="source" href="connection.html">
                 connection.js
               </a>
@@ -407,7 +417,31 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Program output:'</span>, output);
         res.end(output);
     });
-});</pre></div></div>
+});
+<span class="hljs-comment">/*
+</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>TODO: prevent auto-reboot when running with grunt, securitize mname parameter</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>app.get('/tasks/create/model/:mname', function (req, res) {
+    shell.exec('grunt create:model:'+req.params.mname, function(code, output) {
+        console.log('Exit code:', code);
+        console.log('Program output:', output);
+        res.end(output);
+    });
+});
+*/</pre></div></div>
             
         </li>
         

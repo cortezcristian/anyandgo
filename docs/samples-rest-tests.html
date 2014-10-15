@@ -34,6 +34,11 @@
               </a>
             
               
+              <a class="source" href="server.html">
+                server.js
+              </a>
+            
+              
               <a class="source" href="samples-rest-tests.html">
                 samples-rest-tests.js
               </a>
@@ -68,7 +73,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <h2 id="samples-rest-test-cases">Samples REST Test Cases</h2>
+              <h2 id="samples-rest-api">Samples REST API</h2>
 
             </div>
             
@@ -133,7 +138,8 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> Sample, sample, agent, sampleId, d;</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> Sample, sample, agent, sampleId, d;
+d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hljs-string">":"</span>+config.app.port;</pre></div></div>
             
         </li>
         
@@ -148,7 +154,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'Model Test Sample'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'REST API Sample '</span>+d+<span class="hljs-string">"/api/v1/samples"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
     before(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
             
         </li>
@@ -234,12 +240,57 @@
             agent
               .get(d+<span class="hljs-string">'/api/v1/samples'</span>)
               .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span> </span>{
-                  <span class="hljs-built_in">console</span>.log(res.ok);
+                  assert.ok(res.ok);
+                  assert.ok(res.body.length&gt;<span class="hljs-number">0</span>);
                   done();
               });
         });
         it(<span class="hljs-string">'GET /api/v1/samples/count'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
-            done();
+            agent
+              .get(d+<span class="hljs-string">'/api/v1/samples/count'</span>)
+              .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span> </span>{
+                  assert.ok(res.ok);
+                  assert.ok(res.body.count &gt; <span class="hljs-number">0</span>);
+                  done();
+              });
+        });
+        it(<span class="hljs-string">'POST /api/v1/samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
+            agent
+              .post(d+<span class="hljs-string">'/api/v1/samples'</span>)
+              .send({ name: <span class="hljs-string">'Test Creation Sample'</span> })
+              .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span> </span>{
+                  assert.ok(res.ok);
+                  assert.ok(res.body.name === <span class="hljs-string">'Test Creation Sample'</span>);
+                  done();
+              });
+        });
+        it(<span class="hljs-string">'PUT /api/v1/samples/:sampleId'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
+            agent
+              .put(d+<span class="hljs-string">'/api/v1/samples/'</span>+sampleId)
+              .send({ name: <span class="hljs-string">'Test Change Sample'</span> })
+              .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span> </span>{
+                  assert.ok(res.ok);
+                  assert.ok(res.body.name === <span class="hljs-string">'Test Change Sample'</span>);
+                  done();
+              });
+        });
+        it(<span class="hljs-string">'DELETE /api/v1/samples/:sampleId'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
+            agent
+              .del(d+<span class="hljs-string">'/api/v1/samples/'</span>+sampleId)
+              .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span> </span>{
+                  assert.ok(res.ok);
+                  assert.ok(<span class="hljs-built_in">JSON</span>.stringify(res.body) === <span class="hljs-string">'{}'</span>);
+                  done();
+              });
+        });
+        it(<span class="hljs-string">'DELETE /api/v1/samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
+            agent
+              .del(d+<span class="hljs-string">'/api/v1/samples/'</span>)
+              .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span> </span>{
+                  assert.ok(res.ok);
+                  assert.ok(<span class="hljs-built_in">JSON</span>.stringify(res.body) === <span class="hljs-string">'{}'</span>);
+                  done();
+              });
         });
 
     });

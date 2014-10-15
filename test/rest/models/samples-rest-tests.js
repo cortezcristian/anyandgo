@@ -1,4 +1,4 @@
-// Samles REST API
+// Samples REST API
 // -----------------------------
 
 // Modules Dependencies:
