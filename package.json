@@ -39,6 +39,7 @@
     "grunt-nodemon": "~0.3.0",
     "mocha": "~1.21.4",
     "grunt-mocha-test": "~0.12.1",
-    "jshint-stylish": "~1.0.0"
+    "jshint-stylish": "~1.0.0",
+    "superagent": "~0.20.0"
   }
 }
