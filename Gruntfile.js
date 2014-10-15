@@ -181,6 +181,15 @@ module.exports = function (grunt) {
               var filename = './routes/main.js';
               var mainroutes = grunt.file.read(filename);
               grunt.file.write(filename, mainroutes.replace("/* rest:public:end */",appendp));
+
+              // create test
+              var filetest = grunt.template.process(grunt.file.read('./templates/mongoose-model-rest-tests.js.tpl'), {
+                    data: {
+                        'modelname': arg2
+                    }
+              });
+              var filenametest = './test/rest/models/'+arg2.toLowerCase()+'s-rest-tests.js';
+              grunt.file.write(filenametest, filetest);
             } else {
                 grunt.log.warn('Parameter name missing for '+arg1+' task');
             }
