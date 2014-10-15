@@ -5,6 +5,7 @@ env:
   - NODE_ENV=travisci
 services:
   - mongodb
-before_script:
+before_install:
   - npm install -g bower grunt-cli
+before_script:
   - node ./bin/www &
