@@ -13,9 +13,10 @@ require('../../../utils/dbconnect');
 
 // Global Variables for the test case
 var Sample, sample, agent, sampleId, d;
+d = 'http://'+config.app.domain+":"+config.app.port;
 
 // Unit Tests
-describe('REST API Sample', function(){
+describe('REST API Sample '+d+"/api/v1/samples", function(){
     before(function(){
         // Before all tests
         Sample = require("../../../models/sample.js");
@@ -36,7 +37,6 @@ describe('REST API Sample', function(){
             agent
               .get(d+'/api/v1/samples')
               .end(function(res) {
-                  console.log(d+'/api/v1/samples', res);
                   assert.ok(res.ok);
                   assert.ok(res.body.length>0);
                   done();
