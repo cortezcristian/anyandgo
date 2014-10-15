@@ -3,5 +3,5 @@ node_js:
   - '0.10'
 services:
   - mongodb
-before_script
+before_script:
   - npm start
