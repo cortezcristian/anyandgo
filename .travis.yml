@@ -4,6 +4,6 @@ node_js:
 services:
   - mongodb
 before_script:
-  - npm start
+  - 'npm start &'
 script:
   - npm test
