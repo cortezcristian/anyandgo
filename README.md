@@ -90,7 +90,7 @@ Will modify `./routes/main.js` to append the model as dependency
 
 ```
 This will automatically crete the following tests:
-```
+```bash
 $ mocha test/unit/
   Database Test
     MongoDB
@@ -163,7 +163,7 @@ Along with a test file:
 #	test/rest/models/samples-rest-tests.js
 ```
 This uses [superagent](http://visionmedia.github.io/superagent/) to test the new restful api:
-```
+```bash
 $ mocha test/rest/
  Web Server
     Express
