@@ -51,6 +51,11 @@ app.get('/admin', function (req, res) {
 });
 
 // ### Panel
+app.get('/admin/config', function (req, res) {
+    res.render('admin-config', { title: 'Anyandgo', section: 'Admin Panel', user: req.user });
+});
+
+// ### Panel
 app.get('/admin/panel', function (req, res) {
     res.render('admin-panel', { title: 'Anyandgo', section: 'Admin Panel', user: req.user });
 });
