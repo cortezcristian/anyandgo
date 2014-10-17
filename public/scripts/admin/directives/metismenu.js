@@ -9,10 +9,9 @@
 angular.module('anyandgoApp')
   .directive('metismenu', function () {
     return {
-      template: '<div></div>',
-      restrict: 'E',
+      restrict: 'A',
       link: function postLink(scope, element, attrs) {
-        element.text('this is the metismenu directive');
+        $(element).metisMenu(scope.$eval(attrs.toolbarTip));
       }
     };
   });
