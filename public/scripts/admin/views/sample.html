@@ -6,15 +6,15 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
-      <th><a href="#/sample-new"><i class="icon-plus-sign">New</i></a></th>
+      <th><a href="#/crud/sample-new"><i class="icon-plus-sign">New</i></a></th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="sample in samples | filter:search | orderBy:'name'" ng-show="sample._id">
-      <td><a href="{{sample.name}}" target="_blank">{{sample.name}}</a></td>
+      <td><a href="#/crud/sample-edit/{{sample._id}}" data-id="{{sample._id}}" target="_blank">{{sample.name}}</a></td>
       <td>{{sample.name}}</td>
       <td>
-        <a href="#/sample-edit/{{sample._id}}"><i class="icon-pencil">Edit</i></a>
+        <a href="#/crud/sample-edit/{{sample._id}}"><i class="icon-pencil">Edit</i></a>
       </td>
     </tr>
     </tbody>

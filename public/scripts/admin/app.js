@@ -30,19 +30,19 @@ angular
   .config(function ($routeProvider, RestangularProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'http://localhost:3000/scripts/admin/views/main.html',
+        templateUrl: '/scripts/admin/views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/sample', {
-        templateUrl: 'http://localhost:3000/scripts/admin/views/sample.html',
+      .when('/crud/sample', {
+        templateUrl: '/scripts/admin/views/sample.html',
         controller: 'SampleCtrl'
       })
-      .when('/sample-new', {
-        templateUrl: 'http://localhost:3000/scripts/admin/views/sample-new.html',
+      .when('/crud/sample-new', {
+        templateUrl: '/scripts/admin/views/sample-new.html',
         controller: 'SampleNewCtrl'
       })
-      .when('/sample-edit/:id', {
-        templateUrl: 'http://localhost:3000/scripts/admin/views/sample-edit.html',
+      .when('/crud/sample-edit/:id', {
+        templateUrl: '/scripts/admin/views/sample-edit.html',
         controller: 'SampleEditCtrl',
         resolve: {
           sample: function(Restangular, $route){
@@ -54,7 +54,7 @@ angular
         redirectTo: '/'
       });
       
-      RestangularProvider.setBaseUrl('http://localhost:3000/api/v1');
+      RestangularProvider.setBaseUrl('/api/v1');
       RestangularProvider.setRestangularFields({
         id: '_id'
       });

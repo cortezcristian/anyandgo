@@ -11,7 +11,7 @@ angular.module('anyandgoApp')
   .controller('SampleNewCtrl', function ($scope, $location, Restangular) {
   $scope.save = function() {
     Restangular.all('samples').post($scope.sample).then(function(sample) {
-      $location.path('/sample');
+      $location.path('/crud/sample');
     });
   }
 });

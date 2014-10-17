@@ -19,13 +19,13 @@ angular.module('anyandgoApp')
 
   $scope.destroy = function() {
     original.remove().then(function() {
-      $location.path('/sample');
+      $location.path('/crud/sample');
     });
   };
 
   $scope.save = function() {
     $scope.sample.put().then(function() {
-      $location.path('/sample');
+      $location.path('/crud/sample');
     });
   };
 });
