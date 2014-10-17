@@ -12,7 +12,7 @@ var assert = require('assert'),
 require('../../../utils/dbconnect');
 
 // Global Variables for the test case
-var Sample, sample, browser, sampleId, sampleSearch, d;
+var Sample, sample, browser, sampleId, sampleSearch, sampleEdited, d;
 d = 'http://'+config.app.domain+":"+config.app.port;
 
 // Unit Tests
@@ -55,14 +55,36 @@ describe('CRUD Sample '+d+"/admin/panel#/crud/sample", function(){
                    assert.ok(browser.document.querySelectorAll('table tr td a[data-id="'+sampleId+'"]').length > 0,
                         'Should show a recently added doc listed');
                     done();
-                  /*
-                  browser.clickLink("a[data-userid='39645576TW']", function(){
-                     done();
-                  });
-                  */
                });
             });
         });
+/*
+        it('Update Samples', function(done){
+           browser.visit(d+"/admin/panel#/crud/sample", function () {
+              assert.ok(browser.success);
+              assert.ok(browser.location.hash === "#/crud/sample");
+              browser.clickLink('a[data-id="'+sampleId+'"]', function(){
+                //console.log(browser.document.querySelectorAll('form[name="myForm"]')[0].innerHTML);
+                sampleEdited = "sample"+new Date().getTime();
+                browser
+                 .fill('form[name="myForm"] input[name="name"]', sampleEdited)
+                 .pressButton('button[ng-click="save()"]',function(err, b){
+                   browser.visit(d+"/admin/panel#/crud/sample", function () {
+                       console.log(browser.document.location.hash);
+                       console.log(browser.document.querySelectorAll('body')[0].innerHTML);
+                       browser.fill('input[ng-model="search"]', sampleEdited);
+                       browser.wait(function(){
+                           console.log(browser.document.querySelectorAll('table')[0].innerHTML);
+                           assert.ok(browser.document.querySelectorAll('table tr td a[data-id="'+sampleId+'"]').length > 0,
+                                'Should show a recently modified doc listed');
+                            done();
+                       });
+                   });
+                });
+              });
+           });
+        });
+        */
 
     });
 });

@@ -27,7 +27,8 @@ angular
     'ngTouch',
     'restangular'
   ])
-  .config(function ($routeProvider, RestangularProvider) {
+  .config(function ($routeProvider, $locationProvider, RestangularProvider) {
+    //$locationProvider.html5Mode(true).hashPrefix('!');
     $routeProvider
       .when('/', {
         templateUrl: '/scripts/admin/views/main.html',
