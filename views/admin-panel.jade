@@ -1,10 +1,21 @@
 extends layout-admin
 
 block content
-  .board-container.container-fluid
+  .board-container.container-fluid(ng-app='anyandgoApp')
     .row
       .sidebar-con.col-xs-1.col-md-2
         include ./partials/admin-sidebar
       .main-con.col-xs-11.col-sm-6.col-md-10
-        .panel
-          | Content
+        .panel(ng-view)
+          | Content {{awesomeThings}}
+          
+block scripts
+  //admin:app:scripts
+  script(src='/scripts/admin/app.js')
+  script(src='/scripts/admin/controllers/main.js')
+  script(src='/scripts/admin/controllers/about.js')
+  script(src='/scripts/admin/controllers/sample.js')
+  script(src='/scripts/admin/controllers/sample-new.js')
+  script(src='/scripts/admin/controllers/sample-edit.js')
+  script(src='/scripts/admin/directives/metismenu.js')
+  //admin:app:scripts:end
