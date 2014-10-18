@@ -64,6 +64,20 @@ app.get('/admin/panel', function (req, res) {
 // --------------------------------------
 // https://github.com/florianholzapfel/express-restify-mongoose
 
+// CORS Interceptors
+if (config.cors && config.cors === "enabled") {
+  app.all('*', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+
+  app.options('/api/v1/*', function(req, res){
+    res.end();
+  });
+}
+
 /* rest:public:start */
 
 // GET /api/v1/samples
@@ -129,3 +143,4 @@ app.get('/tasks/create/model/:mname', function (req, res) {
     });
 });
 */
+

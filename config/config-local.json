@@ -28,6 +28,7 @@
         "user" : "",
         "pass" : ""
     },
+    "cors": "enabled",
     "session" : {
         "secret" : "incorrect"
     }

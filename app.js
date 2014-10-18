@@ -60,19 +60,6 @@ app.use(methodOverride());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// CORS Interceptors
-/*
-app.all('*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
-app.options('/api/v1/samples', function(req, res){
-  res.end();
-});
-*/
-
 // Routes
 require('./routes/auth');
 require('./routes/main');
