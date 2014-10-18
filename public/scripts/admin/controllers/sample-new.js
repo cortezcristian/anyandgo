@@ -10,8 +10,12 @@
 angular.module('anyandgoApp')
   .controller('SampleNewCtrl', function ($scope, $location, Restangular) {
   $scope.save = function() {
-    Restangular.all('samples').post($scope.sample).then(function(sample) {
-      $location.path('/crud/sample');
+    Restangular.all('samples').post($scope.sample).then(function(sample) {  
+      if(navigator.userAgent.match(/Zombie/)) {
+          document.location.hash = "#/crud/sample";
+      } else {
+        $location.path('/crud/sample');
+      }
     });
   }
 });

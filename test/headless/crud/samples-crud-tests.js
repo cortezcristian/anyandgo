@@ -12,7 +12,7 @@ var assert = require('assert'),
 require('../../../utils/dbconnect');
 
 // Global Variables for the test case
-var Sample, sample, browser, sampleId, sampleSearch, sampleEdited, d;
+var Sample, sample, browser, sampleId, sampleSearch, sampleEdited, sampleNew, d;
 d = 'http://'+config.app.domain+":"+config.app.port;
 
 // Unit Tests
@@ -81,6 +81,32 @@ describe('CRUD Sample '+d+"/admin/panel#/crud/sample", function(){
                        browser.wait(function(){
                            //console.log(browser.document.querySelectorAll('table')[0].innerHTML);
                            assert.ok(browser.document.querySelectorAll('table tr td a[data-id="'+sampleId+'"]').length > 0,
+                                'Should show a recently modified doc listed');
+                            done();
+                       });
+                   });
+                });
+              });
+           });
+        });
+
+        it('Create Samples', function(done){
+           browser.visit(d+"/admin/panel#/crud/sample", function () {
+              //console.log("0--->", browser.text('[ng-view]'));
+              assert.ok(browser.success);
+              assert.ok(browser.location.hash === "#/crud/sample");
+              browser.visit(d+'/admin/panel#/crud/sample-new', function(){
+                //console.log("1--->", browser.text('[ng-view]'));
+                sampleNew = "samplenew"+new Date().getTime();
+                browser
+                 .fill('form[name="myForm"] input[name="name"]', sampleNew)
+                 .pressButton('button[ng-click="save()"]',function(err, b){
+                   //console.log("2--->", browser.text('[ng-view]'));
+                   browser.visit(d+"/admin/panel#/crud/sample", function () {
+                       browser.fill('input[ng-model="search"]', sampleNew);
+                       browser.wait(function(){
+                           //console.log(browser.html('table'));
+                           assert.ok(browser.html('table').match(sampleNew) !== null,
                                 'Should show a recently modified doc listed');
                             done();
                        });
