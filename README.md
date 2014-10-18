@@ -192,7 +192,18 @@ PUT      /api/v1/samples/:id
 POST     /api/v1/samples/:id
 DELETE   /api/v1/samples/:id
 ```
+
 Learn more about query, ordering, populate, and sorting with [Express-Restify-Mongoose](https://github.com/florianholzapfel/express-restify-mongoose).
+
+
+### Crud+Test generation
+
+```bash
+$ grunt create:crud:Sample
+```
+
+Creates CRUD administration for a particular model. 
+This uses [zombiejs](http://zombie.labnotes.org/API) to test the new restful api:
 
 ## Express 4.x
 Facts about this implementation:
