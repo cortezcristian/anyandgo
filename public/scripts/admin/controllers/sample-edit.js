@@ -19,13 +19,21 @@ angular.module('anyandgoApp')
 
   $scope.destroy = function() {
     original.remove().then(function() {
-      $location.path('/crud/sample');
+      if(navigator.userAgent.match(/Zombie/)) {
+          document.location.hash = "#/crud/sample";
+      } else {
+        $location.path('/crud/sample');
+      }
     });
   };
 
   $scope.save = function() {
     $scope.sample.put().then(function() {
-      $location.path('/crud/sample');
+      if(navigator.userAgent.match(/Zombie/)) {
+          document.location.hash = "#/crud/sample";
+      } else {
+        $location.path('/crud/sample');
+      }
     });
   };
 });

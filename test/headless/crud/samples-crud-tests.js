@@ -58,23 +58,28 @@ describe('CRUD Sample '+d+"/admin/panel#/crud/sample", function(){
                });
             });
         });
-/*
+
         it('Update Samples', function(done){
            browser.visit(d+"/admin/panel#/crud/sample", function () {
               assert.ok(browser.success);
               assert.ok(browser.location.hash === "#/crud/sample");
-              browser.clickLink('a[data-id="'+sampleId+'"]', function(){
+              browser.clickLink('a[data-edit-id="'+sampleId+'"]', function(){
                 //console.log(browser.document.querySelectorAll('form[name="myForm"]')[0].innerHTML);
                 sampleEdited = "sample"+new Date().getTime();
+                //console.log("1--->", browser.userAgent);
+                //console.log(browser.html());
                 browser
                  .fill('form[name="myForm"] input[name="name"]', sampleEdited)
                  .pressButton('button[ng-click="save()"]',function(err, b){
+                   // https://github.com/angular/angular.js/issues/3915
+                   //console.log("--->");
+                   //console.log(browser.html());
                    browser.visit(d+"/admin/panel#/crud/sample", function () {
-                       console.log(browser.document.location.hash);
-                       console.log(browser.document.querySelectorAll('body')[0].innerHTML);
+                       //console.log(browser.document.location.hash);
+                       //console.log(browser.document.querySelectorAll('body')[0].innerHTML);
                        browser.fill('input[ng-model="search"]', sampleEdited);
                        browser.wait(function(){
-                           console.log(browser.document.querySelectorAll('table')[0].innerHTML);
+                           //console.log(browser.document.querySelectorAll('table')[0].innerHTML);
                            assert.ok(browser.document.querySelectorAll('table tr td a[data-id="'+sampleId+'"]').length > 0,
                                 'Should show a recently modified doc listed');
                             done();
@@ -84,7 +89,6 @@ describe('CRUD Sample '+d+"/admin/panel#/crud/sample", function(){
               });
            });
         });
-        */
 
     });
 });
