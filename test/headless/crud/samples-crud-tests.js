@@ -107,7 +107,38 @@ describe('CRUD Sample '+d+"/admin/panel#/crud/sample", function(){
                        browser.wait(function(){
                            //console.log(browser.html('table'));
                            assert.ok(browser.html('table').match(sampleNew) !== null,
-                                'Should show a recently modified doc listed');
+                                'Should show a recently created doc listed');
+                            done();
+                       });
+                   });
+                });
+              });
+           });
+        });
+
+        it('Delete Samples', function(done){
+           browser.visit(d+"/admin/panel#/crud/sample", function () {
+              assert.ok(browser.success);
+              assert.ok(browser.location.hash === "#/crud/sample");
+              browser.clickLink('a[data-edit-id="'+sampleId+'"]', function(){
+                //console.log(browser.document.querySelectorAll('form[name="myForm"]')[0].innerHTML);
+                sampleEdited = "sample"+new Date().getTime();
+                //console.log("1--->", browser.userAgent);
+                //console.log(browser.html());
+                browser
+                 .fill('form[name="myForm"] input[name="name"]', sampleEdited)
+                 .pressButton('button[ng-click="destroy()"]',function(err, b){
+                   // https://github.com/angular/angular.js/issues/3915
+                   //console.log("--->");
+                   //console.log(browser.html());
+                   browser.visit(d+"/admin/panel#/crud/sample", function () {
+                       //console.log(browser.document.location.hash);
+                       //console.log(browser.document.querySelectorAll('body')[0].innerHTML);
+                       browser.fill('input[ng-model="search"]', sampleEdited);
+                       browser.wait(function(){
+                           //console.log(browser.document.querySelectorAll('table')[0].innerHTML);
+                           assert.ok(browser.html('table').match(sampleNew) === null,
+                                'Should not show a recently deleted doc listed');
                             done();
                        });
                    });
