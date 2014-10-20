@@ -1,4 +1,4 @@
-any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)](https://travis-ci.org/cortezcristian/anyandgo) [![Dependencies](https://david-dm.org/cortezcristian/anyandgo.png)](https://david-dm.org/cortezcristian/anyandgo)
+any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)](https://travis-ci.org/cortezcristian/anyandgo) [![Dependencies](https://david-dm.org/cortezcristian/anyandgo.png)](https://david-dm.org/cortezcristian/anyandgo) [![Trello Board](http://img.shields.io/badge/board-trello-blue.svg)](https://trello.com/b/vanumUeW/anyandgo) [![Coverage Status](https://img.shields.io/coveralls/cortezcristian/anyandgo.svg)](https://coveralls.io/r/cortezcristian/anyandgo)
 ========
 
 ![Anyandgo](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/public/img/anyandgo-logo.png)
@@ -203,7 +203,7 @@ $ grunt create:crud:Sample
 ```
 
 Creates CRUD administration for a particular model. 
-This uses [zombiejs](http://zombie.labnotes.org/API) to test the new restful api:
+This uses [zombiejs](http://zombie.labnotes.org/API) to test the new crud functionality:
 
 ## Express 4.x
 Facts about this implementation:
