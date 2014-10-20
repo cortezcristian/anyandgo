@@ -6,6 +6,6 @@ env:
 services:
   - mongodb
 before_install:
-  - npm install -g bower grunt-cli istanbul mocha coveralls
+  - npm install -g bower grunt-cli
 before_script:
   - node ./bin/www &
