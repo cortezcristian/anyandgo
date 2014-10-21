@@ -129,7 +129,11 @@ module.exports = function (grunt) {
               });
               var filename = './routes/main.js';
               var mainroutes = grunt.file.read(filename);
-              grunt.file.write(filename, mainroutes.replace("/* models:end */",appendm+"  /* models:end */"));
+              var regexpm = new RegExp(".*"+appendm.replace("(", "\\(").replace(")","\\)")+".*");
+              if(!mainroutes.match(regexpm)){
+                  grunt.file.write(filename, 
+                      mainroutes.replace("/* models:end */",appendm+"  /* models:end */"));
+              }
 
 
             } else {
