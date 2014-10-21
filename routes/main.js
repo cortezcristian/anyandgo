@@ -14,6 +14,7 @@ var app = module.parent.exports.app,
   /* models:start */
   // Admins        = require('../models/admins.js'),
   Sample  = require('../models/sample.js'),
+  Admins  = require('../models/admins.js'),
   /* models:end */
   // ### Authorizers
   // Mantain certains part from the application secure

@@ -1,5 +1,5 @@
 var config = module.parent.exports.config,
-  , fixtureLoader = require('mongoose-fixtures');
+    fixtureLoader = require('mongoose-fixtures');
 
 // Load from shared first
 fixtureLoader.load('./shared');
