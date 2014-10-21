@@ -8,7 +8,7 @@ var stylus = require('stylus');
 var i18n = require('i18n');
 var methodOverride = require('method-override');
 var utils = require('./utils');
-var config = exports.config = require('./config')
+var config = exports.config = require('./config');
 
 // Error
 process.on('uncaughtException', function(err) {
@@ -20,6 +20,12 @@ var app = exports.app = express();
 
 // Database Connection
 var dbConex = exports.dbConex = utils.dbConnection(config.db.domain,config.db.name,config.db.user,config.db.pass);
+
+// DB Fixtures
+if (config.fixtures && config.fixtures === "enabled") {
+// Load Fixtures
+require('./fixtures');
+}
 
 // i18n setup
 i18n.configure({

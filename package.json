@@ -23,7 +23,8 @@
     "express-restify-mongoose": "~0.6.10",
     "mongoose-forms": "0.0.5",
     "handlebars": "~2.0.0",
-    "shelljs": "~0.3.0"
+    "shelljs": "~0.3.0",
+    "mongoose-fixtures": "0.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
