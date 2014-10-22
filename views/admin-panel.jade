@@ -10,6 +10,7 @@ block content
           | Content {{awesomeThings}}
           
 block scripts
+  //-<!-- build:js(public) scripts/panel-app.min.js -->
   //admin:app:scripts
   script(src='/scripts/admin/app.js')
   script(src='/scripts/admin/controllers/main.js')
@@ -19,3 +20,4 @@ block scripts
   script(src='/scripts/admin/controllers/sample-edit.js')
   script(src='/scripts/admin/directives/metismenu.js')
   //admin:app:scripts:end
+  //-<!-- endbuild -->

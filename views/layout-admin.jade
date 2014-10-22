@@ -6,10 +6,12 @@ html(lang='en')
     title= title
     script.
       document.write('<base href="' + document.location + '" />');
+    //-<!-- build:css(public) scripts/panel-styles.min.css -->
     //bower:css
     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.css')
     link(rel='stylesheet', href='/components/metisMenu/dist/metisMenu.css')
+    //-<!-- endbuild -->
     //endbower
     block css
       link(rel='stylesheet', href='/css/style.css')
@@ -18,7 +20,7 @@ html(lang='en')
   body
     include ./partials/admin-menu
     block content
-
+    //-<!-- build:js(public) scripts/panel-vendors.min.js -->
     //bower:js
     script(src='/components/jquery/dist/jquery.js')
     script(src='/components/angular/angular.js')
@@ -34,4 +36,5 @@ html(lang='en')
     script(src='/components/angular-touch/angular-touch.js')
     script(src='/components/angular-route/angular-route.js')
     //endbower
+    //-<!-- endbuild -->
     block scripts

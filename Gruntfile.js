@@ -107,6 +107,21 @@ module.exports = function (grunt) {
     clean: {
       public: './public/dist/{,*/}*',
       temporal: '.tmp'
+    },
+    useminPrepare: {
+        html: 'views/**/*.jade',
+        options: {
+            dest: './public/dist/',
+            flow: {
+                html: {
+                    steps: {
+                        js: ['concat', 'uglifyjs'],
+                        css: ['cssmin']
+                    },
+                    post: {}
+                }
+            }
+        }
     }
   });
 
@@ -114,6 +129,11 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:public',
     //copy styles to .tmp
+    'useminPrepare',
+    //generates new task configs: concat, uglify
+    'concat',
+    'uglify',
+    'cssmin'
   ]);
 
   grunt.task.registerTask('create', 'Create mongoose model + test', function(arg1, arg2) {
