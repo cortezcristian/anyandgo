@@ -205,6 +205,8 @@ $ grunt create:crud:Sample
 Creates CRUD administration for a particular model. 
 This uses [zombiejs](http://zombie.labnotes.org/API) to test the new crud functionality.
 
+## Optimization
+
 ### Assets minification for production
 
 ```bash
@@ -222,6 +224,12 @@ public/dist/
     ├── panel-styles.min.css
     └── site-styles.min.css
 ```
+We use:
+[grunt-usemin](https://github.com/yeoman/grunt-usemin) 
+[grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat) 
+[grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify) 
+[grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin) 
+in order to do that.
 
 ## Express 4.x
 Facts about this implementation:
