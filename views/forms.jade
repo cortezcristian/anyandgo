@@ -1,1 +1,15 @@
 p !{form}
+
+
+
+form(name='myForm', role='form')
+  .control-group(ng-class='{error: myForm.name.$invalid}')
+    label Name
+    input(type='text', name='name', ng-model='sample.name', required='')
+    span.help-inline(ng-show='myForm.name.$error.required')
+      | Required
+  br
+  a.btn(href='#/') Cancel
+  button.btn.btn-primary(ng-click='save()', ng-disabled='isClean() || myForm.$invalid') Save
+  button.btn.btn-danger(ng-click='destroy()', ng-show='sample._id') Delete
+

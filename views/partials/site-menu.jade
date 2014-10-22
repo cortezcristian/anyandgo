@@ -17,18 +17,28 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
         // public:page:menu:end
       ul.nav.navbar-nav.navbar-right
         li
-          a(href='#') Link
+          a(href='#')
+              i.fa.fa-gift.fa-2(style='padding-right:10px') 
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
-            | Dropdown
+            span
+              i.fa.fa-users(style='padding-right:10px') 
+              | Login with...
             span.caret
-          ul.dropdown-menu(role='menu')
+          ul.dropdown-menu.dropdown-menu-bubble-right(role='menu')
             li
-              a(href='#') Action
+              a(href='#') 
+                i.fa.fa-github-alt(style='padding-right:10px') 
+                | Github
             li
-              a(href='#') Another action
+              a(href='#') 
+                i.fa.fa-google-plus(style='padding-right:10px') 
+                | Google
             li
-              a(href='#') Something else here
-            li.divider
+              a(href='#') 
+                i.fa.fa-linkedin-square(style='padding-right:10px') 
+                | Linkedin
             li
-              a(href='#') Separated link
+              a(href='#') 
+                i.fa.fa-facebook-square(style='padding-right:10px') 
+                | Facebook

@@ -9,6 +9,10 @@ var i18n = require('i18n');
 var methodOverride = require('method-override');
 var utils = require('./utils');
 var config = exports.config = require('./config');
+var anyandgo = exports.anyandgo = {};
+
+// Anyandgo
+anyandgo.models = [];
 
 // Error
 process.on('uncaughtException', function(err) {
