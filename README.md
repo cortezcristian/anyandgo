@@ -226,10 +226,32 @@ public/dist/
 ```
 We use:
 [grunt-usemin](https://github.com/yeoman/grunt-usemin) 
+[grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) 
 [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat) 
 [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify) 
 [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin) 
 in order to do that.
+
+And they get automatically linked just simply by setting a global flag, like in `./views/layout-admin.jade`:
+
+```jade
+ - if(settings.envflag !== "production") {
+    //-<!-- build:css(public) styles/panel-styles.min.css -->
+    //bower:css
+    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.css')
+    link(rel='stylesheet', href='/components/metisMenu/dist/metisMenu.css')
+    //-<!-- endbuild -->
+    //endbower
+    - } else {
+    link(rel='stylesheet', href='/dist/styles/panel-styles.min.css')
+    - }
+```
+
+The flag setup is in `./app.js`:
+```javascript
+app.set("envflag", process.env.NODE_ENV);
+```
 
 ## Express 4.x
 Facts about this implementation:
