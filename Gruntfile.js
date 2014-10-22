@@ -126,7 +126,7 @@ module.exports = function (grunt) {
   });
 
 
-  grunt.registerTask('build', [
+  grunt.registerTask('buildprod', [
     'clean:public',
     //copy styles to .tmp
     'useminPrepare',

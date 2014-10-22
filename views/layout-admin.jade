@@ -6,13 +6,18 @@ html(lang='en')
     title= title
     script.
       document.write('<base href="' + document.location + '" />');
-    //-<!-- build:css(public) scripts/panel-styles.min.css -->
+    - if(settings.envflag !== "production") {
+    //-<!-- build:css(public) styles/panel-styles.min.css -->
     //bower:css
     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.css')
     link(rel='stylesheet', href='/components/metisMenu/dist/metisMenu.css')
     //-<!-- endbuild -->
     //endbower
+    - } else {
+    link(rel='stylesheet', href='/dist/styles/panel-styles.min.css')
+    link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.css')
+    - }
     block css
       link(rel='stylesheet', href='/css/style.css')
     block js

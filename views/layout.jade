@@ -4,11 +4,18 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
     title= title
+    - if(settings.envflag !== "production") {
+    //-<!-- build:css(public) styles/site-styles.min.css -->
     //bower:css
     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.css')
     link(rel='stylesheet', href='/components/metisMenu/dist/metisMenu.css')
     //endbower
+    //-<!-- endbuild -->
+    - } else {
+    link(rel='stylesheet', href='/dist/styles/site-styles.min.css')
+    link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.css')
+    - }
     block css
       link(rel='stylesheet', href='/css/style.css')
     block js
@@ -16,7 +23,7 @@ html(lang='en')
   body
     include ./partials/site-menu
     block content
-
+    //-<!-- build:js(public) scripts/site-vendors.min.js -->
     //bower:js
     script(src='/components/jquery/dist/jquery.js')
     script(src='/components/angular/angular.js')
@@ -24,4 +31,5 @@ html(lang='en')
     script(src='/components/bootstrap/dist/js/bootstrap.js')
     script(src='/components/metisMenu/dist/metisMenu.js')
     //endbower
+    //-<!-- endbuild -->
     block scripts

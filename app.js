@@ -22,6 +22,8 @@ process.on('uncaughtException', function(err) {
 // Express 
 var app = exports.app = express();
 
+app.set("envflag", process.env.NODE_ENV);
+
 // Database Connection
 var dbConex = exports.dbConex = utils.dbConnection(config.db.domain,config.db.name,config.db.user,config.db.pass);
 
