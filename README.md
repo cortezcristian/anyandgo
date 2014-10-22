@@ -253,6 +253,14 @@ The flag setup is in `./app.js`:
 app.set("envflag", process.env.NODE_ENV);
 ```
 
+### Translation Support
+
+See `./locales` folder
+
+### Fixtures
+
+See `./fixtures` folder, autoloaders
+
 ## Express 4.x
 Facts about this implementation:
 - Started from basic generation
