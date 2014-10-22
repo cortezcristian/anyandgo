@@ -82,7 +82,7 @@ Will create model and tests:
 #	test/unit/models/sample-tests.js
 ```
 Will modify `./routes/main.js` to append the model as dependency
-```
+```javascript
    // ## Models
    /* models:start */
 +  Sample  = require('../models/sample.js'),
@@ -111,7 +111,7 @@ Will create a public view file for the page:
 #	views/contact.jade
 ```
 Will modify `./routes/main.js` to append the model as dependency
-```
+```javascript
     /* page:public:start */
 +  
 +  // ### Contact Page
@@ -121,7 +121,7 @@ Will modify `./routes/main.js` to append the model as dependency
     /* page:public:end */
 ```
 Will modify `./views/partials/site-menu.jade` to append the new menu item to main menu
-```
+```jade
          // public:page:menu:start
 +        li
 +          a(href='/contact') Contact
@@ -137,7 +137,7 @@ $ grunt create:rest:Sample
 Creates rest services for a particular model. 
 
 Will modify `./routes/main.js` to append the model as dependency
-```
+```javascript
 /* rest:public:start */
 +
 +// GET /api/v1/samples
@@ -235,7 +235,7 @@ in order to do that.
 And they get automatically linked just simply by setting a global flag, like in `./views/layout-admin.jade`:
 
 ```jade
- - if(settings.envflag !== "production") {
+    - if(settings.envflag !== "production") {
     //-<!-- build:css(public) styles/panel-styles.min.css -->
     //bower:css
     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
