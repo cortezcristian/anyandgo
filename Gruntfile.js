@@ -4,7 +4,15 @@ module.exports = function (grunt) {
   // load all grunt tasks matching the `grunt-*` pattern
   require('load-grunt-tasks')(grunt);
 
+  var appconf = {
+    dist: {
+      public: "./public/dist/scripts",
+      admin: "./public/dist/scripts/admin" 
+    }
+  };
+
   grunt.initConfig({
+    anyandgo: appconf,
 	jshint: {
       options: {
         reporter: require('jshint-stylish'),
@@ -95,8 +103,18 @@ module.exports = function (grunt) {
         }
       },
       test: ['mochaTest']
+    },
+    clean: {
+      public: './public/dist/{,*/}*',
+      temporal: '.tmp'
     }
   });
+
+
+  grunt.registerTask('build', [
+    'clean:public',
+    //copy styles to .tmp
+  ]);
 
   grunt.task.registerTask('create', 'Create mongoose model + test', function(arg1, arg2) {
       grunt.log.debug(arg1, arg2);

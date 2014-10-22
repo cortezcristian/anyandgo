@@ -45,6 +45,7 @@
     "superagent": "~0.20.0",
     "zombie": "~2.0.8",
     "coveralls": "~2.11.2",
-    "istanbul": "~0.3.2"
+    "istanbul": "~0.3.2",
+    "grunt-contrib-clean": "~0.6.0"
   }
 }
