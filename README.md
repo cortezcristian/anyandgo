@@ -203,7 +203,25 @@ $ grunt create:crud:Sample
 ```
 
 Creates CRUD administration for a particular model. 
-This uses [zombiejs](http://zombie.labnotes.org/API) to test the new crud functionality:
+This uses [zombiejs](http://zombie.labnotes.org/API) to test the new crud functionality.
+
+### Assets minification for production
+
+```bash
+$ grunt buildprod
+```
+Concatanates, compress, minify and link all javascripts and stylesheets. It creates a ./dist folder inside the public part:
+```bash
+$ tree public/dist/
+public/dist/
+├── scripts
+│   ├── panel-app.min.js
+│   ├── panel-vendors.min.js
+│   └── site-vendors.min.js
+└── styles
+    ├── panel-styles.min.css
+    └── site-styles.min.css
+```
 
 ## Express 4.x
 Facts about this implementation:
