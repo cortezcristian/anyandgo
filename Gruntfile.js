@@ -118,7 +118,22 @@ module.exports = function (grunt) {
                         js: ['concat', 'uglifyjs'],
                         css: ['cssmin']
                     },
-                    post: {}
+                    post: {
+                        js: [{
+                          name: 'uglify',
+                          createConfig: function (context, block) {
+                            var generated = context.options.generated;
+                            generated.options = {
+                              mangle: false
+                              /*
+                              http://mathieuhicauber-java.blogspot.com.ar/2013/12/grunt-uglify-task-breaks-angular-app.html
+                              http://stackoverflow.com/questions/21688681/unknown-provider-aprovider-a-how-do-i-find-the-original-provider
+                              http://stackoverflow.com/a/20945907/467034
+                              */
+                            };
+                          }
+                        }]
+                    }
                 }
             }
         }
