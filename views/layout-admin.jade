@@ -25,6 +25,7 @@ html(lang='en')
   body
     include ./partials/admin-menu
     block content
+    - if(settings.envflag !== "production") {
     //-<!-- build:js(public) scripts/panel-vendors.min.js -->
     //bower:js
     script(src='/components/jquery/dist/jquery.js')
@@ -42,4 +43,7 @@ html(lang='en')
     script(src='/components/angular-route/angular-route.js')
     //endbower
     //-<!-- endbuild -->
+    - } else {
+    script(src='/dist/scripts/panel-vendors.min.js')
+    - }
     block scripts

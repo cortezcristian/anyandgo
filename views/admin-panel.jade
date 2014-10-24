@@ -10,6 +10,7 @@ block content
           | Content {{awesomeThings}}
           
 block scripts
+  //- if(settings.envflag !== "production") {
   //-<!-- build:js(public) scripts/panel-app.min.js -->
   //admin:app:scripts
   script(src='/scripts/admin/app.js')
@@ -21,3 +22,6 @@ block scripts
   script(src='/scripts/admin/directives/metismenu.js')
   //admin:app:scripts:end
   //-<!-- endbuild -->
+  //- } else {
+  //script(src='/dist/scripts/panel-app.min.js')
+  //- }
