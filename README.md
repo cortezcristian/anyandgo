@@ -323,6 +323,10 @@ fixtures/
 ```
 Notice that if flag "fixtures" is "enabled" in our config: anyandgo will autoload datasets for each collection ( note loading fixtures will clear the existing contents of a collection). In the treeview example shown above, we only are going to override admins collection. We are also adding a `shared` folder that is shared for all environments.
 
+### CORS Support
+
+See [CORS](http://www.w3.org/TR/cors/)
+
 ## Express 4.x
 Facts about this implementation:
 - Started from basic generation
