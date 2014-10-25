@@ -28,6 +28,8 @@
         "user" : "",
         "pass" : ""
     },
+    "cors": "enabled",
+    "fixtures": "enabled",
     "session" : {
         "secret" : "incorrect"
     }
