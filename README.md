@@ -292,7 +292,36 @@ setCookie("lang","en-us", 2);
 
 ### Fixtures
 
-See `./fixtures` folder, autoloaders
+Fixtures are fixed datasets that helps us to populate mongo collections. We use fixtures during test, to ensure we have data to operate with. And also anyandgo uses fixtures on server start, to ensure certain collections are filled in before web app is launched. Take a look at `app.js`:
+
+```javascript
+// DB Fixtures
+if (config.fixtures && config.fixtures === "enabled") {
+ // Load Fixtures
+ require('./fixtures');
+}
+```
+
+For fixture loading we are using [mongoose-fixtures](https://github.com/powmedia/mongoose-fixtures). We basically load different datasets for each environment. You may want to take a look at `./fixtures` folder:
+
+```bash
+$ tree fixtures
+fixtures/
+├── dev
+│   └── admins.js
+├── index.js
+├── local
+│   └── admins.js
+├── prod
+│   └── admins.js
+├── shared
+│   └── admins.js
+└── travisci
+    └── admins.js
+
+5 directories, 6 files
+```
+Notice that if flag "fixtures" is "enabled" in our config anyandgo will autoload datasets for each collection, and loading fixtures will clear the existing contents of a collection. In the treeview example shown above, we only are going to override admins collection. We are also adding a `shared` folder that is shared for all environments.
 
 ## Express 4.x
 Facts about this implementation:
