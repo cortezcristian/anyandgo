@@ -36,14 +36,13 @@ require('./fixtures');
 // i18n setup
 i18n.configure({
   // setup some locales: other locales default to en silently
-  locales:['en', 'es'],
+  locales:['en-us', 'es-ar'],
+  // sets a custom cookie name to parse locale settings from  - defaults to NULL
+  cookie: 'lang',
   // where to store json files - defaults to './locales' relative to modules directory
   directory: __dirname + '/locales',
-  defaultLocale: 'en',
-  // sets a custom cookie name to parse locale settings from  - defaults to NULL
-  cookie: 'lang'
+  defaultLocale: 'es-ar'
 });
-app.use(i18n.init);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -71,6 +70,8 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// i18n init parses req for language headers, cookies, etc.
+app.use(i18n.init);
 
 // Routes
 require('./routes/auth');
