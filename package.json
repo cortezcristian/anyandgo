@@ -24,7 +24,8 @@
     "mongoose-forms": "0.0.5",
     "handlebars": "~2.0.0",
     "shelljs": "~0.3.0",
-    "mongoose-fixtures": "0.0.1"
+    "mongoose-fixtures": "0.0.1",
+    "passport-local": "~1.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
