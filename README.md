@@ -255,7 +255,40 @@ app.set("envflag", process.env.NODE_ENV);
 
 ### Translation Support
 
-See `./locales` folder
+Internationalization support was added. To seee the translations source files you can inspect the `./locales` folder:
+```bash
+$ tree locales/
+locales/
+├── en-us.json
+└── es-ar.json
+```
+
+By default it loads `es-ar` translations, the configuration is inside `app.js` file:
+```javascript
+// i18n setup
+i18n.configure({
+  // setup some locales: other locales default to en silently
+  locales:['en-us', 'es-ar'],
+  // sets a custom cookie name to parse locale settings from  - defaults to NULL
+  cookie: 'lang',
+  // where to store json files - defaults to './locales' relative to modules directory
+  directory: __dirname + '/locales',
+  defaultLocale: 'es-ar'
+});
+```
+Language preference is stored in a cookie, to test this is working you can try modifying the cookie on client side and reload the page:
+```javascript
+// Try running this in the js console
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+setCookie("lang","en-us", 2);
+// and refresh the page, notice lang has changed to be en-us
+```
 
 ### Fixtures
 
