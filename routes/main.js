@@ -24,10 +24,15 @@ var app = module.parent.exports.app,
   /* authorizers:start */
   //adminAuth = require('../auth/admin-auth.js');
   /* authorizers:end */
+  /* forms:start */
+  adminLoginForm = require('../forms/admin-login.js'),
+  /* forms:end */
   restify = require('express-restify-mongoose'),
   mongooseForms = require('mongoose-forms'),
   Handlebars = require('handlebars'),
   shell = require('shelljs');
+  // mongooseforms bind
+  mongooseForms.bindHelpers(Handlebars, 'bootstrap');
 
 // ## 1. Public Routes
 // --------------------------------------
@@ -46,7 +51,10 @@ app.get('/contact', function (req, res) {
 
 // ### Admin Page
 app.get('/admin', function (req, res) {
-    res.render('admin', { title: 'Admin', section: 'Admin', user: req.user });
+    //var SampleForm = mongooseForms.Form(Sample);
+    var form = mongooseForms.Bridge(new Admins(), new adminLoginForm()).getForm();
+    var formHTML = Handlebars.helpers.renderForm(form);
+    res.render('admin', { title: 'Admin', section: 'Admin', user: req.user, form: formHTML });
 });
 /* page:public:end */
 
@@ -110,7 +118,7 @@ restify.serve(app, Sample, {
 // --------------------------------------
 // https://github.com/oJshua/mongoose-forms
 app.get('/forms/sample/create', function (req, res) {
-    mongooseForms.bindHelpers(Handlebars, 'bootstrap');
+    //mongooseForms.bindHelpers(Handlebars, 'bootstrap');
     var SampleForm = mongooseForms.Form(Sample);
     var form = mongooseForms.Bridge(new Sample(), SampleForm).getForm();
     var formHTMl = Handlebars.helpers.renderForm(form);

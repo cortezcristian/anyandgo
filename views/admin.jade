@@ -2,8 +2,6 @@ extends layout
 
 block content
   .jumbotron
-    h1=__("pick any·and·go")
-    p Route: /admin
-    p Page: Admin
-    p
-      a.btn.btn-primary.btn-lg(role='button',href="https://github.com/cortezcristian/anyandgo") Read the Docs
+    form(method="post")
+      p !{form}
+      button.btn.btn-primary(ng-click='save()', ng-disabled='isClean() || myForm.$invalid') Login

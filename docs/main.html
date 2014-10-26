@@ -258,7 +258,10 @@ according to their roles</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
-    res.render(<span class="hljs-string">'admin'</span>, { title: <span class="hljs-string">'Admin'</span>, section: <span class="hljs-string">'Admin'</span>, user: req.user });
+    <span class="hljs-keyword">var</span> SampleForm = mongooseForms.Form(Sample);
+    <span class="hljs-keyword">var</span> form = mongooseForms.Bridge(<span class="hljs-keyword">new</span> Sample(), SampleForm).getForm();
+    <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
+    res.render(<span class="hljs-string">'admin'</span>, { title: <span class="hljs-string">'Admin'</span>, section: <span class="hljs-string">'Admin'</span>, user: req.user, form: formHTML });
 });
 <span class="hljs-comment">/* page:public:end */</span></pre></div></div>
             
@@ -439,9 +442,22 @@ according to their roles</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/forms/sample/create'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
-    mongooseForms.bindHelpers(Handlebars, <span class="hljs-string">'bootstrap'</span>);
-    <span class="hljs-keyword">var</span> SampleForm = mongooseForms.Form(Sample);
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/forms/sample/create'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>mongooseForms.bindHelpers(Handlebars, ‘bootstrap’);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> SampleForm = mongooseForms.Form(Sample);
     <span class="hljs-keyword">var</span> form = mongooseForms.Bridge(<span class="hljs-keyword">new</span> Sample(), SampleForm).getForm();
     <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
     
@@ -464,11 +480,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-22">
+        <li id="section-23">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-22">&#182;</a>
+                <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <h2 id="5-super-admin-tasks">5. Super Admin Tasks</h2>
 <hr>
@@ -478,11 +494,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-23">
+        <li id="section-24">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
               
             </div>
@@ -500,11 +516,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-24">
+        <li id="section-25">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
               <p>TODO: prevent auto-reboot when running with grunt, securitize mname parameter</p>
 

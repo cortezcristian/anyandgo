@@ -9,18 +9,30 @@ var mongoose = require('mongoose'),
 
 var adminsSchema = new Schema({
     name          : String, 
+	email         : String,      
+	password      : String,      
 	created       : Date         
 });
 
 // ### Hooks 
 // #### Pre-Save
 adminsSchema.pre("save", function(next) {
+    if(this.isModified('password'))
+        this.password = crypto.createHash('md5')
+            .update(this.password)
+            .digest("hex");
     if(!this.created)
         this.created = new Date();
     next();
 });
 
 // ### Method:
+// #### Authenticate
+// Checks password match
+adminsSchema.method('authenticate', function(password) {
+    return crypto.createHash('md5').update(password).digest("hex") === this.password;
+});
+
 adminsSchema.method("instanceMethod", function(param, cb) {
     var admins = this;
     this.save(cb);
