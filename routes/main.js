@@ -43,6 +43,11 @@ app.get('/', function (req, res) {
 app.get('/contact', function (req, res) {
     res.render('contact', { title: 'Contact', section: 'Contact', user: req.user });
 });
+
+// ### Admin Page
+app.get('/admin', function (req, res) {
+    res.render('admin', { title: 'Admin', section: 'Admin', user: req.user });
+});
 /* page:public:end */
 
 // ## 2. Admin Routes
