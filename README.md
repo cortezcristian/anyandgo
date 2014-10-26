@@ -2,6 +2,7 @@ any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)
 ========
 
 ![Anyandgo](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/public/img/anyandgo-logo.png)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cortezcristian/anyandgo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ### Pick any·and·go!
 
