@@ -104,10 +104,13 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Auth Strategies
-require(‘../auth/auth-passport-local-admin.js’);</p>
+              <p>Auth Strategies</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* authorizers:start */</span>
+<span class="hljs-keyword">var</span> adminAuth = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../auth/admin-auth.js'</span>);
+<span class="hljs-comment">/* authorizers:end */</span></pre></div></div>
             
         </li>
         
@@ -133,13 +136,15 @@ require(‘../auth/auth-passport-local-admin.js’);</p>
               </div>
               <h2 id="local-strategy">Local Strategy</h2>
 <ul>
-<li><a href="https://github.com/jaredhanson/passport-local">Passport Local</a>
-app.post(‘/admin’, 
-passport.authenticate(‘administrators’, { successRedirect: ‘/panel’,<pre><code>                             failureRedirect: <span class="hljs-string">'/admin'</span>})
-</code></pre>);</li>
+<li><a href="https://github.com/jaredhanson/passport-local">Passport Local</a></li>
 </ul>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>app.post(<span class="hljs-string">'/admin'</span>, 
+  passport.authenticate(<span class="hljs-string">'administrators'</span>, { successRedirect: <span class="hljs-string">'/admin/panel'</span>,
+                                    failureRedirect: <span class="hljs-string">'/admin'</span>})
+);</pre></div></div>
             
         </li>
         

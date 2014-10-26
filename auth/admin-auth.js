@@ -27,6 +27,7 @@ adminAuth.strategy = new LocalStrategy(
     passwordField: 'password'
   },
   function(username, password, done) {
+      console.log(username, password)
     Administrator.findOne({ email: username }, function(err, admin) {
       if (err) { 
           done(null, false, { message: 'There was an error with the auth.' });
@@ -41,6 +42,7 @@ adminAuth.strategy = new LocalStrategy(
       console.log("admin auth success");
       admin.nLogins++;
       admin.last_login = Date.now();
+      admin.provider = 'adminlocal';
       admin.save(function(err){
           if(err){
               console.log("Error guardando usuario >>", err);
@@ -48,7 +50,6 @@ adminAuth.strategy = new LocalStrategy(
               console.log("Usuario guardado")
           }
       });
-      admin.provider = 'adminlocal';
       return done(null, admin);
     });
   }

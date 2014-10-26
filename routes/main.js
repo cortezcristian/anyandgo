@@ -22,7 +22,7 @@ var app = module.parent.exports.app,
   // preventing not authenticated actors access to private parts 
   // according to their roles
   /* authorizers:start */
-  //adminAuth = require('../auth/admin-auth.js');
+  adminAuth = require('../auth/admin-auth.js'),
   /* authorizers:end */
   /* forms:start */
   adminLoginForm = require('../forms/admin-login.js'),
@@ -51,7 +51,6 @@ app.get('/contact', function (req, res) {
 
 // ### Admin Page
 app.get('/admin', function (req, res) {
-    //var SampleForm = mongooseForms.Form(Sample);
     var form = mongooseForms.Bridge(new Admins(), new adminLoginForm()).getForm();
     var formHTML = Handlebars.helpers.renderForm(form);
     res.render('admin', { title: 'Admin', section: 'Admin', user: req.user, form: formHTML });

@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
 var i18n = require('i18n');
+var passport = require('passport');
+var flash = require('connect-flash');
+var session = require('express-session');
 var methodOverride = require('method-override');
 var utils = require('./utils');
 var config = exports.config = require('./config');
@@ -72,6 +75,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // i18n init parses req for language headers, cookies, etc.
 app.use(i18n.init);
+// Passport
+app.use(session({ secret: 'secret' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+// used to serialize the user for the session
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+
+// used to deserialize the user
+passport.deserializeUser(function(user, done) {
+    done(null, user);
+});
 
 // Routes
 require('./routes/auth');

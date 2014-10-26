@@ -3,16 +3,18 @@ var app = module.parent.exports.app,
     config = exports.config = module.parent.exports.config;
 
 // Auth Strategies
-// require('../auth/auth-passport-local-admin.js');
+/* authorizers:start */
+var adminAuth = require('../auth/admin-auth.js');
+/* authorizers:end */
 
 // Authentication routes
 
 // ## Local Strategy
 // * [Passport Local](https://github.com/jaredhanson/passport-local)
-// app.post('/admin', 
-//   passport.authenticate('administrators', { successRedirect: '/panel',
-//                                    failureRedirect: '/admin'})
-// );
+app.post('/admin', 
+  passport.authenticate('administrators', { successRedirect: '/admin/panel',
+                                    failureRedirect: '/admin'})
+);
 
 // Logout
 app.get('/logout', function(req, res){
