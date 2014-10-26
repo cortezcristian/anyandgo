@@ -16,6 +16,10 @@ adminAuth.autorizer = function(req, res, next){
     }
 };
 
+// Rest Authorizer
+adminAuth.rest = function(req, res, next){
+};
+
 // Auth Strategy
 adminAuth.strategy = new LocalStrategy(
   {
@@ -52,3 +56,5 @@ adminAuth.strategy = new LocalStrategy(
 
 // Use Strategy
 passport.use('administrators', adminAuth.strategy);
+
+module.exports = adminAuth;
