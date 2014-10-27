@@ -170,7 +170,7 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
             </div>
             
             <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'REST API Sample '</span>+d+<span class="hljs-string">"/api/v1/samples"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-    before(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+    before(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{</pre></div></div>
             
         </li>
         
@@ -248,7 +248,14 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    });
+            <div class="content"><div class='highlight'><pre>        agent
+          .post(d+<span class="hljs-string">'/admin'</span>)
+          .send({ email: <span class="hljs-string">"admin@anyandgo.com"</span>, password: <span class="hljs-string">"123456"</span> })
+          .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span> </span>{
+              assert.ok(res.ok);
+              done();
+          });
+    });
 
     describe(<span class="hljs-string">'Samples REST'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
         it(<span class="hljs-string">'GET /api/v1/samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{

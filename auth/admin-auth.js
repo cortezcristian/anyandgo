@@ -17,7 +17,15 @@ adminAuth.autorizer = function(req, res, next){
 };
 
 // Rest Authorizer
-adminAuth.rest = function(req, res, next){
+adminAuth.rest = {};
+adminAuth.rest.prereq = function(req){
+    // pre-request analisys
+    if(typeof req.user != "undefined" && typeof req.user.role != "undefined" && req.user.role == "admin"){
+        return true;
+    }else{
+        //Not authorized
+        return false;
+    }
 };
 
 // Auth Strategy

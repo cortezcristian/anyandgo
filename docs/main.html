@@ -409,10 +409,7 @@ according to their roles</p>
             <div class="content"><div class='highlight'><pre>restify.serve(app, Sample, {
   lowercase: <span class="hljs-literal">true</span>,
   lean: <span class="hljs-literal">false</span>,
-  prereq: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span> </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"pre req"</span>);
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-  },
+  prereq: adminAuth.rest.prereq,
   contextFilter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, req, cb)</span> </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"context filter"</span>);
     cb(model);

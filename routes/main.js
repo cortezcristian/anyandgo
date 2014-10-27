@@ -102,10 +102,7 @@ if (config.cors && config.cors === "enabled") {
 restify.serve(app, Sample, {
   lowercase: true,
   lean: false,
-  prereq: function(req) {
-    console.log("pre req");
-    return true;
-  },
+  prereq: adminAuth.rest.prereq,
   contextFilter: function(model, req, cb) {
     console.log("context filter");
     cb(model);

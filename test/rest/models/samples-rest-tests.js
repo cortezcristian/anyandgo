@@ -17,7 +17,7 @@ d = 'http://'+config.app.domain+":"+config.app.port;
 
 // Unit Tests
 describe('REST API Sample '+d+"/api/v1/samples", function(){
-    before(function(){
+    before(function(done){
         // Before all tests
         Sample = require("../../../models/sample.js");
         // It show create a new document in the database
@@ -30,6 +30,13 @@ describe('REST API Sample '+d+"/api/v1/samples", function(){
         // Start agent
         agent = superagent.agent();
         // Login if necesary
+        agent
+          .post(d+'/admin')
+          .send({ email: "admin@anyandgo.com", password: "123456" })
+          .end(function(res) {
+              assert.ok(res.ok);
+              done();
+          });
     });
 
     describe('Samples REST', function(){
