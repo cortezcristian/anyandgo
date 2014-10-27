@@ -70,7 +70,11 @@ app.get('/admin/config', function (req, res) {
 });
 
 // ### Panel
-app.get('/admin/panel', function (req, res) {
+app.get('/admin/panel', 
+    /* route:autorizers:start*/
+    adminAuth.autorizer,
+    /* route:autorizers:end */
+    function (req, res) {
     res.render('admin-panel', { title: 'Anyandgo', section: 'Admin Panel', user: req.user });
 });
 

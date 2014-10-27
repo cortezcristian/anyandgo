@@ -6,7 +6,7 @@ var passport = require('passport'),
 
 // Route Authorizer
 adminAuth.autorizer = function(req, res, next){
-    console.log(">",req.user);
+    console.log(req.user);
     //authorize role
     if(typeof req.user != "undefined" && typeof req.user.role != "undefined" && req.user.role == "admin"){
         next();
@@ -27,7 +27,6 @@ adminAuth.strategy = new LocalStrategy(
     passwordField: 'password'
   },
   function(username, password, done) {
-      console.log(username, password)
     Administrator.findOne({ email: username }, function(err, admin) {
       if (err) { 
           done(null, false, { message: 'There was an error with the auth.' });
@@ -43,6 +42,7 @@ adminAuth.strategy = new LocalStrategy(
       admin.nLogins++;
       admin.last_login = Date.now();
       admin.provider = 'adminlocal';
+      admin.role = 'admin';
       admin.save(function(err){
           if(err){
               console.log("Error guardando usuario >>", err);

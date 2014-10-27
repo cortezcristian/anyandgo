@@ -83,6 +83,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 // used to serialize the user for the session
 passport.serializeUser(function(user, done) {
+    console.log(user);
     done(null, user);
 });
 

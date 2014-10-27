@@ -330,7 +330,11 @@ according to their roles</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin/panel'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin/panel'</span>, 
+    <span class="hljs-comment">/* route:autorizers:start*/</span>
+    adminAuth.autorizer,
+    <span class="hljs-comment">/* route:autorizers:end */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
     res.render(<span class="hljs-string">'admin-panel'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span>, user: req.user });
 });</pre></div></div>
             

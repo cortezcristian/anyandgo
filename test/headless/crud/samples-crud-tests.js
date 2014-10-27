@@ -17,7 +17,8 @@ d = 'http://'+config.app.domain+":"+config.app.port;
 
 // Unit Tests
 describe('CRUD Sample '+d+"/admin/panel#/crud/sample", function(){
-    before(function(){
+
+    before(function(done){
         // Before all tests
         Sample = require("../../../models/sample.js");
         // It show create a new document in the database
@@ -31,6 +32,14 @@ describe('CRUD Sample '+d+"/admin/panel#/crud/sample", function(){
         // Start browser
         browser = new Browser({debug:false});
         // Login if necesary
+        browser.visit(d+"/admin", function () {
+          browser
+            .fill("email", "admin@anyandgo.com")
+            .fill("password", "123456")
+            .pressButton("Login", function(){
+                done();
+            });
+        });
     });
 
     describe('Samples CRUD', function(){
