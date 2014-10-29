@@ -206,6 +206,36 @@ $ grunt create:crud:Sample
 Creates CRUD administration for a particular model. 
 This uses [zombiejs](http://zombie.labnotes.org/API) to test the new crud functionality.
 
+### Locale+Translation file generation
+
+```bash
+$  grunt create:locale:es-es
+```
+
+Creates a new file under translation folder called `./locales/es-es.json`.
+Adds translation flag to the menu, modifying `./views/partials/site-menu.jade`:
+```jade
+            //public:translation:menu:start
+            li
+               a(href='#', langsupport="en-us") en-us
+             li
+               a(href='#', langsupport="es-ar") es-ar
++            li
++              a(href='#', langsupport='es-es') es-es
+             //public:translation:menu:end
+```
+Also registers new language into `app.js`:
+```javascript
+i18n.configure({
+   // setup some locales: other locales default to en silently
+   locales:[
+       //global:translation:start
++      'es-es',
+       //global:translation:end
+       'en-us', 
+       'es-ar'],
+```
+
 ## Optimization
 
 ### Assets minification for production
