@@ -2,8 +2,8 @@ extends layout
 
 block content
   .jumbotron
-    form(method="post")
+    form(method="post",action="")
       p !{form}
-      button.btn.btn-primary(ng-click='save()', ng-disabled='isClean() || myForm.$invalid') Login
+      input.btn.btn-primary(type="submit",value="Login")
     p
     .well.well-sm Hint: admin@anyandgo.com / 123456
