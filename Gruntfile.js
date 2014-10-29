@@ -251,6 +251,27 @@ module.exports = function (grunt) {
                 grunt.log.warn('Parameter name missing for '+arg1+' task');
             }
         break;
+        case 'locale':
+            if(typeof arg2 !== 'undefined') {
+              // append locale to ./apps.js
+              var appendp = "'"+arg2.toLowerCase()+"',\n      //global:translation:end"
+              var filename = './app.js';
+              var mainroutes = grunt.file.read(filename);
+              grunt.file.write(filename, mainroutes.replace("//global:translation:end",appendp));
+
+              // append page link to ./views/partials/site-menu.jade
+              var appendm = "li\n";
+                  appendm += "              a(href='#', langsupport='"+arg2.toLowerCase()+"') "+arg2.toLowerCase()+"\n";
+                  appendm += "            //public:translation:menu:end";
+              
+              var filename = './views/partials/site-menu.jade';
+              var mainroutes = grunt.file.read(filename);
+              grunt.file.write(filename, mainroutes.replace("//public:translation:menu:end",appendm));
+
+            } else {
+                grunt.log.warn('Parameter name missing for '+arg1+' task');
+            }
+        break;
       }
   });
 
