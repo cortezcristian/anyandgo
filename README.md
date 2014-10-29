@@ -256,7 +256,7 @@ app.set("envflag", process.env.NODE_ENV);
 
 ### Translation Support
 
-Internationalization support was added. To seee the translations source files you can inspect the `./locales` folder:
+Internationalization support was added. To see the translations source files you can inspect the `./locales` folder:
 ```bash
 $ tree locales/
 locales/
