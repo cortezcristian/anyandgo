@@ -206,7 +206,7 @@ $ grunt create:crud:Sample
 Creates CRUD administration for a particular model. 
 This uses [zombiejs](http://zombie.labnotes.org/API) to test the new crud functionality.
 
-### Locale+Translation file generation
+### Locale+Translation File generation
 
 ```bash
 $  grunt create:locale:es-es
@@ -235,6 +235,9 @@ i18n.configure({
        'en-us', 
        'es-ar'],
 ```
+See the result inmediately in your browser:
+
+![i18n screenshot](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/locale-i18n.png)
 
 ## Optimization
 
