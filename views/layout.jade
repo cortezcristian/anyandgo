@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='en',ng-app="anyandgoApp")
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
@@ -23,6 +23,7 @@ html(lang='en')
   body
     include ./partials/site-menu
     block content
+    - if(settings.envflag !== "production") {
     //-<!-- build:js(public) scripts/site-vendors.min.js -->
     //bower:js
     script(src='/components/jquery/dist/jquery.js')
@@ -30,6 +31,32 @@ html(lang='en')
     script(src='/components/angular-bootstrap/ui-bootstrap-tpls.js')
     script(src='/components/bootstrap/dist/js/bootstrap.js')
     script(src='/components/metisMenu/dist/metisMenu.js')
+    script(src='/components/lodash/dist/lodash.compat.js')
+    script(src='/components/restangular/dist/restangular.js')
+    script(src='/components/angular-resource/angular-resource.js')
+    script(src='/components/angular-cookies/angular-cookies.js')
+    script(src='/components/angular-sanitize/angular-sanitize.js')
+    script(src='/components/angular-animate/angular-animate.js')
+    script(src='/components/angular-touch/angular-touch.js')
+    script(src='/components/angular-route/angular-route.js')
     //endbower
     //-<!-- endbuild -->
+    - } else {
+    script(src='/dist/scripts/site-vendors.min.js')
+    - }
+    - if(settings.envflag !== "production") {
+    //-<!-- build:js(public) scripts/site-app.min.js -->
+    //site:app:scripts
+    script(src='/scripts/site/app.js')
+    script(src='/scripts/site/controllers/main.js')
+    script(src='/scripts/site/controllers/about.js')
+    script(src='/scripts/site/controllers/sample.js')
+    script(src='/scripts/site/controllers/sample-new.js')
+    script(src='/scripts/site/controllers/sample-edit.js')
+    script(src='/scripts/site/directives/langsupport.js')
+    //site:app:scripts:end
+    //-<!-- endbuild -->
+    - } else {
+    script(src='/dist/scripts/panel-app.min.js')
+    - }
     block scripts
