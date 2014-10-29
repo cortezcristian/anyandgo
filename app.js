@@ -39,7 +39,11 @@ require('./fixtures');
 // i18n setup
 i18n.configure({
   // setup some locales: other locales default to en silently
-  locales:['en-us', 'es-ar'],
+  locales:[
+      //global:translation:start
+      //global:translation:end
+      'en-us', 
+      'es-ar'],
   // sets a custom cookie name to parse locale settings from  - defaults to NULL
   cookie: 'lang',
   // where to store json files - defaults to './locales' relative to modules directory
