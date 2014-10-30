@@ -2,7 +2,6 @@ any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)
 ========
 
 ![Anyandgo](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/public/img/anyandgo-logo.png)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cortezcristian/anyandgo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ### Pick any·and·go!
 
@@ -238,6 +237,20 @@ i18n.configure({
 See the result inmediately in your browser:
 
 ![i18n screenshot](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/locale-i18n.png)
+
+How to use translations just open a view file `views/index.jade`:
+
+```jade
+extends layout
+
+block content
+  .jumbotron
+    h1=__("pick any·and·go")
+    p ...
+    p #{__("Welcome to anyandgo MEAN")}
+```
+
+Basically, everytime you call to function double underscore what you are passing as parameter is used as key for translation files. Translation files will auto populate it everytime you refresh the page calling the view.
 
 ## Optimization
 
