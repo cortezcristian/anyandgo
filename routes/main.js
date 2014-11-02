@@ -32,7 +32,7 @@ var app = module.parent.exports.app,
   Handlebars = require('handlebars'),
   shell = require('shelljs');
   // mongooseforms bind
-  mongooseForms.bindHelpers(Handlebars, 'bootstrap');
+  mongooseForms.bindHelpers(Handlebars, '../../../utils/formstemplates');
 
 // ## 1. Public Routes
 // --------------------------------------
@@ -120,7 +120,58 @@ restify.serve(app, Sample, {
 app.get('/forms/sample/create', function (req, res) {
     //mongooseForms.bindHelpers(Handlebars, 'bootstrap');
     var SampleForm = mongooseForms.Form(Sample);
-    var form = mongooseForms.Bridge(new Sample(), SampleForm).getForm();
+    /*
+    SampleForm = SampleForm.eachField(function(field, name){
+        console.log(">>", field, name);    
+        if(name == "__v"){
+           field.mapped = false;    
+           console.log("->", field);
+        }
+        field.buttons = [{ sample: "lala"}];
+    });
+    */
+    //delete SampleForm.options.fields["__v"];
+    //SampleForm.options.maps["__v"] = false;
+    console.log("----->>>", SampleForm);
+
+    var ngBridge = function(model, form) {
+
+      var bridge = {
+        setModel: function(_model) {
+          model = _model;
+        },
+        setForm: function(_form) {
+          form = _form;
+        },
+        getForm: function() {
+          
+          form.eachMappedField(function(field, path) {
+            field.value = model[path]; 
+            field.ngmodel = "sample"; 
+            field.formname = "myForm"; 
+          });
+
+          delete form.options.fields["__v"];
+          //form.options.fields["name"].template = 'Lala';
+          form.options.fields["name"].buttons = [{type: 'submit'}];
+          console.log(form.options.fields["name"]);
+          return form;
+        },
+        getModel: function() {
+          
+          form.eachMappedField(function(field, path) {      
+            model[path] = field.value;
+          });
+
+          return model;
+        }
+      };
+
+      return bridge;
+    };
+
+    var form = ngBridge(new Sample(), SampleForm).getForm();
+    //var form = mongooseForms.Bridge(new Sample(), SampleForm).getForm();
     var formHTMl = Handlebars.helpers.renderForm(form);
     
     console.log(formHTMl);

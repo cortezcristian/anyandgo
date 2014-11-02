@@ -1,0 +1,14 @@
+<div class="control-group {{#if error}}error{{/if}}" ng-class="{error: myForm.name.$invalid}">
+  <label class="control-label">{{label}}</label>
+  <input type="text" name="{{name}}" value="{{value}}" class="{{class}}" ng-model="{{ngmodel}}.{{name}}" required>
+  <span ng-show="{{formname}}.{{name}}.$error.required" class="help-inline">
+      Required</span>
+    
+        {{#if error}}
+        <span class="help-inline">{{error}}</span>
+        {{else}}
+            {{#if helpInline}}
+                <span class="help-inline">{{{helpInline}}}</span>
+            {{/if}}         
+        {{/if}}
+</div>
