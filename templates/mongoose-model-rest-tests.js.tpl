@@ -17,7 +17,7 @@ d = 'http://'+config.app.domain+":"+config.app.port;
 
 // Unit Tests
 describe('REST API <%=modelname %> '+d+"/api/v1/<%=modelname.toLowerCase() %>s", function(){
-    before(function(){
+    before(function(done){
         // Before all tests
         <%=modelname %> = require("../../../models/<%=modelname.toLowerCase() %>.js");
         // It show create a new document in the database
@@ -30,6 +30,13 @@ describe('REST API <%=modelname %> '+d+"/api/v1/<%=modelname.toLowerCase() %>s",
         // Start agent
         agent = superagent.agent();
         // Login if necesary
+        agent
+          .post(d+'/admin')
+          .send({ email: "admin@anyandgo.com", password: "123456" })
+          .end(function(res) {
+              assert.ok(res.ok);
+              done();
+          });
     });
 
     describe('<%=modelname %>s REST', function(){
