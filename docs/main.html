@@ -185,7 +185,7 @@ according to their roles</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  mongooseForms.bindHelpers(Handlebars, <span class="hljs-string">'bootstrap'</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  mongooseForms.bindHelpers(Handlebars, <span class="hljs-string">'../../../utils/formstemplates'</span>);</pre></div></div>
             
         </li>
         
@@ -463,14 +463,16 @@ according to their roles</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> SampleForm = mongooseForms.Form(Sample);
-    SampleForm = SampleForm.eachField(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(field, name)</span></span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"&gt;&gt;"</span>, field, name);    
-        <span class="hljs-keyword">if</span>(name == <span class="hljs-string">"__v"</span>){
-           field.mapped = <span class="hljs-literal">false</span>;    
-           <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"-&gt;"</span>, field);
+    <span class="hljs-comment">/*
+    SampleForm = SampleForm.eachField(function(field, name){
+        console.log("&gt;&gt;", field, name);    
+        if(name == "__v"){
+           field.mapped = false;    
+           console.log("-&gt;", field);
         }
-        field.buttons = {};
-    });</pre></div></div>
+        field.buttons = [{ sample: "lala"}];
+    });
+    */</span></pre></div></div>
             
         </li>
         
@@ -481,14 +483,79 @@ according to their roles</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
-              <p>delete SampleForm.options.fields[“__v”];</p>
+              <p>delete SampleForm.options.fields[“<strong>v”];
+SampleForm.options.maps[“</strong>v”] = false;</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    SampleForm.maps[<span class="hljs-string">"__v"</span>] = <span class="hljs-literal">false</span>;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"-----&gt;&gt;&gt;"</span>, SampleForm);
-    <span class="hljs-keyword">var</span> form = mongooseForms.Bridge(<span class="hljs-keyword">new</span> Sample(), SampleForm).getForm();
-    <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"-----&gt;&gt;&gt;"</span>, SampleForm);
+
+    <span class="hljs-keyword">var</span> ngBridge = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model, form)</span> </span>{
+
+      <span class="hljs-keyword">var</span> bridge = {
+        setModel: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(_model)</span> </span>{
+          model = _model;
+        },
+        setForm: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(_form)</span> </span>{
+          form = _form;
+        },
+        getForm: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+          
+          form.eachMappedField(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(field, path)</span> </span>{
+            field.value = model[path]; 
+            field.ngmodel = <span class="hljs-string">"sample"</span>; 
+            field.formname = <span class="hljs-string">"myForm"</span>; 
+          });
+
+          <span class="hljs-keyword">delete</span> form.options.fields[<span class="hljs-string">"__v"</span>];
+          <span class="hljs-keyword">delete</span> form.options.fields[<span class="hljs-string">"created"</span>];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>form.options.fields[“name”].template = ‘Lala’;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          form.options.fields[<span class="hljs-string">"name"</span>].buttons = [{type: <span class="hljs-string">'submit'</span>}];
+          <span class="hljs-built_in">console</span>.log(form.options.fields[<span class="hljs-string">"name"</span>]);
+          <span class="hljs-keyword">return</span> form;
+        },
+        getModel: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+          
+          form.eachMappedField(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(field, path)</span> </span>{      
+            model[path] = field.value;
+          });
+
+          <span class="hljs-keyword">return</span> model;
+        }
+      };
+
+      <span class="hljs-keyword">return</span> bridge;
+    };
+
+    <span class="hljs-keyword">var</span> form = ngBridge(<span class="hljs-keyword">new</span> Sample(), SampleForm).getForm();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>var form = mongooseForms.Bridge(new Sample(), SampleForm).getForm();</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
     
     <span class="hljs-built_in">console</span>.log(formHTMl);
     res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, user: req.user, form: formHTMl });
@@ -509,11 +576,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-24">
+        <li id="section-26">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
               <h2 id="5-super-admin-tasks">5. Super Admin Tasks</h2>
 <hr>
@@ -523,11 +590,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-25">
+        <li id="section-27">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
+                <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
               
             </div>
@@ -545,11 +612,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-26">
+        <li id="section-28">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
+                <a class="pilcrow" href="#section-28">&#182;</a>
               </div>
               <p>TODO: prevent auto-reboot when running with grunt, securitize mname parameter</p>
 

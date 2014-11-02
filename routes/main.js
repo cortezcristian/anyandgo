@@ -152,6 +152,7 @@ app.get('/forms/sample/create', function (req, res) {
           });
 
           delete form.options.fields["__v"];
+          delete form.options.fields["created"];
           //form.options.fields["name"].template = 'Lala';
           form.options.fields["name"].buttons = [{type: 'submit'}];
           console.log(form.options.fields["name"]);
