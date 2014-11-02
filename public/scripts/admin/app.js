@@ -39,7 +39,7 @@ angular
         controller: 'SampleCtrl'
       })
       .when('/crud/sample-new', {
-        templateUrl: '/scripts/admin/views/sample-new.html',
+        templateUrl: '/forms/sample/create',
         controller: 'SampleNewCtrl'
       })
       .when('/crud/sample-edit/:id', {

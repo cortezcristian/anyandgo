@@ -1,0 +1,14 @@
+<div class="control-group {{#if error}}error{{/if}}"> 
+    <label class="control-label">{{label}}</label>
+    <div class="controls">
+        <textarea name="{{name}}" class="{{class}}">{{value}}</textarea>
+    
+        {{#if error}}
+        <span class="help-inline">{{error}}</span>
+        {{else}}
+            {{#if helpInline}}
+                <span class="help-inline">{{{helpInline}}}</span>
+            {{/if}}         
+        {{/if}}
+    </div>
+</div>

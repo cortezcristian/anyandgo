@@ -463,6 +463,30 @@ according to their roles</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> SampleForm = mongooseForms.Form(Sample);
+    SampleForm = SampleForm.eachField(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(field, name)</span></span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"&gt;&gt;"</span>, field, name);    
+        <span class="hljs-keyword">if</span>(name == <span class="hljs-string">"__v"</span>){
+           field.mapped = <span class="hljs-literal">false</span>;    
+           <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"-&gt;"</span>, field);
+        }
+        field.buttons = {};
+    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>delete SampleForm.options.fields[“__v”];</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    SampleForm.maps[<span class="hljs-string">"__v"</span>] = <span class="hljs-literal">false</span>;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"-----&gt;&gt;&gt;"</span>, SampleForm);
     <span class="hljs-keyword">var</span> form = mongooseForms.Bridge(<span class="hljs-keyword">new</span> Sample(), SampleForm).getForm();
     <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
     
@@ -485,11 +509,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-23">
+        <li id="section-24">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
               <h2 id="5-super-admin-tasks">5. Super Admin Tasks</h2>
 <hr>
@@ -499,11 +523,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-24">
+        <li id="section-25">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
               
             </div>
@@ -521,11 +545,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-25">
+        <li id="section-26">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
+                <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
               <p>TODO: prevent auto-reboot when running with grunt, securitize mname parameter</p>
 

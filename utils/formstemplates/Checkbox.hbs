@@ -1,0 +1,15 @@
+<div class="control-group {{#if error}}error{{/if}}"> 
+    <label class="control-label">{{label}}</label>
+    <div class="controls">
+        {{#options}}
+        <label class="checkbox">
+            <input type="checkbox" name="{{../name}}" value="{{value}}" {{#if selected}}checked="checked"{{/if}} />
+            {{label}}
+        </label>
+        {{/options}}
+        
+        {{#if error}}
+        <span class="help-inline">{{error}}</span>
+        {{/if}}
+    </div>
+</div>
