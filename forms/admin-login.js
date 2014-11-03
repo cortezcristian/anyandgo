@@ -7,6 +7,9 @@ module.exports = function() {
     action: '/admin',
     maps: ['email', 'password'],
     fields: {
+      email: {
+        formname: "loginForm"    
+      },
       password: {
         template: 'Password',
         validate: function(value, check) {
