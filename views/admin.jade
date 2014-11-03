@@ -2,7 +2,7 @@ extends layout
 
 block content
   .jumbotron
-    form(method="post",action="")
+    form#loginForm(name="loginForm",method="post",action="")
       p !{form}
       input.btn.btn-primary(type="submit",value="Login")
     p
