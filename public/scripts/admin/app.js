@@ -43,7 +43,7 @@ angular
         controller: 'SampleNewCtrl'
       })
       .when('/crud/sample-edit/:id', {
-        templateUrl: '/scripts/admin/views/sample-edit.html',
+        templateUrl: '/forms/sample/create',
         controller: 'SampleEditCtrl',
         resolve: {
           sample: function(Restangular, $route){
