@@ -34,6 +34,10 @@ var app = module.parent.exports.app,
   // mongooseforms bind
   mongooseForms.bindHelpers(Handlebars, '../../../utils/formstemplates');
 
+  /* models:registration:start */
+  anyandgo.models['sample']  = Sample;
+  /* models:registration:end */
+
 // ## 1. Public Routes
 // --------------------------------------
 
@@ -117,9 +121,9 @@ restify.serve(app, Sample, {
 // ## 4. Crud Forms
 // --------------------------------------
 // https://github.com/oJshua/mongoose-forms
-app.get('/forms/sample/create', function (req, res) {
+app.get('/forms/:modelname/create', function (req, res) {
     //mongooseForms.bindHelpers(Handlebars, 'bootstrap');
-    var SampleForm = mongooseForms.Form(Sample);
+    var SampleForm = mongooseForms.Form(anyandgo.models[req.params.modelname]);
     /*
     SampleForm = SampleForm.eachField(function(field, name){
         console.log(">>", field, name);    
@@ -147,7 +151,7 @@ app.get('/forms/sample/create', function (req, res) {
           
           form.eachMappedField(function(field, path) {
             field.value = model[path]; 
-            field.ngmodel = "sample"; 
+            field.ngmodel = req.params.modelname; 
             field.formname = "myForm"; 
           });
 
@@ -171,7 +175,7 @@ app.get('/forms/sample/create', function (req, res) {
       return bridge;
     };
 
-    var form = ngBridge(new Sample(), SampleForm).getForm();
+    var form = ngBridge(new anyandgo.models[req.params.modelname](), SampleForm).getForm();
     //var form = mongooseForms.Bridge(new Sample(), SampleForm).getForm();
     var formHTMl = Handlebars.helpers.renderForm(form);
     

@@ -188,6 +188,20 @@ module.exports = function (grunt) {
                       mainroutes.replace("/* models:end */",appendm+"  /* models:end */"));
               }
 
+              // register model in ./routes/main.js
+              var appendm = grunt.template.process(grunt.file.read('./templates/append-model-registration.tpl'), {
+                    data: {
+                        'modelname': arg2
+                    }
+              });
+              var filename = './routes/main.js';
+              var mainroutes = grunt.file.read(filename);
+              var regexpm = new RegExp(".*"+appendm.replace("(", "\\(").replace(")","\\)")+".*");
+              if(!mainroutes.match(regexpm)){
+                  grunt.file.write(filename, 
+                      mainroutes.replace("/* models:registration:end */",appendm));
+              }
+
 
             } else {
                 grunt.log.warn('Parameter name missing for '+arg1+' task');
@@ -223,6 +237,85 @@ module.exports = function (grunt) {
               var filename = './views/partials/site-menu.jade';
               var mainroutes = grunt.file.read(filename);
               grunt.file.write(filename, mainroutes.replace("// public:page:menu:end",appendm));
+            } else {
+                grunt.log.warn('Parameter name missing for '+arg1+' task');
+            }
+        break;
+        case 'crud':
+            if(typeof arg2 !== 'undefined') {
+              // create Front-end files
+              var feFilesRoot = {
+                "templates" : "./templates/crud/admin/controllers/",
+                "destination" : "./public/scripts/admin/controllers/"  
+              };
+              var feFiles = {
+                  "model-edit-js.tpl" : "<%=modelname%>-edit.js",
+                  "model-new-js.tpl" : "<%=modelname%>-new.js",
+                  "model-js.tpl" : "<%=modelname%>.js",
+                  "../views/model-html.tpl" : "../views/<%=modelname%>.html"
+              }; 
+
+              for(var i in feFiles){
+                  var filefetemp = feFilesRoot.templates+i;
+                  var filefe = grunt.template.process(grunt.file.read(filefetemp), {
+                        data: {
+                            'modelname': arg2
+                        }
+                  });
+                  var filenamefe = feFilesRoot.destination+feFiles[i].replace("<%=modelname%>",arg2.toLowerCase());
+                  grunt.file.write(filenamefe, filefe);
+              }
+              // append Front-end files
+              var appendfe = grunt.template.process(grunt.file.read('./templates/crud/admin-crud-scripts-append.tpl'), {
+                    data: {
+                        'modelname': arg2
+                    }
+              });
+              var filenamefe = './views/admin-panel.jade';
+              var mainfe = grunt.file.read(filenamefe);
+              grunt.file.write(filenamefe, mainfe.replace("//admin:crud:scripts:end",appendfe));
+              // append CRUD menu into admin
+              var appendcmenu = grunt.template.process(grunt.file.read('./templates/crud/admin-crud-menu-append.tpl'), {
+                    data: {
+                        'modelname': arg2
+                    }
+              });
+              var filenamecmenu = './views/partials/admin-menu.jade';
+              var maincmenu = grunt.file.read(filenamecmenu);
+              grunt.file.write(filenamecmenu, maincmenu.replace("//admin:crud:menu:end",appendcmenu));
+              // append routes to ./public/scripts/admin/app.js
+              var appendcroute = grunt.template.process(grunt.file.read('./templates/crud/admin/app-route-append.tpl'), {
+                    data: {
+                        'modelname': arg2
+                    }
+              });
+              var filenamecroute = './public/scripts/admin/app.js';
+              var maincroute = grunt.file.read(filenamecroute);
+              grunt.file.write(filenamecroute, maincroute.replace(".otherwise({",appendcroute));
+
+              // create tests
+              
+              /*
+              var appendp = grunt.template.process(grunt.file.read('./templates/append-model-rest-main.tpl'), {
+                    data: {
+                        'modelname': arg2
+                    }
+              });
+              var filename = './routes/main.js';
+              var mainroutes = grunt.file.read(filename);
+              */
+              //grunt.file.write(filename, mainroutes.replace("/* rest:public:end */",appendp));
+
+              /*
+              // create test
+              var filetest = grunt.template.process(grunt.file.read('./templates/mongoose-model-rest-tests.js.tpl'), {
+                    data: {
+                        'modelname': arg2
+                    }
+              });
+              var filenametest = './test/rest/models/'+arg2.toLowerCase()+'s-rest-tests.js';
+              grunt.file.write(filenametest, filetest);
+              */
             } else {
                 grunt.log.warn('Parameter name missing for '+arg1+' task');
             }
