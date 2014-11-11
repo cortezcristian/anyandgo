@@ -3,5 +3,5 @@ form(name='myForm', role='form')
   br
   a.btn(href='#/') Cancel
   button.btn.btn-primary(ng-click='save()', ng-disabled='isClean() || myForm.$invalid') Save
-  button.btn.btn-danger(ng-click='destroy()', ng-show='sample._id') Delete
+  button.btn.btn-danger(ng-click='destroy()', ng-show=mname+'._id') Delete
 

@@ -185,7 +185,11 @@ according to their roles</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  mongooseForms.bindHelpers(Handlebars, <span class="hljs-string">'../../../utils/formstemplates'</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  mongooseForms.bindHelpers(Handlebars, <span class="hljs-string">'../../../utils/formstemplates'</span>);
+
+  <span class="hljs-comment">/* models:registration:start */</span>
+  anyandgo.models[<span class="hljs-string">'sample'</span>]  = Sample;
+  <span class="hljs-comment">/* models:registration:end */</span></pre></div></div>
             
         </li>
         
@@ -447,7 +451,7 @@ according to their roles</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/forms/sample/create'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/forms/:modelname/create'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{</pre></div></div>
             
         </li>
         
@@ -462,7 +466,7 @@ according to their roles</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> SampleForm = mongooseForms.Form(Sample);
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> SampleForm = mongooseForms.Form(anyandgo.models[req.params.modelname]);
     <span class="hljs-comment">/*
     SampleForm = SampleForm.eachField(function(field, name){
         console.log("&gt;&gt;", field, name);    
@@ -503,7 +507,7 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
           
           form.eachMappedField(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(field, path)</span> </span>{
             field.value = model[path]; 
-            field.ngmodel = <span class="hljs-string">"sample"</span>; 
+            field.ngmodel = req.params.modelname; 
             field.formname = <span class="hljs-string">"myForm"</span>; 
           });
 
@@ -540,7 +544,7 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
       <span class="hljs-keyword">return</span> bridge;
     };
 
-    <span class="hljs-keyword">var</span> form = ngBridge(<span class="hljs-keyword">new</span> Sample(), SampleForm).getForm();</pre></div></div>
+    <span class="hljs-keyword">var</span> form = ngBridge(<span class="hljs-keyword">new</span> anyandgo.models[req.params.modelname](), SampleForm).getForm();</pre></div></div>
             
         </li>
         
@@ -558,7 +562,7 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
             <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
     
     <span class="hljs-built_in">console</span>.log(formHTMl);
-    res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, user: req.user, form: formHTMl });
+    res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, user: req.user, form: formHTMl, mname: req.params.modelname });
 });
 
 app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{

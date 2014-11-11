@@ -180,7 +180,7 @@ app.get('/forms/:modelname/create', function (req, res) {
     var formHTMl = Handlebars.helpers.renderForm(form);
     
     console.log(formHTMl);
-    res.render('forms', { title: 'Anyandgo', section: 'Form', user: req.user, form: formHTMl });
+    res.render('forms', { title: 'Anyandgo', section: 'Form', user: req.user, form: formHTMl, mname: req.params.modelname });
 });
 
 app.get('/forms/sample/edit', function (req, res) {
