@@ -20,6 +20,23 @@ html(lang='en',ng-app="anyandgoApp")
       link(rel='stylesheet', href='/css/style.css')
     block js
       script(src='http://localhost:35729/livereload.js')
+      - if(envflag==="development" && autologin.enabled) {
+        script(src='http://localhost:35729/livereload.js')
+        script.
+          window.LiveReload.on("connect", function(){
+            console.log("------ Dev ----------");
+            $(document).ready(function(){
+                var loginBtn = $('#loginForm input[type="submit"]:visible');
+                if (loginBtn.size()) {
+                    console.log('Automated login attempt')
+                    $('input[name="email"]').val("#{autologin.username}");
+                    $('input[name="password"]').val("#{autologin.password}");
+                    loginBtn.click();
+                }
+            });
+          });
+      - }
+
   body
     include ./partials/site-menu
     block content
