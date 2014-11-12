@@ -88,7 +88,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // i18n init parses req for language headers, cookies, etc.
 app.use(i18n.init);
 // Passport
-app.use(session({ secret: 'secret' })); // session secret
+app.use(session({ secret: 'secret', saveUninitialized: true, resave: true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
