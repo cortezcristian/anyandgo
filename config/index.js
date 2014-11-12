@@ -1,6 +1,6 @@
 var config = {};
 
-switch(process.env.NODE_ENV) {
+switch (process.env.NODE_ENV) {
     case 'development':
         config = require('./config-dev.json');
     break;
@@ -15,5 +15,7 @@ switch(process.env.NODE_ENV) {
         process.env.NODE_ENV = 'development';
     break;
 }
+
+config.envflag = process.env.NODE_ENV;
 
 module.exports = config;

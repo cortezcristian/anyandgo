@@ -25,7 +25,15 @@ process.on('uncaughtException', function(err) {
 // Express 
 var app = exports.app = express();
 
-app.set("envflag", process.env.NODE_ENV);
+app.set("envflag", config.envflag || process.env.NODE_ENV);
+app.set("autologin", config.autologin || {});
+
+// Setup vars
+app.use(function(req, res, next){
+  res.locals.envflag = config.envflag || process.env.NODE_ENV;
+  res.locals.autologin = config.autologin || {};
+  next();
+});
 
 // Database Connection
 var dbConex = exports.dbConex = utils.dbConnection(config.db.domain,config.db.name,config.db.user,config.db.pass);
