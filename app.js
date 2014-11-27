@@ -86,6 +86,7 @@ if (typeof config.app.logs !== 'undefined' && config.app.logs.enabled) {
     // setup the logger
     app.use(logger(config.app.logs.format || 'dev', {stream: accessLogStream}));
     // remember to see the log:
+    // $ touch access.log
     // $ tail -f access.log
 } else {
     app.use(logger('dev'));

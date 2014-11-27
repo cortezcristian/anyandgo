@@ -501,6 +501,43 @@ fixtures/
 ```
 Notice that if flag "fixtures" is "enabled" in our config: anyandgo will autoload datasets for each collection ( note loading fixtures will clear the existing contents of a collection). In the treeview example shown above, we only are going to override admins collection. We are also adding a `shared` folder that is shared for all environments.
 
+### Server Logs
+
+By enabling config you can save the server log in a custom file, this is very useful for production environments. Just change your config file `config/config-local.json` to included the following: 
+
+```javascript
+{
+    "app": {
+        "domain" : "127.0.0.1",
++        "port": 3000,
++        "logs": {
++            "enabled": true,
++            "file": "access.log",
++            "format": "dev"
++         }
+    },
+	"auth": {
+```
+
+| Parameter        | Description                                                                         |
+| :----            | :----                                                                               |
+| app.logs.enabled | Enables / disables logs                                                             |
+| app.logs.file    | Path to log file (access.log by default)                                            |
+| app.logs.format  | [Morgan Predefined Formats](https://github.com/expressjs/morgan#predefined-formats) |
+
+Create the log file manually:
+
+```bash
+$ touch access.log
+```
+
+Start the server, and then monitor the logs files by doing:
+
+```bash
+$ tail -f access.log
+```
+
+
 ### CORS Support
 
 See [CORS](http://www.w3.org/TR/cors/)
