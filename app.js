@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
+var fs = require('fs');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -75,7 +76,21 @@ app.use('/css', stylus.middleware({
 }));
 
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
-app.use(logger('dev'));
+
+// Logs
+// [Predefined Formats](https://github.com/expressjs/morgan#predefined-formats)
+if (typeof config.app.logs !== 'undefined' && config.app.logs.enabled) {
+    // create a write stream (in append mode)
+    var accessLogStream = fs.createWriteStream(__dirname + '/' + config.app.logs.file, {flags: 'a'})
+
+    // setup the logger
+    app.use(logger(config.app.logs.format || 'dev', {stream: accessLogStream}));
+    // remember to see the log:
+    // $ tail -f access.log
+} else {
+    app.use(logger('dev'));
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
