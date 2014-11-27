@@ -125,6 +125,8 @@
 
 <span class="hljs-keyword">var</span> sampleSchema = <span class="hljs-keyword">new</span> Schema({
     name          : <span class="hljs-built_in">String</span>, 
+    template      : { type: <span class="hljs-built_in">String</span>, ngoform: { control: <span class="hljs-string">'Textarea'</span> } },
+    live          : { type: <span class="hljs-built_in">Boolean</span>, <span class="hljs-keyword">default</span>: <span class="hljs-literal">true</span>, ngoform: { control: <span class="hljs-string">'Toggle'</span> } },
 	created       : <span class="hljs-built_in">Date</span>         
 });</pre></div></div>
             

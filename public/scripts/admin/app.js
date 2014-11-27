@@ -25,6 +25,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'toggle-switch',
     'restangular'
   ])
   .config(function ($routeProvider, $locationProvider, RestangularProvider) {

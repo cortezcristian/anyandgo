@@ -9,6 +9,8 @@ var mongoose = require('mongoose'),
 
 var sampleSchema = new Schema({
     name          : String, 
+    template      : { type: String, ngoform: { control: 'Textarea' } },
+    live          : { type: Boolean, default: true, ngoform: { control: 'Toggle' } },
 	created       : Date         
 });
 
