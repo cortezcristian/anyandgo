@@ -508,11 +508,7 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
           form.eachMappedField(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(field, path)</span> </span>{
             field.value = model[path]; 
             field.ngmodel = req.params.modelname; 
-            field.formname = <span class="hljs-string">"myForm"</span>; 
-          });
-
-          <span class="hljs-keyword">delete</span> form.options.fields[<span class="hljs-string">"__v"</span>];
-          <span class="hljs-keyword">delete</span> form.options.fields[<span class="hljs-string">"created"</span>];</pre></div></div>
+            field.formname = <span class="hljs-string">"myForm"</span>;</pre></div></div>
             
         </li>
         
@@ -522,6 +518,28 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Override type with ngoform setting</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> ( field.type.options.ngoform ) {
+                field.type.instance = field.type.options.ngoform.control;
+            }
+
+          });
+
+          <span class="hljs-keyword">delete</span> form.options.fields[<span class="hljs-string">"__v"</span>];
+          <span class="hljs-keyword">delete</span> form.options.fields[<span class="hljs-string">"created"</span>];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
               <p>form.options.fields[“name”].template = ‘Lala’;</p>
 
@@ -549,11 +567,11 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
         </li>
         
         
-        <li id="section-25">
+        <li id="section-26">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
+                <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
               <p>var form = mongooseForms.Bridge(new Sample(), SampleForm).getForm();</p>
 
@@ -580,11 +598,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-26">
+        <li id="section-27">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
+                <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
               <h2 id="5-super-admin-tasks">5. Super Admin Tasks</h2>
 <hr>
@@ -594,11 +612,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-27">
+        <li id="section-28">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-27">&#182;</a>
+                <a class="pilcrow" href="#section-28">&#182;</a>
               </div>
               
             </div>
@@ -616,11 +634,11 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         </li>
         
         
-        <li id="section-28">
+        <li id="section-29">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-28">&#182;</a>
+                <a class="pilcrow" href="#section-29">&#182;</a>
               </div>
               <p>TODO: prevent auto-reboot when running with grunt, securitize mname parameter</p>
 
