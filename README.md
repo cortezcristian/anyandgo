@@ -265,6 +265,77 @@ Is very annoying when you are developing that you need to login every time the s
 
 Setting autologin.enabled to `true` will automatically put user and password on the login form and hit login for you to be redirected to the last url you were looking in the adminnistration panel.
 
+### Custom Forms Fields
+
+You can easily implement, custom fields for your automatic generated forms. In example:
+
+```javascript
+// Sample Model
+// -----------------------------
+
+// Modules Dependencies:
+//  - Mongoose (http://mongoosejs.com/docs/guide.html)
+//  
+var mongoose = require('mongoose'), 
+    Schema = mongoose.Schema;
+
+var sampleSchema = new Schema({
+    name          : String, 
++    template      : { type: String, ngoform: { control: 'Textarea' } },
++    live          : { type: Boolean, default: true, ngoform: { control: 'Toggle' } },
+	created       : Date         
+});
+
+....
+```
+
+Will produce, the following:
+
+![Custom Form Fields](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/sample-edit-form.png)
+
+For the `Toggle control` is as simple as adding a file called `./utils/formstemplates/Toggle.hbs` with the following:
+
+```html
+<div class="control-group {{#if error}}error{{/if}}"> 
+    <label class="control-label">{{label}}</label>
+    <div class="controls">
+        <toggle-switch {{#if ngmodel}}ng-model="{{ngmodel}}.{{name}}"{{/if}} on-label="true" off-label="false"><toggle-switch>
+    </div>
+</div>
+```
+
+Download the package with bower and register the dependency into `public/scripts/admin/app.js`:
+
+```bash
+$ bower install --save angular-toggle-switch
+```
+
+In our `app.js` file just add this line:
+
+```javascript
+/**
+ * @ngdoc overview
+ * @name anyandgoApp
+ * @description
+ * # anyandgoApp
+ *
+ * Main module of the application.
+ */
+angular
+  .module('anyandgoApp', [
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
++    'toggle-switch',
+    'restangular'
+  ])
+  .config(function ($routeProvider, $locationProvider, RestangularProvider) {
+      .....
+```
+
 ### Locale+Translation File generation
 
 ```bash
