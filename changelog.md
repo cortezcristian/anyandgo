@@ -14,16 +14,19 @@ CHANGE LOG:
 v0.2 ""
 v0.3
 
-- local variable user
+Done
 - grunt: menos watchers public
+- arreglar los test travisCI
 - actualizar templates
+- script de bower_install
+- arreglar las dependencias de bower.json
 - agregar documentacion sobre forms
+
+ToDo
+- local variable user
 - mejorar la capa de auth
 - agregar logs a file txt
-- script de bower_install
-- arreglar los test travisCI
 - bug-fix: windows
-- arreglar las dependencias de bower.json
 
 
 ```bash

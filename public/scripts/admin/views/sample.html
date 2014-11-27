@@ -1,20 +1,31 @@
-  <div class="input-group custom-search-form">
-    <input type="text" ng-model="search" placeholder="Search..." class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-search"></i></button></span>
-  </div>
+<header class="row">
+  <h1>
+    <div class="col-xs-12 col-sm-6"><span>Sample</span></div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="input-group custom-search-form">
+          <input type="text" ng-model="search" placeholder="Search..." class="form-control">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+          </span>
+        </div>
+      </div>
+  </h1>
+</header>
+<hr>
   <table class="table">
     <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th><a href="#/crud/sample-new"><i class="icon-plus-sign">New</i></a></th>
+      <th>Nombre</th>
+      <th><a class="btn btn-success" href="#/crud/sample-new"><i class="icon-plus-sign">Nuevo</i></a></th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="sample in samples | filter:search | orderBy:'name'" ng-show="sample._id">
-      <td><a href="#/crud/sample-edit/{{sample._id}}" data-id="{{sample._id}}" target="_blank">{{sample.name}}</a></td>
-      <td>{{sample.name}}</td>
       <td>
-        <a data-edit-id="{{sample._id}}" href="#/crud/sample-edit/{{sample._id}}"><i class="icon-pencil">Edit</i></a>
+        <a href="#/crud/sample-edit/{{sample._id}}" data-id="{{sample._id}}">{{sample.name}}</a>
+      </td>
+      <td>
+        <a class="btn btn-link"  data-edit-id="{{sample._id}}" href="#/crud/sample-edit/{{sample._id}}"><i class="icon-pencil">Editar</i></a>
       </td>
     </tr>
     </tbody>
