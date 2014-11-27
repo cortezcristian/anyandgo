@@ -153,6 +153,11 @@ app.get('/forms/:modelname/create', function (req, res) {
             field.value = model[path]; 
             field.ngmodel = req.params.modelname; 
             field.formname = "myForm"; 
+            // Override type with ngoform setting
+            if ( field.type.options.ngoform ) {
+                field.type.instance = field.type.options.ngoform.control;
+            }
+
           });
 
           delete form.options.fields["__v"];
