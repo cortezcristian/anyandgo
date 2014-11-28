@@ -27,7 +27,9 @@ ToDo
 - mejorar la capa de auth
 - agregar logs a file txt
 - bug-fix: windows
-
+- run npm install everytime you run grunt, in case some package missing 
+    - https://www.npmjs.org/package/grunt-auto-install
+    - https://www.npmjs.org/package/grunt-check-dependencies
 
 ```bash
 git tag -a v0.1 -m "Prototype"
