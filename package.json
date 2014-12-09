@@ -55,5 +55,17 @@
     "grunt-contrib-concat": "~0.5.0",
     "grunt-contrib-uglify": "~0.6.0",
     "grunt-contrib-cssmin": "~0.10.0"
+  },
+  "subdomain": "cortezcristian-anyandgo",
+  "domains": [
+    "anyandgo.io",
+    "www.anyandgo.io",
+    "anyandgo.com",
+    "www.anyandgo.com",
+    "anyandgo.info",
+    "www.anyandgo.info"
+  ],
+  "engines": {
+    "node": "0.10.x"
   }
 }
