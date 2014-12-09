@@ -7,6 +7,8 @@ switch (process.env.NODE_ENV) {
     case 'production':
         config = require('./config-prod.json');
     break;
+    case 'nodejitsu':
+        config = require('./config-nodejitsu.json');
     case 'travisci':
         config = require('./config-travisci.json');
     break;
