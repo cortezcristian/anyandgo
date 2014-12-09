@@ -1,9 +1,59 @@
 extends layout
 
 block content
-  .jumbotron
-    h1=__("pick any·and·go")
-    p ...
-    p #{__("Welcome to anyandgo MEAN")}
-    p
-      a.btn.btn-primary.btn-lg(role='button',href="https://github.com/cortezcristian/anyandgo") Read the Docs
+  .row
+    .neck
+      h1.hammerfont.logobig
+        i.fa.fa-dropbox.fa-3(style="padding:0 3px;")
+        | #{__("Any·and·go")}
+      p.white #{__("pick any·and·go")}
+      p.white #{__("Welcome to anyandgo MEAN")}
+      p
+        a.btn.btn-primary.btn-lg(role='button',href="https://github.com/cortezcristian/anyandgo") Read the Docs
+  .row.our-main-content
+    .col-sm-10.col-sm-offset-1
+      .col-sm-6.col-md-4
+        .thumbnail
+          img(src='http://placehold.it/700x300&text=100GB', alt='...',style="height: 170px;")
+          .caption
+            h3 Starter Plan  
+              span.label.label-success(style="font-size:12px;") New!
+            div(style="min-height: 100px;")
+              p Nice plan for your grandma pics. What do we offer?
+              ul
+                li 100 GB Space
+                li 1 USD per month 
+            p
+              a.btn.btn-primary(href='#register', role='button') Buy it!
+              | 
+              a.btn.btn-default(href='#register', role='button') More..
+      .col-sm-6.col-md-4
+        .thumbnail
+          img(src='http://placehold.it/700x300&text=500GB', alt='...',style="height: 170px;")
+          .caption
+            h3 Silver Plan   
+              span.label.label-success(style="font-size:12px;") New!
+            div(style="min-height: 100px;")
+              p Nice plan for starters, don't be a chicken. What do we offer?
+              ul
+                li 500 GB Space
+                li 3 USD per month 
+            p
+              a.btn.btn-primary(href='#register', role='button') Buy it!
+              | 
+              a.btn.btn-default(href='#register', role='button') More..
+      .col-sm-6.col-md-4
+        .thumbnail
+          img(src='http://placehold.it/700x300&text=1TB', alt='...',style="height: 170px;")
+          .caption
+            h3 Rockstar Plan  
+              span.label.label-success(style="font-size:12px;") New!
+            div(style="min-height: 100px;")
+              p Buy it now! and become a ninja rockstar. What do we offer?
+              ul
+                li 1 TB Space
+                li 9 USD per month 
+            p
+              a.btn.btn-primary(href='#register', role='button') Buy it!
+              | 
+              a.btn.btn-default(href='#register', role='button') More..
