@@ -13,6 +13,7 @@ var session = require('express-session');
 var methodOverride = require('method-override');
 var utils = require('./utils');
 var config = exports.config = require('./config');
+var mail = exports.mail = require('./utils/mailer.js');
 var anyandgo = exports.anyandgo = {};
 
 // Anyandgo
@@ -118,6 +119,13 @@ passport.serializeUser(function(user, done) {
 // used to deserialize the user
 passport.deserializeUser(function(user, done) {
     done(null, user);
+});
+
+// Interceptors
+app.use(function(req, res, next) {
+    res.locals.user = req.user;
+    res.locals.flash = req.flash();
+    next();
 });
 
 // Routes

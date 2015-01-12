@@ -11,6 +11,7 @@
 var app = module.parent.exports.app,
   config = module.parent.exports.config,
   anyandgo = module.parent.exports.anyandgo,
+  mail = module.parent.exports.mail,
   // ## Models
   /* models:start */
   // Admins        = require('../models/admins.js'),
@@ -51,6 +52,25 @@ app.get('/', function (req, res) {
 // ### Contact Page
 app.get('/contact', function (req, res) {
     res.render('contact', { title: 'Contact', section: 'Contact', user: req.user });
+});
+
+// ### Contact Page
+app.post('/contact', function (req, res) {
+    var msg = "Message: "+req.body.message;
+
+    mail.mailer({
+        from: config.mail.auth.user, 
+        to: 'cortez.cristian@gmail.com',
+        subject: 'Anyandgo',
+        text: msg+' Sent from anyandgo'
+    }, function(error, response){
+       if(error){
+           console.log(error);
+       }else{
+           console.log("Message sent: ", response);
+       }
+       res.json(req.body);
+    });
 });
 
 // ### Admin Page
