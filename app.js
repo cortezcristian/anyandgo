@@ -1,4 +1,5 @@
 var express = require('express');
+var expressValidator = require('express-validator');
 var path = require('path');
 var favicon = require('serve-favicon');
 var fs = require('fs');
@@ -94,6 +95,7 @@ if (typeof config.app.logs !== 'undefined' && config.app.logs.enabled) {
 }
 
 app.use(bodyParser.json());
+app.use(expressValidator());
 app.use(bodyParser.urlencoded({
   extended: true
 }));

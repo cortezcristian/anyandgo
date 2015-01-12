@@ -58,19 +58,37 @@ app.get('/contact', function (req, res) {
 app.post('/contact', function (req, res) {
     var msg = "Message: "+req.body.message;
 
-    mail.mailer({
-        from: config.mail.auth.user, 
-        to: 'cortez.cristian@gmail.com',
-        subject: 'Anyandgo',
-        text: msg+' Sent from anyandgo'
-    }, function(error, response){
-       if(error){
-           console.log(error);
-       }else{
-           console.log("Message sent: ", response);
-       }
-       res.json(req.body);
-    });
+    req.checkBody('name', 'is required').notEmpty();
+    req.checkBody('email', 'is required').notEmpty();
+    req.checkBody('email', 'is not a valid email address').isEmail();
+    req.checkBody('message', 'is required').notEmpty();
+
+    var errors = req.validationErrors();
+
+    // console.log("--->", errors);
+
+    if ( errors ) {
+        req.flash("error", errors);
+        req.flash("form", req.body);
+        res.redirect('/contact');
+    } else {
+        mail.mailer({
+            from: config.mail.auth.user, 
+            to: 'cortez.cristian@gmail.com',
+            subject: 'Anyandgo',
+            text: msg+' Sent from anyandgo'
+        }, function(error, response){
+           if ( error ) {
+                console.log(error);
+                req.flash("error", "There was a problem your message couldn't be sent. Please try again later");
+                res.redirect('/contact');
+           } else {
+                console.log("Message sent: ", response);
+                req.flash("success", { msg: "Contacto recibido"});
+                res.redirect('/contact');
+           }
+        });
+    }
 });
 
 // ### Admin Page

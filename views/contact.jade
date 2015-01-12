@@ -17,8 +17,11 @@ block content
     - }else{
     .col-sm-6.col-sm-offset-3
       h2 Contact
+      //p #{JSON.stringify(flash)}
       p Leave us your message. 
+      - var form = {};
       - if(flash && typeof flash.error !== 'undefined' && flash.error.length > 0) {
+      - form = (typeof flash.form !== 'undefined') ? flash.form[0] : {} ;
       .alert.alert-danger(role="alert")
         -   flash.error.forEach(function(v,i){
           -     if(typeof v === 'object') {
@@ -29,13 +32,13 @@ block content
       form(role="form",method="post",action="")
         .form-group
           label.label-control(for="name") Name : 
-          input(name="name")#name.form-control
+          input(name="name", value=((form.name)?form.name:""))#name.form-control
         .form-group
           label.label-control(for="email") Email :
-          input(name="email")#email.form-control
+          input(name="email", value=((form.email)?form.email:""))#email.form-control
         .form-group
           label.label-control(for="message") Message :
-          textarea(name="message")#message.form-control
+          textarea(name="message")#message.form-control #{((form.message)?form.message:"")}
         .form-group
           !{recaptcha_form}
         .form-group
