@@ -73,13 +73,13 @@ app.post('/contact', function (req, res, next) {
                     // success call to next
                     next();
                 } else {
-                    req.flash("error", { param:"recaptcha", msg: "the captcha is incorrect"});
-                    //res.redirect('/contact');
+                    // extra error trigger
+                    req.flash("error", { param:"recaptcha", msg: "the captcha was incorrect, please try again"});
                     next();
                 }
             });
         } else {
-            // not captcha
+            // no captcha
             next();
         }
     }, function (req, res) {
@@ -97,6 +97,7 @@ app.post('/contact', function (req, res, next) {
     // console.log("--->", extra, extra.length);
     // console.log("E--->", errors);
     if (extra.length > 0 ) {
+        errors = (errors !== null) ? errors : [];
         errors.push(extra[0]);
     }
 
