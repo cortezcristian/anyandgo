@@ -38,6 +38,21 @@
         "user" : "",
         "pass" : ""
     },
+    "mail" : {
+        "enabled" : true,
+        "transport" : "smtp",
+        "host" : "",
+        "port" : 25,
+        "auth" : {
+            "user" : "",
+            "pass" : ""
+        }
+    },
+    "captcha" : {
+        "enabled" : true,
+        "publickey" : "",
+        "privatekey" : ""
+    },
     "cors": "enabled",
     "fixtures": "enabled",
     "session" : {
