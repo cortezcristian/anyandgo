@@ -503,6 +503,36 @@ fixtures/
 ```
 Notice that if flag "fixtures" is "enabled" in our config: anyandgo will autoload datasets for each collection ( note loading fixtures will clear the existing contents of a collection). In the treeview example shown above, we only are going to override admins collection. We are also adding a `shared` folder that is shared for all environments.
 
+### Mails
+
+Mail support was added, using [nodemailer](https://github.com/andris9/Nodemailer) and [nodemailer-smtp-transport](https://github.com/andris9/nodemailer-smtp-transport#smtp-transport-module-for-nodemailer). See the configs:
+
+```json
+    "mail" : {
+        "enabled" : true,
+        "transport" : "smtp",
+        "host" : "mail.your-email-host.io",
+        "port" : 25,
+        "contact" : "contact@email.io",
+        "auth" : {
+            "user" : "user-email-here",
+            "pass" : "secret-pass-here"
+        }
+    },
+```
+
+### Captcha Support
+
+Using the [Google reCAPTCHA Service](http://www.google.com/recaptcha/intro/index.html) and [node-recaptcha](https://github.com/mirhampt/node-recaptcha#node-recaptcha) package. You can enable this feature just by changing the config settings.
+
+```json
+    "captcha" : {
+        "enabled" : true,
+        "publickey" : "insert-key-here",
+        "privatekey" : "insert-key-here"
+    },
+```
+
 ### Server Logs
 
 By enabling config you can save the server log in a custom file, this is very useful for production environments. Just change your config file `config/config-local.json` to included the following: 
