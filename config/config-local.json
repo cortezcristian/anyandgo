@@ -43,6 +43,7 @@
         "transport" : "smtp",
         "host" : "",
         "port" : 25,
+        "contact" : "",
         "auth" : {
             "user" : "",
             "pass" : ""

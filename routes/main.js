@@ -61,6 +61,14 @@ app.get('/contact', function (req, res) {
 
 // ### Contact Page
 app.post('/contact', function (req, res, next) {
+        if ( config.mail && config.mail.enabled ) {
+            // Mail is enabled
+            next();
+        } else {
+            // Mail is not enabled, you shall not pass
+            res.end('Anyandgo: Mail is not enabled, please contact the site administrator.');
+        }
+     }, function (req, res, next) {
         if ( config.captcha && config.captcha.enabled ) {
             var data = {
                 remoteip:  req.connection.remoteAddress,
