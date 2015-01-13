@@ -11,6 +11,8 @@
 var app = module.parent.exports.app,
   config = module.parent.exports.config,
   anyandgo = module.parent.exports.anyandgo,
+  mail = module.parent.exports.mail,
+  Recaptcha = require('recaptcha').Recaptcha,
   // ## Models
   /* models:start */
   // Admins        = require('../models/admins.js'),
@@ -50,7 +52,89 @@ app.get('/', function (req, res) {
   
 // ### Contact Page
 app.get('/contact', function (req, res) {
-    res.render('contact', { title: 'Contact', section: 'Contact', user: req.user });
+    var recaptcha = "";
+    if(config.captcha && config.captcha.enabled ){
+        recaptcha = new Recaptcha(config.captcha.publickey, config.captcha.privatekey);
+    }
+    res.render('contact', { title: 'Contact', section: 'Contact', user: req.user, recaptcha_form: recaptcha.toHTML()});
+});
+
+// ### Contact Page
+app.post('/contact', function (req, res, next) {
+        if ( config.mail && config.mail.enabled ) {
+            // Mail is enabled
+            next();
+        } else {
+            // Mail is not enabled, you shall not pass
+            res.end('Anyandgo: Mail is not enabled, please contact the site administrator.');
+        }
+     }, function (req, res, next) {
+        if ( config.captcha && config.captcha.enabled ) {
+            var data = {
+                remoteip:  req.connection.remoteAddress,
+                challenge: req.body.recaptcha_challenge_field,
+                response:  req.body.recaptcha_response_field
+            };
+            var recaptcha = new Recaptcha(config.captcha.publickey, config.captcha.privatekey, data);
+            recaptcha.verify(function(success, error_code) {
+                if ( success ) {
+                    // success call to next
+                    next();
+                } else {
+                    // extra error trigger
+                    req.flash("error", { param:"recaptcha", msg: "the captcha was incorrect, please try again"});
+                    next();
+                }
+            });
+        } else {
+            // no captcha
+            next();
+        }
+    }, function (req, res) {
+
+    var msg = "Message: "+req.body.message;
+
+    req.checkBody('name', 'is required').notEmpty();
+    req.checkBody('email', 'is required').notEmpty();
+    req.checkBody('email', 'is not a valid email address').isEmail();
+    req.checkBody('message', 'is required').notEmpty();
+
+    var errors = req.validationErrors();
+
+    var extra = req.flash("error");
+    // console.log("--->", extra, extra.length);
+    // console.log("E--->", errors);
+    if (extra.length > 0 ) {
+        errors = (errors !== null) ? errors : [];
+        errors.push(extra[0]);
+    }
+
+    if ( errors ) {
+        req.flash("error", errors);
+        req.flash("form", req.body);
+        res.redirect('/contact');
+    } else {
+        mail.sendFromTemplate('./mailstemplates/contact.hbs', {
+            name: req.body.name,
+            message: req.body.message,
+            email: req.body.email
+        }, {
+            from: config.mail.auth.user, 
+            to: config.mail.contact,
+            subject: 'Anyandgo',
+            text: msg+' Sent from anyandgo'
+        }, function(error, response){
+           if ( error ) {
+                console.log(error);
+                req.flash("error", "There was a problem your message couldn't be sent. Please try again later");
+                res.redirect('/contact');
+           } else {
+                console.log("Message sent: ", response);
+                req.flash("success", { msg: "Contacto recibido"});
+                res.redirect('/contact');
+           }
+        });
+    }
 });
 
 // ### Admin Page

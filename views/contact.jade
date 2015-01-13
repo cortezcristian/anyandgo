@@ -1,9 +1,51 @@
 extends layout
 
 block content
-  .jumbotron
-    h1=__("pick any·and·go")
-    p Route: /contact
-    p Page: Contact
-    p
-      a.btn.btn-primary.btn-lg(role='button',href="https://github.com/cortezcristian/anyandgo") Read the Docs
+  .row(style="padding-top:40px")
+    - if (typeof flash.success !== 'undefined' && flash.success.length){
+    .col-sm-6.col-sm-offset-3
+      .jumbotron(style="margin-top:40px")
+        .row
+          .col-md-3
+              p.text-center
+                i.fa.fa-thumbs-o-up.fa-5x
+            .col-md-9
+              p.semiBold We have received your message
+              p We'll get back to you shortly
+              p
+                a.btn.btn-primary(role='button',href="/") Back
+    - }else{
+    .col-sm-6.col-sm-offset-3
+      h2 Contact
+      //p #{JSON.stringify(flash)}
+      p Leave us your message. 
+      - var form = {}, errors = {};
+      - if(flash && typeof flash.error !== 'undefined' && flash.error.length > 0) {
+      - form = (typeof flash.form !== 'undefined') ? flash.form[0] : {} ;
+      .alert.alert-danger.hide(role="alert")
+        -   flash.error.forEach(function(v,i){
+          -     if(typeof v === 'object') {
+          -         errors[v.param] = v.msg;
+          p #{v.param}: #{v.msg}
+          -     }
+        -   });
+      - }
+      form(role="form",method="post",action="")
+        .form-group(class=(errors.name)?'has-error':'')
+          label.label-control(for="name") Name : 
+          input(name="name", value=((form.name)?form.name:""))#name.form-control
+          span.help-block #{((errors.name)?errors.name:'')}
+        .form-group(class=(errors.email)?'has-error':'')
+          label.label-control(for="email") Email :
+          input(name="email", value=((form.email)?form.email:""))#email.form-control
+          span.help-block #{((errors.email)?errors.email:'')}
+        .form-group(class=(errors.message)?'has-error':'')
+          label.label-control(for="message") Message :
+          textarea(name="message")#message.form-control #{((form.message)?form.message:"")}
+          span.help-block #{((errors.message)?errors.message:'')}
+        .form-group(class=(errors.recaptcha)?'has-error':'')
+          !{recaptcha_form}
+          span.help-block #{((errors.recaptcha)?errors.recaptcha:'')}
+        .form-group
+          button(type="submit").btn.btn-primary Send
+    -}

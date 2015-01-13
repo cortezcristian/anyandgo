@@ -1,4 +1,5 @@
 var express = require('express');
+var expressValidator = require('express-validator');
 var path = require('path');
 var favicon = require('serve-favicon');
 var fs = require('fs');
@@ -13,6 +14,7 @@ var session = require('express-session');
 var methodOverride = require('method-override');
 var utils = require('./utils');
 var config = exports.config = require('./config');
+var mail = exports.mail = require('./utils/mailer.js');
 var anyandgo = exports.anyandgo = {};
 
 // Anyandgo
@@ -93,6 +95,7 @@ if (typeof config.app.logs !== 'undefined' && config.app.logs.enabled) {
 }
 
 app.use(bodyParser.json());
+app.use(expressValidator());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -118,6 +121,13 @@ passport.serializeUser(function(user, done) {
 // used to deserialize the user
 passport.deserializeUser(function(user, done) {
     done(null, user);
+});
+
+// Interceptors
+app.use(function(req, res, next) {
+    res.locals.user = req.user;
+    res.locals.flash = req.flash();
+    next();
 });
 
 // Routes
