@@ -106,9 +106,13 @@ app.post('/contact', function (req, res, next) {
         req.flash("form", req.body);
         res.redirect('/contact');
     } else {
-        mail.mailer({
+        mail.sendFromTemplate('./mailstemplates/contact.hbs', {
+            name: req.body.name,
+            message: req.body.message,
+            email: req.body.email
+        }, {
             from: config.mail.auth.user, 
-            to: 'cortez.cristian@gmail.com',
+            to: config.mail.contact,
             subject: 'Anyandgo',
             text: msg+' Sent from anyandgo'
         }, function(error, response){

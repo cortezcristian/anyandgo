@@ -53,13 +53,14 @@ var sendFromTemplate = exports.sendFromTemplate = function(tplPath, tplData, obj
     });
 };
 // test
+/*
 sendFromTemplate('./mailstemplates/contact.hbs', {
     name: 'Cristian',
     message: 'Sample msg!!',
-    email: 'cortez.cristian@gmail.com'
+    email: 'sample@anyandgo.com'
     }, {
         from: config.mail.auth.user, 
-        to: 'cortez.cristian@gmail.com',
+        to: 'sample@anyandgo.com',
         subject: 'Anyandgo',
         text: 'Sent from anyandgo'
     }, function(error, response){
@@ -69,3 +70,4 @@ sendFromTemplate('./mailstemplates/contact.hbs', {
            console.log("Message sent: ", response);
        }
     });
+*/
