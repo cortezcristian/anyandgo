@@ -39,7 +39,7 @@
         "pass" : ""
     },
     "mail" : {
-        "enabled" : true,
+        "enabled" : false,
         "transport" : "smtp",
         "host" : "",
         "port" : 25,
@@ -50,7 +50,7 @@
         }
     },
     "captcha" : {
-        "enabled" : true,
+        "enabled" : false,
         "publickey" : "",
         "privatekey" : ""
     },
