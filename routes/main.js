@@ -54,9 +54,10 @@ app.get('/', function (req, res) {
 app.get('/contact', function (req, res) {
     var recaptcha = "";
     if(config.captcha && config.captcha.enabled ){
-        recaptcha = new Recaptcha(config.captcha.publickey, config.captcha.privatekey);
+        var rc = new Recaptcha(config.captcha.publickey, config.captcha.privatekey);
+        recaptcha = rc.toHTML();
     }
-    res.render('contact', { title: 'Contact', section: 'Contact', user: req.user, recaptcha_form: recaptcha.toHTML()});
+    res.render('contact', { title: 'Contact', section: 'Contact', user: req.user, recaptcha_form: recaptcha});
 });
 
 // ### Contact Page

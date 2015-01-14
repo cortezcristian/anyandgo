@@ -44,7 +44,7 @@ block content
           textarea(name="message")#message.form-control #{((form.message)?form.message:"")}
           span.help-block #{((errors.message)?errors.message:'')}
         .form-group(class=(errors.recaptcha)?'has-error':'')
-          !{recaptcha_form}
+          | !{recaptcha_form}
           span.help-block #{((errors.recaptcha)?errors.recaptcha:'')}
         .form-group
           button(type="submit").btn.btn-primary Send
