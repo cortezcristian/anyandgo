@@ -533,6 +533,8 @@ Using the [Google reCAPTCHA Service](http://www.google.com/recaptcha/intro/index
     },
 ```
 
+![Captcha Example](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/form-contact.png)
+
 ### Server Logs
 
 By enabling config you can save the server log in a custom file, this is very useful for production environments. Just change your config file `config/config-local.json` to included the following: 
