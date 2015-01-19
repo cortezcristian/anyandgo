@@ -45,7 +45,7 @@ var app = module.parent.exports.app,
 
 // ### Home Page
 app.get('/', function (req, res) {
-    res.render('index', { title: 'Anyandgo', section: 'Home', user: req.user });
+    res.render('index', { title: 'Anyandgo', section: 'Home' });
 });
 
 /* page:public:start */
@@ -57,7 +57,7 @@ app.get('/contact', function (req, res) {
         var rc = new Recaptcha(config.captcha.publickey, config.captcha.privatekey);
         recaptcha = rc.toHTML();
     }
-    res.render('contact', { title: 'Contact', section: 'Contact', user: req.user, recaptcha_form: recaptcha});
+    res.render('contact', { title: 'Contact', section: 'Contact', recaptcha_form: recaptcha});
 });
 
 // ### Contact Page
@@ -142,7 +142,7 @@ app.post('/contact', function (req, res, next) {
 app.get('/admin', function (req, res) {
     var form = mongooseForms.Bridge(new Admins(), new adminLoginForm()).getForm();
     var formHTML = Handlebars.helpers.renderForm(form);
-    res.render('admin', { title: 'Admin', section: 'Admin', user: req.user, form: formHTML });
+    res.render('admin', { title: 'Admin', section: 'Admin', form: formHTML });
 });
 /* page:public:end */
 
@@ -150,12 +150,12 @@ app.get('/admin', function (req, res) {
 // --------------------------------------
 // ### Login
 app.get('/admin', function (req, res) {
-    res.render('admin-index', { title: 'Anyandgo', section: 'Admin Login', user: req.user });
+    res.render('admin-index', { title: 'Anyandgo', section: 'Admin Login' });
 });
 
 // ### Panel
 app.get('/admin/config', function (req, res) {
-    res.render('admin-config', { title: 'Anyandgo', section: 'Admin Panel', user: req.user });
+    res.render('admin-config', { title: 'Anyandgo', section: 'Admin Panel' });
 });
 
 // ### Panel
@@ -164,7 +164,7 @@ app.get('/admin/panel',
     adminAuth.autorizer,
     /* route:autorizers:end */
     function (req, res) {
-    res.render('admin-panel', { title: 'Anyandgo', section: 'Admin Panel', user: req.user });
+    res.render('admin-panel', { title: 'Anyandgo', section: 'Admin Panel' });
 });
 
 // ## 3. Public Rest
@@ -270,7 +270,7 @@ app.get('/forms/:modelname/create', function (req, res) {
     var formHTMl = Handlebars.helpers.renderForm(form);
     
     console.log(formHTMl);
-    res.render('forms', { title: 'Anyandgo', section: 'Form', user: req.user, form: formHTMl, mname: req.params.modelname });
+    res.render('forms', { title: 'Anyandgo', section: 'Form', form: formHTMl, mname: req.params.modelname });
 });
 
 app.get('/forms/sample/edit', function (req, res) {
@@ -281,7 +281,7 @@ app.get('/forms/sample/edit', function (req, res) {
         var formHTMl = Handlebars.helpers.renderForm(form);
     
         console.log(formHTMl);
-        res.render('forms', { title: 'Anyandgo', section: 'Form', user: req.user, form: formHTMl });
+        res.render('forms', { title: 'Anyandgo', section: 'Form', form: formHTMl });
     });
 });
 
