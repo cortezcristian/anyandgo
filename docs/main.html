@@ -231,7 +231,7 @@ according to their roles</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
-    res.render(<span class="hljs-string">'index'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Home'</span>, user: req.user });
+    res.render(<span class="hljs-string">'index'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Home'</span> });
 });
 
 <span class="hljs-comment">/* page:public:start */</span></pre></div></div>
@@ -250,7 +250,7 @@ according to their roles</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/contact'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
-    res.render(<span class="hljs-string">'contact'</span>, { title: <span class="hljs-string">'Contact'</span>, section: <span class="hljs-string">'Contact'</span>, user: req.user });
+    res.render(<span class="hljs-string">'contact'</span>, { title: <span class="hljs-string">'Contact'</span>, section: <span class="hljs-string">'Contact'</span> });
 });</pre></div></div>
             
         </li>
@@ -269,7 +269,7 @@ according to their roles</p>
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
     <span class="hljs-keyword">var</span> form = mongooseForms.Bridge(<span class="hljs-keyword">new</span> Admins(), <span class="hljs-keyword">new</span> adminLoginForm()).getForm();
     <span class="hljs-keyword">var</span> formHTML = Handlebars.helpers.renderForm(form);
-    res.render(<span class="hljs-string">'admin'</span>, { title: <span class="hljs-string">'Admin'</span>, section: <span class="hljs-string">'Admin'</span>, user: req.user, form: formHTML });
+    res.render(<span class="hljs-string">'admin'</span>, { title: <span class="hljs-string">'Admin'</span>, section: <span class="hljs-string">'Admin'</span>, form: formHTML });
 });
 <span class="hljs-comment">/* page:public:end */</span></pre></div></div>
             
@@ -301,7 +301,7 @@ according to their roles</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
-    res.render(<span class="hljs-string">'admin-index'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Login'</span>, user: req.user });
+    res.render(<span class="hljs-string">'admin-index'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Login'</span> });
 });</pre></div></div>
             
         </li>
@@ -318,7 +318,7 @@ according to their roles</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin/config'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
-    res.render(<span class="hljs-string">'admin-config'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span>, user: req.user });
+    res.render(<span class="hljs-string">'admin-config'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span> });
 });</pre></div></div>
             
         </li>
@@ -339,7 +339,7 @@ according to their roles</p>
     adminAuth.autorizer,
     <span class="hljs-comment">/* route:autorizers:end */</span>
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
-    res.render(<span class="hljs-string">'admin-panel'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span>, user: req.user });
+    res.render(<span class="hljs-string">'admin-panel'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span> });
 });</pre></div></div>
             
         </li>
@@ -580,7 +580,7 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
             <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
     
     <span class="hljs-built_in">console</span>.log(formHTMl);
-    res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, user: req.user, form: formHTMl, mname: req.params.modelname });
+    res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, form: formHTMl, mname: req.params.modelname });
 });
 
 app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(req, res)</span> </span>{
@@ -591,7 +591,7 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
     
         <span class="hljs-built_in">console</span>.log(formHTMl);
-        res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, user: req.user, form: formHTMl });
+        res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, form: formHTMl });
     });
 });</pre></div></div>
             
