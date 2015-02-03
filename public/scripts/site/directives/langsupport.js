@@ -12,7 +12,7 @@ function setCookie(cname, cvalue, exdays) {
  * @description
  * # langsupport
  */
-angular.module('anyandgoApp', ['ngCookies'])
+angular.module('anyandgoApp')
   .directive('langsupport', ['$cookieStore', '$cookies', '$window',
                              function ($cookieStore, $cookies, $window) {
     return {
