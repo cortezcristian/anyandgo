@@ -571,6 +571,11 @@ Start the server, and then monitor the logs files by doing:
 $ tail -f access.log
 ```
 
+### Security
+
+- [Helmet](https://github.com/helmetjs/helmet)
+- [CSRF](https://github.com/expressjs/csurf)
+
 
 ### CORS Support
 

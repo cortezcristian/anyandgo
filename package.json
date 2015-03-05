@@ -33,7 +33,8 @@
     "nodemailer": "~1.3.0",
     "express-validator": "~2.8.0",
     "recaptcha": "~1.2.0",
-    "async": "~0.9.0"
+    "async": "~0.9.0",
+    "helmet": "~0.6.2"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

@@ -44,6 +44,9 @@
         "publickey" : "",
         "privatekey" : ""
     },
+    "security": {
+        "enabled" : true
+    },
     "cors": "enabled",
     "fixtures": "enabled",
     "session" : {
