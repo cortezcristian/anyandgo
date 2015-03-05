@@ -57,7 +57,7 @@
     "security": {
         "enabled" : true
     },
-    "csrf": "enabled",
+    "csrf": "disabled",
     "cors": "enabled",
     "fixtures": "enabled",
     "session" : {

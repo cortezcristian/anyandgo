@@ -9,15 +9,6 @@ $(document).ready(function(){
 });
 */
 
-var CSRF_HEADER = 'X-CSRF-Token';
-
-var setCSRFToken = function(securityToken) {
-  jQuery.ajaxPrefilter(function(options, _, xhr) {
-    if ( !xhr.crossDomain ) 
-        xhr.setRequestHeader(CSRF_HEADER, securityToken);
-  });
-};
-
 /**
  * @ngdoc overview
  * @name anyandgoApp
@@ -81,9 +72,6 @@ angular
   }).run(function ($rootScope, $location, $route, $timeout, $http, $cookies) {
 
     /*
-    var csrfToken = $cookies['_csrf'];
-    setCSRFToken(csrfToken);
-    $http.defaults.headers.common['X-CSRF-Token'] = csrfToken;
     */
 
     $rootScope.config = {};
@@ -91,6 +79,8 @@ angular
     $rootScope.config.app_path = $location.path();
     $rootScope.layout = {};
     $rootScope.layout.loading = false;
+
+    if(!navigator.userAgent.match(/Zombie/)) {
 
     $rootScope.$on('$routeChangeStart', function () {
         console.log('$routeChangeStart');
@@ -113,5 +103,8 @@ angular
         $rootScope.layout.loading = false;
 
     });
+
+    }
+
   });
 
