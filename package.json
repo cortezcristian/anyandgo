@@ -34,7 +34,8 @@
     "express-validator": "~2.8.0",
     "recaptcha": "~1.2.0",
     "async": "~0.9.0",
-    "helmet": "~0.6.2"
+    "helmet": "~0.6.2",
+    "csurf": "~1.7.0"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
@@ -60,7 +61,8 @@
     "grunt-usemin": "~2.4.0",
     "grunt-contrib-concat": "~0.5.0",
     "grunt-contrib-uglify": "~0.6.0",
-    "grunt-contrib-cssmin": "~0.10.0"
+    "grunt-contrib-cssmin": "~0.10.0",
+    "superagent-csrf": "~1.0.0"
   },
   "subdomain": "cortezcristian-anyandgo",
   "domains": [

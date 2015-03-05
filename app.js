@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var stylus = require('stylus');
 var i18n = require('i18n');
 var helmet = require('helmet');
+var csrf = require('csurf');
 var passport = require('passport');
 var flash = require('connect-flash');
 var session = require('express-session');
@@ -112,6 +113,8 @@ app.use(bodyParser.urlencoded({
 // https://www.npmjs.org/package/express-restify-mongoose
 app.use(methodOverride());
 app.use(cookieParser());
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 // i18n init parses req for language headers, cookies, etc.
 app.use(i18n.init);
@@ -120,6 +123,39 @@ app.use(session({ secret: 'secret', saveUninitialized: true, resave: true })); /
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
+
+// CSRF Security
+// http://stackoverflow.com/questions/23997572/error-misconfigured-csrf-express-js-4
+if (config.csrf && config.csrf === "enabled") {
+    //app.use(csrf({ cookie: { key: 'XSRF-TOKEN' } }));
+    app.use(csrf());
+    // Angular
+    // https://github.com/expressjs/csurf/issues/13
+    // AngularJS looks for a cookie named "XSRF-TOKEN" and sets the header as "X-XSRF-TOKEN"
+    /*
+    app.use(function (req, res, next) {
+      res.cookie('XSRF-TOKEN', req.csrfToken());
+      next();
+    });
+    */
+    app.use(function (req, res) {
+        var token = req.csrfToken();
+        // angular
+        res.cookie('XSRF-TOKEN', req.csrfToken());
+        // field
+        res.locals._csrf = req.csrfToken();
+        res.locals.csrf_form_html = '<input type="hidden" name="_csrf" value="' + req.csrfToken() + '" >';
+        req.next();
+    });
+    // error handler
+    app.use(function (err, req, res, next) {
+      if (err.code !== 'EBADCSRFTOKEN') return next(err);
+
+      // handle CSRF token errors here
+      res.status(403);
+      res.send('sorry your request was invalid');
+    });
+}
 
 // used to serialize the user for the session
 passport.serializeUser(function(user, done) {
