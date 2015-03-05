@@ -5,6 +5,7 @@
 //  - Mongoose (http://mongoosejs.com/docs/guide.html)
 //  
 var mongoose = require('mongoose'), 
+    crypto = require('crypto'),
     Schema = mongoose.Schema;
 
 var userSchema = new Schema({
