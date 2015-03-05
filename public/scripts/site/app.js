@@ -39,5 +39,43 @@ angular
       .otherwise({
         redirectTo: '/'
       }); */
+  }).run(function ($rootScope, $location, $route, $timeout, $http, $cookies) {
+
+    /*
+    */
+
+    $rootScope.config = {};
+    $rootScope.config.app_url = $location.url();
+    $rootScope.config.app_path = $location.path();
+    $rootScope.layout = {};
+    $rootScope.layout.loading = false;
+      
+
+    if(!navigator.userAgent.match(/Zombie/)) {
+
+    $rootScope.$on('$routeChangeStart', function () {
+        console.log('$routeChangeStart');
+        //show loading gif
+        $timeout(function(){
+          $rootScope.layout.loading = true;          
+        });
+    });
+    $rootScope.$on('$routeChangeSuccess', function () {
+        console.log('$routeChangeSuccess');
+        //hide loading gif
+        $timeout(function(){
+          $rootScope.layout.loading = false;
+        }, 200);
+    });
+    $rootScope.$on('$routeChangeError', function () {
+
+        //hide loading gif
+        console.log('error');
+        $rootScope.layout.loading = false;
+
+    });
+
+    }
+
   });
 

@@ -4,6 +4,7 @@ block content
   .jumbotron
     form#loginForm(name="loginForm",method="post",action="")
       p !{form}
+      !{csrf_form_html}
       input.btn.btn-primary(type="submit",value="Login")
     p
     .well.well-sm Hint: admin@anyandgo.com / 123456
