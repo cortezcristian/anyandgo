@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
 var i18n = require('i18n');
+var helmet = require('helmet');
 var passport = require('passport');
 var flash = require('connect-flash');
 var session = require('express-session');
@@ -45,6 +46,14 @@ var dbConex = exports.dbConex = utils.dbConnection(config.db.domain,config.db.na
 if (config.fixtures && config.fixtures === "enabled") {
 // Load Fixtures
 require('./fixtures');
+}
+
+// Security
+if (config.security && config.security === "enabled") {
+    app.use(helmet());
+    app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
+    app.use(helmet.noSniff());
+    app.use(helmet.frameguard('deny'));
 }
 
 // i18n setup
