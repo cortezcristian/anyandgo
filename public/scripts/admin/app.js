@@ -52,7 +52,25 @@ angular
           }
         }
       })
+      .when('/crud/user', {
+        templateUrl: '/scripts/admin/views/user.html',
+        controller: 'UserCtrl'
+      })
+      .when('/crud/user-new', {
+        templateUrl: '/forms/user/create',
+        controller: 'UserNewCtrl'
+      })
+      .when('/crud/user-edit/:id', {
+        templateUrl: '/forms/user/create',
+        controller: 'UserEditCtrl',
+        resolve: {
+          user: function(Restangular, $route){
+            return Restangular.one('users', $route.current.params.id).get();
+          }
+        }
+      })
       .otherwise({
+
         redirectTo: '/'
       });
       
