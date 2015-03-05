@@ -26,6 +26,7 @@ var app = module.parent.exports.app,
   // according to their roles
   /* authorizers:start */
   adminAuth = require('../auth/admin-auth.js'),
+  userAuth = require('../auth/user-auth.js'),
   /* authorizers:end */
   /* forms:start */
   adminLoginForm = require('../forms/admin-login.js'),
