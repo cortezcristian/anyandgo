@@ -581,6 +581,40 @@ $ tail -f access.log
 
 See [CORS](http://www.w3.org/TR/cors/)
 
+### SEO Support
+
+Added support for metadata, see `./views/layout.jade`.
+
+```jade
+    block meta
+      // for Google
+      meta(name='description', content='')
+      meta(name='keywords', content='')
+      meta(name='author', content='')
+      meta(name='copyright', content='')
+      meta(name='application-name', content='')
+      // for Facebook
+      meta(property='og:title', content='')
+      meta(property='og:type', content='article')
+      meta(property='og:image', content='')
+      meta(property='og:url', content='')
+      meta(property='og:description', content='')
+      // for Twitter
+      meta(name='twitter:card', content='summary')
+      meta(name='twitter:title', content='')
+      meta(name='twitter:description', content='')
+      meta(name='twitter:image', content='')
+```
+
+Added Google Analytics tracking configuration. See the config file:
+
+```json
+    "analytics": {
+        "enabled" : true,
+        "tracking": "UA-XXXXX-X"
+    },
+```
+
 ## Express 4.x
 Facts about this implementation:
 - Started from basic generation

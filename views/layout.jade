@@ -97,3 +97,6 @@ html(lang='en',ng-app="anyandgoApp")
     script(src='/dist/scripts/site-app.min.js')
     - }
     block scripts
+
+    - if(tracking)
+      include ./partials/analytics
