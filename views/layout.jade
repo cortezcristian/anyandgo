@@ -4,6 +4,24 @@ html(lang='en',ng-app="anyandgoApp")
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
     title= title
+    block meta
+      // for Google
+      meta(name='description', content='')
+      meta(name='keywords', content='')
+      meta(name='author', content='')
+      meta(name='copyright', content='')
+      meta(name='application-name', content='')
+      // for Facebook
+      meta(property='og:title', content='')
+      meta(property='og:type', content='article')
+      meta(property='og:image', content='')
+      meta(property='og:url', content='')
+      meta(property='og:description', content='')
+      // for Twitter
+      meta(name='twitter:card', content='summary')
+      meta(name='twitter:title', content='')
+      meta(name='twitter:description', content='')
+      meta(name='twitter:image', content='')
     link(href='http://fonts.googleapis.com/css?family=Hammersmith+One',rel='stylesheet',type='text/css')
     - if(settings.envflag !== "production") {
     //-<!-- build:css(public) styles/site-styles.min.css -->
