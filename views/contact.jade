@@ -47,5 +47,6 @@ block content
           | !{recaptcha_form}
           span.help-block #{((errors.recaptcha)?errors.recaptcha:'')}
         .form-group
+          !{csrf_form_html}
           button(type="submit").btn.btn-primary Send
     -}
