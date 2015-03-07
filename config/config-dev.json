@@ -47,6 +47,10 @@
     "security": {
         "enabled" : true
     },
+    "analytics": {
+        "enabled" : true,
+        "tracking": "UA-XXXXX-X"
+    },
     "csrf": "enabled",
     "cors": "enabled",
     "fixtures": "enabled",
