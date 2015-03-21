@@ -34,3 +34,6 @@ config/config-nodejitsu.json
 node_modules/
 public/components
 .sass-cache
+
+# Minimified files
+public/css/style.css
