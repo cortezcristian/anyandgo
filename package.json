@@ -34,7 +34,7 @@
     "express-validator": "~2.8.0",
     "recaptcha": "~1.2.0",
     "async": "~0.9.0",
-    "helmet": "~0.6.2",
+    "helmet": "~0.7.1",
     "csurf": "~1.8.0"
   },
   "devDependencies": {
