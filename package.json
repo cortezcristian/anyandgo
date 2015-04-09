@@ -19,7 +19,7 @@
     "mongoose": "~3.8.17",
     "i18n": "~0.5.0",
     "passport": "~0.2.1",
-    "method-override": "~2.2.0",
+    "method-override": "~2.3.2",
     "express-restify-mongoose": "~0.6.10",
     "mongoose-forms": "0.0.5",
     "handlebars": "~3.0.1",
