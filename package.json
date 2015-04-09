@@ -23,7 +23,7 @@
     "express-restify-mongoose": "~0.6.10",
     "mongoose-forms": "0.0.5",
     "handlebars": "~3.0.1",
-    "shelljs": "~0.3.0",
+    "shelljs": "~0.4.0",
     "mongoose-fixtures": "0.0.1",
     "passport-local": "~1.0.0",
     "connect-flash": "~0.1.1",
