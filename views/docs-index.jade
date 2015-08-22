@@ -1,27 +1,697 @@
-div
-  div
-  #readme.blob.instapaper_body
-    article.markdown-body
-      p
-        a(href='https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/anyandgo-io.png', target='_blank')
-          img(src='https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/anyandgo-io.png', alt='Anyandgo', style='max-width:100%;')
-      p
-        a(href='http://anyandgo.io/') Visit anyandgo.io
-      h3
-        a#user-content-pick-anyandgo.anchor(href='#pick-anyandgo', aria-hidden='true')
-          span.octicon.octicon-link
-        | Pick any·and·go!
-      p The MEAN Framework that doesn't suck. 
-      p
-        | What is the MEAN stack? 
-        a(href='http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/') Read More
-      p The acronym stands for: 
-      ul
-        li
-          | (M)ongoDB – a noSQL document datastore which uses JSON-style documents to represent data,
-        li (E)xpress – a HTTP server framework on top of Node, 
-        li
-          | (A)ngular – as you know, the JS framework offering declarative, two-way databinding for webapps and
-        li
-          | (N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.
-      p
+h1
+  strong Anyandgo MEAN Framework
+h2
+  strong Pick·any·and·go!
+p The MEAN Framework that doesn't suck.
+
+p What is the MEAN stack? Read More
+
+p The acronym stands for:
+
+ul
+  li (M)ongoDB – a noSQL document datastore which uses JSON-style documents to represent data,
+  li (E)xpress – a HTTP server framework on top of Node,
+  li (A)ngular – as you know, the JS framework offering declarative, two-way databinding for webapps and
+  li (N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.
+
+p Where is yeoman? See generator-anyandgo
+
+h2 Best Practices
+
+p To start working you can simply run:
+
+code $ grunt
+
+p This will:
+  ul.list-unstyled
+    li ✓ Lint the js code
+    li ✓ Run the tests
+    li ✓ Start the server
+    li ✓ Open a web browser
+    li ✓ Watch for files changes, to trigger several tasks
+
+p To add front-end libraries you can simply run:
+
+code $ bower install --save jquery
+
+p This will:
+  ul.list-unstyled
+    li ✓ Register the dependency into bower.json
+    li ✓ Download the library inside ./public/components/
+    li ✓ Append the script into ./views/layout.jade
+    li ✓ Trigger page reload
+
+
+h2
+  strong Grunt tasks
+p The default grunt task will start the server for you.
+code $ grunt
+
+p Lint javascript files under models, routes and test folders
+code $ grunt jshint
+
+p Execute all mocha tests and display the specs report
+code $ grunt mochaTests
+
+p Creates documentation functionallity under models, routes and test folders and put it inside docs folder
+code $ grunt docco
+
+p Appends javascript and css dependencies
+code $ grunt wiredep
+
+h2 
+  strong File Creation
+
+h3 
+  strong Model+Test generation
+
+code $ grunt create:model:Sample
+p Will create model and tests:
+
+blockquote
+  p models/sample.js
+  p test/unit/models/sample-tests.js
+
+p Will modify ./routes/main.js to append the model as dependency
+
+pre
+  p // ## Models
+  p /* models:start */
+  p + Sample  = require('../models/sample.js'),
+  p /* models:end */
+
+p This will automatically crete the following tests:
+
+code $ mocha test/unit/
+samp
+  p Database Test
+  p   MongoDB
+  p    ✓ Should be up and running 
+
+  p Model Test Sample
+  p   Sample
+  p    ✓ add a sample 
+  
+h3
+  strong Page+Route generation
+
+code $ grunt create:page:Contact
+p Will create a public view file for the page:
+
+blockquote views/contact.jade
+
+p Will modify ./routes/main.js to append the model as dependency
+pre
+  p /* page:public:start */
+  p +  
+  p +  // ### Contact Page
+  p +  app.get('/contact', function (req, res) {
+  p +    res.render('contact', { title: 'Contact', section: 'Contact' });
+  p +  });
+  p /* page:public:end */
+  
+p Will modify ./views/partials/site-menu.jade to append the new menu item to main menu
+pre
+  p // public:page:menu:start
+  p +        li
+  p +          a(href='/contact') Contact
+  p        // public:page:menu:end
+  
+h3 
+  strong Rest+Test generation
+
+code $ grunt create:rest:Sample
+p Creates rest services for a particular model.
+
+p Will modify ./routes/main.js to append the model as dependency
+pre
+  p /* rest:public:start */
+  p +
+  p +// GET /api/v1/samples
+  p +restify.serve(app, Sample, {
+  p +  lowercase: true,
+  p +  lean: false,
+  p +  prereq: function(req) {
+  p +    console.log("pre req");
+  p +    return true;
+  p +  },
+  p +  contextFilter: function(model, req, cb) {
+  p +    console.log("context filter");
+  p +    cb(model);
+  p +  },
+  p +  postProcess: function(req, res){
+  p +    console.log("post process");
+  p +  }
+  p +});
+  p /* rest:public:end */
+
+p Along with a test file:
+
+blockquote test/rest/models/samples-rest-tests.js
+p This uses 
+  a(href='http://visionmedia.github.io/superagent/') superagent 
+  | to test the new restful api:
+  
+
+code $ mocha test/rest/
+pre
+  p Web Server
+  p Express
+  p ✓ Should be up and running (306ms)
+
+  p REST API Sample http://127.0.0.1:3000/api/v1/samples
+  p Samples REST
+  p ✓ GET /api/v1/samples 
+  p ✓ GET /api/v1/samples/count 
+  p ✓ POST /api/v1/samples 
+  p ✓ PUT /api/v1/samples/:sampleId 
+  p ✓ DELETE /api/v1/samples/:sampleId 
+  p ✓ DELETE /api/v1/samples 
+
+p This will enable the following urls:
+pre
+  p GET      /api/v1/samples/count
+  p GET      /api/v1/samples
+  p PUT      /api/v1/samples
+  p POST     /api/v1/samples
+  p DELETE   /api/v1/samples
+
+  p GET      /api/v1/samples/:id
+  p PUT      /api/v1/samples/:id
+  p POST     /api/v1/samples/:id
+  p DELETE   /api/v1/samples/:id
+
+p Learn more about query, ordering, populate, and sorting with 
+  a(href='https://github.com/florianholzapfel/express-restify-mongoose') Express-Restify-Mongoose.
+
+h3 
+  strong Crud+Test generation
+
+code $ grunt create:crud:Sample
+p Creates CRUD administration for a particular model. This uses zombiejs to test the new crud functionality.
+
+p Once you create the model and all the rest services you'll be able to generate a crud automatically. Let's imagine you need to create a CRUD for students.
+
+pre
+  p $ grunt create:model:Student
+  p $ grunt create:rest:Student
+  p $ grunt create:crud:Student
+
+p If you go to to 
+  a(href='http://localhost:3000/admin/panel') http://localhost:3000/admin/panel 
+  | login as administrator, and click on the Crud dropdown:
+
+img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-generation.png')
+
+p If you select Student, you'll be able to see the list where you can create, edit and delete:
+
+img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-list.png')
+
+p Just hit edit on one record
+
+img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-edit.png')
+
+p Now let's change our model
+ mark models/student.js 
+ | to add a new field called 
+ mark age:
+
+pre 
+  p // Student Model
+  p // -----------------------------
+  p 
+  p // Modules Dependencies:
+  p //  - Mongoose (http://mongoosejs.com/docs/guide.html)
+  p //  
+  p var mongoose = require('mongoose'), 
+  p     Schema = mongoose.Schema;
+  p 
+  p var studentSchema = new Schema({
+  p     name          : String, 
+  p     age          : Number,  /* <-- add this line to the model */
+  p     created       : Date         
+  p });
+  p 
+  p // [...] More code here
+  
+p After you save the file go to the administration panel again  
+  a(href='http://localhost:3000/admin/panel') http://localhost:3000/admin/panel 
+  | you'll need to login again (if you have not enabled autologin yet). If you go to edit or create you'll see the form changed a little bit:
+
+img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-form-auto-generation.png')
+
+p As you can see the form has been autogenerated, to be according to your little change in the model.
+
+h3 
+  strong AutoLogin for developers
+
+p Is very annoying when you are developing that you need to login every time the server reloads, so we included a feature for autologin just go and modify 
+  mark config/config-local.json 
+  | search for this property:
+
+pre
+  p "autologin": {
+  p "enabled" : true, <-- Set this to true, by default is false
+  p "username" : "admin@anyandgo.com",  
+  p "password" : "123456"  
+  p },
+  
+p Setting autologin.enabled to 
+  mark true 
+  | will automatically put user and password on the login form and hit login for you to be redirected to the last url you were looking in the adminnistration panel.
+  
+h3 
+  strong Custom Forms Fields
+
+p You can easily implement, custom fields for your automatic generated forms. In example:
+
+pre
+  p // Sample Model
+  p // -----------------------------
+  p 
+  p // Modules Dependencies:
+  p //  - Mongoose (http://mongoosejs.com/docs/guide.html)
+  p //  
+  p var mongoose = require('mongoose'), 
+  p     Schema = mongoose.Schema;
+  p 
+  p var sampleSchema = new Schema({
+  p     name          : String, 
+  p +    template      : { type: String, ngoform: { control: 'Textarea' } },
+  p +    live          : { type: Boolean, default: true, ngoform: { control: 'Toggle' }    },
+  p     created       : Date         
+  p });
+  p 
+  p ....
+
+p Will produce, the following:
+
+img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/sample-edit-form.png')
+
+p For the 
+  mark Toggle 
+  | control is as simple as adding a file called 
+  mark ./utils/formstemplates/Toggle.hbs
+  | with the following:
+
+pre
+  p <div class="control-group {{#if error}}error{{/if}}"> 
+  p     <label class="control-label">{{label}}</label>
+  p     <div class="controls">
+  p         <toggle-switch {{#if ngmodel}}ng-model="{{ngmodel}}.{{name}}"{{/if}} on-label="true" off-label="false"><toggle-switch>
+  p     </div>
+  p </div>
+
+p Download the package with bower and register the dependency into 
+  mark public/scripts/admin/app.js
+  | :
+
+code $ bower install --save angular-toggle-switch
+
+p In our 
+ mark app.js 
+ | file just add this line:
+
+pre
+  p /**
+  p  * @ngdoc overview
+  p  * @name anyandgoApp
+  p  * @description
+  p  * # anyandgoApp
+  p  *
+  p  * Main module of the application.
+  p  */
+  p angular
+  p   .module('anyandgoApp', [
+  p     'ngAnimate',
+  p     'ngCookies',
+  p     'ngResource',
+  p     'ngRoute',
+  p     'ngSanitize',
+  p     'ngTouch',
+  p +    'toggle-switch',
+  p     'restangular'
+  p ])
+  p .config(function ($routeProvider, $locationProvider, RestangularProvider) {
+  p .....
+
+h3
+  strong Locale+Translation File generation
+
+code $  grunt create:locale:es-es
+
+p Creates a new file under translation folder called 
+ mark ./locales/es-es.json. 
+ | Adds translation flag to the menu, modifying 
+ mark ./views/partials/site-menu.jade
+ |:
+pre
+  p
+  p          //public:translation:menu:start
+  p          li
+  p             a(href='#', langsupport="en-us") en-us
+  p           li
+  p             a(href='#', langsupport="es-ar") es-ar
+  p +            li
+  p +              a(href='#', langsupport='es-es') es-es
+  p           //public:translation:menu:end
+
+p Also registers new language into app.js:
+pre 
+  p i18n.configure({
+  p // setup some locales: other locales default to en silently
+  p locales:[
+  p     //global:translation:start
+  p +      'es-es',
+  p     //global:translation:end
+  p     'en-us', 
+  p     'es-ar'],
+p See the result inmediately in your browser:
+
+img(src='https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/locale-i18n.png')
+
+p How to use translations just open a view file 
+  mark views/index.jade:
+
+pre 
+  p extends layout
+  p block content
+  p .jumbotron
+  p  h1=__("pick any·and·go")
+  p  p ...
+  p  p #{__("Welcome to anyandgo MEAN")}
+
+p Basically, everytime you call to function double underscore what you are passing as parameter is used as key for translation files. Translation files will auto populate it everytime you refresh the page calling the view.
+
+h2 
+  strong Optimization
+
+h3
+  strong Assets minification for production
+
+code $ grunt buildprod
+p Concatanates, compress, minify and link all javascripts and stylesheets. It creates a 
+  mark ./dist 
+  | folder inside the public part:
+
+blockquote
+  p $ tree public/dist/
+  p public/dist/
+  p ├── scripts
+  p │   ├── panel-app.min.js
+  p │   ├── panel-vendors.min.js
+  p │   └── site-vendors.min.js
+  p └── styles
+  p   ├── panel-styles.min.css
+  p   └── site-styles.min.css
+
+p We use: 
+  a(href='https://github.com/yeoman/grunt-usemin') grunt-usemin
+  a(href='https://github.com/gruntjs/grunt-contrib-clean') grunt-contrib-clean 
+  a(href='https://github.com/gruntjs/grunt-contrib-concat') grunt-contrib-concat 
+  a(href='https://github.com/gruntjs/grunt-contrib-uglify') grunt-contrib-uglify 
+  a(href='https://github.com/gruntjs/grunt-contrib-cssmin') grunt-contrib-cssmin 
+  | in order to do that.
+
+p And they get automatically linked just simply by setting a global flag, like in 
+  mark ./views/layout-admin.jade
+  |:
+pre
+  p - if(settings.envflag !== "production") {
+  p     //-<!-- build:css(public) styles/panel-styles.min.css -->
+  p     //bower:css
+  p     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
+  p     link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.css')
+  p     link(rel='stylesheet', href='/components/metisMenu/dist/metisMenu.css')
+  p     //-<!-- endbuild -->
+  p     //endbower
+  p     - } else {
+  p     link(rel='stylesheet', href='/dist/styles/panel-styles.min.css')
+  p     - }
+
+p The flag setup is in 
+  mark ./app.js
+  |:
+
+pre 
+  p app.set("envflag", process.env.NODE_ENV);
+
+h3 
+  strong Translation Support
+
+p Internationalization support was added. To seee the translations source files you can inspect the 
+  mark ./locales 
+  | folder:
+
+code $ tree locales/
+blockquote
+  p locales/
+  p ├── en-us.json
+  p └── es-ar.json
+
+p By default it loads 
+  mark es-ar 
+  | translations, the configuration is inside 
+  mark app.js 
+  | file:
+
+pre 
+  p // i18n setup
+  p i18n.configure({
+  p // setup some locales: other locales default to en silently
+  p locales:['en-us', 'es-ar'],
+  p // sets a custom cookie name to parse locale settings from  - defaults to NULL
+  p cookie: 'lang',
+  p // where to store json files - defaults to './locales' relative to modules directory
+  p directory: __dirname + '/locales',
+  p defaultLocale: 'es-ar'
+  p });
+
+pLanguage preference is stored in a cookie, to test this is working you can try modifying the cookie on client side and reload the page:
+
+pre
+  p // Try running this in the js console
+  p function setCookie(cname, cvalue, exdays) {
+  p     var d = new Date();
+  p     d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  p     var expires = "expires="+d.toUTCString();
+  p     document.cookie = cname + "=" + cvalue + "; " + expires;
+  p }
+  p 
+  p setCookie("lang","en-us", 2);
+  p // and refresh the page, notice lang has changed to be en-us
+
+h3 
+  strong Fixtures
+
+p Fixtures are fixed datasets that helps us to populate mongo collections. We use fixtures during test, to ensure we have data to operate with. And also anyandgo uses fixtures on server start, to ensure certain collections are filled in before web app is launched. Take a look at app.js:
+
+pre 
+  p // DB Fixtures
+  p if (config.fixtures && config.fixtures === "enabled") {
+  p  // Load Fixtures
+  p require('./fixtures');
+  p }
+
+p For fixture loading we are using 
+  a(href='https://github.com/powmedia/mongoose-fixtures') mongoose-fixtures. 
+  | We basically load different datasets for each environment. You may want to take a look at 
+  mark ./fixtures 
+  | folder:
+
+code $ tree fixtures
+blockquote
+  p fixtures/
+  p ├── dev
+  p │   └── admins.js
+  p ├── index.js
+  p ├── local
+  p │   └── admins.js
+  p ├── prod
+  p │   └── admins.js
+  p ├── shared
+  p │   └── admins.js
+  p └── travisci
+  p     └── admins.js
+  p 
+  p 5 directories, 6 files
+  
+p Notice that if flag 
+  mark fixtures 
+  | is 
+  mark enabled 
+  | in our config: anyandgo will autoload datasets for each collection ( note loading fixtures will clear the existing contents of a collection). In the treeview example shown above, we only are going to override admins collection. We are also adding a shared folder that is shared for all environments.
+
+h3 
+  strong Mails
+
+p Mail support was added, using 
+  a(href='https://github.com/andris9/Nodemailer') nodemailer 
+  | and 
+  a(href='https://github.com/andris9/nodemailer-smtp-transport#smtp-transport-module-for-nodemailer') nodemailer-smtp-transport. 
+  | See the configs:
+
+pre
+  p "mail" : {
+  p         "enabled" : true,
+  p         "transport" : "smtp",
+  p         "host" : "mail.your-email-host.io",
+  p         "port" : 25,
+  p         "contact" : "contact@email.io",
+  p         "auth" : {
+  p             "user" : "user-email-here",
+  p             "pass" : "secret-pass-here"
+  p         }
+  p     },
+
+h3 
+  strong Captcha Support
+
+p Using the 
+  a(href='http://www.google.com/recaptcha/intro/index.html') Google reCAPTCHA Service 
+  | and 
+  a(href='https://github.com/mirhampt/node-recaptcha#node-recaptcha') node-recaptcha 
+  | package. You can enable this feature just by changing the config settings.
+
+pre
+   p "captcha" : {
+   p     "enabled" : true,
+   p     "publickey" : "insert-key-here",
+   p     "privatekey" : "insert-key-here"
+   p },
+
+img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/form-contact.png')
+
+h3
+  strong Server Logs
+
+p By enabling config you can save the server log in a custom file, this is very useful for production environments. Just change your config file config/config-local.json to included the following:
+
+pre
+   p {
+   p  "app": {
+   p      "domain" : "127.0.0.1",
+   p +        "port": 3000,
+   p +        "logs": {
+   p +            "enabled": true,
+   p +            "file": "access.log",
+   p +            "format": "dev"
+   p +         }
+   p     },
+   p "auth": {
+
+table.table.table-bordered
+  th Parameter
+  th Description
+  tbody
+    tr
+      td app.logs.enabled
+      td Enables / disables logs
+    tr
+      td app.logs.file	
+      td Path to log file (access.log by default)
+    tr
+      td app.logs.format	
+      td 
+        a(href='https://github.com/expressjs/morgan#predefined-formats') Morgan Predefined Formats
+
+p Create the log file manually:
+code $ touch access.log
+
+p Start the server, and then monitor the logs files by doing:
+code $ tail -f access.log
+
+h3
+  strong Security
+
+  ul.list-unstyled
+    li 
+      a(href='https://github.com/helmetjs/helmet') Helmet
+    li 
+      a(href='https://github.com/expressjs/csurf') CSRF
+
+h3 
+  strong CORS Support
+
+p See 
+  a(href='http://www.w3.org/TR/cors/') CORS
+
+h3 
+  strong SEO Support
+
+p Added support for metadata, see 
+  mark ./views/layout.jade
+  |:
+
+pre 
+  p block meta
+  p       // for Google
+  p       meta(name='description', content='')
+  p       meta(name='keywords', content='')
+  p       meta(name='author', content='')
+  p       meta(name='copyright', content='')
+  p       meta(name='application-name', content='')
+  p       // for Facebook
+  p       meta(property='og:title', content='')
+  p       meta(property='og:type', content='article')
+  p       meta(property='og:image', content='')
+  p       meta(property='og:url', content='')
+  p       meta(property='og:description', content='')
+  p       // for Twitter
+  p       meta(name='twitter:card', content='summary')
+  p       meta(name='twitter:title', content='')
+  p       meta(name='twitter:description', content='')
+  p       meta(name='twitter:image', content='')
+
+p Added Google Analytics tracking configuration. See the config file:
+pre
+  p  "analytics": {
+  p      "enabled" : true,
+  p      "tracking": "UA-XXXXX-X"
+  p  },
+
+h2 
+  strong Express 4.x
+
+p Facts about this implementation:
+
+ul
+  li Started from basic generation
+  li Jade template engine
+
+pModules added:
+ul 
+  li 
+    a(href='http://learnboost.github.io/stylus/') Stylus
+  li 
+    a(href='https://github.com/mashpie/i18n-node') i18n
+  li 
+    a(href='http://mongoosejs.com/') Mongoose
+  li 
+    a(href='https://github.com/florianholzapfel/express-restify-mongoose') Express-Restify-Mongoose
+
+p Front end assets:
+ul
+  li 
+    a(href='http://angular-ui.github.io/bootstrap/') Bootstrap
+  li 
+    a(href='http://angular-ui.github.io/bootstrap/') UI Bootstrap
+
+h2 
+  strong Quick Setup
+
+p How to get started with anyandgo?
+
+code 
+  p $ npm install -g grunt-cli bower yo mocha
+code 
+  p $ git clone git@github.com:cortezcristian/anyandgo.git
+code 
+  p $ cd anyandgo
+code 
+  p $ npm install && bower install && grunt
+
+h2
+  strong Credits
+
+a(href='https://twitter.com/cortezcristian') @cortezcristian
