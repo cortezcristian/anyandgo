@@ -22,7 +22,17 @@ $(document).ready(function(){
       };
     $('#topics').fancytree({
         extensions: ["glyph"],
-        glyph: glyph_opts});
+        activate: function(event, data){
+            var node = data.node,
+                orgEvent = data.originalEvent;
+
+            if(node.data.href){
+                window.location.href=node.data.href;    
+            }
+        },
+        glyph: glyph_opts
+
+    });
 });
 
 /**
