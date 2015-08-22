@@ -3,7 +3,12 @@ extends layout
 block content
   .row.our-main-content
     .col-md-3#side
-      p Index
+      #topics
+        ul.hide
+          li.folder.expanded Sample
+            ul
+              li Topic 1
+
     .col-md-9#content.ps-scroller
       p Content
       include ./docs-index
