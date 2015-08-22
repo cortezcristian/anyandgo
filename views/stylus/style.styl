@@ -24,10 +24,94 @@ body
     color: #fff !important
   .our-main-content
     border-top: 1px solid #e7e7e7;
-    padding-top: 20px;
-    background: url('../img/background.png') no-repeat 50% 0
+    padding-top: 44px;
     .mean-logo
       height:30px;
+    &.do-collapse
+      #side
+        width: 3%;
+        .fa-chevron-left
+          display: none !important
+        .fa-chevron-right
+          display: block !important
+        .hidden-xs
+          display: none
+      #content
+        width: 97%;
+    #side
+      border-right: 1px solid #4a4a4a
+      position: absolute
+      top: 0;
+      height: 100%;
+      left: 0;
+      bottom: 0;
+      padding: 60px 0 0 20px;
+      background-color: #4a4a4a;
+      overflow: hidden;
+      //overflow: auto;
+      a.collapser
+        padding: 16px;
+        color: #777;
+        float: right;
+        .fa-chevron-left
+          display: block
+        .fa-chevron-right
+          display: none
+      #site-opts
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      .sidebar-nav
+        background-color: #4a4a4a
+        padding: 0;
+        #side-chat-menu
+          height: 490px;
+          //overflow-y: scroll;
+          overflow: hidden
+          position: relative;
+          li
+            a.chat-selector
+              padding: 0 15px 0 0;
+              border-bottom: 1px solid #5B5B5B;
+              img.msg-avatar
+                width: 40px;
+                height: 40px;
+                border-radius: 0;
+              .label-close
+                margin: 10px 0;
+                display: none
+              &:hover .label-close
+                display: block
+        #side-menu, #side-chat-menu
+          a
+            color:#fff
+            img.msg-avatar
+              width: 20px
+              height: 20px
+              border-radius: 20px
+            span.d-item-title
+              padding-left: 10px
+          li.active
+            a
+              color:#000
+              background: #ccc
+              box-shadow: inset 0 0 10px #bebebe 
+              text-shadow: 1px 1px #EAEAEA
+          a:hover
+            color:#000
+          a.group
+            color:#c1c1c1
+            background: #3D3D3D;
+            border-bottom: 1px solid #5B5B5B;
+    #content
+      position: absolute;
+      top: 0;
+      //left: 196px;
+      bottom: 0;
+      right: 0;
+      padding: 0;
+      height: 100%;
+      overflow: auto;
 
 // Dashboard
 .board-container

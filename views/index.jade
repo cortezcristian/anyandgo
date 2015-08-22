@@ -1,73 +1,11 @@
 extends layout
 
 block content
-  .row
-    .neck
-      h1.hammerfont.logobig
-        i.fa.fa-cloud.fa-3(style="padding:0 8px;")
-        | #{__("Any·and·go")}
-      p.white #{__("pick any·and·go")}
-      p.white #{__("Welcome to anyandgo MEAN")}
-      p
-        a.btn.btn-primary.btn-lg(role='button',href="https://github.com/cortezcristian/anyandgo") Read the Docs
   .row.our-main-content
-    .col-sm-10.col-sm-offset-1
-      .col-sm-6.col-md-4
-        .panel.panel-default
-          .panel-heading MEAN Stack
-          .panel-body
-            p Full javascript based application stack using:
-            div.list-group
-              a.list-group-item(href="http://www.mongodb.org/")
-                h4.list-group-item-heading
-                  img.img-circle.mean-logo(src='./img/logos/mongodb.png', alt='...')
-                  span(style="padding-top:4px")  MongoDB
-                p.list-group-item-text
-                  | a noSQL document datastore which uses JSON-style documents to represent data
-              a.list-group-item(href="http://expressjs.com/")
-                h4.list-group-item-heading
-                  img.img-circle.mean-logo(src='./img/logos/express.png', alt='...')
-                  span(style="padding-top:4px")  Express
-                p.list-group-item-text
-                  | a HTTP server framework on top of Node
-              a.list-group-item(href="https://angularjs.org/")
-                h4.list-group-item-heading
-                  img.img-circle.mean-logo(src='./img/logos/angularjs.png', alt='...')
-                  span(style="padding-top:4px")  Angular
-                p.list-group-item-text
-                  | the JS framework offering declarative, two-way databinding for webapps 
-              a.list-group-item(href="http://nodejs.org/")
-                h4.list-group-item-heading
-                  img.img-circle.mean-logo(src='./img/logos/nodejs.png', alt='...')
-                  span(style="padding-top:4px")  NodeJS
-                p.list-group-item-text
-                  | the platform built on V8’s runtime for easily building fast, scalable network applications.
-      .col-sm-6.col-md-8
-        .row
-          .col-sm-6.col-md-6
-            //p Console here
-        .row
-          .col-sm-6.col-md-6
-            .thumbnail
-              img(src='http://placehold.it/700x300&text=FE', alt='...',style="height: 170px;")
-              .caption
-                h3 Ninja Front-End   
-                  span.label.label-success(style="font-size:12px;") New!
-                div(style="min-height: 100px;")
-                  p Nice framework for frontenders, don't be a chicken. What do we offer?
-                p
-                  a.btn.btn-primary(href='#register', role='button') Details
-                  | 
-                  a.btn.btn-default(href='#register', role='button') More..
-          .col-sm-6.col-md-6
-            .thumbnail
-              img(src='http://placehold.it/700x300&text=BE', alt='...',style="height: 170px;")
-              .caption
-                h3 Rockstar Backend  
-                  span.label.label-success(style="font-size:12px;") New!
-                div(style="min-height: 100px;")
-                  p Build it now! and become a ninja rockstar. What do we offer?
-                p
-                  a.btn.btn-primary(href='#register', role='button') Details
-                  | 
-                  a.btn.btn-default(href='#register', role='button') More..
+    .col-md-3#side
+      p Index
+    .col-md-9#content.ps-scroller
+      p Content
+      include ./docs-index
+
+block footer

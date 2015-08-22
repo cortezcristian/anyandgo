@@ -1,13 +1,8 @@
 'use strict';
-/*
 $(document).ready(function(){
-    $('#side-menu').metisMenu();
-    $('head').append('<link rel="stylesheet" type="text/css" href="http://visionmedia.github.io/mocha/example/mocha.css">');
-    $.get('/tasks/test', function(data){
-        $('.main-con .panel').html(data);
-    });
+    $('.ps-scroller')
+        .perfectScrollbar();
 });
-*/
 
 /**
  * @ngdoc overview
