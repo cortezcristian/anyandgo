@@ -1,5 +1,14 @@
 'use strict';
 $(document).ready(function(){
+
+    var ho = 45;
+    var h = $(window).height() - ho;
+    
+    $('#side, #content').css({
+        'height': h+'px',
+        'top': ho+'px'
+    });
+    
     $('.ps-scroller')
         .perfectScrollbar();
     var glyph_opts = {
@@ -27,7 +36,8 @@ $(document).ready(function(){
                 orgEvent = data.originalEvent;
 
             if(node.data.href){
-                window.location.href=node.data.href;    
+                $('#content').scrollTo(node.data.href);
+                //window.location.href=node.data.href;    
             }
         },
         glyph: glyph_opts

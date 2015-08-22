@@ -25,6 +25,7 @@
     "waypoints": "~4.0.0",
     "perfect-scrollbar": "~0.6.5",
     "components-font-awesome": "~4.4.0",
-    "fancytree": "~2.11.0"
+    "fancytree": "~2.11.0",
+    "jquery.scrollTo": "~2.1.1"
   }
 }
