@@ -62,7 +62,8 @@ html(lang='en',ng-app="anyandgoApp")
   body.container-fluid
     include ./partials/site-menu
     block content
-    include ./partials/site-footer
+    block footer
+      include ./partials/site-footer
     - if(settings.envflag !== "production") {
     //-<!-- build:js(public) scripts/site-vendors.min.js -->
     //bower:js
