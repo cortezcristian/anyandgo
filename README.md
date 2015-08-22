@@ -1,6 +1,8 @@
 any·and·go [![Build Status](https://travis-ci.org/cortezcristian/anyandgo.svg)](https://travis-ci.org/cortezcristian/anyandgo) [![Dependencies](https://david-dm.org/cortezcristian/anyandgo.png)](https://david-dm.org/cortezcristian/anyandgo) [![Trello Board](http://img.shields.io/badge/board-trello-blue.svg)](https://trello.com/b/vanumUeW/anyandgo) [![Coverage Status](https://img.shields.io/coveralls/cortezcristian/anyandgo.svg)](https://coveralls.io/r/cortezcristian/anyandgo) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cortezcristian/anyandgo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 ========
 
+[![Join the chat at https://gitter.im/cortezcristian/anyandgo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cortezcristian/anyandgo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![Anyandgo](https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/anyandgo-io.png)
 
 [Visit anyandgo.io](http://anyandgo.io/)
