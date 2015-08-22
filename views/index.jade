@@ -3,7 +3,31 @@ extends layout
 block content
   .row.our-main-content
     .col-md-3#side
-      p Index
+      #topics
+        ul.hide
+          li.folder.expanded any·and·go
+            ul
+              li.href(data-href="/#start") Start
+              li.folder.expanded Scaffolding
+                ul
+                  li Model+Test
+                  li Page+Route 
+                  li Crud+Test
+              li Best Practices
+              li Grunt tasks
+              li AutoLogin for developers
+              li Custom Forms Fields
+              li Locale+Translation File generation
+              li Assets minification for production
+              li Translation Support
+              li Fixtures
+              li Mails
+              li Captcha Support
+              li Server Logs
+              li Security
+              li CORS Support
+              li SEO Support
+
     .col-md-9#content.ps-scroller
       p Content
       include ./docs-index
