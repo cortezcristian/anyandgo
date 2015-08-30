@@ -3,9 +3,11 @@ extends layout
 block content
   .row.our-main-content
     .col-md-3#side
+      p.text-center(style="background-color: #333;")
+        img(src="./img/anyandgo_logo.png", alt="Anyandgo Logo", style="max-height: 110px;")
       #topics
         ul.hide
-          li.folder.expanded any·and·go
+          li.folder.expanded Docs
             ul
               li.href(data-href="#main") Start
               li.folder.expanded Scaffolding
@@ -13,23 +15,22 @@ block content
                   li Model+Test
                   li Page+Route 
                   li Crud+Test
-              li Best Practices
-              li Grunt tasks
-              li AutoLogin for developers
-              li Custom Forms Fields
-              li Locale+Translation File generation
-              li Assets minification for production
-              li Translation Support
-              li Fixtures
-              li Mails
-              li Captcha Support
-              li Server Logs
-              li Security
-              li CORS Support
-              li SEO Support
+              li(data-href="#best-parctices") Best Practices
+              li(data-href="#grunt-task") Grunt tasks
+              li(data-href="#auto-login") AutoLogin for devs
+              li(data-href="#custom-forms") Custom Forms Fields
+              li(data-href="#locale") Locale+Translation
+              li(data-href="#minification") Assets minification 
+              li(data-href="#translation") Translation Support
+              li(data-href="#fixtures") Fixtures
+              li(data-href="#mails") Mails
+              li(data-href="#captcha") Captcha Support
+              li(data-href="#server-logs") Server Logs
+              li(data-href="#security") Security
+              li(data-href="#cors") CORS Support
+              li(data-href="#seo") SEO Support
 
     .col-md-9#content.ps-scroller
-      p Content
       include ./docs-index
 
 block footer
