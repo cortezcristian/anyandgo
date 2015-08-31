@@ -18,7 +18,8 @@ h2#best-parctices Best Practices
 
 p To start working you can simply run:
 
-code $ grunt
+pre
+  code.language-bash $ grunt
 
 p This will:
   ul.list-unstyled
@@ -30,7 +31,8 @@ p This will:
 
 p To add front-end libraries you can simply run:
 
-code $ bower install --save jquery
+pre
+  code.language-bash $ bower install --save jquery
 
 p This will:
   ul.list-unstyled
@@ -42,25 +44,32 @@ p This will:
 
 h2#grunt-task Grunt tasks
 p The default grunt task will start the server for you.
-code $ grunt
+pre
+  code.language-bash $ grunt
+h1#main Anyandgo MEAN Framework
 
 p Lint javascript files under models, routes and test folders
-code $ grunt jshint
+pre
+  code.language-bash $ grunt jshint
 
 p Execute all mocha tests and display the specs report
-code $ grunt mochaTests
+pre
+  code.language-bash $ grunt mochaTests
 
 p Creates documentation functionallity under models, routes and test folders and put it inside docs folder
-code $ grunt docco
+pre
+  code.language-bash $ grunt docco
 
 p Appends javascript and css dependencies
-code $ grunt wiredep
+pre
+  code.language-bash $ grunt wiredep
 
 h2#file-creation File Creation
 
 h3#model-test-creation Model+Test generation
 
-code $ grunt create:model:Sample
+pre
+  code.language-bash $ grunt create:model:Sample
 p Will create model and tests:
 
 blockquote
@@ -77,7 +86,8 @@ pre
 
 p This will automatically crete the following tests:
 
-code $ mocha test/unit/
+pre
+  code.language-bash $ mocha test/unit/
 samp
   p Database Test
   p   MongoDB
@@ -89,7 +99,8 @@ samp
   
 h3#page-route Page+Route generation
 
-code $ grunt create:page:Contact
+pre
+  code.language-bash $ grunt create:page:Contact
 p Will create a public view file for the page:
 
 blockquote views/contact.jade
@@ -113,7 +124,8 @@ pre
   
 h3#rest-test Rest+Test generation
 
-code $ grunt create:rest:Sample
+pre
+  code.language-bash $ grunt create:rest:Sample
 p Creates rest services for a particular model.
 
 p Will modify ./routes/main.js to append the model as dependency
@@ -146,7 +158,8 @@ p This uses
   | to test the new restful api:
   
 
-code $ mocha test/rest/
+pre
+  code.language-bash $ mocha test/rest/
 pre
   p Web Server
   p Express
@@ -179,7 +192,8 @@ p Learn more about query, ordering, populate, and sorting with
 
 h3#crudt-test Crud+Test generation
 
-code $ grunt create:crud:Sample
+pre
+  code.language-bash $ grunt create:crud:Sample
 p Creates CRUD administration for a particular model. This uses zombiejs to test the new crud functionality.
 
 p Once you create the model and all the rest services you'll be able to generate a crud automatically. Let's imagine you need to create a CRUD for students.
@@ -296,7 +310,8 @@ p Download the package with bower and register the dependency into
   mark public/scripts/admin/app.js
   | :
 
-code $ bower install --save angular-toggle-switch
+pre
+  code.language-bash $ bower install --save angular-toggle-switch
 
 p In our 
  mark app.js 
@@ -327,7 +342,8 @@ pre
 
 h3#locale Locale+Translation File generation
 
-code $  grunt create:locale:es-es
+pre
+  code.language-bash $  grunt create:locale:es-es
 
 p Creates a new file under translation folder called 
  mark ./locales/es-es.json. 
@@ -376,7 +392,8 @@ h2#optimization Optimization
 
 h3#minification Assets minification for production
 
-code $ grunt buildprod
+pre
+  code.language-bash $ grunt buildprod
 p Concatanates, compress, minify and link all javascripts and stylesheets. It creates a 
   mark ./dist 
   | folder inside the public part:
@@ -429,7 +446,8 @@ p Internationalization support was added. To seee the translations source files 
   mark ./locales 
   | folder:
 
-code $ tree locales/
+pre
+  code.language-bash $ tree locales/
 blockquote
   p locales/
   p ├── en-us.json
@@ -484,7 +502,8 @@ p For fixture loading we are using
   mark ./fixtures 
   | folder:
 
-code $ tree fixtures
+pre
+  code.language-bash $ tree fixtures
 blockquote
   p fixtures/
   p ├── dev
@@ -578,10 +597,12 @@ table.table.table-bordered
         a(href='https://github.com/expressjs/morgan#predefined-formats') Morgan Predefined Formats
 
 p Create the log file manually:
-code $ touch access.log
+pre
+  code.language-bash $ touch access.log
 
 p Start the server, and then monitor the logs files by doing:
-code $ tail -f access.log
+pre
+  code.language-bash $ tail -f access.log
 
 h3#security Security
 
@@ -659,14 +680,14 @@ h2#quick-setup Quick Setup
 
 p How to get started with anyandgo?
 
-code 
-  p $ npm install -g grunt-cli bower yo mocha
-code 
-  p $ git clone git@github.com:cortezcristian/anyandgo.git
-code 
-  p $ cd anyandgo
-code 
-  p $ npm install && bower install && grunt
+pre
+  code.language-bash $ npm install -g grunt-cli bower yo mocha
+pre
+  code.language-bash $ git clone git@github.com:cortezcristian/anyandgo.git
+pre
+  code.language-bash $ cd anyandgo
+pre
+  code.language-bash $ npm install && bower install && grunt
 
 h2#credits Credits
 
