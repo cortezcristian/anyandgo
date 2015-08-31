@@ -27,6 +27,7 @@
     "components-font-awesome": "~4.4.0",
     "fancytree": "~2.11.0",
     "highlightjs": "~8.7.0",
-    "jquery.scrollTo": "~2.1.1"
+    "jquery.scrollTo": "~2.1.1",
+    "prism": "~1.0.1"
   }
 }

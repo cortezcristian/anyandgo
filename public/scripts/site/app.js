@@ -1,16 +1,25 @@
 'use strict';
 $(document).ready(function(){
 
-    var ho = 45;
-    var h = $(window).height() - ho;
-    
-    $('#side, #content').css({
-        'height': h+'px',
-        'top': ho+'px'
+    var panels = function(){
+      var ho = 45;
+      var h = $(window).height() - ho;
+      
+      $('#side, #content').css({
+          'height': h+'px',
+          'top': ho+'px'
+      });
+
+      $('.ps-scroller')
+          .perfectScrollbar();
+
+    }
+
+    panels();
+    $(window).resize(function(){
+        panels();
     });
     
-    $('.ps-scroller')
-        .perfectScrollbar();
     var glyph_opts = {
         map: {
           doc: "glyphicon glyphicon-file",
