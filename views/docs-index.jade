@@ -441,7 +441,7 @@ p And they get automatically linked just simply by setting a global flag, like i
   |:
 
 pre
-  code.language-handlebars
+  code.language-jade
     | - if(settings.envflag !== "production") {
     |     //-<!-- build:css(public) styles/panel-styles.min.css -->
     |     //bower:css
@@ -480,42 +480,45 @@ p By default it loads
   mark app.js 
   | file:
 
-pre 
-  p // i18n setup
-  p i18n.configure({
-  p // setup some locales: other locales default to en silently
-  p locales:['en-us', 'es-ar'],
-  p // sets a custom cookie name to parse locale settings from  - defaults to NULL
-  p cookie: 'lang',
-  p // where to store json files - defaults to './locales' relative to modules directory
-  p directory: __dirname + '/locales',
-  p defaultLocale: 'es-ar'
-  p });
+pre
+  code.language-javascript
+    | // i18n setup
+    | i18n.configure({
+    | // setup some locales: other locales default to en silently
+    | locales:['en-us', 'es-ar'],
+    | // sets a custom cookie name to parse locale settings from  - defaults to NULL
+    | cookie: 'lang',
+    | // where to store json files - defaults to './locales' relative to modules directory
+    | directory: __dirname + '/locales',
+    | defaultLocale: 'es-ar'
+    | });
 
 p Language preference is stored in a cookie, to test this is working you can try modifying the cookie on client side and reload the page:
 
 pre
-  p // Try running this in the js console
-  p function setCookie(cname, cvalue, exdays) {
-  p     var d = new Date();
-  p     d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  p     var expires = "expires="+d.toUTCString();
-  p     document.cookie = cname + "=" + cvalue + "; " + expires;
-  p }
-  p 
-  p setCookie("lang","en-us", 2);
-  p // and refresh the page, notice lang has changed to be en-us
+  code.language-javascript
+    | // Try running this in the js console
+    | function setCookie(cname, cvalue, exdays) {
+    |     var d = new Date();
+    |     d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    |     var expires = "expires="+d.toUTCString();
+    |     document.cookie = cname + "=" + cvalue + "; " + expires;
+    | }
+    | 
+    | setCookie("lang","en-us", 2);
+    | // and refresh the page, notice lang has changed to be en-us
 
 h3#fixtures Fixtures
 
 p Fixtures are fixed datasets that helps us to populate mongo collections. We use fixtures during test, to ensure we have data to operate with. And also anyandgo uses fixtures on server start, to ensure certain collections are filled in before web app is launched. Take a look at app.js:
 
-pre 
-  p // DB Fixtures
-  p if (config.fixtures && config.fixtures === "enabled") {
-  p  // Load Fixtures
-  p require('./fixtures');
-  p }
+pre
+  code.language-javascript
+    | // DB Fixtures
+    | if (config.fixtures && config.fixtures === "enabled") {
+    |  // Load Fixtures
+    | require('./fixtures');
+    | }
 
 p For fixture loading we are using 
   a(href='https://github.com/powmedia/mongoose-fixtures') mongoose-fixtures. 
@@ -525,22 +528,22 @@ p For fixture loading we are using
 
 pre
   code.language-bash
-  | $ tree fixtures
-  | ... 
-  | fixtures/
-  | ├── dev
-  | │   └── admins.js
-  | ├── index.js
-  | ├── local
-  | │   └── admins.js
-  | ├── prod
-  | │   └── admins.js
-  | ├── shared
-  | │   └── admins.js
-  | └── travisci
-  |     └── admins.js
-  | 
-  | 5 directories, 6 files
+    | $ tree fixtures
+    | ... 
+    | fixtures/
+    | ├── dev
+    | │   └── admins.js
+    | ├── index.js
+    | ├── local
+    | │   └── admins.js
+    | ├── prod
+    | │   └── admins.js
+    | ├── shared
+    | │   └── admins.js
+    | └── travisci
+    |     └── admins.js
+    | 
+    | 5 directories, 6 files
   
 p Notice that if flag 
   mark fixtures 
@@ -557,17 +560,18 @@ p Mail support was added, using
   | See the configs:
 
 pre
-  p "mail" : {
-  p         "enabled" : true,
-  p         "transport" : "smtp",
-  p         "host" : "mail.your-email-host.io",
-  p         "port" : 25,
-  p         "contact" : "contact@email.io",
-  p         "auth" : {
-  p             "user" : "user-email-here",
-  p             "pass" : "secret-pass-here"
-  p         }
-  p     },
+  code.language-javascript
+    | "mail" : {
+    |         "enabled" : true,
+    |         "transport" : "smtp",
+    |         "host" : "mail.your-email-host.io",
+    |         "port" : 25,
+    |         "contact" : "contact@email.io",
+    |         "auth" : {
+    |             "user" : "user-email-here",
+    |             "pass" : "secret-pass-here"
+    |         }
+    |     },
 
 h3#captcha Captcha Support
 
@@ -578,11 +582,12 @@ p Using the
   | package. You can enable this feature just by changing the config settings.
 
 pre
-   p "captcha" : {
-   p     "enabled" : true,
-   p     "publickey" : "insert-key-here",
-   p     "privatekey" : "insert-key-here"
-   p },
+  code.language-javascript
+   | "captcha" : {
+   |     "enabled" : true,
+   |     "publickey" : "insert-key-here",
+   |     "privatekey" : "insert-key-here"
+   | },
 
 img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/form-contact.png')
 
@@ -591,19 +596,20 @@ h3#server-logs Server Logs
 p By enabling config you can save the server log in a custom file, this is very useful for production environments. Just change your config file config/config-local.json to included the following:
 
 pre
-   p {
-   p  "app": {
-   p      "domain" : "127.0.0.1",
-   p +        "port": 3000,
-   p +        "logs": {
-   p +            "enabled": true,
-   p +            "file": "access.log",
-   p +            "format": "dev"
-   p +         }
-   p     },
-   p "auth": {
+  code.language-javascript
+   | {
+   |  "app": {
+   |      "domain" : "127.0.0.1",
+   | +        "port": 3000,
+   | +        "logs": {
+   | +            "enabled": true,
+   | +            "file": "access.log",
+   | +            "format": "dev"
+   | +         }
+   |     },
+   | "auth": {
 
-table.table.table-bordered
+table.table
   th Parameter
   th Description
   tbody
@@ -645,32 +651,35 @@ p Added support for metadata, see
   mark ./views/layout.jade
   |:
 
-pre 
-  p block meta
-  p       // for Google
-  p       meta(name='description', content='')
-  p       meta(name='keywords', content='')
-  p       meta(name='author', content='')
-  p       meta(name='copyright', content='')
-  p       meta(name='application-name', content='')
-  p       // for Facebook
-  p       meta(property='og:title', content='')
-  p       meta(property='og:type', content='article')
-  p       meta(property='og:image', content='')
-  p       meta(property='og:url', content='')
-  p       meta(property='og:description', content='')
-  p       // for Twitter
-  p       meta(name='twitter:card', content='summary')
-  p       meta(name='twitter:title', content='')
-  p       meta(name='twitter:description', content='')
-  p       meta(name='twitter:image', content='')
+pre
+  code.language-jade
+    |   block meta
+    |       // for Google
+    |       meta(name='description', content='')
+    |       meta(name='keywords', content='')
+    |       meta(name='author', content='')
+    |       meta(name='copyright', content='')
+    |       meta(name='application-name', content='')
+    |       // for Facebook
+    |       meta(property='og:title', content='')
+    |       meta(property='og:type', content='article')
+    |       meta(property='og:image', content='')
+    |       meta(property='og:url', content='')
+    |       meta(property='og:description', content='')
+    |       // for Twitter
+    |       meta(name='twitter:card', content='summary')
+    |       meta(name='twitter:title', content='')
+    |       meta(name='twitter:description', content='')
+    |       meta(name='twitter:image', content='')
 
 p Added Google Analytics tracking configuration. See the config file:
+
 pre
-  p  "analytics": {
-  p      "enabled" : true,
-  p      "tracking": "UA-XXXXX-X"
-  p  },
+  code.language-javascript
+    |  "analytics": {
+    |      "enabled" : true,
+    |      "tracking": "UA-XXXXX-X"
+    |  },
 
 h2#express Express 4.x
 
