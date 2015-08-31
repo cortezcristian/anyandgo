@@ -46,7 +46,6 @@ h2#grunt-task Grunt tasks
 p The default grunt task will start the server for you.
 pre
   code.language-bash $ grunt
-h1#main Anyandgo MEAN Framework
 
 p Lint javascript files under models, routes and test folders
 pre
@@ -72,7 +71,7 @@ pre
   code.language-bash $ grunt create:model:Sample
 p Will create model and tests:
 
-blockquote
+.bs-callout.bs-callout-info
   p models/sample.js
   p test/unit/models/sample-tests.js
 
@@ -87,11 +86,11 @@ pre
 p This will automatically crete the following tests:
 
 pre
-  code.language-bash $ mocha test/unit/
-samp
-  p Database Test
-  p   MongoDB
-  p    ✓ Should be up and running 
+  code.language-bash
+  | $ mocha test/unit/
+  | Database Test
+  |   MongoDB
+  |    ✓ Should be up and running 
 
   p Model Test Sample
   p   Sample
@@ -103,7 +102,7 @@ pre
   code.language-bash $ grunt create:page:Contact
 p Will create a public view file for the page:
 
-blockquote views/contact.jade
+.bs-callout.bs-callout-info views/contact.jade
 
 p Will modify ./routes/main.js to append the model as dependency
 pre
@@ -152,27 +151,27 @@ pre
 
 p Along with a test file:
 
-blockquote test/rest/models/samples-rest-tests.js
+.bs-callout.bs-callout-info test/rest/models/samples-rest-tests.js
 p This uses 
   a(href='http://visionmedia.github.io/superagent/') superagent 
   | to test the new restful api:
   
 
 pre
-  code.language-bash $ mocha test/rest/
-pre
-  p Web Server
-  p Express
-  p ✓ Should be up and running (306ms)
-
-  p REST API Sample http://127.0.0.1:3000/api/v1/samples
-  p Samples REST
-  p ✓ GET /api/v1/samples 
-  p ✓ GET /api/v1/samples/count 
-  p ✓ POST /api/v1/samples 
-  p ✓ PUT /api/v1/samples/:sampleId 
-  p ✓ DELETE /api/v1/samples/:sampleId 
-  p ✓ DELETE /api/v1/samples 
+  code.language-bash
+  | $ mocha test/rest/
+  | Web Server
+  | Express
+  | ✓ Should be up and running (306ms)
+  | ...
+  | REST API Sample http://127.0.0.1:3000/api/v1/samples
+  | Samples REST
+  | ✓ GET /api/v1/samples 
+  | ✓ GET /api/v1/samples/count 
+  | ✓ POST /api/v1/samples 
+  | ✓ PUT /api/v1/samples/:sampleId 
+  | ✓ DELETE /api/v1/samples/:sampleId 
+  | ✓ DELETE /api/v1/samples 
 
 p This will enable the following urls:
 pre
@@ -199,9 +198,10 @@ p Creates CRUD administration for a particular model. This uses zombiejs to test
 p Once you create the model and all the rest services you'll be able to generate a crud automatically. Let's imagine you need to create a CRUD for students.
 
 pre
-  p $ grunt create:model:Student
-  p $ grunt create:rest:Student
-  p $ grunt create:crud:Student
+  code.language-bash
+  | $ grunt create:model:Student
+  | $ grunt create:rest:Student
+  | $ grunt create:crud:Student
 
 p If you go to to 
   a(href='http://localhost:3000/admin/panel') http://localhost:3000/admin/panel 
@@ -398,7 +398,7 @@ p Concatanates, compress, minify and link all javascripts and stylesheets. It cr
   mark ./dist 
   | folder inside the public part:
 
-blockquote
+.bs-callout.bs-callout-info
   p $ tree public/dist/
   p public/dist/
   p ├── scripts
@@ -448,7 +448,7 @@ p Internationalization support was added. To seee the translations source files 
 
 pre
   code.language-bash $ tree locales/
-blockquote
+.bs-callout.bs-callout-info
   p locales/
   p ├── en-us.json
   p └── es-ar.json
@@ -503,22 +503,23 @@ p For fixture loading we are using
   | folder:
 
 pre
-  code.language-bash $ tree fixtures
-blockquote
-  p fixtures/
-  p ├── dev
-  p │   └── admins.js
-  p ├── index.js
-  p ├── local
-  p │   └── admins.js
-  p ├── prod
-  p │   └── admins.js
-  p ├── shared
-  p │   └── admins.js
-  p └── travisci
-  p     └── admins.js
-  p 
-  p 5 directories, 6 files
+  code.language-bash
+  | $ tree fixtures
+  | ... 
+  | fixtures/
+  | ├── dev
+  | │   └── admins.js
+  | ├── index.js
+  | ├── local
+  | │   └── admins.js
+  | ├── prod
+  | │   └── admins.js
+  | ├── shared
+  | │   └── admins.js
+  | └── travisci
+  |     └── admins.js
+  | 
+  | 5 directories, 6 files
   
 p Notice that if flag 
   mark fixtures 
