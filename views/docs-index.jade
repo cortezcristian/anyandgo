@@ -137,25 +137,26 @@ p Creates rest services for a particular model.
 
 p Will modify ./routes/main.js to append the model as dependency
 pre
-  p /* rest:public:start */
-  p +
-  p +// GET /api/v1/samples
-  p +restify.serve(app, Sample, {
-  p +  lowercase: true,
-  p +  lean: false,
-  p +  prereq: function(req) {
-  p +    console.log("pre req");
-  p +    return true;
-  p +  },
-  p +  contextFilter: function(model, req, cb) {
-  p +    console.log("context filter");
-  p +    cb(model);
-  p +  },
-  p +  postProcess: function(req, res){
-  p +    console.log("post process");
-  p +  }
-  p +});
-  p /* rest:public:end */
+  code.language-javascript
+    | /* rest:public:start */
+    | +
+    | +// GET /api/v1/samples
+    | +restify.serve(app, Sample, {
+    | +  lowercase: true,
+    | +  lean: false,
+    | +  |rereq: function(req) {
+    | +    console.log("pre req");
+    | +    return true;
+    | +  },
+    | +  contextFilter: function(model, req, cb) {
+    | +    console.log("context filter");
+    | +    cb(model);
+    | +  },
+    | +  |ostProcess: function(req, res){
+    | +    console.log("post process");
+    | +  }
+    | +});
+    | /* rest:public:end */
 
 p Along with a test file:
 
@@ -181,18 +182,19 @@ pre
   | ✓ DELETE /api/v1/samples/:sampleId 
   | ✓ DELETE /api/v1/samples 
 
-p This will enable the following urls:
-pre
-  p GET      /api/v1/samples/count
-  p GET      /api/v1/samples
-  p PUT      /api/v1/samples
-  p POST     /api/v1/samples
-  p DELETE   /api/v1/samples
-
-  p GET      /api/v1/samples/:id
-  p PUT      /api/v1/samples/:id
-  p POST     /api/v1/samples/:id
-  p DELETE   /api/v1/samples/:id
+.bs-callout.bs-callout-primary
+  h4 This will enable the following urls:
+  pre
+    code.language-http
+      | GET      /api/v1/samples/count
+      | GET      /api/v1/samples
+      | PUT      /api/v1/samples
+      | POST     /api/v1/samples
+      | DELETE   /api/v1/samples
+      | GET      /api/v1/samples/:id
+      | PUT      /api/v1/samples/:id
+      | POST     /api/v1/samples/:id
+      | DELETE   /api/v1/samples/:id
 
 p Learn more about query, ordering, populate, and sorting with 
   a(href='https://github.com/florianholzapfel/express-restify-mongoose') Express-Restify-Mongoose.
@@ -230,23 +232,24 @@ p Now let's change our model
  | to add a new field called 
  mark age:
 
-pre 
-  p // Student Model
-  p // -----------------------------
-  p 
-  p // Modules Dependencies:
-  p //  - Mongoose (http://mongoosejs.com/docs/guide.html)
-  p //  
-  p var mongoose = require('mongoose'), 
-  p     Schema = mongoose.Schema;
-  p 
-  p var studentSchema = new Schema({
-  p     name          : String, 
-  p     age          : Number,  /* <-- add this line to the model */
-  p     created       : Date         
-  p });
-  p 
-  p // [...] More code here
+pre
+  code.language-javascript
+    | // Student Model
+    | // -----------------------------
+    | 
+    | // Modules Dependencies:
+    | //  - Mongoose (http://mongoosejs.com/docs/guide.html)
+    | //  
+    | var mongoose = require('mongoose'), 
+    |     Schema = mongoose.Schema;
+    | 
+    | var studentSchema = new Schema({
+    |     name          : String, 
+    |     age          : Number,  /* <-- add this line to the model */
+    |     created       : Date         
+    | });
+    | 
+    | // [...] More code here
   
 p After you save the file go to the administration panel again  
   a(href='http://localhost:3000/admin/panel') http://localhost:3000/admin/panel 
@@ -263,11 +266,12 @@ p Is very annoying when you are developing that you need to login every time the
   | search for this property:
 
 pre
-  p "autologin": {
-  p "enabled" : true, <-- Set this to true, by default is false
-  p "username" : "admin@anyandgo.com",  
-  p "password" : "123456"  
-  p },
+  code.language-javascript
+    | "autologin": {
+    |     "enabled" : true, <-- Set this to true, by default is false
+    |     "username" : "admin@anyandgo.com",  
+    |     "password" : "123456"  
+    | },
   
 p Setting autologin.enabled to 
   mark true 
@@ -278,23 +282,24 @@ h3#custom-forms Custom Forms Fields
 p You can easily implement, custom fields for your automatic generated forms. In example:
 
 pre
-  p // Sample Model
-  p // -----------------------------
-  p 
-  p // Modules Dependencies:
-  p //  - Mongoose (http://mongoosejs.com/docs/guide.html)
-  p //  
-  p var mongoose = require('mongoose'), 
-  p     Schema = mongoose.Schema;
-  p 
-  p var sampleSchema = new Schema({
-  p     name          : String, 
-  p +    template      : { type: String, ngoform: { control: 'Textarea' } },
-  p +    live          : { type: Boolean, default: true, ngoform: { control: 'Toggle' }    },
-  p     created       : Date         
-  p });
-  p 
-  p ....
+  code.language-javascript
+    | // Sample Model
+    | // -----------------------------
+    | 
+    | // Modules Dependencies:
+    | //  - Mongoose (http://mongoosejs.com/docs/guide.html)
+    | //  
+    | var mongoose = require('mongoose'), 
+    |     Schema = mongoose.Schema;
+    | 
+    | var sampleSchema = new Schema({
+    |     name          : String, 
+    | +    template      : { type: String, ngoform: { control: 'Textarea' } },
+    | +    live          : { type: Boolean, default: true, ngoform: { control: 'Toggle' }    },
+    |     created       : Date         
+    | });
+    | 
+    | ....
 
 p Will produce, the following:
 
@@ -307,12 +312,13 @@ p For the
   | with the following:
 
 pre
-  p <div class="control-group {{#if error}}error{{/if}}"> 
-  p     <label class="control-label">{{label}}</label>
-  p     <div class="controls">
-  p         <toggle-switch {{#if ngmodel}}ng-model="{{ngmodel}}.{{name}}"{{/if}} on-label="true" off-label="false"><toggle-switch>
-  p     </div>
-  p </div>
+  code.language-handlebars
+    | #{'<div class="control-group {{#if error}}error{{/if}}">'} 
+    | #{'    <label class="control-label">{{label}}</label>'}
+    | #{'     <div class="controls">'}
+    | #{'         <toggle-switch {{#if ngmodel}}ng-model="{{ngmodel}}.{{name}}"{{/if}} on-label="true" off-label="false"><toggle-switch>'}
+    | #{'     </div>'}
+    | #{' </div>'}
 
 p Download the package with bower and register the dependency into 
   mark public/scripts/admin/app.js
@@ -326,27 +332,28 @@ p In our
  | file just add this line:
 
 pre
-  p /**
-  p  * @ngdoc overview
-  p  * @name anyandgoApp
-  p  * @description
-  p  * # anyandgoApp
-  p  *
-  p  * Main module of the application.
-  p  */
-  p angular
-  p   .module('anyandgoApp', [
-  p     'ngAnimate',
-  p     'ngCookies',
-  p     'ngResource',
-  p     'ngRoute',
-  p     'ngSanitize',
-  p     'ngTouch',
-  p +    'toggle-switch',
-  p     'restangular'
-  p ])
-  p .config(function ($routeProvider, $locationProvider, RestangularProvider) {
-  p .....
+  code.language-javascript
+    | /**
+    |  * @ngdoc overview
+    |  * @name anyandgoApp
+    |  * @description
+    |  * # anyandgoApp
+    |  *
+    |  * Main module of the application.
+    |  */
+    | angular
+    |   .module('anyandgoApp', [
+    |     'ngAnimate',
+    |     'ngCookies',
+    |     'ngResource',
+    |     'ngRoute',
+    |     'ngSanitize',
+    |     'ngTouch',
+    | +    'toggle-switch',
+    |     'restangular'
+    | ])
+    | .config(function ($routeProvider, $locationProvider, RestangularProvider) {
+    | .....
 
 h3#locale Locale+Translation File generation
 
@@ -358,27 +365,30 @@ p Creates a new file under translation folder called
  | Adds translation flag to the menu, modifying 
  mark ./views/partials/site-menu.jade
  |:
+
 pre
-  p
-  p          //public:translation:menu:start
-  p          li
-  p             a(href='#', langsupport="en-us") en-us
-  p           li
-  p             a(href='#', langsupport="es-ar") es-ar
-  p +            li
-  p +              a(href='#', langsupport='es-es') es-es
-  p           //public:translation:menu:end
+  code.language-jade
+    |          //public:translation:menu:start
+    |          li
+    |             a(href='#', langsupport="en-us") en-us
+    |           li
+    |             a(href='#', langsupport="es-ar") es-ar
+    | +            li
+    | +              a(href='#', langsupport='es-es') es-es
+    |           //public:translation:menu:end
 
 p Also registers new language into app.js:
-pre 
-  p i18n.configure({
-  p // setup some locales: other locales default to en silently
-  p locales:[
-  p     //global:translation:start
-  p +      'es-es',
-  p     //global:translation:end
-  p     'en-us', 
-  p     'es-ar'],
+pre
+  code.language-javascript
+    | i18n.configure({
+    | // setup some locales: other locales default to en silently
+    | locales:[
+    |     //global:translation:start
+    | +      'es-es',
+    |     //global:translation:end
+    |     'en-us', 
+    |     'es-ar'],
+
 p See the result inmediately in your browser:
 
 img(src='https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/locale-i18n.png')
@@ -386,13 +396,14 @@ img(src='https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templa
 p How to use translations just open a view file 
   mark views/index.jade:
 
-pre 
-  p extends layout
-  p block content
-  p .jumbotron
-  p  h1=__("pick any·and·go")
-  p  p ...
-  p  p #{__("Welcome to anyandgo MEAN")}
+pre
+  code.language-jade
+    | extends layout
+    | block content
+    | .jumbotron
+    |  h1=__("pick any·and·go")
+    |  p ...
+    |  p #{__("Welcome to anyandgo MEAN")}
 
 p Basically, everytime you call to function double underscore what you are passing as parameter is used as key for translation files. Translation files will auto populate it everytime you refresh the page calling the view.
 
@@ -428,18 +439,20 @@ p We use:
 p And they get automatically linked just simply by setting a global flag, like in 
   mark ./views/layout-admin.jade
   |:
+
 pre
-  p - if(settings.envflag !== "production") {
-  p     //-<!-- build:css(public) styles/panel-styles.min.css -->
-  p     //bower:css
-  p     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
-  p     link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.css')
-  p     link(rel='stylesheet', href='/components/metisMenu/dist/metisMenu.css')
-  p     //-<!-- endbuild -->
-  p     //endbower
-  p     - } else {
-  p     link(rel='stylesheet', href='/dist/styles/panel-styles.min.css')
-  p     - }
+  code.language-handlebars
+    | - if(settings.envflag !== "production") {
+    |     //-<!-- build:css(public) styles/panel-styles.min.css -->
+    |     //bower:css
+    |     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
+    |     link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.css')
+    |     link(rel='stylesheet', href='/components/metisMenu/dist/metisMenu.css')
+    |     //-<!-- endbuild -->
+    |     //endbower
+    |     - } else {
+    |     link(rel='stylesheet', href='/dist/styles/panel-styles.min.css')
+    |     - }
 
 p The flag setup is in 
   mark ./app.js
