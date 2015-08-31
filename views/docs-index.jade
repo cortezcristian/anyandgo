@@ -22,6 +22,7 @@ pre
   code.language-bash $ grunt
 
 p This will:
+.bs-callout.bs-callout-primary
   ul.list-unstyled
     li ✓ Lint the js code
     li ✓ Run the tests
@@ -35,6 +36,7 @@ pre
   code.language-bash $ bower install --save jquery
 
 p This will:
+.bs-callout.bs-callout-primary
   ul.list-unstyled
     li ✓ Register the dependency into bower.json
     li ✓ Download the library inside ./public/components/
@@ -75,26 +77,30 @@ p Will create model and tests:
   p models/sample.js
   p test/unit/models/sample-tests.js
 
-p Will modify ./routes/main.js to append the model as dependency
+p 
+| Will modify  
+b.text-info ./routes/main.js
+|  to append the model as dependency
 
 pre
-  p // ## Models
-  p /* models:start */
-  p + Sample  = require('../models/sample.js'),
-  p /* models:end */
+  code.language-javascript
+    | // ## Models
+    | /* models:start */
+    | + Sample  = require('../models/sample.js'),
+    | /* models:end */
 
 p This will automatically crete the following tests:
 
 pre
   code.language-bash
-  | $ mocha test/unit/
-  | Database Test
-  |   MongoDB
-  |    ✓ Should be up and running 
-
-  p Model Test Sample
-  p   Sample
-  p    ✓ add a sample 
+    | $ mocha test/unit/
+    | Database Test
+    |   MongoDB
+    |    ✓ Should be up and running 
+    | ...
+    | Model Test Sample
+    |   Sample
+    |    ✓ add a sample 
   
 h3#page-route Page+Route generation
 
@@ -106,20 +112,22 @@ p Will create a public view file for the page:
 
 p Will modify ./routes/main.js to append the model as dependency
 pre
-  p /* page:public:start */
-  p +  
-  p +  // ### Contact Page
-  p +  app.get('/contact', function (req, res) {
-  p +    res.render('contact', { title: 'Contact', section: 'Contact' });
-  p +  });
-  p /* page:public:end */
+  code.language-javascript
+    | /* page:public:start */
+    | +  
+    | +  // ### Contact Page
+    | +  app.get('/contact', function (req, res) {
+    | +    res.render('contact', { title: 'Contact', section: 'Contact' });
+    | +  });
+    | /* page:public:end */
   
 p Will modify ./views/partials/site-menu.jade to append the new menu item to main menu
 pre
-  p // public:page:menu:start
-  p +        li
-  p +          a(href='/contact') Contact
-  p        // public:page:menu:end
+  code.language-javascript
+    | // public:page:menu:start
+    | +        li
+    | +          a(href='/contact') Contact
+    |        // public:page:menu:end
   
 h3#rest-test Rest+Test generation
 
