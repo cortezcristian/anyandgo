@@ -19,6 +19,11 @@ $(document).ready(function(){
     $(window).resize(function(){
         panels();
     });
+
+    setTimeout(function(){
+      $('.github-btn-con').removeClass('hide');
+      $('.github-btn-con').css("margin-top","8px");
+    }, 1200);
     
     var glyph_opts = {
         map: {
