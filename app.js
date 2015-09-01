@@ -130,8 +130,6 @@ if (typeof config.app.logs !== 'undefined' && config.app.logs.enabled) {
     app.use(logger('dev'));
 }
 
-console.log(logger);
-
 app.use(bodyParser.json());
 app.use(expressValidator());
 app.use(bodyParser.urlencoded({
