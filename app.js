@@ -97,23 +97,33 @@ app.use('/css', stylus.middleware({
 
 // Logs
 // [Predefined Formats](https://github.com/expressjs/morgan#predefined-formats)
+var loggerConfigs = {
+    levels: { HTTP: 0, debug: 1, info: 2, warn: 3, error: 3 },
+    colors: { HTTP: 'blue', debug: 'white', info: 'green', warn: 'yellow', error: 'red' } 
+};
+winston.addColors(loggerConfigs.colors);
+
 if (typeof config.app.logs !== 'undefined' && config.app.logs.enabled) {
     // create a write stream (in append mode)
     //var accessLogStream = fs.createWriteStream(__dirname + '/' + config.app.logs.file, {flags: 'a'});
+
     logger = new winston.Logger({
+        levels: loggerConfigs.levels,
         transports: [
             new winston.transports.File({
-                level: 'info',
+                name: 'file-log',
+                level: 'HTTP',
                 filename: __dirname + '/' + config.app.logs.file,
-                handleExceptions: true,
+                handleExceptions: false,
                 json: true,
                 maxsize: 5242880, //5MB
                 maxFiles: 5,
                 colorize: false
             }),
             new winston.transports.Console({
-                level: 'debug',
-                handleExceptions: true,
+                name: 'console-log',
+                level: 'HTTP',
+                handleExceptions: false,
                 json: false,
                 colorize: true
             })
@@ -121,14 +131,46 @@ if (typeof config.app.logs !== 'undefined' && config.app.logs.enabled) {
         exitOnError: false
     });
 
+    logger.stream = {
+      write: function(message, encoding){
+          logger.log("HTTP",message.slice(0, -1));
+      }
+    };
+
     // setup the logger
     app.use(morgan(config.app.logs.format || 'dev', {stream: logger.stream }));
     // remember to see the log:
     // $ touch access.log
     // $ tail -f access.log
 } else {
-    app.use(logger('dev'));
+    //app.use(logger('dev'));
+
+    logger = new winston.Logger({
+        levels: loggerConfigs.levels,
+        transports: [
+            new winston.transports.Console({
+                name: 'console-log',
+                level: 'HTTP',
+                handleExceptions: false,
+                json: false,
+                colorize: true
+            })
+        ],
+        exitOnError: false
+    });
+
+    logger.stream = {
+      write: function(message, encoding){
+          logger.log("HTTP",message.slice(0, -1));
+      }
+    };
+
+    // setup the logger
+    app.use(morgan(config.app.logs.format || 'dev', {stream: logger.stream }));
 }
+exports.logger = logger;
+// Log example
+logger.info("Starting anyandgo...");
 
 app.use(bodyParser.json());
 app.use(expressValidator());

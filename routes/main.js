@@ -10,6 +10,7 @@
 // * config
 var app = module.parent.exports.app,
   config = module.parent.exports.config,
+  logger = module.parent.exports.logger,
   anyandgo = module.parent.exports.anyandgo,
   mail = module.parent.exports.mail,
   Recaptcha = require('recaptcha').Recaptcha,
