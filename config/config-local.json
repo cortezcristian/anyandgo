@@ -3,7 +3,7 @@
         "domain" : "127.0.0.1",
         "port": 3000,
         "logs": {
-            "enabled": false,
+            "enabled": true,
             "file": "access.log",
             "format": "dev"
          }

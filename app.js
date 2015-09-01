@@ -3,7 +3,9 @@ var expressValidator = require('express-validator');
 var path = require('path');
 var favicon = require('serve-favicon');
 var fs = require('fs');
-var logger = require('morgan');
+var logger;
+var morgan = require('morgan');
+var winston = require('winston');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
@@ -97,16 +99,38 @@ app.use('/css', stylus.middleware({
 // [Predefined Formats](https://github.com/expressjs/morgan#predefined-formats)
 if (typeof config.app.logs !== 'undefined' && config.app.logs.enabled) {
     // create a write stream (in append mode)
-    var accessLogStream = fs.createWriteStream(__dirname + '/' + config.app.logs.file, {flags: 'a'})
+    //var accessLogStream = fs.createWriteStream(__dirname + '/' + config.app.logs.file, {flags: 'a'});
+    logger = new winston.Logger({
+        transports: [
+            new winston.transports.File({
+                level: 'info',
+                filename: __dirname + '/' + config.app.logs.file,
+                handleExceptions: true,
+                json: true,
+                maxsize: 5242880, //5MB
+                maxFiles: 5,
+                colorize: false
+            }),
+            new winston.transports.Console({
+                level: 'debug',
+                handleExceptions: true,
+                json: false,
+                colorize: true
+            })
+        ],
+        exitOnError: false
+    });
 
     // setup the logger
-    app.use(logger(config.app.logs.format || 'dev', {stream: accessLogStream}));
+    app.use(morgan(config.app.logs.format || 'dev', {stream: logger.stream }));
     // remember to see the log:
     // $ touch access.log
     // $ tail -f access.log
 } else {
     app.use(logger('dev'));
 }
+
+console.log(logger);
 
 app.use(bodyParser.json());
 app.use(expressValidator());
