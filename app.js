@@ -171,6 +171,7 @@ if (typeof config.app.logs !== 'undefined' && config.app.logs.enabled) {
 exports.logger = logger;
 // Log example
 logger.info("Starting anyandgo...");
+logger.info("For more information visit http://anyandgo.io/ ");
 
 app.use(bodyParser.json());
 app.use(expressValidator());
