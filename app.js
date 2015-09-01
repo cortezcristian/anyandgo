@@ -166,7 +166,7 @@ if (typeof config.app.logs !== 'undefined' && config.app.logs.enabled) {
     };
 
     // setup the logger
-    app.use(morgan(config.app.logs.format || 'dev', {stream: logger.stream }));
+    app.use(morgan('dev', {stream: logger.stream }));
 }
 exports.logger = logger;
 // Log example
