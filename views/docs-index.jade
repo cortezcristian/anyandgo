@@ -14,7 +14,30 @@ p The MEAN Framework that doesn't suck.
   p
     a(href="http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/", alt="Full-Stack JavaScript With MEAN And Yeoman") Read More
 
-p Where is yeoman? See generator-anyandgo
+h2#quick-setup Quick Setup
+
+p How to get started with anyandgo?
+
+p Install 
+  a(href="https://www.npmjs.com/package/anyandgo-cli") anyandgo client
+pre
+  code.language-bash $ [sudo] npm install -g anyandgo-cli 
+
+p Create a new project 
+pre
+  code.language-bash 
+  | $ anyandgo init mynewproject
+  |    mynewproject /var/www
+  |    https://nodeload.github.com/cortezcristian/anyandgo/zip/master
+  |    You have successfully created the anyandgo project
+  |    Try:
+  |         cd mynewproject
+  |         npm install && bower install && grunt
+
+p To get the most out of anyandgo you may also want to install the following
+pre
+  code.language-bash $ npm install -g grunt-cli bower yo mocha
+
 
 h2#best-parctices Best Practices
 
@@ -708,19 +731,6 @@ ul
     a(href='http://angular-ui.github.io/bootstrap/') Bootstrap
   li 
     a(href='http://angular-ui.github.io/bootstrap/') UI Bootstrap
-
-h2#quick-setup Quick Setup
-
-p How to get started with anyandgo?
-
-pre
-  code.language-bash $ npm install -g grunt-cli bower yo mocha
-pre
-  code.language-bash $ git clone git@github.com:cortezcristian/anyandgo.git
-pre
-  code.language-bash $ cd anyandgo
-pre
-  code.language-bash $ npm install && bower install && grunt
 
 h2#credits Credits
 
