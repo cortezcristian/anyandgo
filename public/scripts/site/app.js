@@ -25,38 +25,6 @@ $(document).ready(function(){
       $('.github-btn-con').css("margin-top","8px");
     }, 1200);
     
-    var glyph_opts = {
-        map: {
-          doc: "glyphicon glyphicon-file",
-          docOpen: "glyphicon glyphicon-file",
-          checkbox: "glyphicon glyphicon-unchecked",
-          checkboxSelected: "glyphicon glyphicon-check",
-          checkboxUnknown: "glyphicon glyphicon-share",
-          dragHelper: "glyphicon glyphicon-play",
-          dropMarker: "glyphicon glyphicon-arrow-right",
-          error: "glyphicon glyphicon-warning-sign",
-          expanderClosed: "glyphicon glyphicon-plus-sign",
-          expanderLazy: "glyphicon glyphicon-plus-sign",  // glyphicon-expand
-          expanderOpen: "glyphicon glyphicon-minus-sign",  // glyphicon-collapse-down
-          folder: "glyphicon glyphicon-folder-close",
-          folderOpen: "glyphicon glyphicon-folder-open",
-          loading: "glyphicon glyphicon-refresh"
-        }
-      };
-    $('#topics').fancytree({
-        extensions: ["glyph"],
-        activate: function(event, data){
-            var node = data.node,
-                orgEvent = data.originalEvent;
-
-            if(node.data.href){
-                $('#content').scrollTo(node.data.href);
-                //window.location.href=node.data.href;    
-            }
-        },
-        glyph: glyph_opts
-
-    });
 });
 
 /**
@@ -89,7 +57,7 @@ angular
       .otherwise({
         redirectTo: '/'
       }); */
-  }).run(function ($rootScope, $location, $route, $timeout, $http, $cookies) {
+  }).run(function ($rootScope, $location, $route, $timeout, $http, $cookies, $anchorScroll) {
 
     /*
     */
@@ -100,6 +68,20 @@ angular
     $rootScope.layout = {};
     $rootScope.layout.loading = false;
       
+    //$anchorScroll.yOffset = 50;
+
+    $rootScope.gotoAnchor = function(x) {
+      var newHash = x;
+      if ($location.hash() !== newHash) {
+        // set the $location.hash to `newHash` and
+        // $anchorScroll will automatically scroll to it
+        $location.hash(x);
+      } else {
+        // call $anchorScroll() explicitly,
+        // since $location.hash hasn't changed
+        $anchorScroll();
+      }
+    }; 
 
     if(!navigator.userAgent.match(/Zombie/)) {
 

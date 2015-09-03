@@ -1,4 +1,11 @@
 h1#main Anyandgo MEAN Framework
+ul.list-inline
+  li
+    a(href="https://travis-ci.org/cortezcristian/anyandgo")
+        img(src="https://travis-ci.org/cortezcristian/anyandgo.svg?branch=master")
+  li
+    a(href="https://gitter.im/cortezcristian/anyandgo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge")
+      img(src="https://badges.gitter.im/Join%20Chat.svg")
 //h2#pick-anyandgo Pick·any·and·go!
 p The MEAN Framework that doesn't suck.
 
@@ -90,7 +97,7 @@ p Appends javascript and css dependencies
 pre
   code.language-bash $ grunt wiredep
 
-h2#file-creation File Creation
+h2#scaffolding  Scaffolding
 
 h3#model-test-creation Model+Test generation
 
@@ -224,7 +231,7 @@ pre
 p Learn more about query, ordering, populate, and sorting with 
   a(href='https://github.com/florianholzapfel/express-restify-mongoose') Express-Restify-Mongoose.
 
-h3#crudt-test Crud+Test generation
+h3#crud-test Crud+Test generation
 
 pre
   code.language-bash $ grunt create:crud:Sample
@@ -338,10 +345,10 @@ p For the
 
 pre
   code.language-handlebars
-    | #{'<div class="control-group {{#if error}}error{{/if}}">'} 
-    | #{'    <label class="control-label">{{label}}</label>'}
+    | #{'<div class="control-group { {#if error} }error{ {/if} }">'} 
+    | #{'    <label class="control-label">{ {label} }</label>'}
     | #{'     <div class="controls">'}
-    | #{'         <toggle-switch {{#if ngmodel}}ng-model="{{ngmodel}}.{{name}}"{{/if}} on-label="true" off-label="false"><toggle-switch>'}
+    | #{'         <toggle-switch { {#if ngmodel} }ng-model="{ {ngmodel} }.{ {name} }"{ {/if} } on-label="true" off-label="false"><toggle-switch>'}
     | #{'     </div>'}
     | #{' </div>'}
 
