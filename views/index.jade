@@ -11,13 +11,13 @@ block content
         
         // Wrapper for slides
         .carousel-inner(role='listbox')
-          .item.active(style="background:url('img/bg-xxx2-full.jpg');")
+          .item.active
             .carousel-caption
               h2 #{__("Get Ready")}
               p
                 span  $ [sudo] npm install anyandgo-cli
                 span  $ anyandgo init my-new-project 
-          .item(style="background-image:url(img/neck-gamify-2.jpg);")
+          .item
             .carousel-caption
               h2 #{__("Innovate")}
               p
@@ -53,13 +53,13 @@ block content
                 h3 #{__("MEAN Framework")}  
                 div(style="min-height: 100px;")
                   p Anyandgo let you create blazing fast, scalable web applications using MongoDB, Express, Node.JS and AngularJS. 
-                  a.btn.btn-default(href='#', role='button')
+                  a.btn.btn-default(href='/docs', role='button')
                     i.fa.fa-book(style="padding-right:10px")
                     | #{__("Read Docs")}
       
           .col-sm-4
             .thumbnail
-              img(src='http://img.youtube.com/vi/Bm8UX97DQCQ/1.jpg', alt='video',style="width:700px;height: 170px;")
+              //img(src='', alt='video',style="width:700px;height: 170px;")
               .caption
                 h3 #{__("Components")}
                   //include components
