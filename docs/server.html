@@ -154,8 +154,8 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'Web Server'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-    before(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'Web Server'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    before(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -203,11 +203,11 @@ Get domain</p>
             
             <div class="content"><div class='highlight'><pre>    });
 
-    describe(<span class="hljs-string">'Express'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-        it(<span class="hljs-string">'Should be up and running'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
+    describe(<span class="hljs-string">'Express'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        it(<span class="hljs-string">'Should be up and running'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
             agent
               .get(d)
-              .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span> </span>{
+              .end(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
                   assert.ok(res.ok);
                   done();
               });

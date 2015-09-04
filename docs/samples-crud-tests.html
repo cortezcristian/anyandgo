@@ -169,9 +169,9 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'CRUD Sample '</span>+d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'CRUD Sample '</span>+d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
 
-    before(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{</pre></div></div>
+    before(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{</pre></div></div>
             
         </li>
         
@@ -202,7 +202,7 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
             </div>
             
             <div class="content"><div class='highlight'><pre>        sample = <span class="hljs-keyword">new</span> Sample({ name: <span class="hljs-string">'samplecruditem'</span>+<span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>)});
-        sample.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, doc)</span></span>{
+        sample.save(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, doc</span>)</span>{
             sampleId = doc._id;
             sampleSearch = doc.name;
         });</pre></div></div>
@@ -250,19 +250,19 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        browser.visit(d+<span class="hljs-string">"/admin"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            <div class="content"><div class='highlight'><pre>        browser.visit(d+<span class="hljs-string">"/admin"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
           browser
             .fill(<span class="hljs-string">"email"</span>, <span class="hljs-string">"admin@anyandgo.com"</span>)
             .fill(<span class="hljs-string">"password"</span>, <span class="hljs-string">"123456"</span>)
-            .pressButton(<span class="hljs-string">"Login"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+            .pressButton(<span class="hljs-string">"Login"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
                 done();
             });
         });
     });
 
-    describe(<span class="hljs-string">'Samples CRUD'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-        it(<span class="hljs-string">'List Samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
-            browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    describe(<span class="hljs-string">'Samples CRUD'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        it(<span class="hljs-string">'List Samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+            browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
                assert.ok(browser.success);
                assert.ok(browser.location.hash === <span class="hljs-string">"#/crud/sample"</span>);</pre></div></div>
             
@@ -285,12 +285,12 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
             });
         });
 
-        it(<span class="hljs-string">'Search Samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
-            browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        it(<span class="hljs-string">'Search Samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+            browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
                assert.ok(browser.success);
                assert.ok(browser.location.hash === <span class="hljs-string">"#/crud/sample"</span>);
                browser.fill(<span class="hljs-string">'input[ng-model="search"]'</span>, sampleSearch);
-               browser.wait(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+               browser.wait(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -312,11 +312,11 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
             });
         });
 
-        it(<span class="hljs-string">'Update Samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
-           browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        it(<span class="hljs-string">'Update Samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+           browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
               assert.ok(browser.success);
               assert.ok(browser.location.hash === <span class="hljs-string">"#/crud/sample"</span>);
-              browser.clickLink(<span class="hljs-string">'a[data-edit-id="'</span>+sampleId+<span class="hljs-string">'"]'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+              browser.clickLink(<span class="hljs-string">'a[data-edit-id="'</span>+sampleId+<span class="hljs-string">'"]'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -342,14 +342,14 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>console.log(“1—-&gt;”, browser.userAgent);
+              <p>console.log(“1—&gt;”, browser.userAgent);
 console.log(browser.html());</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>                browser
                  .fill(<span class="hljs-string">'form[name="myForm"] input[name="name"]'</span>, sampleEdited)
-                 .pressButton(<span class="hljs-string">'button[ng-click="save()"]'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, b)</span></span>{</pre></div></div>
+                 .pressButton(<span class="hljs-string">'button[ng-click="save()"]'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, b</span>)</span>{</pre></div></div>
             
         </li>
         
@@ -361,12 +361,12 @@ console.log(browser.html());</p>
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <p><a href="https://github.com/angular/angular.js/issues/3915">https://github.com/angular/angular.js/issues/3915</a>
-console.log(“—-&gt;”);
+console.log(“—&gt;”);
 console.log(browser.html());</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>                   browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>                   browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</pre></div></div>
             
         </li>
         
@@ -383,7 +383,7 @@ console.log(browser.document.querySelectorAll(‘body’)[0].innerHTML);</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>                       browser.fill(<span class="hljs-string">'input[ng-model="search"]'</span>, sampleEdited);
-                       browser.wait(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+                       browser.wait(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -408,8 +408,8 @@ console.log(browser.document.querySelectorAll(‘body’)[0].innerHTML);</p>
            });
         });
 
-        it(<span class="hljs-string">'Create Samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
-           browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+        it(<span class="hljs-string">'Create Samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+           browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</pre></div></div>
             
         </li>
         
@@ -420,13 +420,13 @@ console.log(browser.document.querySelectorAll(‘body’)[0].innerHTML);</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
-              <p>console.log(“0—-&gt;”, browser.text(‘[ng-view]’));</p>
+              <p>console.log(“0—&gt;”, browser.text(‘[ng-view]’));</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>              assert.ok(browser.success);
               assert.ok(browser.location.hash === <span class="hljs-string">"#/crud/sample"</span>);
-              browser.visit(d+<span class="hljs-string">'/admin/panel#/crud/sample-new'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+              browser.visit(d+<span class="hljs-string">'/admin/panel#/crud/sample-new'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -437,14 +437,14 @@ console.log(browser.document.querySelectorAll(‘body’)[0].innerHTML);</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
-              <p>console.log(“1—-&gt;”, browser.text(‘[ng-view]’));</p>
+              <p>console.log(“1—&gt;”, browser.text(‘[ng-view]’));</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>                sampleNew = <span class="hljs-string">"samplenew"</span>+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime();
                 browser
                  .fill(<span class="hljs-string">'form[name="myForm"] input[name="name"]'</span>, sampleNew)
-                 .pressButton(<span class="hljs-string">'button[ng-click="save()"]'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, b)</span></span>{</pre></div></div>
+                 .pressButton(<span class="hljs-string">'button[ng-click="save()"]'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, b</span>)</span>{</pre></div></div>
             
         </li>
         
@@ -455,13 +455,13 @@ console.log(browser.document.querySelectorAll(‘body’)[0].innerHTML);</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
-              <p>console.log(“2—-&gt;”, browser.text(‘[ng-view]’));</p>
+              <p>console.log(“2—&gt;”, browser.text(‘[ng-view]’));</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>                   browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+            <div class="content"><div class='highlight'><pre>                   browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
                        browser.fill(<span class="hljs-string">'input[ng-model="search"]'</span>, sampleNew);
-                       browser.wait(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+                       browser.wait(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -486,11 +486,11 @@ console.log(browser.document.querySelectorAll(‘body’)[0].innerHTML);</p>
            });
         });
 
-        it(<span class="hljs-string">'Delete Samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
-           browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        it(<span class="hljs-string">'Delete Samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+           browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
               assert.ok(browser.success);
               assert.ok(browser.location.hash === <span class="hljs-string">"#/crud/sample"</span>);
-              browser.clickLink(<span class="hljs-string">'a[data-edit-id="'</span>+sampleId+<span class="hljs-string">'"]'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+              browser.clickLink(<span class="hljs-string">'a[data-edit-id="'</span>+sampleId+<span class="hljs-string">'"]'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -516,14 +516,14 @@ console.log(browser.document.querySelectorAll(‘body’)[0].innerHTML);</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
-              <p>console.log(“1—-&gt;”, browser.userAgent);
+              <p>console.log(“1—&gt;”, browser.userAgent);
 console.log(browser.html());</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>                browser
                  .fill(<span class="hljs-string">'form[name="myForm"] input[name="name"]'</span>, sampleEdited)
-                 .pressButton(<span class="hljs-string">'button[ng-click="destroy()"]'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, b)</span></span>{</pre></div></div>
+                 .pressButton(<span class="hljs-string">'button[ng-click="destroy()"]'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, b</span>)</span>{</pre></div></div>
             
         </li>
         
@@ -535,12 +535,12 @@ console.log(browser.html());</p>
                 <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
               <p><a href="https://github.com/angular/angular.js/issues/3915">https://github.com/angular/angular.js/issues/3915</a>
-console.log(“—-&gt;”);
+console.log(“—&gt;”);
 console.log(browser.html());</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>                   browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>                   browser.visit(d+<span class="hljs-string">"/admin/panel#/crud/sample"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</pre></div></div>
             
         </li>
         
@@ -557,7 +557,7 @@ console.log(browser.document.querySelectorAll(‘body’)[0].innerHTML);</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>                       browser.fill(<span class="hljs-string">'input[ng-model="search"]'</span>, sampleEdited);
-                       browser.wait(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+                       browser.wait(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         

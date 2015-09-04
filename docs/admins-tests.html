@@ -165,8 +165,8 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'Model Test Admins'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-    before(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'Model Test Admins'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    before(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -184,7 +184,7 @@
             <div class="content"><div class='highlight'><pre>        Admins = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../../../models/admins.js"</span>);
     });
 
-    describe(<span class="hljs-string">'Admins'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+    describe(<span class="hljs-string">'Admins'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -199,7 +199,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        it(<span class="hljs-string">'add a admins'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span></span>{
+            <div class="content"><div class='highlight'><pre>        it(<span class="hljs-string">'add a admins'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
             admins = <span class="hljs-keyword">new</span> Admins({ name: <span class="hljs-string">'admins'</span>+<span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>)});
             admins.save(done);
         });

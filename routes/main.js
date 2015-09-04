@@ -146,9 +146,9 @@ app.get('/admin', function (req, res) {
     res.render('admin', { title: 'Admin', section: 'Admin', form: formHTML });
 });
 
-// ### docs Page
+// ### Docs Page
 app.get('/docs', function (req, res) {
-    res.render('docs', { title: 'docs', section: 'docs' });
+    res.render('docs', { title: 'Docs', section: 'Docs' });
 });
 /* page:public:end */
 

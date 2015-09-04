@@ -146,7 +146,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>adminsSchema.pre(<span class="hljs-string">"save"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(next)</span> </span>{
+            <div class="content"><div class='highlight'><pre>adminsSchema.pre(<span class="hljs-string">"save"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.isModified(<span class="hljs-string">'password'</span>))
         <span class="hljs-keyword">this</span>.password = crypto.createHash(<span class="hljs-string">'md5'</span>)
             .update(<span class="hljs-keyword">this</span>.password)
@@ -171,11 +171,11 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>adminsSchema.method(<span class="hljs-string">'authenticate'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(password)</span> </span>{
+            <div class="content"><div class='highlight'><pre>adminsSchema.method(<span class="hljs-string">'authenticate'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">password</span>) </span>{
     <span class="hljs-keyword">return</span> crypto.createHash(<span class="hljs-string">'md5'</span>).update(password).digest(<span class="hljs-string">"hex"</span>) === <span class="hljs-keyword">this</span>.password;
 });
 
-adminsSchema.method(<span class="hljs-string">"instanceMethod"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(param, cb)</span> </span>{
+adminsSchema.method(<span class="hljs-string">"instanceMethod"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">param, cb</span>) </span>{
     <span class="hljs-keyword">var</span> admins = <span class="hljs-keyword">this</span>;
     <span class="hljs-keyword">this</span>.save(cb);
 });</pre></div></div>
@@ -193,9 +193,9 @@ adminsSchema.method(<span class="hljs-string">"instanceMethod"</span>, <span cla
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>adminsSchema.statics.customMethod = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(paramid, cb)</span> </span>{
+            <div class="content"><div class='highlight'><pre>adminsSchema.statics.customMethod = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">paramid, cb</span>) </span>{
   <span class="hljs-keyword">var</span> Admins = <span class="hljs-keyword">this</span>;
-  Admins.findOne({ _id: paramid}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, admins)</span></span>{
+  Admins.findOne({ _id: paramid}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, admins</span>)</span>{
       cb(err, admins);
   });
 }</pre></div></div>
