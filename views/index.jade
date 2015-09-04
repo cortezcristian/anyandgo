@@ -2,9 +2,12 @@ extends layout
 
 block content
   .row.our-main-content
-    .col-md-3#side
+    .col-xs-1.col-sm-1.col-md-3#side
+      a.collapser(href="javascript:",style="display:block;background-color: #333;")
+        i.fa.fa-chevron-left
+        i.fa.fa-chevron-right.hide
       h2.text-center(style="background-color: #333;color:#858585;padding:10px;margin:0;font-size:20px;") 
-        img(src="./img/anyandgo-logo-circle-2.png", style="width:80px;")
+        img(src="./img/anyandgo-logo-circle-2.png", style="width:50px;")
         span(style="padding-left:15px") Pick anyandgo!
       aside.sidebar
         nav.sidebar-nav
@@ -146,7 +149,7 @@ block content
                     span.sidebar-nav-item-icon.fa.fa-exclamation-triangle
                     |                   Issues
 
-    .col-md-9#content.ps-scroller
+    .col-xs-11.col-sm-11.col-md-9#content.ps-scroller
       include ./docs-index
 
 block footer
