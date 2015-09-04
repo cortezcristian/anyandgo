@@ -26,6 +26,7 @@
     "perfect-scrollbar": "~0.6.5",
     "components-font-awesome": "~4.4.0",
     "jquery.scrollTo": "~2.1.1",
-    "prism": "~1.0.1"
+    "prism": "~1.0.1",
+    "ngFx": "~1.1.0"
   }
 }

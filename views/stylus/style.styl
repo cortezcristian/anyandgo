@@ -9,9 +9,10 @@ body
   .hammerfont
     font-family: 'Hammersmith One', sans-serif;
   .neck
-    margin: 50px 0 0
-    padding: 50px 70px 60px 120px
-    background: url('../img/itcloud.jpg')
+    margin: 44px 0 0
+    padding: 0 
+    background-color: #2B2A28
+    background-image:url('../img/bg-2-full.jpg');
     background-position: center
     h1
       font-size: 55px;
@@ -20,6 +21,39 @@ body
       margin-bottom: 15px;
       font-size: 21px;
       font-weight: 200;
+    .carousel
+      height 350px
+      ol
+        width 100%
+        margin 0 auto
+        left 0
+        border-radius 0
+      .carousel-inner
+        .item
+          height 350px
+          background-repeat no-repeat
+          background-position center center
+          background-size cover
+          .carousel-caption
+            background-color rgba(33,33,33, 0.9)
+            box-shadow: 2px 2px 2px #000;
+            border-radius: 10px;
+            padding 20px
+            bottom 90px
+            h2
+              font-size 45px
+            p
+              font-size 26px
+              text-align left 
+              span
+                display: block
+            h2
+              margin-top 0
+              text-align center
+    .carousel-indicators
+      bottom: 0
+    .carousel-control
+      background: none
   .logobig, .white
     color: #fff !important
   .our-main-content
@@ -130,6 +164,23 @@ body
       z-index: 2;
       h1, h2, h3
         padding-top: 30px;
+  .benefits-con
+    background-color: rgba(33,33,33,0.9);
+    box-shadow: 2px 2px 2px #000;
+    border-radius: 10px;
+    padding: 10px 20px;
+    h3
+      text-align: center;
+      img
+        padding: 0 10px 10px 10px;
+        width: 140px;
+    .benefits
+      a
+        color: #fff;
+        text-decoration: none;
+        font-size: 12px;
+        padding: 10px 0;
+        margin: 10px 0;
 
 // Dashboard
 .board-container
