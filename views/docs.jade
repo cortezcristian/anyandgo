@@ -1,9 +1,155 @@
 extends layout
 
 block content
-  .jumbotron
-    h1=__("pick any·and·go")
-    p Route: /docs
-    p Page: Docs
-    p
-      a.btn.btn-primary.btn-lg(role='button',href="https://github.com/cortezcristian/anyandgo") Read the Docs
+  .row.our-main-content
+    .col-xs-1.col-sm-1.col-md-3#side
+      a.collapser(href="javascript:",style="display:block;background-color: #333;")
+        i.fa.fa-chevron-left
+        i.fa.fa-chevron-right.hide
+      h2.text-center(style="background-color: #333;color:#858585;padding:10px;margin:0;font-size:20px;") 
+        img(src="./img/anyandgo-logo-circle-2.png", style="width:50px;")
+        span(style="padding-left:15px") Pick anyandgo!
+      aside.sidebar
+        nav.sidebar-nav
+          ul#menu.metismenu(metismenu)
+            li.active
+              a(href='#', aria-expanded='true')
+                span.sidebar-nav-item-icon.fa.fa-github-alt.fa-lg
+                span.sidebar-nav-item MEAN Framework
+                span.fa.arrow
+              ul(aria-expanded='true')
+                li
+                  a(href, ng-click="gotoAnchor('main')")
+                    span.sidebar-nav-item-icon
+                    | Start
+                li
+                  a(href, ng-click="gotoAnchor('quick-setup')")
+                    span.sidebar-nav-item-icon
+                    | Quick Setup
+                li
+                  a(href, ng-click="gotoAnchor('best-parctices')")
+                    span.sidebar-nav-item-icon
+                    | Best Practices
+                li
+                  a(href, ng-click="gotoAnchor('grunt-task')")
+                    span.sidebar-nav-item-icon
+                    | Grunt tasks
+            li
+              a(href='#', aria-expanded='false')
+                span.sidebar-nav-item-icon.fa.fa-rocket.fa-lg
+                span.sidebar-nav-item Productivity 
+                span.fa.arrow
+              ul(aria-expanded='false')
+                li
+                  a(href='#scaffolding', aria-expanded='true')
+                    | Scaffolding
+                    span.fa.plus-minus
+                  ul(aria-expanded='true')
+                    li
+                      a(href, ng-click="gotoAnchor('model-test-creation')")
+                        span.sidebar-nav-item-icon
+                        | Model+Test
+                    li
+                      a(href, ng-click="gotoAnchor('page-route')")
+                        span.sidebar-nav-item-icon
+                        | Page+Route 
+                    li
+                      a(href, ng-click="gotoAnchor('rest-test')")
+                        span.sidebar-nav-item-icon
+                        | Rest+Test
+                    li
+                      a(href, ng-click="gotoAnchor('crud-test')")
+                        span.sidebar-nav-item-icon
+                        | Crud+Test
+                li
+                  a(href, ng-click="gotoAnchor('custom-forms')")
+                    span.sidebar-nav-item-icon
+                    |  Custom Forms Fields
+                li
+                  a(href, ng-click="gotoAnchor('locale')")
+                    span.sidebar-nav-item-icon
+                    | Locale+Translation
+                li
+                  a(href, ng-click="gotoAnchor('minification')")
+                    span.sidebar-nav-item-icon
+                    | Assets minification 
+                li
+                  a(href, ng-click="gotoAnchor('translation')")
+                    span.sidebar-nav-item-icon
+                    | Translation Support
+            li
+              a(href='#', aria-expanded='false')
+                span.sidebar-nav-item-icon.fa.fa-server.fa-lg
+                span.sidebar-nav-item Deployment
+                span.fa.arrow
+              ul(aria-expanded='false')
+                li
+                  a(href, ng-click="gotoAnchor('fixtures')")
+                    span.sidebar-nav-item-icon
+                    | Fixtures
+                li
+                  a(href, ng-click="gotoAnchor('mails')")
+                    span.sidebar-nav-item-icon
+                    | Mails
+                li
+                  a(href, ng-click="gotoAnchor('captcha')")
+                    span.sidebar-nav-item-icon
+                    | Captcha Support
+                li
+                  a(href, ng-click="gotoAnchor('server-logs')")
+                    span.sidebar-nav-item-icon
+                    | Server Logs
+                li
+                  a(href, ng-click="gotoAnchor('security')")
+                    span.sidebar-nav-item-icon
+                    | Security
+            li
+              a(href='#', aria-expanded='false')
+                span.sidebar-nav-item-icon.fa.fa-terminal.fa-lg
+                span.sidebar-nav-item Support
+                span.fa.arrow
+              ul(aria-expanded='false')
+                li
+                  a(href, ng-click="gotoAnchor('cors')")
+                    span.sidebar-nav-item-icon
+                    | CORS Support
+                li
+                  a(href, ng-click="gotoAnchor('seo')")
+                    span.sidebar-nav-item-icon
+                    | SEO Support
+                li
+                  a(href, ng-click="gotoAnchor('express')")
+                    span.sidebar-nav-item-icon
+                    | Express 4.x
+                li
+                  a(href, ng-click="gotoAnchor('credits')")
+                    span.sidebar-nav-item-icon
+                    | Credits
+            li.active
+              a(href='#', aria-expanded='true')
+                span.sidebar-nav-item-icon.fa.fa-github.fa-lg
+                |               
+                span.sidebar-nav-item Contribute
+                |               
+                span.fa.arrow
+              |             
+              ul(aria-expanded='true')
+                li
+                  a(href='https://github.com/cortezcristian/anyandgo')
+                    span.sidebar-nav-item-icon.fa.fa-code-fork
+                    |                   Fork
+                |               
+                li
+                  a(href='https://github.com/cortezcristian/anyandgo')
+                    span.sidebar-nav-item-icon.fa.fa-star
+                    |                   Star
+                |               
+                li
+                  a(href='https://github.com/cortezcristian/anyandgo/issues')
+                    span.sidebar-nav-item-icon.fa.fa-exclamation-triangle
+                    |                   Issues
+
+    .col-xs-11.col-sm-11.col-md-9#content.ps-scroller
+      include ./docs-index
+
+block footer
