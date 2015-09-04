@@ -1,6 +1,23 @@
 'use strict';
 $(document).ready(function(){
 
+    var findBootstrapEnvironment = function() {
+        var envs = ['xs', 'sm', 'md', 'lg'];
+
+        var el = $('<div>');
+        el.appendTo($('body'));
+
+        for (var i = envs.length - 1; i >= 0; i--) {
+            var env = envs[i];
+
+            el.addClass('hidden-'+env);
+            if (el.is(':hidden')) {
+                el.remove();
+                return env
+            }
+        };
+    }
+
     var panels = function(){
       var ho = 45;
       var h = $(window).height() - ho;
@@ -15,6 +32,8 @@ $(document).ready(function(){
 
     }
 
+
+
     panels();
     $(window).resize(function(){
         panels();
@@ -25,17 +44,32 @@ $(document).ready(function(){
       $('.github-btn-con').css("margin-top","8px");
     }, 1200);
 
+    var env = findBootstrapEnvironment();
+
+    // Start as collapsed for small devices
+    if(env === 'xs' || env === 'sm'){
+        $("#side").toggleClass('do-collapse');
+    }
+
     $('a.collapser').click(function(e){
         e.preventDefault();
         e.stopPropagation();
         $("#side").toggleClass('do-collapse');
         if($("#side").hasClass('do-collapse')){
-            $("#side").width('40px');
+            //$("#side").width('40px');
             $("#content").innerWidth(($(window).width()-41)+'px');
+            if(env === 'xs' || env === 'sm'){
+                $("#side").css('z-index', '1');
+                //$("#content").css('left', '');
+            }
             //console.info($("#content").width(), $(window).width()-41);
         } else {
             $("#side").width('');
             $("#content").width('');
+            if(env === 'xs' || env === 'sm'){
+                $("#side").css('z-index', '3');
+                //$("#content").css('left', '260px');
+            }
         }
     });
     

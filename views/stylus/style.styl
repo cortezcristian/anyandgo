@@ -28,7 +28,6 @@ body
     .mean-logo
       height:30px;
     #side.do-collapse
-      width: 3%;
       .fa-chevron-left
         display: none !important
       .fa-chevron-right
@@ -44,9 +43,11 @@ body
       height: 100%;
       left: 0;
       bottom: 0;
-      padding: 10px 0 0 0;
+      min-width: 260px !important;
+      padding: 0;
       background-color: #4a4a4a;
       overflow: hidden;
+      box-shadow: 2px -2px 10px #000;
       #topics
         .ui-fancytree
           background-color: #4A4A4A;
@@ -57,11 +58,14 @@ body
           &:hover
             background-color: #6B6B6B;
       //overflow: auto;
+      &.do-collapse
+        a.collapser
+          float: left;
       a.collapser
         padding: 16px;
         text-decoration: none;
         color: #777;
-        float: right;
+        float: left;
         .fa-chevron-left
           display: block
         .fa-chevron-right
@@ -113,6 +117,7 @@ body
             background: #3D3D3D;
             border-bottom: 1px solid #5B5B5B;
     #content
+      background: #fff
       box-shadow: 2px 0 10px #000;
       position: absolute;
       top: 0;
@@ -122,6 +127,7 @@ body
       padding: 10px 35px;
       height: 100%;
       overflow: auto;
+      z-index: 2;
       h1, h2, h3
         padding-top: 30px;
 
@@ -309,6 +315,9 @@ body
   border-top: 1px solid rgba(0, 0, 0, 0.3);
   box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.05) inset;
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+}
+.sidebar-nav ul li ul li ul li a {
+  background: rgba(93, 93, 93, 0.54);
 }
 .sidebar-nav ul a:hover, .sidebar-nav ul a:focus, .sidebar-nav ul a:active {
   color: #fff;
