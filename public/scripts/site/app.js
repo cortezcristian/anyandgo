@@ -24,6 +24,20 @@ $(document).ready(function(){
       $('.github-btn-con').removeClass('hide');
       $('.github-btn-con').css("margin-top","8px");
     }, 1200);
+
+    $('a.collapser').click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $("#side").toggleClass('do-collapse');
+        if($("#side").hasClass('do-collapse')){
+            $("#side").width('40px');
+            $("#content").innerWidth(($(window).width()-41)+'px');
+            //console.info($("#content").width(), $(window).width()-41);
+        } else {
+            $("#side").width('');
+            $("#content").width('');
+        }
+    });
     
 });
 
