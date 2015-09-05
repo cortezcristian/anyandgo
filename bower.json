@@ -27,6 +27,7 @@
     "components-font-awesome": "~4.4.0",
     "jquery.scrollTo": "~2.1.1",
     "prism": "~1.0.1",
-    "ngFx": "~1.1.0"
+    "ngFx": "~1.1.0",
+    "animate.css": "~3.4.0"
   }
 }

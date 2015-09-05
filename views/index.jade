@@ -3,7 +3,7 @@ extends layout
 block content
   .row
     .neck
-      #main-carousel.carousel.carousel-bg.slide(data-ride='carousel', data-interval="30000")
+      #main-carousel.carousel.carousel-bg.slide(data-ride='carousel', data-interval="30000", hero)
         // Indicators
         ol.carousel-indicators
           li.active(data-target='#main-carousel', data-slide-to='0')
@@ -12,17 +12,17 @@ block content
         // Wrapper for slides
         .carousel-inner(role='listbox')
           .item.active
-            .carousel-caption
-              h2 #{__("Get Ready")}
+            .carousel-caption(data-animation="animated flipInY")
+              h2(data-animation="animated bounceInDown") #{__("Get Ready")}
               p
-                span  $ [sudo] npm install anyandgo-cli
-                span  $ anyandgo init my-new-project 
+                span(data-animation="animated zoomInRight")  $ [sudo] npm install anyandgo-cli
+                span(data-animation="animated bounceInLeft")  $ anyandgo init my-new-project 
           .item
-            .carousel-caption
-              h2 #{__("Innovate")}
+            .carousel-caption(data-animation="animated flipInY")
+              h2(data-animation="animated flip") #{__("Innovate")}
               p
-                span  $ [sudo] npm install anyandgo-cli
-                span  $ anyandgo init my-new-project 
+                span(data-animation="animated rotateIn")  $ [sudo] npm install anyandgo-cli
+                span(data-animation="animated rollIn")  $ anyandgo init my-new-project 
         
         // Controls
         a.left.carousel-control(href='#main-carousel', role='button', data-slide='prev')
