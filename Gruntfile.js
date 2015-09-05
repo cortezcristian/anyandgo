@@ -62,7 +62,10 @@ module.exports = function (grunt) {
       dev: {
             script: './bin/www',
             options: {
-                ignore: ['node_modules/**', 'public/js/**/*'],
+                ignore: [
+                    'node_modules/**', 
+                    'public/js/**/*',
+                    'public/scripts/**/*'],
                 callback: function (nodemon) {
                     // opens browser on initial server start
                     nodemon.on('config:update', function () {

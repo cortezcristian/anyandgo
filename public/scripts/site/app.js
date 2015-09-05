@@ -18,9 +18,11 @@ $(document).ready(function(){
         };
     }
 
+    var env;
     var panels = function(){
       var ho = 45;
       var h = $(window).height() - ho;
+      env = findBootstrapEnvironment();
       
       $('#side, #content').css({
           'height': h+'px',
@@ -44,7 +46,6 @@ $(document).ready(function(){
       $('.github-btn-con').css("margin-top","8px");
     }, 1200);
 
-    var env = findBootstrapEnvironment();
 
     // Start as collapsed for small devices
     if(env === 'xs' || env === 'sm'){
