@@ -1,10 +1,18 @@
 extends layout
 
 block content
-  .jumbotron
-    form#loginForm(name="loginForm",method="post",action="")
-      p !{form}
-      !{csrf_form_html}
-      input.btn.btn-primary(type="submit",value="Login")
-    p
-    .well.well-sm Hint: admin@anyandgo.com / 123456
+  .row.our-main-content.neck(style="margin:0 -15px; height: 100%; padding: 50px 0 150px 0;")
+    .col-sm-6.col-sm-offset-3(style="margin-top:55px")
+      .panel.panel-default.animated.bounceInUp(style="border-radius: 10px;box-shadow: 3px 3px 7px #000;border-bottom-right-radius: 0;border-bottom-left-radius: 0;")
+        .panel-heading(style="border-radius: 10px;") Admin
+        .panel-body(style="background-color: #000;color: white;")
+          h1.hammerfont.logobig(style="text-align:center;color: #ccc;")
+            img(src="./img/anyandgo-logo-circle-2.png", style="display:inline-block;height:80px;")
+            | #{__("anyandgo")}
+          form#loginForm(name="loginForm",method="post",action="")
+            p !{form}
+            input.btn.btn-primary(type="submit",value="Login")
+            p
+              .well.well-sm(style="background-color: #0B0B0B;") Hint: admin@anyandgo.com / 123456
+
+block footer 
