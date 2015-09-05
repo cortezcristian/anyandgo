@@ -6,13 +6,24 @@ block content
       .panel.panel-default.animated.bounceInUp(style="border-radius: 10px;box-shadow: 3px 3px 7px #000;border-bottom-right-radius: 0;border-bottom-left-radius: 0;")
         .panel-heading(style="border-radius: 10px;") Admin
         .panel-body(style="background-color: #000;color: white;")
-          h1.hammerfont.logobig(style="text-align:center;color: #ccc;")
+          h1.hammerfont.logobig(style="text-align:center;color: #C9CFFE !important;")
             img(src="./img/anyandgo-logo-circle-2.png", style="display:inline-block;height:80px;")
             | #{__("anyandgo")}
           form#loginForm(name="loginForm",method="post",action="")
             p !{form}
-            input.btn.btn-primary(type="submit",value="Login")
+            p(style="text-align:center")
+              button.btn.btn-default(type="submit",style="width:200px")
+                i.fa.fa-sign-in(style="padding-right:10px")
+                | #{__("Login")}
             p
               .well.well-sm(style="background-color: #0B0B0B;") Hint: admin@anyandgo.com / 123456
+            .form-group.grp-foot.hide
+              .col-md-6(style="padding:0 10px 0 10px;")
+                label.checkbox-inline(for="rec")
+                  input#rec(type="checkbox",name="rec")
+                  | Remember me
+              .col-md-6.text-right
+                p(style="margin:0")
+                  a.btn.btn-forgot(href="/recovery") Forgot Password
 
 block footer 
