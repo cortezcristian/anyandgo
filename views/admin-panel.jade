@@ -5,7 +5,7 @@ block content
     div.loadingmessage(loadingmessage).animated.flipInX
       .preloading-message.animated.bounceInUp
         i.fa.fa-refresh.fa-spin
-    .row
+    .row(ng-cloak)
       .sidebar-con.col-xs-1.col-sm-1.col-md-3#side-col
         div(style="height: 46px;background:#222;")
           a.collapser(href="javascript:",style="display:block;background-color: #333;")
@@ -14,7 +14,6 @@ block content
         include ./partials/admin-sidebar
       .main-con.col-xs-11.col-sm-11.col-md-9#content-col
         .panel(ng-view)
-          | Content {{awesomeThings}}
           
 block scripts
   - if(settings.envflag !== "production") {

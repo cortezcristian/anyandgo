@@ -286,6 +286,12 @@ body
   content: '';
 }
 
+// https://docs.angularjs.org/api/ng/directive/ngCloak
+// http://stackoverflow.com/questions/12866447/prevent-double-curly-brace-notation-from-displaying-momentarily-before-angular-j
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 
 /*==================================================
 =            Bootstrap 3 Media Queries             =
