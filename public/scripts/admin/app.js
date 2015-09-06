@@ -51,19 +51,19 @@ $(document).ready(function(){
         e.stopPropagation();
         $("#side-col").toggleClass('do-collapse');
         if($("#side-col").hasClass('do-collapse')){
-            //$("#side-col").width('40px');
-            $("#content").innerWidth(($(window).width()-41)+'px');
+            $("#side-col").width('40px');
+            $("#content-col").innerWidth(($(window).width()-41)+'px');
             if(env === 'xs' || env === 'sm'){
                 $("#side-col").css('z-index', '1');
-                //$("#content").css('left', '');
+                //$("#content-col").css('left', '');
             }
-            //console.info($("#content").width(), $(window).width()-41);
+            //console.info($("#content-col").width(), $(window).width()-41);
         } else {
             $("#side-col").width('');
-            $("#content").width('');
+            $("#content-col").width('');
             if(env === 'xs' || env === 'sm'){
                 $("#side-col").css('z-index', '3');
-                //$("#content").css('left', '260px');
+                //$("#content-col").css('left', '260px');
             }
         }
     });
