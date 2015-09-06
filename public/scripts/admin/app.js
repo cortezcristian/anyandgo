@@ -88,6 +88,7 @@ angular
     'toggle-switch',
     'adf',
     'adf.structures.base',
+    'adf.widget.clock',
     'restangular'
   ])
   .config(function ($routeProvider, $locationProvider, RestangularProvider) {
