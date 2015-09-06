@@ -87,6 +87,7 @@ angular
     'ngTouch',
     'toggle-switch',
     'adf',
+    'adf.structures.base',
     'restangular'
   ])
   .config(function ($routeProvider, $locationProvider, RestangularProvider) {
