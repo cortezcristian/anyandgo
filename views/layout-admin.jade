@@ -8,14 +8,15 @@ html(lang='en')
       document.write('<base href="' + document.location + '" />');
     - if(settings.envflag !== "production") {
     //-<!-- build:css(public) styles/panel-styles.min.css -->
+    link(rel='stylesheet', href='/scripts/admin/admin_components/bootstrap/dist/css/bootstrap.css')
     //bower:css
-    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='/scripts/admin/admin_components/metisMenu/dist/metisMenu.css')
     link(rel='stylesheet', href='/scripts/admin/admin_components/fontawesome/css/font-awesome.css')
     link(rel='stylesheet', href='/scripts/admin/admin_components/angular-toggle-switch/angular-toggle-switch.css')
     link(rel='stylesheet', href='/scripts/admin/admin_components/perfect-scrollbar/css/perfect-scrollbar.css')
     link(rel='stylesheet', href='/scripts/admin/admin_components/components-font-awesome/css/font-awesome.css')
     link(rel='stylesheet', href='/scripts/admin/admin_components/animate.css/animate.css')
+    link(rel='stylesheet', href='/scripts/admin/admin_components/angular-dashboard-framework/dist/angular-dashboard-framework.css')
     //endbower
     //-<!-- endbuild -->
     - } else {
@@ -48,6 +49,9 @@ html(lang='en')
     script(src='/scripts/admin/admin_components/angular-toggle-switch/angular-toggle-switch.js')
     script(src='/scripts/admin/admin_components/perfect-scrollbar/js/perfect-scrollbar.jquery.js')
     script(src='/scripts/admin/admin_components/perfect-scrollbar/js/perfect-scrollbar.js')
+    script(src='/scripts/admin/admin_components/Sortable/Sortable.js')
+    script(src='/scripts/admin/admin_components/Sortable/ng-sortable.js')
+    script(src='/scripts/admin/admin_components/angular-dashboard-framework/dist/angular-dashboard-framework.js')
     //endbower
     //-<!-- endbuild -->
     - } else {

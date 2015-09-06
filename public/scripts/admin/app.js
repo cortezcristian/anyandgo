@@ -86,6 +86,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'toggle-switch',
+    'adf',
     'restangular'
   ])
   .config(function ($routeProvider, $locationProvider, RestangularProvider) {
