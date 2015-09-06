@@ -13,6 +13,7 @@ block content
             | #{__("anyandgo")}
           form#loginForm(name="loginForm",method="post",action="")
             p !{form}
+            !{csrf_form_html}
             p(style="text-align:center")
               button.btn.btn-default(type="submit",style="width:200px")
                 i.fa.fa-sign-in(style="padding-right:10px")
