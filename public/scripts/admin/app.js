@@ -89,6 +89,7 @@ angular
     'adf',
     'adf.structures.base',
     'adf.widget.clock',
+    'adf.widget.weather',
     'restangular'
   ])
   .config(function ($routeProvider, $locationProvider, RestangularProvider) {

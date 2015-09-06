@@ -27,7 +27,8 @@
     "animate.css": "~3.4.0",
     "angular-dashboard-framework": "~0.10.0",
     "adf-structures-base": "~0.1.0",
-    "adf-widget-clock": "~0.1.3"
+    "adf-widget-clock": "~0.1.3",
+    "adf-widget-weather": "~0.1.3"
   },
   "resolutions": {
     "angular-bootstrap": "~0.11.2",

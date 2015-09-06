@@ -28,9 +28,9 @@ angular.module('anyandgoApp')
             }, {
               type: "weather",
               config: {
-                location: "Dublin,IE"
+                location: "San Francisco"
               },
-              title: "Weather"
+              title: "Weather San Francisco"
             }]
           }, {
             styleClass: "col-md-8",
