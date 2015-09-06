@@ -56,7 +56,7 @@
         "enabled" : true,
         "tracking": "UA-XXXXX-X"
     },
-    "csrf": "enabled",
+    "csrf": "disabled",
     "cors": "enabled",
     "fixtures": "enabled",
     "session" : {
