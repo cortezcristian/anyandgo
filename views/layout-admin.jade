@@ -10,9 +10,12 @@ html(lang='en')
     //-<!-- build:css(public) styles/panel-styles.min.css -->
     //bower:css
     link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
-    link(rel='stylesheet', href='/components/metisMenu/dist/metisMenu.css')
-    link(rel='stylesheet', href='/components/fontawesome/css/font-awesome.css')
-    link(rel='stylesheet', href='/components/angular-toggle-switch/angular-toggle-switch.css')
+    link(rel='stylesheet', href='/scripts/admin/admin_components/metisMenu/dist/metisMenu.css')
+    link(rel='stylesheet', href='/scripts/admin/admin_components/fontawesome/css/font-awesome.css')
+    link(rel='stylesheet', href='/scripts/admin/admin_components/angular-toggle-switch/angular-toggle-switch.css')
+    link(rel='stylesheet', href='/scripts/admin/admin_components/perfect-scrollbar/css/perfect-scrollbar.css')
+    link(rel='stylesheet', href='/scripts/admin/admin_components/components-font-awesome/css/font-awesome.css')
+    link(rel='stylesheet', href='/scripts/admin/admin_components/animate.css/animate.css')
     //endbower
     //-<!-- endbuild -->
     - } else {
@@ -29,20 +32,22 @@ html(lang='en')
     - if(settings.envflag !== "production") {
     //-<!-- build:js(public) scripts/panel-vendors.min.js -->
     //bower:js
-    script(src='/components/jquery/dist/jquery.js')
-    script(src='/components/angular/angular.js')
-    script(src='/components/angular-bootstrap/ui-bootstrap-tpls.js')
-    script(src='/components/bootstrap/dist/js/bootstrap.js')
-    script(src='/components/metisMenu/dist/metisMenu.js')
-    script(src='/components/lodash/dist/lodash.compat.js')
-    script(src='/components/restangular/dist/restangular.js')
-    script(src='/components/angular-resource/angular-resource.js')
-    script(src='/components/angular-cookies/angular-cookies.js')
-    script(src='/components/angular-sanitize/angular-sanitize.js')
-    script(src='/components/angular-animate/angular-animate.js')
-    script(src='/components/angular-touch/angular-touch.js')
-    script(src='/components/angular-route/angular-route.js')
-    script(src='/components/angular-toggle-switch/angular-toggle-switch.js')
+    script(src='/scripts/admin/admin_components/jquery/dist/jquery.js')
+    script(src='/scripts/admin/admin_components/angular/angular.js')
+    script(src='/scripts/admin/admin_components/angular-bootstrap/ui-bootstrap-tpls.js')
+    script(src='/scripts/admin/admin_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/scripts/admin/admin_components/metisMenu/dist/metisMenu.js')
+    script(src='/scripts/admin/admin_components/lodash/dist/lodash.compat.js')
+    script(src='/scripts/admin/admin_components/restangular/dist/restangular.js')
+    script(src='/scripts/admin/admin_components/angular-resource/angular-resource.js')
+    script(src='/scripts/admin/admin_components/angular-cookies/angular-cookies.js')
+    script(src='/scripts/admin/admin_components/angular-sanitize/angular-sanitize.js')
+    script(src='/scripts/admin/admin_components/angular-animate/angular-animate.js')
+    script(src='/scripts/admin/admin_components/angular-touch/angular-touch.js')
+    script(src='/scripts/admin/admin_components/angular-route/angular-route.js')
+    script(src='/scripts/admin/admin_components/angular-toggle-switch/angular-toggle-switch.js')
+    script(src='/scripts/admin/admin_components/perfect-scrollbar/js/perfect-scrollbar.jquery.js')
+    script(src='/scripts/admin/admin_components/perfect-scrollbar/js/perfect-scrollbar.js')
     //endbower
     //-<!-- endbuild -->
     - } else {

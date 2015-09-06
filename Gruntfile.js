@@ -53,9 +53,13 @@ module.exports = function (grunt) {
         },
         task: ['']
       },
-      bower: {
+      boweradmin: {
+        files: ['./public/scripts/admin/bower.json'],
+        tasks: ['wiredep:admin']
+      },
+      bowersite: {
         files: ['bower.json'],
-        tasks: ['wiredep']
+        tasks: ['wiredep:site']
       }
     },
     nodemon: {
@@ -87,13 +91,23 @@ module.exports = function (grunt) {
       }
     },
     wiredep: {
-      target: {
-        src: ['views/layout.jade'],
-        ignorePath: '../public'
+      admin: {
+        src: ['views/layout-admin.jade'],
+        options: {
+          cwd: './public/scripts/admin/',
+          ignorePath: '../public',
+          overrides: {
+            "directory": "./bower_components/"
+          }
+        }
       },
-      options: {
-        overrides: {
-          "directory": "./bower_components/"
+      site: {
+        src: ['views/layout.jade'],
+        options: {
+          ignorePath: '../public',
+          overrides: {
+            "directory": "./bower_components/"
+          }
         }
       }
     },
