@@ -1,4 +1,4 @@
-nav.navbar.navbar-default(role='navigation')
+nav.navbar.navbar-default(role='navigation',style="border-radius: 0 !important;")
   .container-fluid
     .navbar-header
       button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
@@ -6,14 +6,18 @@ nav.navbar.navbar-default(role='navigation')
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='/') Any·and·go
+      a.navbar-brand.hammerfont(href='/',style="color: #3C3C3C !important;")
+        span(style="display:inline-block;")
+          img(src="/img/anyandgo-logo-circle-2.png", style="display:inline-block;height:30px;")
+        span(style="display:inline-block;padding-left:10px;")
+        | anyandgo
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         li.active
           a(href='#') Home
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
-            | Crud
+            span(style="display:inline-block;padding-right:10px;") Menu
             span.caret
           ul.dropdown-menu(role='menu')
             //admin:crud:menu:start
@@ -21,17 +25,22 @@ nav.navbar.navbar-default(role='navigation')
               a(href='#/crud/sample') Sample
             //admin:crud:menu:end
       ul.nav.navbar-nav.navbar-right
+        li
+          img.img-circle.img-responsive.img-profile(src="/img/user-placeholder.png", style="height:40px; margin: 4px 4px 0 0;")
+        li
+          p.navbar-text Admin
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
-            | Admin
+            i.fa.fa-cog.fa-fw
+            span.hide Settings
             span.caret
           ul.dropdown-menu(role='menu')
             li
-              a(href='#') Action
-            li
-              a(href='#') Another action
-            li
-              a(href='#') Something else here
+              a(href='#')
+                i.fa.fa-user.fa-fw
+                |  Account
             li.divider
             li
-              a(href='/logout') Logout
+              a(href='/logout') 
+                i.fa.fa-sign-out.fa-fw
+                |  Logout

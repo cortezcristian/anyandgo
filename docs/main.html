@@ -234,7 +234,7 @@ according to their roles</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
-    res.render(<span class="hljs-string">'index'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Home'</span> });
+    res.render(<span class="hljs-string">'index'</span>, { title: <span class="hljs-string">'anyandgo'</span>, section: <span class="hljs-string">'Home'</span> });
 });
 
 <span class="hljs-comment">/* page:public:start */</span></pre></div></div>
@@ -306,7 +306,7 @@ according to their roles</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>            res.end(<span class="hljs-string">'Anyandgo: Mail is not enabled, please contact the site administrator.'</span>);
+            <div class="content"><div class='highlight'><pre>            res.end(<span class="hljs-string">'anyandgo: Mail is not enabled, please contact the site administrator.'</span>);
         }
      }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res, next</span>) </span>{
         <span class="hljs-keyword">if</span> ( config.captcha &amp;&amp; config.captcha.enabled ) {
@@ -413,7 +413,7 @@ console.log(“E—&gt;”, errors);</p>
         }, {
             from: config.mail.auth.user, 
             to: config.mail.contact,
-            subject: <span class="hljs-string">'Anyandgo'</span>,
+            subject: <span class="hljs-string">'anyandgo'</span>,
             text: msg+<span class="hljs-string">' Sent from anyandgo'</span>
         }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, response</span>)</span>{
            <span class="hljs-keyword">if</span> ( error ) {
@@ -494,7 +494,7 @@ console.log(“E—&gt;”, errors);</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
-    res.render(<span class="hljs-string">'admin-index'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Login'</span> });
+    res.render(<span class="hljs-string">'admin-index'</span>, { title: <span class="hljs-string">'anyandgo'</span>, section: <span class="hljs-string">'Admin Login'</span> });
 });</pre></div></div>
             
         </li>
@@ -511,7 +511,7 @@ console.log(“E—&gt;”, errors);</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>app.get(<span class="hljs-string">'/admin/config'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
-    res.render(<span class="hljs-string">'admin-config'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span> });
+    res.render(<span class="hljs-string">'admin-config'</span>, { title: <span class="hljs-string">'anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span> });
 });</pre></div></div>
             
         </li>
@@ -532,7 +532,7 @@ console.log(“E—&gt;”, errors);</p>
     adminAuth.autorizer,
     <span class="hljs-comment">/* route:autorizers:end */</span>
     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
-    res.render(<span class="hljs-string">'admin-panel'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span> });
+    res.render(<span class="hljs-string">'admin-panel'</span>, { title: <span class="hljs-string">'anyandgo'</span>, section: <span class="hljs-string">'Admin Panel'</span> });
 });</pre></div></div>
             
         </li>
@@ -773,7 +773,7 @@ SampleForm.options.maps[“</strong>v”] = false;</p>
             <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
     
     <span class="hljs-built_in">console</span>.log(formHTMl);
-    res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, form: formHTMl, mname: req.params.modelname });
+    res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, form: formHTMl, mname: req.params.modelname });
 });
 
 app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
@@ -784,7 +784,7 @@ app.get(<span class="hljs-string">'/forms/sample/edit'</span>, <span class="hljs
         <span class="hljs-keyword">var</span> formHTMl = Handlebars.helpers.renderForm(form);
     
         <span class="hljs-built_in">console</span>.log(formHTMl);
-        res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'Anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, form: formHTMl });
+        res.render(<span class="hljs-string">'forms'</span>, { title: <span class="hljs-string">'anyandgo'</span>, section: <span class="hljs-string">'Form'</span>, form: formHTMl });
     });
 });</pre></div></div>
             

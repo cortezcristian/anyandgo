@@ -33,6 +33,7 @@ config/config-nodejitsu.json
 # Express 4.x
 node_modules/
 public/components
+public/scripts/admin/admin_components
 .sass-cache
 
 # Minimified files

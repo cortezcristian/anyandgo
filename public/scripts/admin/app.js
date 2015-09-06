@@ -1,13 +1,73 @@
 'use strict';
-/*
 $(document).ready(function(){
-    $('#side-menu').metisMenu();
-    $('head').append('<link rel="stylesheet" type="text/css" href="http://visionmedia.github.io/mocha/example/mocha.css">');
-    $.get('/tasks/test', function(data){
-        $('.main-con .panel').html(data);
+
+    var findBootstrapEnvironment = function() {
+        var envs = ['xs', 'sm', 'md', 'lg'];
+
+        var el = $('<div>');
+        el.appendTo($('body'));
+
+        for (var i = envs.length - 1; i >= 0; i--) {
+            var env = envs[i];
+
+            el.addClass('hidden-'+env);
+            if (el.is(':hidden')) {
+                el.remove();
+                return env
+            }
+        };
+    }
+
+    var env;
+    var panels = function(){
+      var ho = 0;
+      var h = $(window).height() - ho;
+      env = findBootstrapEnvironment();
+      
+      $('#side-col, #content-col').css({
+          'height': h+'px',
+          'top': ho+'px'
+      });
+
+      $('.ps-scroller')
+          .perfectScrollbar();
+
+    }
+
+
+
+    panels();
+    $(window).resize(function(){
+        panels();
+    });
+
+     // Start as collapsed for small devices
+    if(env === 'xs' || env === 'sm'){
+        $("#side-col").toggleClass('do-collapse');
+    }
+
+    $('a.collapser').click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $("#side-col").toggleClass('do-collapse');
+        if($("#side-col").hasClass('do-collapse')){
+            $("#side-col").width('40px');
+            $("#content-col").innerWidth(($(window).width()-41)+'px');
+            if(env === 'xs' || env === 'sm'){
+                $("#side-col").css('z-index', '1');
+                //$("#content-col").css('left', '');
+            }
+            //console.info($("#content-col").width(), $(window).width()-41);
+        } else {
+            $("#side-col").width('');
+            $("#content-col").width('');
+            if(env === 'xs' || env === 'sm'){
+                $("#side-col").css('z-index', '3');
+                //$("#content-col").css('left', '260px');
+            }
+        }
     });
 });
-*/
 
 /**
  * @ngdoc overview
@@ -26,6 +86,10 @@ angular
     'ngSanitize',
     'ngTouch',
     'toggle-switch',
+    'adf',
+    'adf.structures.base',
+    'adf.widget.clock',
+    'adf.widget.weather',
     'restangular'
   ])
   .config(function ($routeProvider, $locationProvider, RestangularProvider) {
