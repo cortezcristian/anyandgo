@@ -72,6 +72,9 @@ html(lang='en',ng-app="anyandgoApp")
     block content
     block footer
       include ./partials/site-footer
+    block modals
+      include ./partials/modal-video
+
     - if(settings.envflag !== "production") {
     //-<!-- build:js(public) scripts/site-vendors.min.js -->
     //bower:js
@@ -96,6 +99,7 @@ html(lang='en',ng-app="anyandgoApp")
     script(src='/components/prism/prism.js')
     script(src='/components/gsap/src/uncompressed/TweenMax.js')
     script(src='/components/ngFx/dist/ngFx.js')
+    script(src='/components/angular-youtube-mb/src/angular-youtube-embed.js')
     //endbower
     //-<!-- endbuild -->
     - } else {
