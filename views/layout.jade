@@ -47,6 +47,7 @@ html(lang='en',ng-app="anyandgoApp")
       link(rel='stylesheet', href='/css/bootstrap.min.css')
       link(rel='stylesheet', href='/css/style.css')
     block js
+      - if(settings.envflag !== "production") {
       script(src='http://localhost:35729/livereload.js')
       - if(envflag==="development" && autologin.enabled) {
         script(src='http://localhost:35729/livereload.js')
@@ -63,6 +64,7 @@ html(lang='en',ng-app="anyandgoApp")
                 }
             });
           });
+      - }
       - }
 
   body.container-fluid
