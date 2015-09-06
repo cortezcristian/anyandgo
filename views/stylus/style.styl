@@ -189,10 +189,51 @@ body
 // Dashboard
 .board-container
   margin-top:-20px
+  #side-col.do-collapse
+    .fa-chevron-left
+      display: none !important
+    .fa-chevron-right
+      display: block !important
+    .hidden-xs
+      display: none
+  #side-col
+    border-right: 1px solid #4a4a4a
+    top: 0;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    min-width: 260px !important;
+    padding: 0;
+    background-color: #4a4a4a;
+    overflow: hidden;
+    .navbar-default, .sidebar-nav
+      border: none;
+    #topics
+      .ui-fancytree
+        background-color: #4A4A4A;
+        color: white;
+        border: none;
+      .fancytree-title
+        color: white;
+        &:hover
+          background-color: #6B6B6B;
+    //overflow: auto;
+    &.do-collapse
+      a.collapser
+        float: left;
+    a.collapser
+      padding: 16px;
+      text-decoration: none;
+      color: #777;
+      float: right;
+      .fa-chevron-left
+        display: block
+      .fa-chevron-right
+        display: none
   .sidebar-con
     padding-left: 0
     .sidebar-nav
-      padding: 20px 0
+      padding: 0
       & > ul > li
         //border-bottom: 1px solid #e7e7e7
       .d-item-title

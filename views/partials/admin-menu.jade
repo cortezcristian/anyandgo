@@ -6,14 +6,18 @@ nav.navbar.navbar-default(role='navigation')
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='/') anyandgo
+      a.navbar-brand.hammerfont(href='/',style="color: #3C3C3C !important;")
+        span(style="display:inline-block;")
+          img(src="/img/anyandgo-logo-circle-2.png", style="display:inline-block;height:30px;")
+        span(style="display:inline-block;padding-left:10px;")
+        | anyandgo
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         li.active
           a(href='#') Home
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
-            | Crud
+            span(style="display:inline-block;padding-right:10px;") Menu
             span.caret
           ul.dropdown-menu(role='menu')
             //admin:crud:menu:start
