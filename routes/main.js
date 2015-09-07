@@ -153,6 +153,11 @@ app.get('/admin', function (req, res) {
 app.get('/docs', function (req, res) {
     res.render('docs', { title: 'Docs', section: 'Docs' });
 });
+
+// ### User Page
+app.get('/user', function (req, res) {
+    res.render('user', { title: 'User', section: 'User' });
+});
 /* page:public:end */
 
 // ## 2. Admin Routes
