@@ -120,13 +120,15 @@ app.post('/contact', function (req, res, next) {
         res.redirect('/contact');
     } else {
         mail.sendFromTemplate('./mailstemplates/contact.hbs', {
+            siteurl: config.mail.templatesdomain,
             name: req.body.name,
             message: req.body.message,
+            subject: '[anyandgo] Web Contact',
             email: req.body.email
         }, {
             from: config.mail.auth.user, 
             to: config.mail.contact,
-            subject: 'anyandgo',
+            subject: '[anyandgo] Web Contact',
             text: msg+' Sent from anyandgo'
         }, function(error, response){
            if ( error ) {
