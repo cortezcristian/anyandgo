@@ -19,6 +19,7 @@ var app = module.parent.exports.app,
   // Admins        = require('../models/admins.js'),
   Sample  = require('../models/sample.js'),
   Admins  = require('../models/admins.js'),
+  User  = require('../models/user.js'),
   /* models:end */
   // ### Authorizers
   // Mantain certains part from the application secure
@@ -39,7 +40,9 @@ var app = module.parent.exports.app,
 
   /* models:registration:start */
   anyandgo.models['sample']  = Sample;
+  anyandgo.models['user']  = User;
   /* models:registration:end */
+
 
 // ## 1. Public Routes
 // --------------------------------------
@@ -206,7 +209,25 @@ restify.serve(app, Sample, {
     console.log("post process");
   }
 });
+
+// GET /api/v1/users
+restify.serve(app, User, {
+  lowercase: true,
+  lean: false,
+  prereq: function(req) {
+    console.log("pre req");
+    return true;
+  },
+  contextFilter: function(model, req, cb) {
+    console.log("context filter");
+    cb(model);
+  },
+  postProcess: function(req, res){
+    console.log("post process");
+  }
+});
 /* rest:public:end */
+
 
 
 // ## 4. Crud Forms

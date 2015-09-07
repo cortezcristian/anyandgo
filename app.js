@@ -20,6 +20,7 @@ var utils = require('./utils');
 var config = exports.config = require('./config');
 var mail = exports.mail = require('./utils/mailer.js');
 var anyandgo = exports.anyandgo = {};
+var User = require('./models/user.js');
 
 // Anyandgo
 anyandgo.models = [];
@@ -229,8 +230,14 @@ if (config.csrf && config.csrf === "enabled") {
 
 // used to serialize the user for the session
 passport.serializeUser(function(user, done) {
-    console.log(user);
-    done(null, user);
+    //console.log(user);
+    if(user.role === 'user') {
+        User.findOne({ _id : user._id }, function(err, usr){
+            done(err, usr);
+        });
+    } else {
+        done(null, user);
+    }
 });
 
 // used to deserialize the user
