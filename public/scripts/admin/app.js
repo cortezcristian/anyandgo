@@ -26,7 +26,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'toggle-switch',
-    'restangular'
+    'restangular',
+    'angularUtils.directives.dirPagination'
   ])
   .config(function ($routeProvider, $locationProvider, RestangularProvider) {
     //$locationProvider.html5Mode(true).hashPrefix('!');
