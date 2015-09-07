@@ -13,12 +13,12 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
         | anyandgo
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li
+        li(class=((path=='/')?"active":""))
           a(href='/')
             i.fa.fa-home(style='padding-right:10px') 
             | Home
         // public:page:menu:start
-        li
+        li(class=((path=='/docs')?"active":""))
           a(href='/docs')
             i.fa.fa-book(style='padding-right:10px') 
             | Docs
