@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>sample-tests.js</title>
+  <title>user-tests.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -91,7 +91,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>sample-tests.js</h1>
+                  <h1>user-tests.js</h1>
               </div>
           </li>
         
@@ -103,7 +103,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <h2 id="sample-test-cases">Sample Test Cases</h2>
+              <h2 id="user-test-cases">User Test Cases</h2>
 
             </div>
             
@@ -165,7 +165,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> Sample, sample;</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> User, user;</pre></div></div>
             
         </li>
         
@@ -180,7 +180,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'Model Test Sample'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'Model Test User'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
     before(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
@@ -196,10 +196,10 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        Sample = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../../../models/sample.js"</span>);
+            <div class="content"><div class='highlight'><pre>        User = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../../../models/user.js"</span>);
     });
 
-    describe(<span class="hljs-string">'Sample'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
+    describe(<span class="hljs-string">'User'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -214,9 +214,9 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        it(<span class="hljs-string">'add a sample'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
-            sample = <span class="hljs-keyword">new</span> Sample({ name: <span class="hljs-string">'sample'</span>+<span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>)});
-            sample.save(done);
+            <div class="content"><div class='highlight'><pre>        it(<span class="hljs-string">'add a user'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+            user = <span class="hljs-keyword">new</span> User({ name: <span class="hljs-string">'user'</span>+<span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>)});
+            user.save(done);
         });
 
     });
