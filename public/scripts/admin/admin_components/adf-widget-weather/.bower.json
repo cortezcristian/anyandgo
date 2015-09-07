@@ -37,6 +37,5 @@
   },
   "_source": "git://github.com/sdorra/adf-widget-weather.git",
   "_target": "~0.1.3",
-  "_originalSource": "adf-widget-weather",
-  "_direct": true
+  "_originalSource": "adf-widget-weather"
 }

@@ -14,9 +14,9 @@ block content
           .item.active
             .carousel-caption(data-animation="animated flipInY")
               h2(data-animation="animated bounceInDown") #{__("Get Ready")}
-              p
-                span(data-animation="animated zoomInRight")  $ [sudo] npm install anyandgo-cli
-                span(data-animation="animated bounceInLeft")  $ anyandgo init my-new-project 
+              p.text-center
+                span.text-center(data-animation="animated zoomInRight")
+                  img(src="img/logos/anyandgo-eq-mean.png",style="max-width: 400px;")
           .item
             .carousel-caption(data-animation="animated flipInY")
               h2(data-animation="animated flip") #{__("Innovate")}
@@ -59,7 +59,8 @@ block content
       
           .col-sm-4
             .thumbnail
-              //img(src='', alt='video',style="width:700px;height: 170px;")
+              a.hide(href,ng-click="openVideoModal('vF9NKt2UXDU')")
+                img(src='http://img.youtube.com/vi/vF9NKt2UXDU/mqdefault.jpg', alt='video',style="width:700px;height: 170px;")
               .caption
                 h3 #{__("Components")}
                   //include components

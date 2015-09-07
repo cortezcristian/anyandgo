@@ -92,6 +92,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'youtube-embed',
     'restangular'
   ])
   .config(function ($routeProvider, $locationProvider, RestangularProvider) {
@@ -106,7 +107,7 @@ angular
       .otherwise({
         redirectTo: '/'
       }); */
-  }).run(function ($rootScope, $location, $route, $timeout, $http, $cookies, $anchorScroll) {
+  }).run(function ($rootScope, $location, $route, $timeout, $http, $cookies, $anchorScroll, youtubeEmbedUtils) {
 
     /*
     */
@@ -132,6 +133,28 @@ angular
       }
     }; 
 
+    // Videos
+    // $rootScope.modalPlayer = {};
+    $rootScope.modalVideo = '';
+
+    $rootScope.openVideoModal = function(video){
+      //
+      // var id = youtubeEmbedUtils.getIdFromURL(video.url);
+      $rootScope.modalVideo = video;
+      $('#modalViewVideo').modal('show');
+    }
+
+
+    $rootScope.closeVideoModal = function(video){
+      // Stop video
+      $rootScope.modalPlayer.stopVideo();
+    }
+
+    $('#modalViewVideo').on('hidden.bs.modal', function () {
+      $rootScope.modalPlayer.stopVideo();
+    });
+
+    
     if(!navigator.userAgent.match(/Zombie/)) {
 
     $rootScope.$on('$routeChangeStart', function () {
