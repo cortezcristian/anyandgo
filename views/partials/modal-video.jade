@@ -1,0 +1,16 @@
+// Modal
+#modalViewVideo.modal.fade.feo(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close', ng-click='closeVideoModal()')
+          span(aria-hidden='true') &times;
+        h4.modal-title
+          i.fa.fa-video-camera(style="padding-right:10px")
+          span Video
+      .modal-body
+        .embed-responsive.embed-responsive-16by9
+          youtube-video(video-id='modalVideo', player='modalPlayer', player-vars="{autoplay:1}")
+        pre {{ modalPlayer.B.volume | json }}
+      .modal-footer
+        button.btn.btn-default(type='button', data-dismiss='modal', ng-click='closeVideoModal()') Close
