@@ -20,7 +20,7 @@
     </tr>
     </thead>
     <tbody>
-      <tr dir-paginate="sample in samples | filter:search | orderBy:'name' | itemsPerPage:3" ng-show="sample._id">
+      <tr dir-paginate="sample in samples | filter:search | orderBy:'name' | itemsPerPage:5" ng-show="sample._id">
         <td>
           <a href="#/crud/sample-edit/{{sample._id}}" data-id="{{sample._id}}">{{sample.name}}</a>
         </td>
@@ -31,7 +31,7 @@
     </tbody>
   </table>
   <dir-pagination-controls
-    max-size="10"
+    max-size="5"
     direction-links="true"
     boundary-links="true" >
   </dir-pagination-controls>
