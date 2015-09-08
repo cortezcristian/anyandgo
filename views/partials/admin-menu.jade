@@ -6,7 +6,7 @@ nav.navbar.navbar-default(role='navigation',style="border-radius: 0 !important;"
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand.hammerfont(href='/',style="color: #3C3C3C !important;")
+      a.navbar-brand.hammerfont(href='/',style="padding-left: 7px;")
         span(style="display:inline-block;")
           img(src="/img/anyandgo-logo-circle-2.png", style="display:inline-block;height:30px;")
         span(style="display:inline-block;padding-left:10px;")
@@ -14,7 +14,9 @@ nav.navbar.navbar-default(role='navigation',style="border-radius: 0 !important;"
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         li.active
-          a(href='#') Home
+          a(href='#/',style="padding-right: 10px")
+            i.fa.fa-dashboard.fa-fw
+            | Dashboard
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
             span(style="display:inline-block;padding-right:10px;") Menu
@@ -29,9 +31,9 @@ nav.navbar.navbar-default(role='navigation',style="border-radius: 0 !important;"
 
       ul.nav.navbar-nav.navbar-right
         li
-          img.img-circle.img-responsive.img-profile(src="/img/user-placeholder.png", style="height:40px; margin: 4px 4px 0 0;")
+          img.img-circle.img-responsive.img-profile(src="/img/user-placeholder.png", style="height:34px; margin: 6px 4px 0 0;")
         li
-          p.navbar-text Admin
+          p.navbar-text(style="padding-top: 3px;") Admin
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
             i.fa.fa-cog.fa-fw
