@@ -20,13 +20,20 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="<%=modelname.toLowerCase() %> in <%=modelname.toLowerCase() %>s | filter:search | orderBy:'name'" ng-show="<%=modelname.toLowerCase() %>._id">
-      <td>
-        <a href="#/crud/<%=modelname.toLowerCase() %>-edit/{{<%=modelname.toLowerCase() %>._id}}" data-id="{{<%=modelname.toLowerCase() %>._id}}">{{<%=modelname.toLowerCase() %>.name}}</a>
-      </td>
-      <td>
-        <a class="btn btn-link"  data-edit-id="{{<%=modelname.toLowerCase() %>._id}}" href="#/crud/<%=modelname.toLowerCase() %>-edit/{{<%=modelname.toLowerCase() %>._id}}"><i class="icon-pencil">Editar</i></a>
-      </td>
-    </tr>
+      <tr dir-paginate="<%=modelname.toLowerCase() %> in <%=modelname.toLowerCase() %>s | filter:search | orderBy:'id' | itemsPerPage:itemspage" ng-init="itemspage=7"  ng-show="<%=modelname.toLowerCase() %>._id">
+        <td>
+          <a href="#/crud/<%=modelname.toLowerCase() %>-edit/{{<%=modelname.toLowerCase() %>._id}}" data-id="{{<%=modelname.toLowerCase() %>._id}}">{{<%=modelname.toLowerCase() %>.name}}</a>
+        </td>
+        <td>
+          <a class="btn btn-link"  data-edit-id="{{<%=modelname.toLowerCase() %>._id}}" href="#/crud/<%=modelname.toLowerCase() %>-edit/{{<%=modelname.toLowerCase() %>._id}}"><i class="icon-pencil">Editar</i></a>
+        </td>
+      </tr>
     </tbody>
   </table>
+  <div class="table-pagination">
+    <dir-pagination-controls
+      max-size="5"
+      direction-links="true"
+      boundary-links="true" >
+    </dir-pagination-controls>
+  </div>

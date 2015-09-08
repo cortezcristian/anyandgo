@@ -20,13 +20,20 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="sample in samples | filter:search | orderBy:'name'" ng-show="sample._id">
-      <td>
-        <a href="#/crud/sample-edit/{{sample._id}}" data-id="{{sample._id}}">{{sample.name}}</a>
-      </td>
-      <td>
-        <a class="btn btn-link"  data-edit-id="{{sample._id}}" href="#/crud/sample-edit/{{sample._id}}"><i class="icon-pencil">Editar</i></a>
-      </td>
-    </tr>
+      <tr dir-paginate="sample in samples | filter:search | orderBy:'id' | itemsPerPage:itemspage" ng-init="itemspage=7"  ng-show="sample._id">
+        <td>
+          <a href="#/crud/sample-edit/{{sample._id}}" data-id="{{sample._id}}">{{sample.name}}</a>
+        </td>
+        <td>
+          <a class="btn btn-link"  data-edit-id="{{sample._id}}" href="#/crud/sample-edit/{{sample._id}}"><i class="icon-pencil">Editar</i></a>
+        </td>
+      </tr>
     </tbody>
   </table>
+  <div class="table-pagination">
+    <dir-pagination-controls
+      max-size="5"
+      direction-links="true"
+      boundary-links="true" >
+    </dir-pagination-controls>
+  </div>
