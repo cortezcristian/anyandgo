@@ -90,6 +90,7 @@ angular
     'adf.structures.base',
     'adf.widget.clock',
     'adf.widget.weather',
+    'angularUtils.directives.dirPagination',
     'restangular'
   ])
   .config(function ($routeProvider, $locationProvider, RestangularProvider) {
