@@ -8,7 +8,7 @@
  * Controller of the anyandgoApp
  */
 angular.module('anyandgoApp')
-  .controller('SampleEditCtrl', function ($scope, $location, Restangular, sample) {
+  .controller('SampleEditCtrl', function ($scope, $location, Restangular, toastr, sample) {
   var original = sample;
   $scope.sample = Restangular.copy(original);
   
@@ -32,6 +32,7 @@ angular.module('anyandgoApp')
       if(navigator.userAgent.match(/Zombie/)) {
           document.location.hash = "#/crud/sample";
       } else {
+        toastr.success('Document was saved', 'Success');
         $location.path('/crud/sample');
       }
     });

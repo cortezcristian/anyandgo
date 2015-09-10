@@ -79,6 +79,7 @@ $(document).ready(function(){
  */
 angular
   .module('anyandgoApp', [
+    'toastr',
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -92,7 +93,7 @@ angular
     'adf.widget.weather',
     'restangular'
   ])
-  .config(function ($routeProvider, $locationProvider, RestangularProvider) {
+  .config(function ($routeProvider, $locationProvider, RestangularProvider, toastrConfig) {
     //$locationProvider.html5Mode(true).hashPrefix('!');
     $routeProvider
       .when('/', {
@@ -151,6 +152,18 @@ angular
         }
         return elem;
       });
+
+      angular.extend(toastrConfig, {
+        autoDismiss: false,
+        containerId: 'toast-container',
+        maxOpened: 0,    
+        newestOnTop: true,
+        positionClass: 'toast-bottom-right',
+        preventDuplicates: false,
+        preventOpenDuplicates: false,
+        target: 'body'
+      });
+
   }).run(function ($rootScope, $location, $route, $timeout, $http, $cookies) {
 
     /*

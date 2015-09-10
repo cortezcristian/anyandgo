@@ -8,8 +8,9 @@
  * Controller of the anyandgoApp
  */
 angular.module('anyandgoApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.anyandgoversion = 'v0.1';
+  .controller('MainCtrl', function ($scope, $timeout, toastr) {
+    $scope.anyandgoversion = 'v1.0';
+    toastr.info('Welcome to anyandgo v1.0', 'Information');
     var model = false;
     if (!model) {
       // set default model for demo purposes
