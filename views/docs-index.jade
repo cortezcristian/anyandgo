@@ -169,13 +169,16 @@ pre
     | +          a(href='/contact') Contact
     |        // public:page:menu:end
   
-h3#rest-test Rest+Test generation
+h3#rest-test #{__("Rest+Test generation")}
 
 pre
   code.language-bash $ grunt create:rest:Sample
-p Creates rest services for a particular model.
+p #{__("Creates rest services for a particular model.")}
 
-p Will modify ./routes/main.js to append the model as dependency
+p 
+| #{__("Will modify ")}
+b.text-info ./routes/main.js
+| #{__("to append the model as dependency")}
 pre
   code.language-javascript
     | /* rest:public:start */
@@ -198,12 +201,12 @@ pre
     | +});
     | /* rest:public:end */
 
-p Along with a test file:
+p #{__("Along with a test file:")}
 
 .bs-callout.bs-callout-info test/rest/models/samples-rest-tests.js
-p This uses 
+p #{__("This uses ")}
   a(href='http://visionmedia.github.io/superagent/') superagent 
-  | to test the new restful api:
+  | #{__("to test the new restful api:")}
   
 
 pre
@@ -223,7 +226,7 @@ pre
   | ✓ DELETE /api/v1/samples 
 
 .bs-callout.bs-callout-primary
-  h4 This will enable the following urls:
+  h4 #{__("This will enable the following urls:")}
   pre
     code.language-http
       | GET      /api/v1/samples/count
@@ -236,16 +239,16 @@ pre
       | POST     /api/v1/samples/:id
       | DELETE   /api/v1/samples/:id
 
-p Learn more about query, ordering, populate, and sorting with 
+p #{__("Learn more about query, ordering, populate, and sorting with ")}
   a(href='https://github.com/florianholzapfel/express-restify-mongoose') Express-Restify-Mongoose.
 
-h3#crud-test Crud+Test generation
+h3#crud-test #{__("Crud+Test generation")}
 
 pre
   code.language-bash $ grunt create:crud:Sample
-p Creates CRUD administration for a particular model. This uses zombiejs to test the new crud functionality.
+p #{__("Creates CRUD administration for a particular model. This uses zombiejs to test the new crud functionality.")}
 
-p Once you create the model and all the rest services you'll be able to generate a crud automatically. Let's imagine you need to create a CRUD for students.
+p #{__("Once you create the model and all the rest services you'll be able to generate a crud automatically. Let's imagine you need to create a CRUD for students.")}
 
 pre
   code.language-bash
@@ -253,24 +256,24 @@ pre
   | $ grunt create:rest:Student
   | $ grunt create:crud:Student
 
-p If you go to to 
+p #{__("If you go to ")}
   a(href='http://localhost:3000/admin/panel') http://localhost:3000/admin/panel 
-  | login as administrator, and click on the Crud dropdown:
+  | #{__("login as administrator, and click on the Crud dropdown:")}
 
 img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-generation.png')
 
-p If you select Student, you'll be able to see the list where you can create, edit and delete:
+p #{__("If you select Student, you'll be able to see the list where you can create, edit and delete:")}
 
 img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-list.png')
 
-p Just hit edit on one record
+p #{__("Just hit edit on one record")}
 
 img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-edit.png')
 
-p Now let's change our model
+p #{__("Now let's change our model")}
  mark models/student.js 
- | to add a new field called 
- mark age:
+ | #{__("to add a new field called ")}
+ mark #{__("age:")}
 
 pre
   code.language-javascript

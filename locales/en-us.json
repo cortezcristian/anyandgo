@@ -54,5 +54,22 @@
 	"This will automatically crete the following tests:": "This will automatically crete the following tests:",
 	"Page+Route generation": "Page+Route generation",
 	"Will create a public view file for the page:": "Will create a public view file for the page:",
-	"to append the new menu item to main menu": "to append the new menu item to main menu"
+	"to append the new menu item to main menu": "to append the new menu item to main menu",
+	"Rest+Test generation": "Rest+Test generation",
+	"Creates rest services for a particular model.": "Creates rest services for a particular model.",
+	"Along with a test file:": "Along with a test file:",
+	"This uses ": "This uses ",
+	"to test the new restful api:": "to test the new restful api:",
+	"This will enable the following urls:": "This will enable the following urls:",
+	"Learn more about query, ordering, populate, and sorting with ": "Learn more about query, ordering, populate, and sorting with ",
+	"Crud+Test generation": "Crud+Test generation",
+	"Creates CRUD administration for a particular model. This uses zombiejs to test the new crud functionality.": "Creates CRUD administration for a particular model. This uses zombiejs to test the new crud functionality.",
+	"Once you create the model and all the rest services you'll be able to generate a crud automatically. Let's imagine you need to create a CRUD for students.": "Once you create the model and all the rest services you'll be able to generate a crud automatically. Let's imagine you need to create a CRUD for students.",
+	"If you go to ": "If you go to ",
+	"login as administrator, and click on the Crud dropdown:": "login as administrator, and click on the Crud dropdown:",
+	"If you select Student, you'll be able to see the list where you can create, edit and delete:": "If you select Student, you'll be able to see the list where you can create, edit and delete:",
+	"Just hit edit on one record": "Just hit edit on one record",
+	"Now let's change our model": "Now let's change our model",
+	"to add a new field called ": "to add a new field called ",
+	"age:": "age:"
 }
