@@ -21,16 +21,16 @@ p #{__("Anyandgo-tagline")}
   p
     a(href="http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/", alt="Full-Stack JavaScript With MEAN And Yeoman") #{__("Read More")}
 
-h2#quick-setup Quick Setup
+h2#quick-setup #{__("Quick Setup")}
 
-p How to get started with anyandgo?
+p #{__("How to get started with anyandgo?")}
 
-p Install 
+p #{__("Install ")}
   a(href="https://www.npmjs.com/package/anyandgo-cli") anyandgo client
 pre
   code.language-bash $ [sudo] npm install -g anyandgo-cli 
 
-p Create a new project 
+p #{__("Create a new project")}
 pre
   code.language-bash 
   | $ anyandgo init mynewproject
@@ -41,39 +41,39 @@ pre
   |         cd mynewproject
   |         npm install && bower install && grunt
 
-p To get the most out of anyandgo you may also want to install the following
+p #{__("To get the most out of anyandgo you may also want to install the following")}
 pre
   code.language-bash $ npm install -g grunt-cli bower yo mocha
 
 
-h2#best-parctices Best Practices
+h2#best-parctices #{__("Best Practices")}
 
-p To start working you can simply run:
+p #{__("To start working you can simply run:")}
 
 pre
   code.language-bash $ grunt
 
-p This will:
+p #{__("This will:")}
 .bs-callout.bs-callout-primary
   ul.list-unstyled
-    li ✓ Lint the js code
-    li ✓ Run the tests
-    li ✓ Start the server
-    li ✓ Open a web browser
-    li ✓ Watch for files changes, to trigger several tasks
+    li #{__("✓ Lint the js code")}
+    li #{__("✓ Run the tests")}
+    li #{__("✓ Start the server")}
+    li #{__("✓ Open a web browser")}
+    li #{__("✓ Watch for files changes, to trigger several tasks")}
 
-p To add front-end libraries you can simply run:
+p #{__("To add front-end libraries you can simply run:")}
 
 pre
   code.language-bash $ bower install --save jquery
 
-p This will:
+p #{__("This will:")}
 .bs-callout.bs-callout-primary
   ul.list-unstyled
-    li ✓ Register the dependency into bower.json
-    li ✓ Download the library inside ./public/components/
-    li ✓ Append the script into ./views/layout.jade
-    li ✓ Trigger page reload
+    li #{__("✓ Register the dependency into bower.json")}
+    li #{__("✓ Download the library inside ./public/components/")}
+    li #{__("✓ Append the script into ./views/layout.jade")}
+    li #{__("✓ Trigger page reload")}
 
 
 h2#grunt-task Grunt tasks
