@@ -76,43 +76,43 @@ p #{__("This will:")}
     li #{__("✓ Trigger page reload")}
 
 
-h2#grunt-task Grunt tasks
-p The default grunt task will start the server for you.
+h2#grunt-task #{__("Grunt tasks")}
+p #{__("The default grunt task will start the server for you.")}
 pre
   code.language-bash $ grunt
 
-p Lint javascript files under models, routes and test folders
+p #{__("Lint javascript files under models, routes and test folders")}
 pre
   code.language-bash $ grunt jshint
 
-p Execute all mocha tests and display the specs report
+p #{__("Execute all mocha tests and display the specs report")}
 pre
   code.language-bash $ grunt mochaTests
 
-p Creates documentation functionallity under models, routes and test folders and put it inside docs folder
+p #{__("Creates documentation functionallity under models, routes and test folders and put it inside docs folder")}
 pre
   code.language-bash $ grunt docco
 
-p Appends javascript and css dependencies
+p #{__("Appends javascript and css dependencies")}
 pre
   code.language-bash $ grunt wiredep
 
-h2#scaffolding  Scaffolding
+h2#scaffolding  #{__("Scaffolding")}
 
-h3#model-test-creation Model+Test generation
+h3#model-test-creation #{__("Model+Test generation")}
 
 pre
   code.language-bash $ grunt create:model:Sample
-p Will create model and tests:
+p #{__("Will create model and tests:")}
 
 .bs-callout.bs-callout-info
   p models/sample.js
   p test/unit/models/sample-tests.js
 
 p 
-| Will modify  
+| #{__("Will modify ")} 
 b.text-info ./routes/main.js
-|  to append the model as dependency
+|  #{__("to append the model as dependency")}
 
 pre
   code.language-javascript
@@ -121,7 +121,7 @@ pre
     | + Sample  = require('../models/sample.js'),
     | /* models:end */
 
-p This will automatically crete the following tests:
+p #{__("This will automatically crete the following tests:")}
 
 pre
   code.language-bash
@@ -134,15 +134,19 @@ pre
     |   Sample
     |    ✓ add a sample 
   
-h3#page-route Page+Route generation
+h3#page-route #{__("Page+Route generation")}
 
 pre
   code.language-bash $ grunt create:page:Contact
-p Will create a public view file for the page:
+p #{__("Will create a public view file for the page:")}
 
 .bs-callout.bs-callout-info views/contact.jade
 
-p Will modify ./routes/main.js to append the model as dependency
+p 
+| #{__("Will modify ")}
+b.text-info ./routes/main.js 
+| #{__("to append the model as dependency")}
+
 pre
   code.language-javascript
     | /* page:public:start */
@@ -153,7 +157,11 @@ pre
     | +  });
     | /* page:public:end */
   
-p Will modify ./views/partials/site-menu.jade to append the new menu item to main menu
+p 
+| #{__("Will modify ")}
+b.text-info ./views/partials/site-menu.jade 
+| #{__("to append the new menu item to main menu")}
+
 pre
   code.language-javascript
     | // public:page:menu:start

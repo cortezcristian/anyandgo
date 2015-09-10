@@ -39,5 +39,20 @@
 	"✓ Register the dependency into bower.json": "✓ Register the dependency into bower.json",
 	"✓ Download the library inside ./public/components/": "✓ Download the library inside ./public/components/",
 	"✓ Append the script into ./views/layout.jade": "✓ Append the script into ./views/layout.jade",
-	"✓ Trigger page reload": "✓ Trigger page reload"
+	"✓ Trigger page reload": "✓ Trigger page reload",
+	"Grunt tasks": "Grunt tasks",
+	"The default grunt task will start the server for you.": "The default grunt task will start the server for you.",
+	"Lint javascript files under models, routes and test folders": "Lint javascript files under models, routes and test folders",
+	"Execute all mocha tests and display the specs report": "Execute all mocha tests and display the specs report",
+	"Creates documentation functionallity under models, routes and test folders and put it inside docs folder": "Creates documentation functionallity under models, routes and test folders and put it inside docs folder",
+	"Appends javascript and css dependencies": "Appends javascript and css dependencies",
+	"Scaffolding": "Scaffolding",
+	"Model+Test generation": "Model+Test generation",
+	"Will create model and tests:": "Will create model and tests:",
+	"Will modify ": "Will modify ",
+	"to append the model as dependency": "to append the model as dependency",
+	"This will automatically crete the following tests:": "This will automatically crete the following tests:",
+	"Page+Route generation": "Page+Route generation",
+	"Will create a public view file for the page:": "Will create a public view file for the page:",
+	"to append the new menu item to main menu": "to append the new menu item to main menu"
 }

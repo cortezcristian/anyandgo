@@ -40,5 +40,19 @@
 	"✓ Register the dependency into bower.json": "✓ Registrá la dependencia en el bower.json",
 	"✓ Download the library inside ./public/components/": "✓ Descargará la libería dentro de ./public/components/",
 	"✓ Append the script into ./views/layout.jade": "✓ Insertar un script dentro de ./views/layout.jade",
-	"✓ Trigger page reload": "✓ Disparará la recarga de la página"
+	"✓ Trigger page reload": "✓ Disparará la recarga de la página",
+	"Grunt tasks": "Tareas de Grunt",
+	"The default grunt task will start the server for you.": "La tarea de grunt por defecto iniciará el server por vos.",
+	"Lint javascript files under models, routes and test folders": "Corre un Lint sobre los archivos javascript contenidos en las carpetas models, routes y test",
+	"Execute all mocha tests and display the specs report": "Ejecuta todos los test de mocha y muestra su reporte",
+	"Creates documentation functionallity under models, routes and test folders and put it inside docs folder": "Crea la documentación de la funcionalidad de los archivos en las carpetas modes, routes y test; y los guarda dentro de la carpeta docs",
+	"Appends javascript and css dependencies": "Inserta las dependencias javascript y css",
+	"Scaffolding": "Andamiaje",
+	"Model+Test generation": "Generación de Modelos+Test",
+	"Will create model and tests:": "Creará el modelo y su test:",
+	"Will modify ": "Modificará ",
+	"to append the model as dependency": "para insertar el modelo como dependencia",
+	"This will automatically crete the following tests:": "Esto creará de manera automática los siguientes tests:",
+	"Page+Route generation": "Generación de Páginas+Rutas",
+	"Will create a public view file for the page:": "Creará un archivo de vista pública para la página: "
 }
