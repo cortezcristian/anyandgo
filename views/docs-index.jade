@@ -7,30 +7,30 @@ ul.list-inline
     a(href="https://gitter.im/cortezcristian/anyandgo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge")
       img(src="https://badges.gitter.im/Join%20Chat.svg")
 //h2#pick-anyandgo Pick·anyandgo!
-p The MEAN Framework that doesn't suck.
+p #{__("Anyandgo-tagline")}
 
 .bs-callout.bs-callout-primary
-  h4 What is the MEAN stack?
+  h4 #{__("What is the MEAN stack?")}
 
-  p The acronym stands for:
+  p #{__("The acronym stands for:")}
   ul
-    li (M)ongoDB – a noSQL document datastore which uses JSON-style documents to represent data,
-    li (E)xpress – a HTTP server framework on top of Node,
-    li (A)ngular – as you know, the JS framework offering declarative, two-way databinding for webapps and
-    li (N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.
+    li #{__("(M)ongoDB – a noSQL document datastore which uses JSON-style documents to represent data,")}
+    li #{__("(E)xpress – a HTTP server framework on top of Node,")}
+    li #{__("(A)ngular – as you know, the JS framework offering declarative, two-way databinding for webapps and")}
+    li #{__("(N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.")}
   p
-    a(href="http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/", alt="Full-Stack JavaScript With MEAN And Yeoman") Read More
+    a(href="http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/", alt="Full-Stack JavaScript With MEAN And Yeoman") #{__("Read More")}
 
-h2#quick-setup Quick Setup
+h2#quick-setup #{__("Quick Setup")}
 
-p How to get started with anyandgo?
+p #{__("How to get started with anyandgo?")}
 
-p Install 
+p #{__("Install ")}
   a(href="https://www.npmjs.com/package/anyandgo-cli") anyandgo client
 pre
   code.language-bash $ [sudo] npm install -g anyandgo-cli 
 
-p Create a new project 
+p #{__("Create a new project")}
 pre
   code.language-bash 
   | $ anyandgo init mynewproject
@@ -41,78 +41,78 @@ pre
   |         cd mynewproject
   |         npm install && bower install && grunt
 
-p To get the most out of anyandgo you may also want to install the following
+p #{__("To get the most out of anyandgo you may also want to install the following")}
 pre
   code.language-bash $ npm install -g grunt-cli bower yo mocha
 
 
-h2#best-parctices Best Practices
+h2#best-parctices #{__("Best Practices")}
 
-p To start working you can simply run:
+p #{__("To start working you can simply run:")}
 
 pre
   code.language-bash $ grunt
 
-p This will:
+p #{__("This will:")}
 .bs-callout.bs-callout-primary
   ul.list-unstyled
-    li ✓ Lint the js code
-    li ✓ Run the tests
-    li ✓ Start the server
-    li ✓ Open a web browser
-    li ✓ Watch for files changes, to trigger several tasks
+    li #{__("✓ Lint the js code")}
+    li #{__("✓ Run the tests")}
+    li #{__("✓ Start the server")}
+    li #{__("✓ Open a web browser")}
+    li #{__("✓ Watch for files changes, to trigger several tasks")}
 
-p To add front-end libraries you can simply run:
+p #{__("To add front-end libraries you can simply run:")}
 
 pre
   code.language-bash $ bower install --save jquery
 
-p This will:
+p #{__("This will:")}
 .bs-callout.bs-callout-primary
   ul.list-unstyled
-    li ✓ Register the dependency into bower.json
-    li ✓ Download the library inside ./public/components/
-    li ✓ Append the script into ./views/layout.jade
-    li ✓ Trigger page reload
+    li #{__("✓ Register the dependency into bower.json")}
+    li #{__("✓ Download the library inside ./public/components/")}
+    li #{__("✓ Append the script into ./views/layout.jade")}
+    li #{__("✓ Trigger page reload")}
 
 
-h2#grunt-task Grunt tasks
-p The default grunt task will start the server for you.
+h2#grunt-task #{__("Grunt tasks")}
+p #{__("The default grunt task will start the server for you.")}
 pre
   code.language-bash $ grunt
 
-p Lint javascript files under models, routes and test folders
+p #{__("Lint javascript files under models, routes and test folders")}
 pre
   code.language-bash $ grunt jshint
 
-p Execute all mocha tests and display the specs report
+p #{__("Execute all mocha tests and display the specs report")}
 pre
   code.language-bash $ grunt mochaTests
 
-p Creates documentation functionallity under models, routes and test folders and put it inside docs folder
+p #{__("Creates documentation functionallity under models, routes and test folders and put it inside docs folder")}
 pre
   code.language-bash $ grunt docco
 
-p Appends javascript and css dependencies
+p #{__("Appends javascript and css dependencies")}
 pre
   code.language-bash $ grunt wiredep
 
-h2#scaffolding  Scaffolding
+h2#scaffolding  #{__("Scaffolding")}
 
-h3#model-test-creation Model+Test generation
+h3#model-test-creation #{__("Model+Test generation")}
 
 pre
   code.language-bash $ grunt create:model:Sample
-p Will create model and tests:
+p #{__("Will create model and tests:")}
 
 .bs-callout.bs-callout-info
   p models/sample.js
   p test/unit/models/sample-tests.js
 
 p 
-| Will modify  
+| #{__("Will modify ")} 
 b.text-info ./routes/main.js
-|  to append the model as dependency
+|  #{__("to append the model as dependency")}
 
 pre
   code.language-javascript
@@ -121,7 +121,7 @@ pre
     | + Sample  = require('../models/sample.js'),
     | /* models:end */
 
-p This will automatically crete the following tests:
+p #{__("This will automatically crete the following tests:")}
 
 pre
   code.language-bash
@@ -134,15 +134,19 @@ pre
     |   Sample
     |    ✓ add a sample 
   
-h3#page-route Page+Route generation
+h3#page-route #{__("Page+Route generation")}
 
 pre
   code.language-bash $ grunt create:page:Contact
-p Will create a public view file for the page:
+p #{__("Will create a public view file for the page:")}
 
 .bs-callout.bs-callout-info views/contact.jade
 
-p Will modify ./routes/main.js to append the model as dependency
+p 
+| #{__("Will modify ")}
+b.text-info ./routes/main.js 
+| #{__("to append the model as dependency")}
+
 pre
   code.language-javascript
     | /* page:public:start */
@@ -153,7 +157,11 @@ pre
     | +  });
     | /* page:public:end */
   
-p Will modify ./views/partials/site-menu.jade to append the new menu item to main menu
+p 
+| #{__("Will modify ")}
+b.text-info ./views/partials/site-menu.jade 
+| #{__("to append the new menu item to main menu")}
+
 pre
   code.language-javascript
     | // public:page:menu:start
@@ -161,13 +169,16 @@ pre
     | +          a(href='/contact') Contact
     |        // public:page:menu:end
   
-h3#rest-test Rest+Test generation
+h3#rest-test #{__("Rest+Test generation")}
 
 pre
   code.language-bash $ grunt create:rest:Sample
-p Creates rest services for a particular model.
+p #{__("Creates rest services for a particular model.")}
 
-p Will modify ./routes/main.js to append the model as dependency
+p 
+| #{__("Will modify ")}
+b.text-info ./routes/main.js
+| #{__("to append the model as dependency")}
 pre
   code.language-javascript
     | /* rest:public:start */
@@ -190,12 +201,12 @@ pre
     | +});
     | /* rest:public:end */
 
-p Along with a test file:
+p #{__("Along with a test file:")}
 
 .bs-callout.bs-callout-info test/rest/models/samples-rest-tests.js
-p This uses 
+p #{__("This uses ")}
   a(href='http://visionmedia.github.io/superagent/') superagent 
-  | to test the new restful api:
+  | #{__("to test the new restful api:")}
   
 
 pre
@@ -215,7 +226,7 @@ pre
   | ✓ DELETE /api/v1/samples 
 
 .bs-callout.bs-callout-primary
-  h4 This will enable the following urls:
+  h4 #{__("This will enable the following urls:")}
   pre
     code.language-http
       | GET      /api/v1/samples/count
@@ -228,16 +239,16 @@ pre
       | POST     /api/v1/samples/:id
       | DELETE   /api/v1/samples/:id
 
-p Learn more about query, ordering, populate, and sorting with 
+p #{__("Learn more about query, ordering, populate, and sorting with ")}
   a(href='https://github.com/florianholzapfel/express-restify-mongoose') Express-Restify-Mongoose.
 
-h3#crud-test Crud+Test generation
+h3#crud-test #{__("Crud+Test generation")}
 
 pre
   code.language-bash $ grunt create:crud:Sample
-p Creates CRUD administration for a particular model. This uses zombiejs to test the new crud functionality.
+p #{__("Creates CRUD administration for a particular model. This uses zombiejs to test the new crud functionality.")}
 
-p Once you create the model and all the rest services you'll be able to generate a crud automatically. Let's imagine you need to create a CRUD for students.
+p #{__("Once you create the model and all the rest services you'll be able to generate a crud automatically. Let's imagine you need to create a CRUD for students.")}
 
 pre
   code.language-bash
@@ -245,24 +256,24 @@ pre
   | $ grunt create:rest:Student
   | $ grunt create:crud:Student
 
-p If you go to to 
+p #{__("If you go to ")}
   a(href='http://localhost:3000/admin/panel') http://localhost:3000/admin/panel 
-  | login as administrator, and click on the Crud dropdown:
+  | #{__("login as administrator, and click on the Crud dropdown:")}
 
 img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-generation.png')
 
-p If you select Student, you'll be able to see the list where you can create, edit and delete:
+p #{__("If you select Student, you'll be able to see the list where you can create, edit and delete:")}
 
 img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-list.png')
 
-p Just hit edit on one record
+p #{__("Just hit edit on one record")}
 
 img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-edit.png')
 
-p Now let's change our model
+p #{__("Now let's change our model")}
  mark models/student.js 
- | to add a new field called 
- mark age:
+ | #{__("to add a new field called ")}
+ mark #{__("age:")}
 
 pre
   code.language-javascript
@@ -283,35 +294,35 @@ pre
     | 
     | // [...] More code here
   
-p After you save the file go to the administration panel again  
+p #{__("After you save the file go to the administration panel again ")}
   a(href='http://localhost:3000/admin/panel') http://localhost:3000/admin/panel 
-  | you'll need to login again (if you have not enabled autologin yet). If you go to edit or create you'll see the form changed a little bit:
+  | #{__("you'll need to login again (if you have not enabled autologin yet). If you go to edit or create you'll see the form changed a little bit:")}
 
 img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-form-auto-generation.png')
 
-p As you can see the form has been autogenerated, to be according to your little change in the model.
+p #{__("As you can see the form has been autogenerated, to be according to your little change in the model.")}
 
-h3#auto-login AutoLogin for developers
+h3#auto-login #{__("AutoLogin for developers")}
 
-p Is very annoying when you are developing that you need to login every time the server reloads, so we included a feature for autologin just go and modify 
+p #{__("Is very annoying when you are developing that you need to login every time the server reloads, so we included a feature for autologin just go and modify ")}
   mark config/config-local.json 
-  | search for this property:
+  | #{__("search for this property:")}
 
 pre
   code.language-javascript
     | "autologin": {
-    |     "enabled" : true, <-- Set this to true, by default is false
+    |     "enabled" : true, <-- #{__("Set this to true, by default is false")}
     |     "username" : "admin@anyandgo.com",  
     |     "password" : "123456"  
     | },
   
-p Setting autologin.enabled to 
+p #{__("Setting autologin.enabled to")} 
   mark true 
-  | will automatically put user and password on the login form and hit login for you to be redirected to the last url you were looking in the adminnistration panel.
+  | #{__("will automatically put user and password on the login form and hit login for you to be redirected to the last url you were looking in the adminnistration panel.")}
   
-h3#custom-forms Custom Forms Fields
+h3#custom-forms #{__("Custom Forms Fields")}
 
-p You can easily implement, custom fields for your automatic generated forms. In example:
+p #{__("You can easily implement, custom fields for your automatic generated forms. In example:")}
 
 pre
   code.language-javascript
@@ -333,15 +344,15 @@ pre
     | 
     | ....
 
-p Will produce, the following:
+p #{__("Will produce, the following:")}
 
 img(src='http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/sample-edit-form.png')
 
-p For the 
+p #{__("For the ")}
   mark Toggle 
-  | control is as simple as adding a file called 
+  | #{__("control is as simple as adding a file called ")}
   mark ./utils/formstemplates/Toggle.hbs
-  | with the following:
+  | #{__("with the following:")}
 
 pre
   code.language-handlebars
@@ -352,16 +363,16 @@ pre
     | #{'     </div>'}
     | #{' </div>'}
 
-p Download the package with bower and register the dependency into 
+p #{__("Download the package with bower and register the dependency into ")}
   mark public/scripts/admin/app.js
   | :
 
 pre
   code.language-bash $ bower install --save angular-toggle-switch
 
-p In our 
+p #{__("In our ")}
  mark app.js 
- | file just add this line:
+ | #{__("file just add this line:")}
 
 pre
   code.language-javascript
