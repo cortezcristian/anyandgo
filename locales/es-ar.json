@@ -15,5 +15,12 @@
 	"en-us": "en-us",
 	"es-ar": "es-ar",
 	"More": "More",
-	"Anyandgo-tagline":"El MEAN Framework que no apesta."
+	"Anyandgo-tagline": "El MEAN Framework que no apesta.",
+	"What is the MEAN stack?": "Qué es MEAN?",
+	"The acronym stands for:": "Las siglas son por:",
+	"(M)ongoDB – a noSQL document datastore which uses JSON-style documents to represent data,": "(M)ongoDB – almacenamiento de documentos noSQL que utiliza un formato al estilo JSON para representar los datos,",
+	"(E)xpress – a HTTP server framework on top of Node,": "(E)xpress – un servidor HTTP montado encima de Node,",
+	"(A)ngular – as you know, the JS framework offering declarative, two-way databinding for webapps and": "(A)ngular – como ya sabrán, es el framework JS que ofrece databinding bidireccional, y por último",
+	"(N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.": "(N)ode – la plataforma construida sobre el runtime V8 que permite construir aplicaciones de manera rápida, sencilla y fácilmente escalables.",
+	"Read More": "Conocer Más"
 }

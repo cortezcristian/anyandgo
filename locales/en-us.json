@@ -14,5 +14,12 @@
 	"Read Docs": "Read Docs",
 	"Components": "Components",
 	"Login": "Login",
-    "Anyandgo-tagline":"The MEAN Framework that doesn't suck."
+	"Anyandgo-tagline": "The MEAN Framework that doesn't suck.",
+	"What is the MEAN stack?": "What is the MEAN stack?",
+	"The acronym stands for:": "The acronym stands for:",
+	"(M)ongoDB – a noSQL document datastore which uses JSON-style documents to represent data,": "(M)ongoDB – a noSQL document datastore which uses JSON-style documents to represent data,",
+	"(E)xpress – a HTTP server framework on top of Node,": "(E)xpress – a HTTP server framework on top of Node,",
+	"(A)ngular – as you know, the JS framework offering declarative, two-way databinding for webapps and": "(A)ngular – as you know, the JS framework offering declarative, two-way databinding for webapps and",
+	"(N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.": "(N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.",
+	"Read More": "Read More"
 }
