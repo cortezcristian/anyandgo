@@ -1,9 +1,25 @@
 extends layout
 
 block content
-  .jumbotron
-    h1=__("pick any·and·go")
-    p Route: /user
-    p Page: User
-    p
-      a.btn.btn-primary.btn-lg(role='button',href="https://github.com/cortezcristian/anyandgo") Read the Docs
+  .row.our-main-content.neck(style="margin:0 -15px; height: 100%; padding: 50px 0 150px 0;")
+    .col-sm-6.col-sm-offset-3(style="margin-top:55px")
+      //Card
+      .card.card-container
+        img#profile-img.profile-img-card(src='//ssl.gstatic.com/accounts/ui/avatar_2x.png')
+        |             
+        p#profile-name.profile-name-card
+        form.form-signin
+          span#reauth-email.reauth-email
+          input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+          input#inputPassword.form-control(type='password', placeholder='Password', required='')
+          #remember.checkbox
+            label
+              input(type='checkbox', value='remember-me')
+              |  Remember me
+          button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') Sign in
+        // /form
+        a.forgot-password(href='#')
+          | Forgot the password?
+      // /card-container
+
+block footer 
