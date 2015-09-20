@@ -1,12 +1,11 @@
 extends layout
 
 block content
-  .row.our-main-content.neck(style="margin:0 -15px; height: 100%; padding: 50px 0 150px 0;")
-    .col-sm-6.col-sm-offset-3(style="margin-top:55px")
+  .row.our-main-content.neck(style="margin:0 -15px; height: 100%; padding: 50px 0 150px 0;background-color:#000;")
+    .col-sm-6.col-sm-offset-3(style="margin-top:55px; height: 100%;")
       //Card
-      .card.card-container
-        img#profile-img.profile-img-card(src='//ssl.gstatic.com/accounts/ui/avatar_2x.png')
-        |             
+      .card.card-container.animated.bounceInUp
+        img#profile-img.profile-img-card(src='/img/user-placeholder.png')
         p#profile-name.profile-name-card
         form.form-signin
           span#reauth-email.reauth-email
