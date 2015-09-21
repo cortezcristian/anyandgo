@@ -67,6 +67,9 @@ userAuth.strategy = new LocalStrategy(
 );
 
 // Facebook Strategy
+if(typeof config.auth.facebook !== "undefined" 
+    //&& config.auth.facebook.enabled
+    && config.auth.facebook.clientid.length) {
 userAuth.facebookStrategy = new FacebookStrategy({
   clientID: config.auth.facebook.clientid,
   clientSecret: config.auth.facebook.clientsecret,
@@ -136,10 +139,12 @@ userAuth.facebookStrategy = new FacebookStrategy({
       }
     });
 });
+// Use Strategy
+passport.use(userAuth.facebookStrategy);
+}
 
 
 // Use Strategy
-passport.use(userAuth.facebookStrategy);
 passport.use('usersLogin', userAuth.strategy);
 
 module.exports = userAuth;
