@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>samples-rest-tests.js</title>
+  <title>users-rest-tests.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -91,7 +91,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>samples-rest-tests.js</h1>
+                  <h1>users-rest-tests.js</h1>
               </div>
           </li>
         
@@ -103,7 +103,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <h2 id="samples-rest-api">Samples REST API</h2>
+              <h2 id="users-rest-api">Users REST API</h2>
 
             </div>
             
@@ -168,7 +168,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> Sample, sample, agent, sampleId, d;
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> User, user, agent, userId, d;
 d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hljs-string">":"</span>+config.app.port;</pre></div></div>
             
         </li>
@@ -184,7 +184,7 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'REST API Sample '</span>+d+<span class="hljs-string">"/api/v1/samples"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'REST API User '</span>+d+<span class="hljs-string">"/api/v1/users"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
     before(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{</pre></div></div>
             
         </li>
@@ -200,7 +200,7 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        Sample = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../../../models/sample.js"</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>        User = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../../../models/user.js"</span>);</pre></div></div>
             
         </li>
         
@@ -215,9 +215,9 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        sample = <span class="hljs-keyword">new</span> Sample({ name: <span class="hljs-string">'sample'</span>+<span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>)});
-        sample.save(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, doc</span>)</span>{
-            sampleId = doc._id;    
+            <div class="content"><div class='highlight'><pre>        user = <span class="hljs-keyword">new</span> User({ name: <span class="hljs-string">'user'</span>+<span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>)});
+        user.save(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, doc</span>)</span>{
+            userId = doc._id;    
         });</pre></div></div>
             
         </li>
@@ -272,57 +272,57 @@ d = <span class="hljs-string">'http://'</span>+config.app.domain+<span class="hl
           });
     });
 
-    describe(<span class="hljs-string">'Samples REST'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        it(<span class="hljs-string">'GET /api/v1/samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+    describe(<span class="hljs-string">'Users REST'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        it(<span class="hljs-string">'GET /api/v1/users'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
             agent
-              .get(d+<span class="hljs-string">'/api/v1/samples'</span>)
+              .get(d+<span class="hljs-string">'/api/v1/users'</span>)
               .end(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
                   assert.ok(res.ok);
                   assert.ok(res.body.length&gt;<span class="hljs-number">0</span>);
                   done();
               });
         });
-        it(<span class="hljs-string">'GET /api/v1/samples/count'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+        it(<span class="hljs-string">'GET /api/v1/users/count'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
             agent
-              .get(d+<span class="hljs-string">'/api/v1/samples/count'</span>)
+              .get(d+<span class="hljs-string">'/api/v1/users/count'</span>)
               .end(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
                   assert.ok(res.ok);
                   assert.ok(res.body.count &gt; <span class="hljs-number">0</span>);
                   done();
               });
         });
-        it(<span class="hljs-string">'POST /api/v1/samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+        it(<span class="hljs-string">'POST /api/v1/users'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
             agent
-              .post(d+<span class="hljs-string">'/api/v1/samples'</span>)
-              .send({ name: <span class="hljs-string">'Test Creation Sample'</span> })
+              .post(d+<span class="hljs-string">'/api/v1/users'</span>)
+              .send({ name: <span class="hljs-string">'Test Creation User'</span> })
               .end(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
                   assert.ok(res.ok);
-                  assert.ok(res.body.name === <span class="hljs-string">'Test Creation Sample'</span>);
+                  assert.ok(res.body.name === <span class="hljs-string">'Test Creation User'</span>);
                   done();
               });
         });
-        it(<span class="hljs-string">'PUT /api/v1/samples/:sampleId'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+        it(<span class="hljs-string">'PUT /api/v1/users/:userId'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
             agent
-              .put(d+<span class="hljs-string">'/api/v1/samples/'</span>+sampleId)
-              .send({ name: <span class="hljs-string">'Test Change Sample'</span> })
+              .put(d+<span class="hljs-string">'/api/v1/users/'</span>+userId)
+              .send({ name: <span class="hljs-string">'Test Change User'</span> })
               .end(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
                   assert.ok(res.ok);
-                  assert.ok(res.body.name === <span class="hljs-string">'Test Change Sample'</span>);
+                  assert.ok(res.body.name === <span class="hljs-string">'Test Change User'</span>);
                   done();
               });
         });
-        it(<span class="hljs-string">'DELETE /api/v1/samples/:sampleId'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+        it(<span class="hljs-string">'DELETE /api/v1/users/:userId'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
             agent
-              .del(d+<span class="hljs-string">'/api/v1/samples/'</span>+sampleId)
+              .del(d+<span class="hljs-string">'/api/v1/users/'</span>+userId)
               .end(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
                   assert.ok(res.ok);
                   assert.ok(<span class="hljs-built_in">JSON</span>.stringify(res.body) === <span class="hljs-string">'{}'</span>);
                   done();
               });
         });
-        it(<span class="hljs-string">'DELETE /api/v1/samples'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
+        it(<span class="hljs-string">'DELETE /api/v1/users'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>)</span>{
             agent
-              .del(d+<span class="hljs-string">'/api/v1/samples/'</span>)
+              .del(d+<span class="hljs-string">'/api/v1/users/'</span>)
               .end(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
                   assert.ok(res.ok);
                   assert.ok(<span class="hljs-built_in">JSON</span>.stringify(res.body) === <span class="hljs-string">'{}'</span>);

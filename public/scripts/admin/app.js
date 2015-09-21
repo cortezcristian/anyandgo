@@ -79,6 +79,7 @@ $(document).ready(function(){
  */
 angular
   .module('anyandgoApp', [
+    'toastr',
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -92,7 +93,7 @@ angular
     'adf.widget.weather',
     'restangular'
   ])
-  .config(function ($routeProvider, $locationProvider, RestangularProvider) {
+  .config(function ($routeProvider, $locationProvider, RestangularProvider, toastrConfig) {
     //$locationProvider.html5Mode(true).hashPrefix('!');
     $routeProvider
       .when('/', {
@@ -116,7 +117,25 @@ angular
           }
         }
       })
+      .when('/crud/user', {
+        templateUrl: '/scripts/admin/views/user.html',
+        controller: 'UserCtrl'
+      })
+      .when('/crud/user-new', {
+        templateUrl: '/forms/user/create',
+        controller: 'UserNewCtrl'
+      })
+      .when('/crud/user-edit/:id', {
+        templateUrl: '/forms/user/create',
+        controller: 'UserEditCtrl',
+        resolve: {
+          user: function(Restangular, $route){
+            return Restangular.one('users', $route.current.params.id).get();
+          }
+        }
+      })
       .otherwise({
+
         redirectTo: '/'
       });
       
@@ -133,6 +152,18 @@ angular
         }
         return elem;
       });
+
+      angular.extend(toastrConfig, {
+        autoDismiss: false,
+        containerId: 'toast-container',
+        maxOpened: 0,    
+        newestOnTop: true,
+        positionClass: 'toast-bottom-right',
+        preventDuplicates: false,
+        preventOpenDuplicates: false,
+        target: 'body'
+      });
+
   }).run(function ($rootScope, $location, $route, $timeout, $http, $cookies) {
 
     /*

@@ -34,6 +34,7 @@ config/config-nodejitsu.json
 node_modules/
 public/components
 public/scripts/admin/admin_components
+public/scripts/admin/admin_components/**/*
 .sass-cache
 
 # Minimified files

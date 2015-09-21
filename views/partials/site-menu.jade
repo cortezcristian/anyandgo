@@ -13,12 +13,12 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
         | anyandgo
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li
+        li(class=((path=='/')?"active":""))
           a(href='/')
             i.fa.fa-home(style='padding-right:10px') 
             | Home
         // public:page:menu:start
-        li
+        li(class=((path=='/docs')?"active":""))
           a(href='/docs')
             i.fa.fa-book(style='padding-right:10px') 
             | Docs
@@ -34,16 +34,20 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
                 i.fa.fa-user(style='padding-right:10px') 
                 | Admin
             li
+              a(href='/user')
+                i.fa.fa-users(style='padding-right:10px') 
+                | Users
+            li
               a(href='/contact')
                 i.fa.fa-envelope-o(style='padding-right:10px') 
                 | Contact
       ul.nav.navbar-nav.navbar-right
-        li.hide.github-btn-con(style="max-height:45px;overflow:hidden;")
+        //li.hide.github-btn-con(style="max-height:45px;overflow:hidden;")
           a.github-button(href='https://github.com/cortezcristian/anyandgo', data-icon='octicon-star', data-style='mega', data-count-href='/cortezcristian/anyandgo/stargazers', data-count-api='/repos/cortezcristian/anyandgo#stargazers_count', data-count-aria-label='# stargazers on GitHub', aria-label='Star cortezcristian/anyandgo on GitHub') Star
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
-            i.fa.fa-flag(style='padding-right:10px') 
-            | #{__("Language")}
+            i.fa.fa-globe(style='padding-right:10px') 
+            span(style='padding-right:10px') #{__("Language")}
             span.caret
           ul.dropdown-menu.dropdown-menu-bubble-right.mond-lang-change(role='menu')
             //public:translation:menu:start
@@ -52,11 +56,11 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
             li
               a(href='#', langsupport="es-ar") #{__("es-ar")}
             //public:translation:menu:end
-        li.dropdown
+        //li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown')
             span
               i.fa.fa-users(style='padding-right:10px') 
-              | Login with...
+              span(style='padding-right:10px') Login
             span.caret
           ul.dropdown-menu.dropdown-menu-bubble-right(role='menu')
             li

@@ -20,13 +20,18 @@ var utils = require('./utils');
 var config = exports.config = require('./config');
 var mail = exports.mail = require('./utils/mailer.js');
 var anyandgo = exports.anyandgo = {};
+var User = require('./models/user.js');
 
 // Anyandgo
 anyandgo.models = [];
 
 // Error
 process.on('uncaughtException', function(err) {
+    if(logger) {
+      logger.error(err.stack);
+    } else {
       console.log("Exception", err.stack);
+    }
 });
 
 // Express 
@@ -38,6 +43,7 @@ app.set("autologin", config.autologin || {});
 // Setup vars
 app.use(function(req, res, next){
   res.locals.envflag = config.envflag || process.env.NODE_ENV;
+  res.locals.path = req.path;
   res.locals.autologin = config.autologin || {};
   // Analytics
   if (config.analytics && config.analytics.enabled) {
@@ -228,8 +234,14 @@ if (config.csrf && config.csrf === "enabled") {
 
 // used to serialize the user for the session
 passport.serializeUser(function(user, done) {
-    console.log(user);
-    done(null, user);
+    //console.log(user);
+    if(user.role === 'user') {
+        User.findOne({ _id : user._id }, function(err, usr){
+            done(err, usr);
+        });
+    } else {
+        done(null, user);
+    }
 });
 
 // used to deserialize the user
