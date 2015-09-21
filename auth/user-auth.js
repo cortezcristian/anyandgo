@@ -4,6 +4,7 @@ var passport = require('passport'),
   LinkedInStrategy = require('passport-linkedin').Strategy,
   FacebookStrategy = require('passport-facebook').Strategy,
   config = module.parent.exports.config,
+  logger = module.parent.exports.logger,
   User = require('../models/user.js'),
   userAuth = {};
 
@@ -37,6 +38,7 @@ userAuth.strategy = new LocalStrategy(
     passwordField: 'password'
   },
   function(username, password, done) {
+    logger.info("user login", username);
     User.findOne({ email: username }, function(err, user) {
       if (err) {
           done(null, false, { message: 'There was an error with the auth.' });
@@ -45,19 +47,18 @@ userAuth.strategy = new LocalStrategy(
         return done(null, false, { message: 'Incorrect username.' });
       }
       if (!user.authenticate(password)) {
-        console.log("user auth failure");
+        logger.info("user auth failure");
         return done(null, false, { message: 'Incorrect password.' });
       }
-      console.log("user auth success");
-      user.nLogins++;
+      user.logins++;
       user.last_login = Date.now();
       user.provider = 'userlocal';
       user.role = 'user';
       user.save(function(err){
           if(err){
-              console.log("Error guardando usuario >>", err);
+              logger.info('Error saving user', err);
           }else{
-              console.log("Usuario guardado")
+              logger.info('User information saved')
           }
       });
       return done(null, user);
@@ -80,7 +81,7 @@ userAuth.facebookStrategy = new FacebookStrategy({
             if(user){
                 // if there's no token, link again
                 if (!user.facebook.token) {
-                    console.log("profile>>", profile);
+                    logger.info("profile>>", profile);
                     user.facebook.token = token;
                     user.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
                     user.facebook.email = (profile.emails[0].value || '').toLowerCase();
@@ -97,7 +98,7 @@ userAuth.facebookStrategy = new FacebookStrategy({
                 // TODO: Verify email
                 var email = (profile.emails[0].value || '').toLowerCase();
                 var user = new User({email: email, password: '12345678'});
-                console.log("profile>>", profile);
+                logger.info("profile>>", profile);
                 user.facebook.id = profile.id;
                 user.facebook.token = token;
                 user.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
@@ -115,10 +116,10 @@ userAuth.facebookStrategy = new FacebookStrategy({
         User.findOne({ '_id' : req.user._id }, function(err, user) {
 
             //var user = req.user;
-            //console.log("req.user", req.user);
+            //logger.info("req.user", req.user);
 
-            console.log("profile>>", profile);
-            console.log("user>>", user);
+            logger.info("profile>>", profile);
+            logger.info("user>>", user);
             user.facebook = {};
             user.facebook.id = profile.id;
             user.facebook.token = token;

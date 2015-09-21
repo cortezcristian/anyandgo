@@ -1,6 +1,7 @@
 var app = module.parent.exports.app,
     passport = require('passport'),
     User = require('../models/user.js'),
+    logger = exports.logger = module.parent.exports.logger,
     config = exports.config = module.parent.exports.config;
 
 // Auth Strategies

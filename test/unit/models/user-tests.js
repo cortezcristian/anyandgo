@@ -25,5 +25,18 @@ describe('Model Test User', function(){
             user.save(done);
         });
 
+        it('authenticate user', function(done){
+            user = new User({ 
+                email:'user@user.com', 
+                password: '123456',
+                name: 'user'+Math.floor((Math.random() * 10) + 1)});
+            user.save(function(err, doc){
+                assert.ok(doc.authenticate("123456"), "Authenticatoin should return true");
+                assert.ok(!doc.authenticate("inconrrect"), "Authentication should return false");
+                user = doc;
+                done();
+            });
+        });
+
     });
 });

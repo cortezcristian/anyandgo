@@ -27,7 +27,11 @@ anyandgo.models = [];
 
 // Error
 process.on('uncaughtException', function(err) {
+    if(logger) {
+      logger.error(err.stack);
+    } else {
       console.log("Exception", err.stack);
+    }
 });
 
 // Express 
