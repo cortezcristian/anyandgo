@@ -2,16 +2,26 @@ extends layout
 
 block content
   .row.our-main-content.neck(style="margin:0 -15px; height: 100%; padding: 50px 0 150px 0;")
-    .col-sm-6.col-sm-offset-3(style="margin-top:55px")
+    .col-sm-6.col-sm-offset-3(style="margin-top:15px")
+      - var errors = "", classAnimation = "flipInY";
+      - if(flash && typeof flash.error !== 'undefined' && flash.error.length > 0) {
+      - errors = (typeof flash.error !== 'undefined') ? flash.error[0] : "" ;
+      - classAnimation = (typeof flash.error !== 'undefined') ? "shake" : "flipInY" ;
+      - }
       //Card
-      .card.card-container.animated.flipInY(style="background-color: #000;color: #ccc;")
+      .card.card-container.animated(class=classAnimation,style="background-color: #000;color: #ccc;")
         img#profile-img.profile-img-card(src='./img/anyandgo-logo-circle-2.png')
         p#profile-name.profile-name-card
           i.fa.fa-lock(style="padding-right: 10px")
           | Admin Panel
+          - if(errors !== "") {
+            .alert.alert-danger.animated.tada(role="alert")
+              span #{__(errors)}
+          - }
           form#loginForm(name="loginForm",method="post",action="")
             p !{form}
-            !{csrf_form_html}
+            p
+            | !{csrf_form_html}
             p(style="text-align:center")
               button.btn.btn-default(type="submit",style="width:200px")
                 i.fa.fa-sign-in(style="padding-right:10px")

@@ -1,12 +1,13 @@
 var passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy,
   config = module.parent.exports.config,
+  logger = module.parent.exports.logger,
   Administrator = require('../models/admins.js'),
   adminAuth = {};
 
 // Route Authorizer
 adminAuth.autorizer = function(req, res, next){
-    console.log(req.user);
+    logger.info(req.user);
     //authorize role
     if(typeof req.user != "undefined" && typeof req.user.role != "undefined" && req.user.role == "admin"){
         next();
@@ -43,19 +44,19 @@ adminAuth.strategy = new LocalStrategy(
         return done(null, false, { message: 'Incorrect username.' });
       }
       if (!admin.authenticate(password)) {
-        console.log("admin auth failure");
+        logger.info("admin auth failure");
         return done(null, false, { message: 'Incorrect password.' });
       }
-      console.log("admin auth success");
+      logger.info("admin auth success");
       admin.nLogins++;
       admin.last_login = Date.now();
       admin.provider = 'adminlocal';
       admin.role = 'admin';
       admin.save(function(err){
           if(err){
-              console.log("Error guardando usuario >>", err);
+              logger.info("Error guardando usuario >>", err);
           }else{
-              console.log("Usuario guardado")
+              logger.info("Usuario guardado")
           }
       });
       return done(null, admin);
