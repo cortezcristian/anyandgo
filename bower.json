@@ -29,6 +29,7 @@
     "prism": "~1.0.1",
     "ngFx": "~1.1.0",
     "animate.css": "~3.4.0",
-    "angular-youtube-mb": "~1.1.0"
+    "angular-youtube-mb": "~1.1.0",
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6.0"
   }
 }
