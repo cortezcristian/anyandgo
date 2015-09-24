@@ -16,7 +16,8 @@ var userAuth = require('../auth/user-auth.js');
 // [Passport Local](https://github.com/jaredhanson/passport-local)
 app.post('/admin',
   passport.authenticate('administrators', { successRedirect: '/admin/panel',
-                                    failureRedirect: '/admin'})
+                                    failureRedirect: '/admin',
+                                    failureFlash: true})
 );
 
 app.post('/user',

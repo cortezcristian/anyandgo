@@ -91,9 +91,15 @@ angular
     'adf.structures.base',
     'adf.widget.clock',
     'adf.widget.weather',
+    'cfp.hotkeys',
     'restangular'
   ])
-  .config(function ($routeProvider, $locationProvider, RestangularProvider, toastrConfig) {
+  .config(function ($routeProvider, $locationProvider, RestangularProvider, hotkeysProvider, toastrConfig) {
+
+    // Hotkeys killswitch
+    // see https://github.com/chieffancypants/angular-hotkeys#configuration
+    hotkeysProvider.includeCheatSheet = true;
+
     //$locationProvider.html5Mode(true).hashPrefix('!');
     $routeProvider
       .when('/', {

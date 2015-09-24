@@ -15,5 +15,7 @@
 	"en-us": "en-us",
 	"es-ar": "es-ar",
 	"More": "More",
-	"Login": "Login"
+	"Login": "Login",
+	"Incorrect password.": "Incorrect password.",
+	"Incorrect username.": "Incorrect username."
 }

@@ -93,9 +93,15 @@ angular
     'ngSanitize',
     'ngTouch',
     'youtube-embed',
+    'cfp.hotkeys',
     'restangular'
   ])
-  .config(function ($routeProvider, $locationProvider, RestangularProvider) {
+  .config(function ($routeProvider, $locationProvider, RestangularProvider, hotkeysProvider) {
+
+    // Hotkeys killswitch
+    // see https://github.com/chieffancypants/angular-hotkeys#configuration
+    hotkeysProvider.includeCheatSheet = true;
+
     //$locationProvider.html5Mode(true).hashPrefix('!');
     //$cookies.lang = "en-us";
     /*
