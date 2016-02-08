@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="en" ng-app="anyandgoApp">
+<!-- Mirrored from anyandgo.io/docs by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 08 Feb 2016 14:04:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Docs</title><!-- Favicon--><link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"><!-- for Google--><meta name="description" content=""><meta name="keywords" content=""><meta name="author" content=""><meta name="copyright" content=""><meta name="application-name" content=""><!-- for Facebook--><meta property="og:title" content=""><meta property="og:type" content="article"><meta property="og:image" content=""><meta property="og:url" content=""><meta property="og:description" content=""><!-- for Twitter--><meta name="twitter:card" content="summary"><meta name="twitter:title" content=""><meta name="twitter:description" content=""><meta name="twitter:image" content=""><link href="http://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet" type="text/css"><link rel="stylesheet" href="dist/styles/site-styles.min.css"><link rel="stylesheet" href="components/fontawesome/css/font-awesome.html"><link rel="stylesheet" href="css/bootstrap.min.css"><link rel="stylesheet" href="css/style.css"></head><body class="container-fluid"><nav role="navigation" class="navbar navbar-default navbar-fixed-top"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand hammerfont"><span style="display:inline-block;"><img src="img/anyandgo-logo-circle-2.png" style="display:inline-block;height:30px;"></span><span style="display:inline-block;padding-left:10px;"></span>anyandgo</a></div><div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="index.html"><i style="padding-right:10px" class="fa fa-home"> </i>Home</a></li><!-- public:page:menu:start--><li class="active"><a href="docs.html"><i style="padding-right:10px" class="fa fa-book"> </i>Docs</a></li><!-- public:page:menu:end--><li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><i style="padding-right:10px" class="fa fa-plus"> </i>More<span style="margin-left:10px" class="caret"></span></a><ul role="menu" class="dropdown-menu dropdown-menu-bubble-left mond-lang-change"><li><a href="admin.html"><i style="padding-right:10px" class="fa fa-user"> </i>Admin</a></li><li><a href="user.html"><i style="padding-right:10px" class="fa fa-users"> </i>Users</a></li><li><a href="contact.html"><i style="padding-right:10px" class="fa fa-envelope-o"> </i>Contact</a></li></ul></li></ul><ul class="nav navbar-nav navbar-right"><!--li.hide.github-btn-con(style="max-height:45px;overflow:hidden;")a.github-button(href='https://github.com/cortezcristian/anyandgo', data-icon='octicon-star', data-style='mega', data-count-href='/cortezcristian/anyandgo/stargazers', data-count-api='/repos/cortezcristian/anyandgo#stargazers_count', data-count-aria-label='# stargazers on GitHub', aria-label='Star cortezcristian/anyandgo on GitHub') Star--><li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><i style="padding-right:10px" class="fa fa-globe"> </i><span style="padding-right:10px">Language</span><span class="caret"></span></a><ul role="menu" class="dropdown-menu dropdown-menu-bubble-right mond-lang-change"><!--public:translation:menu:start--><li><a href="#" langsupport="en-us">en-us</a></li><li><a href="#" langsupport="es-ar">es-ar</a></li><!--public:translation:menu:end--></ul></li><!--li.dropdowna.dropdown-toggle(href='#', data-toggle='dropdown')
+  span
+    i.fa.fa-users(style='padding-right:10px') 
+    span(style='padding-right:10px') Login
+  span.caret
+ul.dropdown-menu.dropdown-menu-bubble-right(role='menu')
+  li
+    a(href='#') 
+      i.fa.fa-github-alt(style='padding-right:10px') 
+      | Github
+  li
+    a(href='#') 
+      i.fa.fa-google-plus(style='padding-right:10px') 
+      | Google
+  li
+    a(href='#') 
+      i.fa.fa-linkedin-square(style='padding-right:10px') 
+      | Linkedin
+  li
+    a(href='#') 
+      i.fa.fa-facebook-square(style='padding-right:10px') 
+      | Facebook--></ul></div></div></nav><div class="row our-main-content"><div id="side" class="col-xs-1 col-sm-1 col-md-3"><a href="javascript:" style="display:block;background-color: #333;" class="collapser"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-right hide"></i></a><h2 style="background-color: #333;color:#858585;padding:10px;margin:0;font-size:20px;" class="text-center"> <img src="img/anyandgo-logo-circle-2.png" style="width:50px;"><span style="padding-left:15px">Pick anyandgo!</span></h2><aside class="sidebar"><nav class="sidebar-nav"><ul id="menu" metismenu class="metismenu"><li class="active"><a href="#" aria-expanded="true"><span class="sidebar-nav-item-icon fa fa-github-alt fa-lg"></span><span class="sidebar-nav-item">MEAN Framework</span><span class="fa arrow"></span></a><ul aria-expanded="true"><li><a href ng-click="gotoAnchor('main')"><span class="sidebar-nav-item-icon"></span>Start</a></li><li><a href ng-click="gotoAnchor('quick-setup')"><span class="sidebar-nav-item-icon"></span>Quick Setup</a></li><li><a href ng-click="gotoAnchor('best-parctices')"><span class="sidebar-nav-item-icon"></span>Best Practices</a></li><li><a href ng-click="gotoAnchor('grunt-task')"><span class="sidebar-nav-item-icon"></span>Grunt tasks</a></li></ul></li><li><a href="#" aria-expanded="false"><span class="sidebar-nav-item-icon fa fa-rocket fa-lg"></span><span class="sidebar-nav-item">Productivity </span><span class="fa arrow"></span></a><ul aria-expanded="false"><li><a href="#scaffolding" aria-expanded="true">Scaffolding<span class="fa plus-minus"></span></a><ul aria-expanded="true"><li><a href ng-click="gotoAnchor('model-test-creation')"><span class="sidebar-nav-item-icon"></span>Model+Test</a></li><li><a href ng-click="gotoAnchor('page-route')"><span class="sidebar-nav-item-icon"></span>Page+Route </a></li><li><a href ng-click="gotoAnchor('rest-test')"><span class="sidebar-nav-item-icon"></span>Rest+Test</a></li><li><a href ng-click="gotoAnchor('crud-test')"><span class="sidebar-nav-item-icon"></span>Crud+Test</a></li></ul></li><li><a href ng-click="gotoAnchor('custom-forms')"><span class="sidebar-nav-item-icon"></span> Custom Forms Fields</a></li><li><a href ng-click="gotoAnchor('locale')"><span class="sidebar-nav-item-icon"></span>Locale+Translation</a></li><li><a href ng-click="gotoAnchor('minification')"><span class="sidebar-nav-item-icon"></span>Assets minification </a></li><li><a href ng-click="gotoAnchor('translation')"><span class="sidebar-nav-item-icon"></span>Translation Support</a></li></ul></li><li><a href="#" aria-expanded="false"><span class="sidebar-nav-item-icon fa fa-server fa-lg"></span><span class="sidebar-nav-item">Deployment</span><span class="fa arrow"></span></a><ul aria-expanded="false"><li><a href ng-click="gotoAnchor('fixtures')"><span class="sidebar-nav-item-icon"></span>Fixtures</a></li><li><a href ng-click="gotoAnchor('mails')"><span class="sidebar-nav-item-icon"></span>Mails</a></li><li><a href ng-click="gotoAnchor('captcha')"><span class="sidebar-nav-item-icon"></span>Captcha Support</a></li><li><a href ng-click="gotoAnchor('server-logs')"><span class="sidebar-nav-item-icon"></span>Server Logs</a></li><li><a href ng-click="gotoAnchor('security')"><span class="sidebar-nav-item-icon"></span>Security</a></li></ul></li><li><a href="#" aria-expanded="false"><span class="sidebar-nav-item-icon fa fa-terminal fa-lg"></span><span class="sidebar-nav-item">Support</span><span class="fa arrow"></span></a><ul aria-expanded="false"><li><a href ng-click="gotoAnchor('cors')"><span class="sidebar-nav-item-icon"></span>CORS Support</a></li><li><a href ng-click="gotoAnchor('seo')"><span class="sidebar-nav-item-icon"></span>SEO Support</a></li><li><a href ng-click="gotoAnchor('express')"><span class="sidebar-nav-item-icon"></span>Express 4.x</a></li><li><a href ng-click="gotoAnchor('credits')"><span class="sidebar-nav-item-icon"></span>Credits</a></li></ul></li><li class="active"><a href="#" aria-expanded="true"><span class="sidebar-nav-item-icon fa fa-github fa-lg"></span>              <span class="sidebar-nav-item">Contribute</span>              <span class="fa arrow"></span></a>            <ul aria-expanded="true"><li><a href="https://github.com/cortezcristian/anyandgo"><span class="sidebar-nav-item-icon fa fa-code-fork"></span>                  Fork</a></li>              <li><a href="https://github.com/cortezcristian/anyandgo"><span class="sidebar-nav-item-icon fa fa-star"></span>                  Star</a></li>              <li><a href="https://github.com/cortezcristian/anyandgo/issues"><span class="sidebar-nav-item-icon fa fa-exclamation-triangle"></span>                  Issues</a></li></ul></li></ul></nav></aside></div><div id="content" class="col-xs-11 col-sm-11 col-md-9 ps-scroller"><h1 id="main">Anyandgo MEAN Framework</h1><ul class="list-inline"><li><a href="https://travis-ci.org/cortezcristian/anyandgo"><img src="https://travis-ci.org/cortezcristian/anyandgo.svg?branch=master"></a></li><li><a href="https://gitter.im/cortezcristian/anyandgo?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/Join Chat.svg"></a></li></ul><!--h2#pick-anyandgo Pick·anyandgo!--><p>The MEAN Framework that doesn't suck.</p><div class="bs-callout bs-callout-primary"><h4>What is the MEAN stack?</h4><p>The acronym stands for:</p><ul><li>(M)ongoDB – a noSQL document datastore which uses JSON-style documents to represent data,</li><li>(E)xpress – a HTTP server framework on top of Node,</li><li>(A)ngular – as you know, the JS framework offering declarative, two-way databinding for webapps and</li><li>(N)ode – the platform built on V8’s runtime for easily building fast, scalable network applications.</li></ul><p><a href="http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/" alt="Full-Stack JavaScript With MEAN And Yeoman">Read More</a></p></div><h2 id="quick-setup">Quick Setup</h2><p>How to get started with anyandgo?</p><p>Install <a href="https://www.npmjs.com/package/anyandgo-cli">anyandgo client</a></p><pre><code class="language-bash">$ [sudo] npm install -g anyandgo-cli </code></pre><p>Create a new project </p><pre><code class="language-bash"> </code>$ anyandgo init mynewproject
+   mynewproject /var/www
+   https://nodeload.github.com/cortezcristian/anyandgo/zip/master
+   You have successfully created the anyandgo project
+   Try:
+        cd mynewproject
+        npm install && bower install && grunt</pre><p>To get the most out of anyandgo you may also want to install the following</p><pre><code class="language-bash">$ npm install -g grunt-cli bower yo mocha</code></pre><h2 id="best-parctices">Best Practices</h2><p>To start working you can simply run:</p><pre><code class="language-bash">$ grunt</code></pre><p>This will:</p><div class="bs-callout bs-callout-primary"><ul class="list-unstyled"><li>✓ Lint the js code</li><li>✓ Run the tests</li><li>✓ Start the server</li><li>✓ Open a web browser</li><li>✓ Watch for files changes, to trigger several tasks</li></ul></div><p>To add front-end libraries you can simply run:</p><pre><code class="language-bash">$ bower install --save jquery</code></pre><p>This will:</p><div class="bs-callout bs-callout-primary"><ul class="list-unstyled"><li>✓ Register the dependency into bower.json</li><li>✓ Download the library inside ./public/components/</li><li>✓ Append the script into ./views/layout.jade</li><li>✓ Trigger page reload</li></ul></div><h2 id="grunt-task">Grunt tasks</h2><p>The default grunt task will start the server for you.</p><pre><code class="language-bash">$ grunt</code></pre><p>Lint javascript files under models, routes and test folders</p><pre><code class="language-bash">$ grunt jshint</code></pre><p>Execute all mocha tests and display the specs report</p><pre><code class="language-bash">$ grunt mochaTests</code></pre><p>Creates documentation functionallity under models, routes and test folders and put it inside docs folder</p><pre><code class="language-bash">$ grunt docco</code></pre><p>Appends javascript and css dependencies</p><pre><code class="language-bash">$ grunt wiredep</code></pre><h2 id="scaffolding"> Scaffolding</h2><h3 id="model-test-creation">Model+Test generation</h3><pre><code class="language-bash">$ grunt create:model:Sample</code></pre><p>Will create model and tests:</p><div class="bs-callout bs-callout-info"><p>models/sample.js</p><p>test/unit/models/sample-tests.js</p></div><p> </p>Will modify  <b class="text-info">./routes/main.js</b> to append the model as dependency<pre><code class="language-javascript">// ## Models
+/* models:start */
++ Sample  = require('../models/sample.js'),
+/* models:end */</code></pre><p>This will automatically crete the following tests:</p><pre><code class="language-bash">$ mocha test/unit/
+Database Test
+  MongoDB
+   ✓ Should be up and running 
+...
+Model Test Sample
+  Sample
+   ✓ add a sample </code></pre><h3 id="page-route">Page+Route generation</h3><pre><code class="language-bash">$ grunt create:page:Contact</code></pre><p>Will create a public view file for the page:</p><div class="bs-callout bs-callout-info">views/contact.jade</div><p>Will modify ./routes/main.js to append the model as dependency</p><pre><code class="language-javascript">/* page:public:start */
++  
++  // ### Contact Page
++  app.get('/contact', function (req, res) {
++    res.render('contact', { title: 'Contact', section: 'Contact' });
++  });
+/* page:public:end */</code></pre><p>Will modify ./views/partials/site-menu.jade to append the new menu item to main menu</p><pre><code class="language-javascript">// public:page:menu:start
++        li
++          a(href='/contact') Contact
+       // public:page:menu:end</code></pre><h3 id="rest-test">Rest+Test generation</h3><pre><code class="language-bash">$ grunt create:rest:Sample</code></pre><p>Creates rest services for a particular model.</p><p>Will modify ./routes/main.js to append the model as dependency</p><pre><code class="language-javascript">/* rest:public:start */
++
++// GET /api/v1/samples
++restify.serve(app, Sample, {
++  lowercase: true,
++  lean: false,
++  |rereq: function(req) {
++    console.log("pre req");
++    return true;
++  },
++  contextFilter: function(model, req, cb) {
++    console.log("context filter");
++    cb(model);
++  },
++  |ostProcess: function(req, res){
++    console.log("post process");
++  }
++});
+/* rest:public:end */</code></pre><p>Along with a test file:</p><div class="bs-callout bs-callout-info">test/rest/models/samples-rest-tests.js</div><p>This uses <a href="http://visionmedia.github.io/superagent/">superagent </a>to test the new restful api:</p><pre><code class="language-bash"></code>$ mocha test/rest/
+Web Server
+Express
+✓ Should be up and running (306ms)
+...
+REST API Sample http://127.0.0.1:3000/api/v1/samples
+Samples REST
+✓ GET /api/v1/samples 
+✓ GET /api/v1/samples/count 
+✓ POST /api/v1/samples 
+✓ PUT /api/v1/samples/:sampleId 
+✓ DELETE /api/v1/samples/:sampleId 
+✓ DELETE /api/v1/samples </pre><div class="bs-callout bs-callout-primary"><h4>This will enable the following urls:</h4><pre><code class="language-http">GET      /api/v1/samples/count
+GET      /api/v1/samples
+PUT      /api/v1/samples
+POST     /api/v1/samples
+DELETE   /api/v1/samples
+GET      /api/v1/samples/:id
+PUT      /api/v1/samples/:id
+POST     /api/v1/samples/:id
+DELETE   /api/v1/samples/:id</code></pre></div><p>Learn more about query, ordering, populate, and sorting with <a href="https://github.com/florianholzapfel/express-restify-mongoose">Express-Restify-Mongoose.</a></p><h3 id="crud-test">Crud+Test generation</h3><pre><code class="language-bash">$ grunt create:crud:Sample</code></pre><p>Creates CRUD administration for a particular model. This uses zombiejs to test the new crud functionality.</p><p>Once you create the model and all the rest services you'll be able to generate a crud automatically. Let's imagine you need to create a CRUD for students.</p><pre><code class="language-bash"></code>$ grunt create:model:Student
+$ grunt create:rest:Student
+$ grunt create:crud:Student</pre><p>If you go to to <a href="http://localhost:3000/admin/panel">http://localhost:3000/admin/panel </a>login as administrator, and click on the Crud dropdown:</p><img src="http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-generation.png"><p>If you select Student, you'll be able to see the list where you can create, edit and delete:</p><img src="http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-list.png"><p>Just hit edit on one record</p><img src="http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-edit.png"><p>Now let's change our model<mark>models/student.js </mark>to add a new field called <mark>age:</mark></p><pre><code class="language-javascript">// Student Model
+// -----------------------------
+ 
+// Modules Dependencies:
+//  - Mongoose (http://mongoosejs.com/docs/guide.html)
+//  
+var mongoose = require('mongoose'), 
+    Schema = mongoose.Schema;
+ 
+var studentSchema = new Schema({
+    name          : String, 
+    age          : Number,  /* <-- add this line to the model */
+    created       : Date         
+});
+ 
+// [...] More code here</code></pre><p>After you save the file go to the administration panel again  <a href="http://localhost:3000/admin/panel">http://localhost:3000/admin/panel </a>you'll need to login again (if you have not enabled autologin yet). If you go to edit or create you'll see the form changed a little bit:</p><img src="http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/crud-form-auto-generation.png"><p>As you can see the form has been autogenerated, to be according to your little change in the model.</p><h3 id="auto-login">AutoLogin for developers</h3><p>Is very annoying when you are developing that you need to login every time the server reloads, so we included a feature for autologin just go and modify <mark>config/config-local.json </mark>search for this property:</p><pre><code class="language-javascript">"autologin": {
+    "enabled" : true, <-- Set this to true, by default is false
+    "username" : "admin@anyandgo.com",  
+    "password" : "123456"  
+},</code></pre><p>Setting autologin.enabled to <mark>true </mark>will automatically put user and password on the login form and hit login for you to be redirected to the last url you were looking in the adminnistration panel.</p><h3 id="custom-forms">Custom Forms Fields</h3><p>You can easily implement, custom fields for your automatic generated forms. In example:</p><pre><code class="language-javascript">// Sample Model
+// -----------------------------
+ 
+// Modules Dependencies:
+//  - Mongoose (http://mongoosejs.com/docs/guide.html)
+//  
+var mongoose = require('mongoose'), 
+    Schema = mongoose.Schema;
+ 
+var sampleSchema = new Schema({
+    name          : String, 
++    template      : { type: String, ngoform: { control: 'Textarea' } },
++    live          : { type: Boolean, default: true, ngoform: { control: 'Toggle' }    },
+    created       : Date         
+});
+ 
+....</code></pre><p>Will produce, the following:</p><img src="http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/sample-edit-form.png"><p>For the <mark>Toggle </mark>control is as simple as adding a file called <mark>./utils/formstemplates/Toggle.hbs</mark>with the following:</p><pre><code class="language-handlebars">&lt;div class=&quot;control-group { {#if error} }error{ {/if} }&quot;&gt; 
+    &lt;label class=&quot;control-label&quot;&gt;{ {label} }&lt;/label&gt;
+     &lt;div class=&quot;controls&quot;&gt;
+         &lt;toggle-switch { {#if ngmodel} }ng-model=&quot;{ {ngmodel} }.{ {name} }&quot;{ {/if} } on-label=&quot;true&quot; off-label=&quot;false&quot;&gt;&lt;toggle-switch&gt;
+     &lt;/div&gt;
+ &lt;/div&gt;</code></pre><p>Download the package with bower and register the dependency into <mark>public/scripts/admin/app.js</mark>:</p><pre><code class="language-bash">$ bower install --save angular-toggle-switch</code></pre><p>In our <mark>app.js </mark>file just add this line:</p><pre><code class="language-javascript">/**
+ * @ngdoc overview
+ * @name anyandgoApp
+ * @description
+ * # anyandgoApp
+ *
+ * Main module of the application.
+ */
+angular
+  .module('anyandgoApp', [
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
++    'toggle-switch',
+    'restangular'
+])
+.config(function ($routeProvider, $locationProvider, RestangularProvider) {
+.....</code></pre><h3 id="locale">Locale+Translation File generation</h3><pre><code class="language-bash">$  grunt create:locale:es-es</code></pre><p>Creates a new file under translation folder called <mark>./locales/es-es.json. </mark>Adds translation flag to the menu, modifying <mark>./views/partials/site-menu.jade</mark>:</p><pre><code class="language-jade">         //public:translation:menu:start
+         li
+            a(href='#', langsupport="en-us") en-us
+          li
+            a(href='#', langsupport="es-ar") es-ar
++            li
++              a(href='#', langsupport='es-es') es-es
+          //public:translation:menu:end</code></pre><p>Also registers new language into app.js:</p><pre><code class="language-javascript">i18n.configure({
+// setup some locales: other locales default to en silently
+locales:[
+    //global:translation:start
++      'es-es',
+    //global:translation:end
+    'en-us', 
+    'es-ar'],</code></pre><p>See the result inmediately in your browser:</p><img src="https://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/locale-i18n.png"><p>How to use translations just open a view file <mark>views/index.jade:</mark></p><pre><code class="language-jade">extends layout
+block content
+.jumbotron
+ h1=__("pick anyandgo")
+ p ...
+ p Bienvenidos a anyandgo MEAN</code></pre><p>Basically, everytime you call to function double underscore what you are passing as parameter is used as key for translation files. Translation files will auto populate it everytime you refresh the page calling the view.</p><h2 id="optimization">Optimization</h2><h3 id="minification">Assets minification for production</h3><pre><code class="language-bash">$ grunt buildprod</code></pre><p>Concatanates, compress, minify and link all javascripts and stylesheets. It creates a <mark>./dist </mark>folder inside the public part:</p><div class="bs-callout bs-callout-info"><p>$ tree public/dist/</p><p>public/dist/</p><p>├── scripts</p><p>│   ├── panel-app.min.js</p><p>│   ├── panel-vendors.min.js</p><p>│   └── site-vendors.min.js</p><p>└── styles</p><p>  ├── panel-styles.min.css</p><p>  └── site-styles.min.css</p></div><p>We use: <a href="https://github.com/yeoman/grunt-usemin">grunt-usemin</a><a href="https://github.com/gruntjs/grunt-contrib-clean">grunt-contrib-clean </a><a href="https://github.com/gruntjs/grunt-contrib-concat">grunt-contrib-concat </a><a href="https://github.com/gruntjs/grunt-contrib-uglify">grunt-contrib-uglify </a><a href="https://github.com/gruntjs/grunt-contrib-cssmin">grunt-contrib-cssmin </a>in order to do that.</p><p>And they get automatically linked just simply by setting a global flag, like in <mark>./views/layout-admin.jade</mark>:</p><pre><code class="language-jade">- if(settings.envflag !== "production") {
+    //-<!-- build:css(public) styles/panel-style.min.css -->
+    //bower:css
+    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.css')
+    link(rel='stylesheet', href='/components/metisMenu/dist/metisMenu.css')
+    //-<!-- endbuild -->
+    //endbower
+    - } else {
+    link(rel='stylesheet', href='/dist/styles/panel-styles.min.css')
+    - }</code></pre><p>The flag setup is in <mark>./app.js</mark>:</p><pre> <p>app.set("envflag", process.env.NODE_ENV);</p></pre><h3 id="translation">Translation Support</h3><p>Internationalization support was added. To seee the translations source files you can inspect the <mark>./locales </mark>folder:</p><pre><code class="language-bash">$ tree locales/</code></pre><div class="bs-callout bs-callout-info"><p>locales/</p><p>├── en-us.json</p><p>└── es-ar.json</p></div><p>By default it loads <mark>es-ar </mark>translations, the configuration is inside <mark>app.js </mark>file:</p><pre><code class="language-javascript">// i18n setup
+i18n.configure({
+// setup some locales: other locales default to en silently
+locales:['en-us', 'es-ar'],
+// sets a custom cookie name to parse locale settings from  - defaults to NULL
+cookie: 'lang',
+// where to store json files - defaults to './locales' relative to modules directory
+directory: __dirname + '/locales',
+defaultLocale: 'es-ar'
+});</code></pre><p>Language preference is stored in a cookie, to test this is working you can try modifying the cookie on client side and reload the page:</p><pre><code class="language-javascript">// Try running this in the js console
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+ 
+setCookie("lang","en-us", 2);
+// and refresh the page, notice lang has changed to be en-us</code></pre><h3 id="fixtures">Fixtures</h3><p>Fixtures are fixed datasets that helps us to populate mongo collections. We use fixtures during test, to ensure we have data to operate with. And also anyandgo uses fixtures on server start, to ensure certain collections are filled in before web app is launched. Take a look at app.js:</p><pre><code class="language-javascript">// DB Fixtures
+if (config.fixtures && config.fixtures === "enabled") {
+ // Load Fixtures
+require('./fixtures');
+}</code></pre><p>For fixture loading we are using <a href="https://github.com/powmedia/mongoose-fixtures">mongoose-fixtures. </a>We basically load different datasets for each environment. You may want to take a look at <mark>./fixtures </mark>folder:</p><pre><code class="language-bash">$ tree fixtures
+... 
+fixtures/
+├── dev
+│   └── admins.js
+├── index.js
+├── local
+│   └── admins.js
+├── prod
+│   └── admins.js
+├── shared
+│   └── admins.js
+└── travisci
+    └── admins.js
+ 
+5 directories, 6 files</code></pre><p>Notice that if flag <mark>fixtures </mark>is <mark>enabled </mark>in our config: anyandgo will autoload datasets for each collection ( note loading fixtures will clear the existing contents of a collection). In the treeview example shown above, we only are going to override admins collection. We are also adding a shared folder that is shared for all environments.</p><h3 id="mails">Mails</h3><p>Mail support was added, using <a href="https://github.com/andris9/Nodemailer">nodemailer </a>and <a href="https://github.com/andris9/nodemailer-smtp-transport#smtp-transport-module-for-nodemailer">nodemailer-smtp-transport. </a>See the configs:</p><pre><code class="language-javascript">"mail" : {
+        "enabled" : true,
+        "transport" : "smtp",
+        "host" : "mail.your-email-host.io",
+        "port" : 25,
+        "contact" : "contact@email.io",
+        "auth" : {
+            "user" : "user-email-here",
+            "pass" : "secret-pass-here"
+        }
+    },</code></pre><h3 id="captcha">Captcha Support</h3><p>Using the <a href="http://www.google.com/recaptcha/intro/index.html">Google reCAPTCHA Service </a>and <a href="https://github.com/mirhampt/node-recaptcha#node-recaptcha">node-recaptcha </a>package. You can enable this feature just by changing the config settings.</p><pre><code class="language-javascript">"captcha" : {
+    "enabled" : true,
+    "publickey" : "insert-key-here",
+    "privatekey" : "insert-key-here"
+},</code></pre><img src="http://raw.githubusercontent.com/cortezcristian/anyandgo/master/templates/screenshots/form-contact.png"><h3 id="server-logs">Server Logs</h3><p>By enabling config you can save the server log in a custom file, this is very useful for production environments. Just change your config file config/config-local.json to included the following:</p><pre><code class="language-javascript">{
+ "app": {
+     "domain" : "127.0.0.1",
++        "port": 3000,
++        "logs": {
++            "enabled": true,
++            "file": "access.log",
++            "format": "dev"
++         }
+    },
+"auth": {</code></pre><table class="table"><th>Parameter</th><th>Description</th><tbody><tr><td>app.logs.enabled</td><td>Enables / disables logs</td></tr><tr><td>app.logs.file	</td><td>Path to log file (access.log by default)</td></tr><tr><td>app.logs.format	</td><td> <a href="https://github.com/expressjs/morgan#predefined-formats">Morgan Predefined Formats</a></td></tr></tbody></table><p>Create the log file manually:</p><pre><code class="language-bash">$ touch access.log</code></pre><p>Start the server, and then monitor the logs files by doing:</p><pre><code class="language-bash">$ tail -f access.log</code></pre><h3 id="security">Security<ul class="list-unstyled"><li> <a href="https://github.com/helmetjs/helmet">Helmet</a></li><li> <a href="https://github.com/expressjs/csurf">CSRF</a></li></ul></h3><h3 id="cors">CORS Support</h3><p>See <a href="http://www.w3.org/TR/cors/">CORS</a></p><h3 id="seo">SEO Support</h3><p>Added support for metadata, see <mark>./views/layout.jade</mark>:</p><pre><code class="language-jade">  block meta
+      // for Google
+      meta(name='description', content='')
+      meta(name='keywords', content='')
+      meta(name='author', content='')
+      meta(name='copyright', content='')
+      meta(name='application-name', content='')
+      // for Facebook
+      meta(property='og:title', content='')
+      meta(property='og:type', content='article')
+      meta(property='og:image', content='')
+      meta(property='og:url', content='')
+      meta(property='og:description', content='')
+      // for Twitter
+      meta(name='twitter:card', content='summary')
+      meta(name='twitter:title', content='')
+      meta(name='twitter:description', content='')
+      meta(name='twitter:image', content='')</code></pre><p>Added Google Analytics tracking configuration. See the config file:</p><pre><code class="language-javascript"> "analytics": {
+     "enabled" : true,
+     "tracking": "UA-XXXXX-X"
+ },</code></pre><h2 id="express">Express 4.x</h2><p>Facts about this implementation:</p><ul><li>Started from basic generation</li><li>Jade template engine</li></ul><p>Modules added:</p><ul> <li> <a href="http://learnboost.github.io/stylus/">Stylus</a></li><li> <a href="https://github.com/mashpie/i18n-node">i18n</a></li><li> <a href="http://mongoosejs.com/">Mongoose</a></li><li> <a href="https://github.com/florianholzapfel/express-restify-mongoose">Express-Restify-Mongoose</a></li></ul><p>Front end assets:</p><ul><li> <a href="http://angular-ui.github.io/bootstrap/">Bootstrap</a></li><li> <a href="http://angular-ui.github.io/bootstrap/">UI Bootstrap</a></li></ul><h2 id="credits">Credits</h2><a href="https://github.com/cortezcristian" data-style="mega" data-count-href="/cortezcristian/followers" data-count-api="/users/cortezcristian#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @cortezcristian on GitHub" class="github-button">Follow @cortezcristian</a><div class="text-right"><a href="https://twitter.com/cortezcristian" class="btn btn-default"><i style="padding-right:10px" class="fa fa-twitter"> </i>@cortezcristian</a></div></div></div><!-- Modal--><div id="modalViewVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade feo"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" ng-click="closeVideoModal()" class="close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title"><i style="padding-right:10px" class="fa fa-video-camera"></i><span>Video</span></h4></div><div class="modal-body"><div class="embed-responsive embed-responsive-16by9"><youtube-video video-id="modalVideo" player="modalPlayer" player-vars="{autoplay:1}"></youtube-video></div><pre>{{ modalPlayer.B.volume | json }}</pre></div><div class="modal-footer"><button type="button" data-dismiss="modal" ng-click="closeVideoModal()" class="btn btn-default">Close</button></div></div></div></div><script src="https://www.youtube.com/iframe_api"></script><script src="dist/scripts/site-vendors.min.js"></script><script src="dist/scripts/site-app.min.js"></script><script id="github-bjs" async="" defer="" src="https://buttons.github.io/buttons.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXX-X', 'auto');
+ga('send', 'pageview');</script></body>
+<!-- Mirrored from anyandgo.io/docs by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 08 Feb 2016 14:04:51 GMT -->
+</html>
