@@ -1,0 +1,843 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>{{subject}}</title>
+  <style type="text/css">
+  body {
+   padding-top: 0 !important;
+   padding-bottom: 0 !important;
+   padding-top: 0 !important;
+   padding-bottom: 0 !important;
+   margin:0 !important;
+   width: 100% !important;
+   -webkit-text-size-adjust: 100% !important;
+   -ms-text-size-adjust: 100% !important;
+   -webkit-font-smoothing: antialiased !important;
+ }
+ .tableContent img {
+   border: 0 !important;
+   display: block !important;
+   outline: none !important;
+ }
+ a{
+  color:#382F2E;
+}
+
+p, h1,ul,ol,li,div{
+  margin:0;
+  padding:0;
+}
+
+td,table{
+  vertical-align: top;
+}
+td.middle{
+  vertical-align: middle;
+}
+
+</style>
+
+
+</head>
+<body paddingwidth="0" paddingheight="0" bgcolor="#d1d3d4"  style="padding-top: 0; padding-bottom: 0; padding-top: 0; padding-bottom: 0; background-repeat: repeat; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased;" offset="0" toppadding="0" leftpadding="0">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableContent" align="center" bgcolor="#EAEAEA" style='font-family:helvetica, sans-serif;'>
+    <!-- ================ header=============== -->
+    <tr><td height='20' bgcolor='#EAEAEA'></td></tr>
+    <tr>
+
+      <td align='center'>
+
+        <table width="600" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+          <tr><td height='45'></td></tr>
+
+          <tr>
+            <td>
+              <table width="600" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width='20'></td>
+                  <td align='left'>
+                      <div class="contentEditableContainer contentTextEditable">
+                        <div class="contentEditable" >
+                          <img src="{{siteurl}}/img/emails/anyandgo-webmail.png" data-default="placeholder" data-max-width="39" width='39' height='39' alt='Facebook' data-customIcon="true" >
+                        </div>
+                      </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+            <!-- ================ END header =============== -->
+            <tr>
+              <td>
+                <table width="600" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class='movableContentContainer' align='center'> 
+                      <!--  =========================== The body ===========================  -->
+                      <div class='movableContent'>
+                        <table width="540" border="0" cellspacing="0" cellpadding="0">
+                          <tr><td height='38'></td></tr>
+                         
+                                                 
+                          <tr><td height='12'></td></tr>
+                          <tr>
+                            <td>
+                              <div class="contentEditableContainer contentTextEditable">
+                                <div class="contentEditable" >
+                                    <p style='color:#555555;font-size:14px;line-height:22px;'>
+                                    <b>Name:</b> {{name}} <br />
+                                    <b>Email:</b> {{email}} <br />
+                                    <b>Message:</b> <br />
+                                    {{message}}<br>
+                                  </p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr><td height='37'></td></tr>
+                          <tr><td><div style='border:1px solid #EBE3E3'></div></td></tr>
+                        </table>
+                      </div>
+
+                  <div class='movableContent'>
+                    <table width="600" border="0" cellspacing="0" cellpadding="0">
+                      <tr><td height='38'></td></tr>
+                      <tr>
+                        <td>
+                          <table width="600" border="0" cellspacing="0" cellpadding="0" bgcolor='#eef3fd'>
+                            <tr><td height='35'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='font-family:Geogia;font-size:15px;color:#254d97;text-align:center;'>MEAN Framework</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='18'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='font-size:32px;font-family:Georgia;font-style:italic;color:#3C2D2C;text-align:center'>Pick any·and·go!</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='32'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='text-align:center'><a href="https://github.com/cortezcristian/anyandgo" style='text-decoration:none;color:#ffffff;font-size:15px; background:#254d97; padding:8px 12px; border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;'>Read the docs</a></p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='43'></td></tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                </td>
+              </tr>
+
+              <tr>
+                <td align='center'>
+                  <table width="540" border="0" cellspacing="0" cellpadding="0">
+                    <tr><td height='38'></td></tr>
+                    <tr>
+                      <td width='454' valign='middle' class='middle'>
+                        <div class="contentEditableContainer contentTextEditable">
+                          <div class="contentEditable" >
+                            <a href='[FORWARD]' style='font-size:13px;line-height:19px;color:#999999;text-decoration:none;'>Forward to a friend</a>
+                          </div>
+                        </div>
+                      </td>
+                      <td width='39'>
+                        <div class="contentEditableContainer contentFacebookEditable">
+                          <div class="contentEditable" >
+                            <img src="{{siteurl}}/img/emails/facebook.png" data-default="placeholder" data-max-width="39" width='39' height='39' alt='Facebook' data-customIcon="true" >
+                          </div>
+                        </div>
+                      </td>
+                      <td width='8'></td>
+                      <td width='39'>
+                        <div class="contentEditableContainer contentTwitterEditable">
+                          <div class="contentEditable" >
+                            <img src="{{siteurl}}/img/emails/twitter.png" data-default="placeholder" data-max-width="39" width='39' height='39' alt='Twitter' data-customIcon="true" >
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr><td height='26'></td></tr>
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+    <tr>
+      <td height='180' bgcolor='#EAEAEA' align='center'>
+        <table width="540" border="0" cellspacing="0" cellpadding="0">
+          <tr><td height='55'></td></tr>
+          <tr>
+            <td align='center'>
+              <div class="contentEditableContainer contentTextEditable">
+                <div class="contentEditable" >
+                  <p style='font-size:13px;color:#999999;font-weight:bold;'>Sent to [email] by [CLIENTS.COMPANY_NAME] | [CLIENTS.ADDRESS] | [CLIENTS.PHONE]</p>
+                </div>
+              </div>
+
+            </td>
+          </tr>
+          <tr><td height='10'></td></tr>
+          <tr>
+            <td align='center' style='font-size:13px;color:#999999;'>
+              <div class="contentEditableContainer contentTextEditable">
+                <div class="contentEditable" >
+                  <p><a href='[CLIENTS.WEBSITE]' style='font-size:13px;color:#999999;text-decoration:none;line-height:19px;'>Home</a> | <a href='[SHOWEMAIL]' style='font-size:13px;color:#999999;text-decoration:none;line-height:19px;'> Open in browser </a> | <a href='[UNSUBSCRIBE]' style='font-size:13px;color:#999999;text-decoration:none;line-height:19px;'>Unsubscribe</a></p>
+                </div>
+              </div>
+
+            </td>
+          </tr>
+                 </table>
+      </td>
+    </tr>
+    <!-- end footer-->
+
+  </table>
+
+<!--Default Zone
+
+      <div class="customZone" data-type="image">
+          <div class="movableContent">
+            <table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr>
+                <td height='42'>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="contentEditableContainer contentImageEditable">
+                      <div class="contentEditable">
+                          <img src="/applications/Mail_Interface/3_3/modules/User_Interface/core/v31_campaigns/images/neweditor/default/temp_img_1.png" data-default="placeholder" data-max-width="540">
+                      </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+      </div>
+      
+      <div class='customZone' data-type="text">
+      <div class='movableContent'>
+                      <table width="540" border="0" cellspacing="0" cellpadding="0">
+                        <tr><td height='38'></td></tr>
+                        <tr>
+                                <td>
+                                  <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='font-size:12px;color:#999999;'>Answer a few questions</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='5'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='color:#000000;font-size:22px;'>How are you participating?</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='12'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='color:#555555;font-size:14px;line-height:22px;'>
+                                      Are you providing coupons? Refer a friend specials? Giving an open house? Giving free coffee? 
+                                    </p>
+                                  </div>
+                                </div>
+                        </td>
+                      </tr>
+                      <tr><td height='25'></td></tr>
+                      <tr>
+                        <td>
+                          <div class="contentEditableContainer contentTextEditable">
+                            <div class="contentEditable" >
+                              <a href="[CLIENTS.WEBSITE]" style='background:#254d97;color:#ffffff;font-size:15px;padding:8px 12px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none;'>Find out more</a>
+                            </div>
+                          </div>
+                                </td>
+                              </tr>
+                        <tr><td height='37'></td></tr>
+                        <tr><td><div style='border:1px solid #EBE3E3'></div></td></tr>
+                      </table>
+                    </div>
+                    </div>
+      
+      <div class="customZone" data-type="imageText">
+          <div class='movableContent'>
+                      <table width="540" border="0" cellspacing="0" cellpadding="0">
+                        <tr><td height='55' colspan='3'></td></tr>
+                        <tr>
+                          <td width='250'>
+                          <table width="250" border="0" cellspacing="0" cellpadding="0" style='border:1px solid #EBE3E3;border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;'>
+                            <tr><td height='8' colspan='3'></td></tr>
+                            <tr>
+                              <td width='8'></td>
+                              <td >
+                                <div class="contentEditableContainer contentImageEditable">
+                                  <div class="contentEditable" >
+                                    <img src="images/shopping.jpg" data-default="placeholder" data-max-width="234" width='230'  alt="What's the deal?">
+                                  </div>
+                                </div>
+                              </td>
+                              <td width='8'></td>
+                            </tr>
+                            <tr><td height='8' colspan='3'></td></tr>
+                          </table>
+                          
+
+                        </td>
+                          <td width='26'></td>
+                          <td width='264'>
+                            <table width="264" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td>
+                                   <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='font-size:12px;color:#999999;'>Answer a few questions</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='5'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='color:#000000;font-size:22px;'>How are you participating?</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='12'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='color:#555555;font-size:14px;line-height:22px;'>
+                                      Are you providing coupons? Refer a friend specials? Giving an open house? Giving free coffee? 
+                                    </p>
+                                  </div>
+                                </div>
+                        </td>
+                      </tr>
+                      <tr><td height='25'></td></tr>
+                      <tr>
+                        <td>
+                          <div class="contentEditableContainer contentTextEditable">
+                            <div class="contentEditable" >
+                              <a href="[CLIENTS.WEBSITE]" style='background:#254d97;color:#ffffff;font-size:15px;padding:8px 12px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none;'>Find out more</a>
+                            </div>
+                          </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+      </div>
+      
+      <div class="customZone" data-type="Textimage">
+          <div class='movableContent'>
+                      <table width="540" border="0" cellspacing="0" cellpadding="0">
+                        <tr><td height='55' colspan='3'></td></tr>
+                        <tr>
+                          <td width='264'>
+                            <table width="264" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td>
+                                  <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='font-size:12px;color:#999999;'>Answer a few questions</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='5'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='color:#000000;font-size:22px;'>How are you participating?</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='12'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='color:#555555;font-size:14px;line-height:22px;'>
+                                      Are you providing coupons? Refer a friend specials? Giving an open house? Giving free coffee? 
+                                    </p>
+                                  </div>
+                                </div>
+                        </td>
+                      </tr>
+                      <tr><td height='25'></td></tr>
+                      <tr>
+                        <td>
+                          <div class="contentEditableContainer contentTextEditable">
+                            <div class="contentEditable" >
+                              <a href="[CLIENTS.WEBSITE]" style='background:#254d97;color:#ffffff;font-size:15px;padding:8px 12px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none;'>Find out more</a>
+                            </div>
+                          </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td width='26'></td>
+                          <td width='250'>
+                          <table width="250" border="0" cellspacing="0" cellpadding="0" style='border:1px solid #EBE3E3;border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;'>
+                            <tr><td height='8' colspan='3'></td></tr>
+                            <tr>
+                              <td width='8'></td>
+                                <td >
+                                  <div class="contentEditableContainer contentImageEditable">
+                                    <div class="contentEditable" >
+                                      <img src="images/shopping.jpg" data-default="placeholder" data-max-width="234" width='230'  alt="What's the deal?">
+                                    </div>
+                                  </div>
+                                </td>
+                                <td width='8'></td>
+                              </tr>
+                              <tr><td height='8' colspan='3'></td></tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+      </div>
+
+      <div class="customZone" data-type="textText">
+          <div class='movableContent'>
+                      <table width="540" border="0" cellspacing="0" cellpadding="0">
+                        <tr><td height='55' colspan='3'></td></tr>
+                        <tr>
+                          <td width='210'>
+                            <table width="210" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td>
+                                   <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='font-size:12px;color:#999999;'>Answer a few questions</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='5'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='color:#000000;font-size:22px;'>How are you participating?</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='12'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='color:#555555;font-size:14px;line-height:22px;'>
+                                      Are you providing coupons? Refer a friend specials? Giving an open house? Giving free coffee? 
+                                    </p>
+                                  </div>
+                                </div>
+                        </td>
+                      </tr>
+                      <tr><td height='25'></td></tr>
+                      <tr>
+                        <td>
+                          <div class="contentEditableContainer contentTextEditable">
+                            <div class="contentEditable" >
+                              <a href="[CLIENTS.WEBSITE]" style='background:#254d97;color:#ffffff;font-size:15px;padding:8px 12px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none;'>Find out more</a>
+                            </div>
+                          </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td width='26'></td>
+                          <td width='210'>
+                            <table width="210" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td>
+                                    <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='font-size:12px;color:#999999;'>Answer a few questions</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='5'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='color:#000000;font-size:22px;'>How are you participating?</p>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr><td height='12'></td></tr>
+                            <tr>
+                              <td>
+                                <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable" >
+                                    <p style='color:#555555;font-size:14px;line-height:22px;'>
+                                      Are you providing coupons? Refer a friend specials? Giving an open house? Giving free coffee? 
+                                    </p>
+                                  </div>
+                                </div>
+                        </td>
+                      </tr>
+                      <tr><td height='25'></td></tr>
+                      <tr>
+                        <td>
+                          <div class="contentEditableContainer contentTextEditable">
+                            <div class="contentEditable" >
+                              <a href="[CLIENTS.WEBSITE]" style='background:#254d97;color:#ffffff;font-size:15px;padding:8px 12px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none;'>Find out more</a>
+                            </div>
+                          </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+      </div>
+
+      <div class="customZone" data-type="qrcode">
+          <div class="movableContent">
+              <div >
+                  <table cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;">
+                    <tr>
+                    <td height='42'>&nbsp;</td>
+                    <td height='42'>&nbsp;</td>
+              </tr>
+                      <tr>
+                          <td valign='top' valign="top" width="75" style='padding:0 20px;'>
+                              <div class="contentQrcodeEditable contentEditableContainer">
+                                  <div class="contentEditable">
+                                      <img src="/applications/Mail_Interface/3_3/modules/User_Interface/core/v31_campaigns/images/neweditor/default/qr_code.png" width="75" height="75">
+                                  </div>
+                              </div>
+                          </td>
+                          <td valign='top' valign="top" style="padding:0 20px 0 20px;">
+                              <div class="contentTextEditable contentEditableContainer">
+                                  <div class="contentEditable">
+                                      <p style='color:#555555;font-size:14px;line-height:22px;'>Feel free to add additional image and text sections to make the template a reflection of who you are and the story you want to share. Keep in mind that your email should be fairly short (average time spent reading an email is 15 seconds) and actionable.
+                          <br>
+                          Text call to actions, such as the "Read More" below, are a great way to encourage people to visit your landing page.
+                                      <p style='color:#555555;font-size:14px;line-height:22px;'><a href="[CLIENTS.WEBSITE]" style='background:#ff9f4f;color:#ffffff;font-size:15px;padding:8px 12px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none;'>Read more</a></p>
+                                  </div>
+                              </div>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+      
+      <div class="customZone" data-type="gmap">
+          <div class="movableContent">
+              <div >
+                  <table cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;">
+                    <tr>
+                    <td height='42'>&nbsp;</td>
+                    <td height='42'>&nbsp;</td>
+              </tr>
+                      <tr>
+                          <td valign='top' valign="top" style='padding:0 20px;'>
+                              <div class="contentEditableContainer contentGmapEditable">
+                                  <div class="contentEditable">
+                                      <img src="/applications/Mail_Interface/3_3/modules/User_Interface/core/v31_campaigns/images/neweditor/default/gmap_example.png" width="175" data-default="placeholder">
+                                  </div>
+                              </div>
+                          </td>
+                          <td valign='top' valign="top" style="padding:0 20px 0 20px;">
+                              <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable">
+                                      <h2 style='color:#000000;font-size:22px;'>header: Your new Custom Section</h2>
+                                      <p style='color:#555555;font-size:14px;line-height:22px;'>Feel free to add additional image and text sections to make the template a reflection of who you are and the story you want to share. Keep in mind that your email should be fairly short (average time spent reading an email is 15 seconds) and actionable.
+                          <br>
+                          Text call to actions, such as the "Read More" below, are a great way to encourage people to visit your landing page.</p>
+                                      <p style='color:#555555;font-size:14px;line-height:22px;''><a href="[CLIENTS.WEBSITE]" style='background:#ff9f4f;color:#ffffff;font-size:15px;padding:8px 12px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none;'>Read more</a></p>
+                                  </div>
+                              </div>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+
+      <div class="customZone" data-type="social">
+          <div class="movableContent">
+              <div >
+                  <table cellpadding="0" cellspacing="0" border="0" >
+                    <tr>
+                    <td height='42' colspan='4'>&nbsp;</td>
+              </tr>
+                      <tr>
+                          <td valign='top' colspan="4" style='padding:0 20px;'>
+                              <div class="contentTextEditable contentEditableContainer">
+                                  <div class="contentEditable">
+                                      <h2 style='color:#000000;font-size:22px;'>This is a subtitle</h2>
+                                  </div>
+                              </div>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td width='62' valign='top' valign="top" width="62" style='padding:0 0 0 20px;'>
+                              <div class="contentEditableContainer contentTwitterEditable">
+                                  <div class="contentEditable">
+                                      <img src="/applications/Mail_Interface/3_3/modules/User_Interface/core/v31_campaigns/images/neweditor/default/icon_twitter.png" width="42" height="42" data-customIcon="true" data-max-width='42' data-noText="false">
+                                  </div>
+                              </div>
+                          </td>
+                          <td width='216' valign='top' >
+                              <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable">
+                                      <p style='color:#555555;font-size:14px;line-height:22px;'>Follow us on Twitter to stay up to date with company news and other information.</p>
+                                  </div>
+                              </div>
+                          </td>
+                          <td width='62' valign='top' valign="top" width="62">
+                              <div class="contentEditableContainer contentFacebookEditable">
+                                  <div class="contentEditable">
+                                      <img src="/applications/Mail_Interface/3_3/modules/User_Interface/core/v31_campaigns/images/neweditor/default/icon_facebook.png" width="42" height="42" data-customIcon="true" data-max-width='42' data-noText="false">
+                                  </div>
+                              </div>
+                          </td>
+                          <td width='216' valign='top' style='padding:0 20px 0 0;'>
+                              <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable">
+                                      <p style='color:#555555;font-size:14px;line-height:22px;'>Like us on Facebook to keep up with our news, updates and other discussions.</p>
+                                  </div>
+                              </div>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+
+      <div class="customZone" data-type="twitter">
+          <div class="movableContent">
+              <div '>
+                  <table cellpadding="0" cellspacing="0" border="0" >
+                    <tr>
+                    <td height='42'>&nbsp;</td>
+                    <td height='42'>&nbsp;</td>
+              </tr>
+                      <tr>
+                          <td valign='top' valign="top" width="62" style='padding:0 0 0 20px;'>
+                              <div class="contentEditableContainer contentTwitterEditable">
+                                  <div class="contentEditable">
+                                      <img src="/applications/Mail_Interface/3_3/modules/User_Interface/core/v31_campaigns/images/neweditor/default/icon_twitter.png" width="42" height="42" data-customIcon="true" data-max-width='42' data-noText="false">
+                                  </div>
+                              </div>
+                          </td>
+                          <td valign='top' style='padding:0 20px 0 0;'>
+                              <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable">
+                                      <p style='color:#555555;font-size:14px;line-height:22px;'>Follow us on Twitter to stay up to date with company news and other information.</p>
+                                  </div>
+                              </div>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+      
+      <div class="customZone" data-type="facebook">
+          <div class="movableContent">
+              <div >
+                  <table cellpadding="0" cellspacing="0" border="0" >
+                    <tr>
+                    <td height='42'>&nbsp;</td>
+                    <td height='42'>&nbsp;</td>
+              </tr>
+                      <tr>
+                          <td valign='top' valign="top" width="62" style='padding:0 0 0 20px;'>
+                              <div class="contentEditableContainer contentFacebookEditable">
+                                  <div class="contentEditable">
+                                      <img src="/applications/Mail_Interface/3_3/modules/User_Interface/core/v31_campaigns/images/neweditor/default/icon_facebook.png" width="42" height="42" data-customIcon="true" data-max-width='42' data-noText="false">
+                                  </div>
+                              </div>
+                          </td>
+                          <td valign='top' style='padding:0 20px 0 0;'>
+                              <div class="contentEditableContainer contentTextEditable">
+                                  <div class="contentEditable">
+                                      <p style='color:#555555;font-size:14px;line-height:22px;'>"Like us on Facebook to keep up with our news, updates and other discussions.</p>
+                                  </div>
+                              </div>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+
+      <div class="customZone" data-type="line">
+          <div class='movableContent'>
+                <table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td height='42'>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td height='1' bgcolor='#efe8e0'></td>
+                  </tr>
+                </table>
+              </div>
+      </div>
+
+
+      <div class="customZone" data-type="colums1v2"><div class='movableContent'>
+                          <table width="540" border="0" cellspacing="0" cellpadding="0" align="center" >
+                            <tr><td height="38">&nbsp;</td></tr>
+                            <tr>
+                              <td align="left" valign="top" class="newcontent">
+                                
+                              </td>
+                            </tr>
+                            <tr><td height='37' ></td></tr>
+                        <tr><td ><div style='border:1px solid #EBE3E3'></div></td></tr>
+                          </table>
+                    </div>
+      </div>
+
+      <div class="customZone" data-type="colums2v2"><div class='movableContent'>
+                      <table width="540" border="0" cellspacing="0" cellpadding="0" align="center" valign='top'>
+                        <tr><td height="38" colspan='3'>&nbsp;</td></tr>
+                        <tr>
+                          <td width='257'  valign='top' class="newcontent">
+                            
+                          </td>
+
+                          <td width='26'>&nbsp;</td>
+                          
+                          <td width='257' valign='top' class="newcontent">
+                            
+                          </td>
+                        </tr>
+                        <tr><td height='37' colspan='3'></td></tr>
+                        <tr><td colspan='3'><div style='border:1px solid #EBE3E3'></div></td></tr>
+                      </table>
+                    </div>
+      </div>
+
+      <div class="customZone" data-type="colums3v2"><div class='movableContent'>
+                      <table width="540" border="0" cellspacing="0" cellpadding="0" align="center" valign='top'>
+                        <tr><td height="38" colspan='5' >&nbsp;</td></tr>
+                        <tr>
+                          <td width='176'  valign='top' class="newcontent">
+                            
+                          </td>
+
+                          <td width='6'>&nbsp;</td>
+                          
+                          <td width='176'  valign='top' class="newcontent">
+                            
+                          </td>
+
+                          <td width='6'>&nbsp;</td>
+                          
+                          <td width='176'  valign='top' class="newcontent">
+                            
+                          </td>
+                        </tr>
+                        <tr><td height='37' colspan='5'></td></tr>
+                        <tr><td colspan='5'><div style='border:1px solid #EBE3E3'></div></td></tr>
+                      </table>
+                    </div>
+      </div>
+
+      <div class="customZone" data-type="textv2">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                                <td>
+                                  <div class="contentEditableContainer contentTextEditable">
+                                    <div class="contentEditable" >
+                                      <p style='font-size:12px;color:#999999;'>Sharing is caring</p>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr><td height='5'></td></tr>
+                              <tr>
+                                <td>
+                                  <div class="contentEditableContainer contentTextEditable">
+                                    <div class="contentEditable" >
+                                      <p style='color:#000000;font-size:22px;'>Give a little bit</p>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr><td height='12'></td></tr>
+                              <tr>
+                                <td>
+                                  <div class="contentEditableContainer contentTextEditable">
+                                    <div class="contentEditable" >
+                                      <p style='color:#555555;font-size:14px;line-height:22px;'>Ask a question, spark a conversation, tell a story. Be honest, fearless and show who you are in the emails you write. You'll reap great relationships from it.
+                                  </p>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr><td height='25'></td></tr>
+                              <tr>
+                                <td>
+                                  <div class="contentEditableContainer contentTextEditable">
+                                    <div class="contentEditable" >
+                                      <a href="[CLIENTS.WEBSITE]" style='background:#ff9f4f;color:#ffffff;font-size:15px;padding:8px 12px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-decoration:none;'>Find out more</a>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                        
+                      </table>
+      </div>
+
+
+
+
+
+    -->
+    <!--Default Zone End-->
+
+  </body>
+  </html>
