@@ -3,6 +3,7 @@
   "version": "0.0.1-1",
   "private": true,
   "scripts": {
+    "prestart": "npm install",
     "start": "node ./bin/www",
     "postinstall": "node ./bower_install.js",
     "test": "./node_modules/mocha/bin/mocha"
